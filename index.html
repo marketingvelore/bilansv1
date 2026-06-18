@@ -249,7 +249,7 @@ button{font-family:inherit}
 /* responsive signature - plain text, bottom-right on mobile */
 @media(max-width:980px){
   .woman-signature{
-    right:-14px;
+    right:calc(6px - (100vw - 100%) / 2);
     left:auto;
     top:24%;
     bottom:auto;
@@ -261,7 +261,7 @@ button{font-family:inherit}
     border-radius:0;
     padding:0;
     min-width:0;
-    max-width:115px;
+    max-width:120px;
     box-shadow:none;
   }
   .sig-name{font-size:24px}
@@ -273,9 +273,9 @@ button{font-family:inherit}
 }
 @media(max-width:640px){
   .woman-signature{
-    right:6px;
+    right:calc(6px - (100vw - 100%) / 2);
     top:22%;
-    max-width:100px;
+    max-width:108px;
     padding:0;
   }
   .sig-name{font-size:21px}
@@ -284,8 +284,8 @@ button{font-family:inherit}
 }
 @media(max-width:384px){
   .woman-signature{
-    right:20px;
-    max-width:96px;
+    right:calc(4px - (100vw - 100%) / 2);
+    max-width:100px;
   }
 }
 
@@ -629,7 +629,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .hero-text{display:flex;flex-direction:column;align-items:center;order:1}
   .hero-eye,.hero-ctas,.hero-stats{justify-content:center}
   .hero-sub{margin-left:auto;margin-right:auto}
-  .hero-visual{height:auto;min-height:0;order:-1;max-width:430px;margin:0 auto;padding-top:6px}
+  .hero-visual{height:auto;min-height:0;order:-1;max-width:min(430px,calc(100vw - 36px));margin:0 auto;padding-top:6px}
   .woman{height:420px}.woman-ring{width:300px;height:300px;bottom:0}
   .chip{display:flex;padding:7px 10px;gap:8px;backdrop-filter:blur(10px)}
   .chip .ci{width:27px;height:27px;border-radius:8px}
