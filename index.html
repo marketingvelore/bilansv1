@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bilans Plus Kredit – Brzi i transparentni krediti | Banja Luka</title>
+<meta name="description" content="MKD Bilans Plus Kredit – licencirana mikrokreditna organizacija. Gotovinski, stambeni, poslovni i krediti za penzionere uz odobrenje za 24 sata."/>
+
+<!-- ====== FAVICON (PLACEHOLDER) — zamijeni "favicon.ico" svojom ikonicom ====== -->
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+
+<!-- ====== OPEN GRAPH (PLACEHOLDER) — slika koja se prikaže kad podijeliš link ====== -->
+<!-- zamijeni "og-image.png" (preporuka 1200×630 px) i "https://bilanspluskredit.ba" svojim podacima -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Bilans Plus Kredit"/>
+<meta property="og:title" content="Bilans Plus Kredit – Brzi i transparentni krediti | Banja Luka"/>
+<meta property="og:description" content="Licencirana mikrokreditna organizacija. Gotovinski, stambeni, poslovni i krediti za penzionere uz odobrenje za 24 sata."/>
+<meta property="og:url" content="https://bilanspluskredit.ba"/>
+<meta property="og:image" content="https://bilanspluskredit.ba/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="bs_BA"/>
+
+<!-- ====== TWITTER / X CARD (PLACEHOLDER) ====== -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bilans Plus Kredit – Brzi i transparentni krediti"/>
+<meta name="twitter:description" content="Licencirana mikrokreditna organizacija. Odobrenje kredita za 24 sata."/>
+<meta name="twitter:image" content="https://bilanspluskredit.ba/og-image.png"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Manrope',sans-serif;background:var(--ice);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+
+:root{
+  --navy:#0A2363;          /* brand */
+  --navy-deep:#06143D;
+  --navy-2:#0E2E7A;
+  --navy-3:#15388F;
+  --accent:#3D6BFF;
+  --accent-2:#6E94FF;
+  --glow:rgba(61,107,255,0.45);
+  --white:#FFFFFF;
+  --ice:#EEF2FB;
+  --ice-2:#E1E9F8;
+  --ink:#0B1A3A;
+  --muted:#5B6E96;
+  --line:rgba(10,35,99,0.12);
+  --line-d:rgba(255,255,255,0.12);
+  --r:14px;--r-lg:24px;
+  --t:.35s cubic-bezier(.16,1,.3,1);
+  --sh-sm:0 4px 18px rgba(10,35,99,.08);
+  --sh:0 16px 50px rgba(10,35,99,.16);
+  --sh-lg:0 30px 90px rgba(6,20,61,.28);
+}
+.container{max-width:1240px;margin:0 auto;padding:0 26px}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--navy-deep)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:6px}
+::selection{background:var(--accent);color:#fff}
+
+/* progress bar */
+#scrollbar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:2000;box-shadow:0 0 12px var(--glow)}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);backdrop-filter:blur(22px) saturate(1.6);border-bottom:1px solid var(--line-d);transition:var(--t)}
+.nav.scrolled{background:var(--navy);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:88px;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+.brand img{height:80px;width:auto;object-fit:contain}
+.brand .fallback{display:flex;align-items:center;gap:11px}
+.brand .mono{width:42px;height:42px;border-radius:10px;background:var(--navy);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#fff;font-size:20px;letter-spacing:-1px}
+.brand .bt{display:flex;flex-direction:column;line-height:1.05}
+.brand .bt b{font-family:'Sora';font-weight:800;color:#fff;font-size:16px;letter-spacing:.5px}
+.brand .bt small{font-size:9px;letter-spacing:3px;color:var(--accent-2);font-weight:700}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nlink{font-family:'Sora';font-size:13px;font-weight:600;letter-spacing:.2px;color:rgba(255,255,255,.62);padding:9px 14px;border-radius:9px;cursor:pointer;background:none;border:none;transition:var(--t);white-space:nowrap}
+.nlink:hover,.nlink.active{color:#fff;background:rgba(255,255,255,.09)}
+.nav-cta{font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:11px 22px;cursor:pointer;transition:var(--t);white-space:nowrap;box-shadow:0 6px 22px var(--glow)}
+.nav-cta:hover{background:#2c57e8;transform:translateY(-2px);box-shadow:0 10px 30px var(--glow)}
+.nav-links .nav-cta{display:none} /* in-menu CTA hidden on desktop, shown only in mobile menu */
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--t)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ PAGES ============ */
+.page{display:none}
+.page.active{display:block;animation:pgIn .45s ease both}
+@keyframes pgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100vh;background:var(--navy-deep);padding-top:88px;overflow:hidden;display:flex;flex-direction:column}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 70% 60% at 72% 38%, rgba(61,107,255,.30) 0%, transparent 60%),
+  radial-gradient(ellipse 60% 50% at 10% 80%, rgba(14,46,122,.55) 0%, transparent 60%),
+  linear-gradient(160deg,#06143D 0%,#0A2363 55%,#08193f 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(61,107,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(61,107,255,.08) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 40%,#000,transparent 90%);mask-image:radial-gradient(ellipse 80% 80% at 50% 40%,#000,transparent 90%)}
+.orb{position:absolute;border-radius:50%;filter:blur(10px);background:radial-gradient(circle,var(--glow),transparent 70%);pointer-events:none;animation:float 9s ease-in-out infinite}
+.orb.a{width:480px;height:480px;top:-120px;right:-80px}
+.orb.b{width:340px;height:340px;bottom:-100px;left:-60px;animation-delay:-4s;background:radial-gradient(circle,rgba(110,148,255,.3),transparent 70%)}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(26px,-22px) scale(1.06)}}
+/* floating particles */
+.particles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.particles i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.5;animation:rise linear infinite}
+@keyframes rise{from{transform:translateY(0);opacity:0}10%{opacity:.6}to{transform:translateY(-110vh);opacity:0}}
+
+.hero-in{position:relative;z-index:5;flex:1;display:flex;align-items:stretch;padding:40px 0 0}
+.hero-grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:stretch;width:100%}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding-bottom:54px}
+.hero-eye{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--accent-2);text-transform:uppercase;margin-bottom:22px;padding:7px 14px;border:1px solid rgba(110,148,255,.3);border-radius:30px;background:rgba(61,107,255,.08)}
+.hero-eye .d{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 10px var(--accent-2);animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-h1{font-family:'Sora';font-size:clamp(42px,5.6vw,78px);font-weight:800;line-height:.98;color:#fff;letter-spacing:-2.5px;margin-bottom:20px}
+.hero-h1 .ln{display:block;overflow:hidden}
+.hero-h1 .ln em{display:block;font-style:normal;transform:translateY(110%);animation:lnUp .8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-h1 .ln:nth-child(2) em{animation-delay:.12s}
+.hero-h1 .ln:nth-child(3) em{animation-delay:.24s}
+@keyframes lnUp{to{transform:translateY(0)}}
+.grad-txt{background:linear-gradient(100deg,var(--accent-2),#fff 60%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#rotWord{display:inline-block;transition:opacity .3s ease,transform .3s ease}
+#rotWord.swap{opacity:0;transform:translateY(-14px)}
+/* 3D tilt cards */
+.prods{perspective:1200px}
+.pcard{transform-style:preserve-3d;will-change:transform}
+.pcard.tilting{transition:transform .08s linear}
+/* magnetic buttons */
+.btn-pri{will-change:transform}
+/* confetti */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:3000}
+#confetti i{position:absolute;width:9px;height:14px;top:-20px;opacity:0;animation:conf 2.4s cubic-bezier(.3,.7,.4,1) forwards}
+@keyframes conf{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:.9;transform:translateY(110vh) rotate(720deg)}}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.66);max-width:480px;line-height:1.7;margin-bottom:34px;animation:fadeUp .9s .45s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .9s .6s both}
+.btn-pri{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-size:15px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:13px;padding:16px 30px;cursor:pointer;transition:var(--t);box-shadow:0 10px 34px var(--glow);position:relative;overflow:hidden}
+.btn-pri::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn-pri:hover{transform:translateY(-3px);box-shadow:0 16px 44px var(--glow)}
+.btn-pri:hover::after{left:130%}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-size:15px;font-weight:600;color:#fff;border:1.5px solid rgba(255,255,255,.22);border-radius:13px;padding:16px 30px;cursor:pointer;transition:var(--t);background:rgba(255,255,255,.05);backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.1)}
+.hero-stats{display:flex;gap:34px;margin-top:46px;animation:fadeUp .9s .75s both}
+.hstat .n{font-family:'Sora';font-size:34px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1}
+.hstat .n span{color:var(--accent-2)}
+.hstat .l{font-size:12px;color:rgba(255,255,255,.5);font-weight:500;margin-top:5px}
+.hstat-div{width:1px;background:rgba(255,255,255,.14);align-self:stretch}
+
+/* hero woman visual */
+.hero-visual{position:relative;height:100%;min-height:500px;display:flex;align-items:flex-end;justify-content:center}
+.woman-ring{position:absolute;bottom:40px;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(61,107,255,.4),rgba(10,35,99,.1) 60%,transparent 72%);animation:float 11s ease-in-out infinite}
+.woman-ring::before{content:'';position:absolute;inset:-30px;border-radius:50%;border:1px dashed rgba(110,148,255,.35);animation:spin 26s linear infinite}
+.woman-ring::after{content:'';position:absolute;inset:24px;border-radius:50%;border:1px solid rgba(110,148,255,.22);animation:spin 18s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.woman{position:relative;z-index:3;height:505px;width:auto;object-fit:contain;object-position:bottom;
+  -webkit-mask-image:radial-gradient(ellipse 82% 94% at 50% 40%,#000 60%,transparent 92%),linear-gradient(to top,#000 18%,transparent 46%);
+  mask-image:radial-gradient(ellipse 82% 94% at 50% 40%,#000 60%,transparent 92%),linear-gradient(to top,#000 18%,transparent 46%);
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));animation:wIn 1.1s cubic-bezier(.16,1,.3,1) both}
+@keyframes wIn{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
+.woman-fallback{position:relative;z-index:3;width:360px;height:520px;border-radius:200px 200px 28px 28px;background:linear-gradient(160deg,var(--navy-2),var(--navy-3));display:flex;align-items:flex-end;justify-content:center;color:rgba(255,255,255,.4);font-size:13px;border:1px solid rgba(255,255,255,.1);padding-bottom:30px}
+/* floating glass chips around woman */
+.chip{position:absolute;z-index:4;background:rgba(255,255,255,.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:13px 16px;display:flex;align-items:center;gap:11px;box-shadow:0 12px 40px rgba(0,0,0,.3);animation:bob 5s ease-in-out infinite}
+.chip .ci{width:36px;height:36px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chip b{font-family:'Sora';font-size:15px;color:#fff;font-weight:700;display:block;line-height:1}
+.chip small{font-size:11px;color:rgba(255,255,255,.6)}
+.chip.c1{top:60px;left:-10px;animation-delay:0s}
+.chip.c2{top:230px;right:-20px;animation-delay:-1.5s}
+.chip.c3{bottom:90px;left:0;animation-delay:-3s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* marquee ticker */
+.ticker{background:var(--accent);height:46px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:5}
+.ticker-tr{display:flex;white-space:nowrap;animation:tk 32s linear infinite}
+.ticker-it{display:inline-flex;align-items:center;gap:12px;font-family:'Sora';font-size:13px;font-weight:700;color:#fff;letter-spacing:.4px;padding:0 34px}
+.ticker-it .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.55)}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+.section{padding:104px 0}
+.eyebrow{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+.title{font-family:'Sora';font-size:clamp(30px,3.9vw,50px);font-weight:800;color:var(--navy);line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
+.title .hl{color:var(--accent)}
+.lead{font-size:16px;color:var(--muted);max-width:580px;line-height:1.75}
+.sec-head{margin-bottom:60px}
+.sec-head.center{text-align:center}
+.sec-head.center .lead{margin:0 auto}
+.title-light{color:#fff}
+.lead-light{color:rgba(255,255,255,.6)}
+
+/* trust strip */
+.trust{background:#fff;border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-it{padding:34px 26px;display:flex;align-items:flex-start;gap:15px;border-right:1px solid var(--line);transition:var(--t)}
+.trust-it:last-child{border-right:none}
+.trust-it:hover{background:var(--ice)}
+.trust-ic{width:46px;height:46px;border-radius:12px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t)}
+.trust-it:hover .trust-ic{background:var(--accent);transform:rotate(-6deg) scale(1.05)}
+.trust-it:hover .trust-ic svg{stroke:#fff}
+.trust-it strong{font-family:'Sora';font-size:14px;color:var(--navy);display:block;margin-bottom:3px}
+.trust-it p{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* reveal — only hidden when JS is active (so it can un-hide); visible otherwise */
+.reveal{transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+html.js .reveal{opacity:0;transform:translateY(30px)}
+html.js .reveal.in{opacity:1;transform:none}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
+
+/* products */
+.prod-sec{background:var(--ice)}
+.prod-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.ptab{font-family:'Sora';font-size:13px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:30px;padding:10px 20px;cursor:pointer;transition:var(--t)}
+.ptab:hover{border-color:var(--accent);color:var(--accent)}
+.ptab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pcard{background:#fff;border-radius:var(--r-lg);padding:30px 26px;border:1px solid var(--line);position:relative;overflow:hidden;cursor:pointer;transition:var(--t)}
+.pcard::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,var(--navy),var(--navy-2));opacity:0;transition:var(--t);z-index:0}
+.pcard>*{position:relative;z-index:1}
+.pcard:hover{transform:translateY(-8px);box-shadow:var(--sh)}
+.pcard:hover::before{opacity:1}
+.pcard:hover h3,.pcard:hover .prange{color:#fff}
+.pcard:hover p,.pcard:hover .prange-l{color:rgba(255,255,255,.7)}
+.pcard:hover .pic{background:rgba(255,255,255,.14)}
+.pcard:hover .pic svg{stroke:#fff}
+.pic{width:54px;height:54px;border-radius:14px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:var(--t)}
+.pcard h3{font-family:'Sora';font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;transition:var(--t)}
+.pcard p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:18px;transition:var(--t);min-height:44px}
+.prange{font-family:'Sora';font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.5px;transition:var(--t)}
+.prange-l{font-size:11px;color:var(--muted);font-weight:600;transition:var(--t)}
+.pbadge{position:absolute;top:18px;right:18px;z-index:2;font-family:'Sora';font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;background:rgba(61,107,255,.12);color:var(--accent);padding:5px 11px;border-radius:20px;transition:var(--t)}
+.pbadge.hot{background:rgba(255,90,90,.14);color:#ff5a5a}
+.pcard:hover .pbadge{background:rgba(255,255,255,.18);color:#fff}
+
+/* === QUIZ === */
+.quiz-sec{background:linear-gradient(160deg,var(--navy),var(--navy-deep));position:relative;overflow:hidden}
+.quiz-sec::before{content:'';position:absolute;top:-150px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(61,107,255,.2),transparent 70%)}
+.quiz-box{max-width:760px;margin:0 auto;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:28px;backdrop-filter:blur(20px);padding:46px;position:relative;z-index:1;box-shadow:var(--sh-lg)}
+.quiz-prog{display:flex;gap:7px;margin-bottom:30px}
+.quiz-prog i{height:5px;flex:1;border-radius:5px;background:rgba(255,255,255,.14);overflow:hidden;position:relative}
+.quiz-prog i.done::after,.quiz-prog i.cur::after{content:'';position:absolute;inset:0;background:var(--accent);border-radius:5px}
+.quiz-prog i.cur::after{animation:none}
+.q-step{display:none}
+.q-step.on{display:block;animation:pgIn .4s ease both}
+.q-kicker{font-family:'Sora';font-size:12px;font-weight:700;letter-spacing:2px;color:var(--accent-2);text-transform:uppercase;margin-bottom:10px}
+.q-q{font-family:'Sora';font-size:26px;font-weight:700;color:#fff;letter-spacing:-.8px;margin-bottom:28px}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.q-opt{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;cursor:pointer;transition:var(--t);text-align:left}
+.q-opt:hover{border-color:var(--accent);background:rgba(61,107,255,.12);transform:translateY(-3px)}
+.q-opt .qi{width:42px;height:42px;border-radius:11px;background:rgba(61,107,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.q-opt b{font-family:'Sora';font-size:15px;color:#fff;font-weight:600;display:block;line-height:1.2}
+.q-opt small{font-size:12px;color:rgba(255,255,255,.55)}
+.q-result{display:none;text-align:center;animation:pgIn .5s ease both}
+.q-result.on{display:block}
+.q-res-ic{width:80px;height:80px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 12px 40px var(--glow);animation:pop .6s cubic-bezier(.16,1,.3,1) both}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.q-res-k{font-family:'Sora';font-size:12px;letter-spacing:2px;color:var(--accent-2);text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.q-res-name{font-family:'Sora';font-size:30px;font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:12px}
+.q-res-desc{font-size:15px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto 28px;line-height:1.7}
+.q-res-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.q-restart{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:14px 24px;cursor:pointer;transition:var(--t)}
+.q-restart:hover{color:#fff;border-color:#fff}
+
+/* === PROCESS === */
+.proc-sec{background:#fff}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.proc-grid::after{content:'';position:absolute;top:40px;left:13%;right:13%;height:2px;background:linear-gradient(90deg,var(--line),var(--accent),var(--line))}
+.proc-2{grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto}
+.proc-2::after{left:25%;right:25%}
+.pstep{text-align:center;padding:0 22px;position:relative;z-index:1}
+.pnum{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid var(--ice-2);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Sora';font-size:28px;font-weight:800;color:var(--accent);box-shadow:0 0 0 8px #fff;transition:var(--t)}
+.pstep:hover .pnum{background:var(--accent);color:#fff;border-color:var(--accent);transform:scale(1.12);box-shadow:0 0 0 8px #fff,0 14px 40px var(--glow)}
+.pstep h4{font-family:'Sora';font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.pstep p{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* === ONAMA / values dark === */
+.dark-sec{background:linear-gradient(165deg,var(--navy-deep),var(--navy));position:relative;overflow:hidden}
+.dark-sec::before{content:'';position:absolute;top:-180px;right:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(61,107,255,.16),transparent 70%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:1}
+.about-vis{position:relative;height:440px}
+.about-card{position:absolute;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.about-main{left:0;top:0;width:62%;height:100%;background:linear-gradient(160deg,var(--navy-2),var(--navy-3));display:flex;align-items:flex-end;padding:26px}
+.about-main p{font-family:'Sora';color:#fff;font-weight:700;font-size:18px;line-height:1.3}
+.about-acc{right:0;bottom:30px;width:46%;height:62%;background:linear-gradient(150deg,var(--accent),#2c57e8);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 24px 70px var(--glow)}
+.about-acc .n{font-family:'Sora';font-size:54px;font-weight:800;color:#fff;letter-spacing:-2px;line-height:1}
+.about-acc .l{font-size:13px;color:rgba(255,255,255,.85);margin-top:6px;text-align:center;padding:0 14px}
+.about-list{display:flex;flex-direction:column;gap:16px;margin-top:30px}
+.about-it{display:flex;gap:14px;align-items:flex-start}
+.about-ck{width:26px;height:26px;border-radius:50%;background:rgba(61,107,255,.22);border:1px solid rgba(61,107,255,.45);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.about-it p{font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.6}
+.about-it strong{color:#fff}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:70px;position:relative;z-index:1}
+.vcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 26px;transition:var(--t)}
+.vcard:hover{background:rgba(255,255,255,.08);transform:translateY(-6px);border-color:rgba(61,107,255,.4)}
+.vic{width:56px;height:56px;border-radius:15px;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 10px 30px var(--glow)}
+.vcard h4{font-family:'Sora';font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.vcard p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.65}
+
+/* === CALCULATOR === */
+.calc-sec{background:var(--ice)}
+.calc-wrap{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;border-radius:28px;overflow:hidden;box-shadow:var(--sh-lg);border:1px solid var(--line)}
+.calc-left{background:#fff;padding:44px 42px;display:flex;flex-direction:column;gap:26px}
+.calc-types{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.ctype{padding:11px 6px;border-radius:11px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-family:'Sora';font-size:12px;font-weight:700;color:var(--muted);transition:var(--t)}
+.ctype:hover{border-color:var(--accent);color:var(--accent)}
+.ctype.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.cgroup label{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;margin-bottom:12px}
+.cgroup label span{font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:6px;outline:none;cursor:pointer;background:var(--ice-2);border:1px solid var(--line)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--accent);border:4px solid #fff;box-shadow:0 3px 12px var(--glow),0 0 0 1px var(--line);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type=range]::-moz-range-track{height:8px;border-radius:6px;background:var(--ice-2);border:1px solid var(--line)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid #fff;box-shadow:0 3px 12px var(--glow)}
+.calc-right{background:linear-gradient(165deg,var(--navy),var(--navy-deep));padding:44px 42px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:hidden}
+.calc-right::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(61,107,255,.3),transparent 70%)}
+.calc-rk{font-family:'Sora';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;position:relative}
+.calc-big{font-family:'Sora';font-size:54px;font-weight:800;letter-spacing:-2px;line-height:1;position:relative}
+.calc-big small{font-size:20px;font-weight:600;color:var(--accent-2)}
+.calc-bigsub{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:24px;position:relative}
+.calc-chart{height:90px;display:flex;align-items:flex-end;gap:4px;margin-bottom:24px;position:relative}
+.calc-chart .bar{flex:1;background:linear-gradient(to top,var(--accent),var(--accent-2));border-radius:4px 4px 0 0;min-height:5px;transition:height .6s cubic-bezier(.16,1,.3,1);opacity:.85}
+.calc-lines{position:relative;border-top:1px solid rgba(255,255,255,.1);padding-top:18px}
+.cline{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.cline:last-child{border-bottom:none}
+.cline span:first-child{font-size:13px;color:rgba(255,255,255,.55)}
+.cline span:last-child{font-family:'Sora';font-size:15px;font-weight:700}
+.calc-apply{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);background:#fff;border:none;border-radius:13px;padding:16px;cursor:pointer;transition:var(--t);position:relative}
+.calc-apply:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+
+/* === CREDIT CAPACITY GAUGE === */
+.gauge-sec{background:#fff}
+.gauge-wrap{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;background:var(--ice);border:1px solid var(--line);border-radius:28px;padding:46px}
+.gauge-left .cgroup{margin-bottom:26px}
+.gauge-note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:6px}
+.gauge-vis{text-align:center}
+.gauge-svg{width:100%;max-width:300px;margin:0 auto}
+#gArc{transition:stroke-dashoffset .7s cubic-bezier(.16,1,.3,1)}
+#gNeedle{transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.gauge-amt{font-family:'Sora';font-size:40px;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1;margin-top:-6px}
+.gauge-amt-l{font-size:12px;color:var(--muted);font-weight:600;margin-top:4px;margin-bottom:18px}
+.gauge-row{display:flex;justify-content:center;gap:14px;margin-bottom:18px}
+.gauge-row>div{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 10px}
+.gauge-row span{display:block;font-family:'Sora';font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+.gauge-row small{display:block;font-size:11px;color:var(--muted);margin-top:3px}
+.gauge-badge{font-size:14px!important;padding:3px 12px;border-radius:20px;color:#fff!important}
+.gauge-badge.good{background:#1a9e63}.gauge-badge.mid{background:#f0a500}.gauge-badge.low{background:#e0483f}
+
+
+/* === TESTIMONIALS === */
+.testi-sec{background:#fff}
+.testi-wrap{overflow:hidden}
+.testi-tr{display:flex;gap:22px;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.tcard{flex:0 0 calc(33.333% - 15px);background:var(--ice);border-radius:22px;padding:32px;border:1px solid var(--line);transition:var(--t)}
+.tcard:hover{box-shadow:var(--sh);transform:translateY(-5px);background:#fff}
+.tstars{color:#FFB020;margin-bottom:14px;font-size:15px;letter-spacing:2px}
+.ttext{font-size:14.5px;color:var(--ink);line-height:1.75;margin-bottom:22px}
+.tauthor{display:flex;align-items:center;gap:12px}
+.tav{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--navy));display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#fff;flex-shrink:0}
+.tname{font-family:'Sora';font-size:14px;font-weight:700;color:var(--navy)}
+.tloc{font-size:12px;color:var(--muted)}
+.testi-nav{display:flex;gap:10px;justify-content:center;margin-top:38px}
+.tbtn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--t)}
+.tbtn:hover{background:var(--accent);border-color:var(--accent)}
+.tbtn:hover svg{stroke:#fff}
+
+/* === FAQ === */
+.faq-sec{background:var(--ice)}
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden;transition:var(--t)}
+.faq.open{box-shadow:var(--sh-sm);border-color:rgba(61,107,255,.3)}
+.faq-q{padding:22px 26px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Sora';font-size:15.5px;font-weight:700;color:var(--navy);gap:16px}
+.faq-q .pl{width:28px;height:28px;border-radius:8px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t);color:var(--accent);font-size:20px;font-weight:600}
+.faq.open .pl{background:var(--accent);color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 26px 22px;font-size:14px;color:var(--muted);line-height:1.7}
+
+/* === MAP / POSLOVNICE === */
+.map-sec{background:#fff}
+.map-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.map-stage{position:relative;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:24px;padding:30px;height:520px;overflow:hidden;border:1px solid var(--line)}
+.map-stage::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 30% 30%,rgba(61,107,255,.15),transparent 50%);pointer-events:none}
+.map-label{position:absolute;top:22px;left:0;right:0;text-align:center;z-index:3;font-family:'Sora';font-size:13px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.42)}
+.rs-map{position:absolute;inset:30px;top:54px;display:flex;align-items:center;justify-content:center}
+.rs-map-box{position:relative;height:100%;aspect-ratio:231/280;max-width:100%;line-height:0}
+.rs-map-img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 44px rgba(0,0,0,.45))}
+.map-pins{position:absolute;inset:0;pointer-events:none}
+.map-pin{position:absolute;transform:translate(-50%,-50%);background:none;border:none;cursor:pointer;pointer-events:auto;padding:8px;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.map-pin>span:first-child{position:relative;display:flex}
+.mp-dot{position:relative;width:14px;height:14px;border-radius:50%;background:var(--accent-2);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);transition:var(--t);pointer-events:none}
+.mp-pulse{position:absolute;top:0;width:14px;height:14px;border-radius:50%;background:var(--accent);opacity:.5;animation:pulse 2.4s ease-out infinite;pointer-events:none}
+.mp-label{position:absolute;top:calc(100% + 3px);left:50%;transform:translateX(-50%);font-family:'Sora';font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;background:rgba(6,20,61,.72);padding:2px 8px;border-radius:20px;transition:var(--t);pointer-events:none}
+.map-pin:hover .mp-dot,.map-pin.on .mp-dot{background:#fff;transform:scale(1.35)}
+.map-pin:hover .mp-label,.map-pin.on .mp-label{color:#fff;background:var(--accent)}
+@keyframes pulse{0%{transform:scale(.6);opacity:.5}100%{transform:scale(2.8);opacity:0}}
+.branch-list{display:flex;flex-direction:column;gap:12px}
+.branch{display:flex;gap:16px;align-items:center;background:var(--ice);border:1px solid var(--line);border-radius:16px;padding:18px 20px;cursor:pointer;transition:var(--t)}
+.branch:hover,.branch.on{border-color:var(--accent);background:#fff;box-shadow:var(--sh-sm);transform:translateX(4px)}
+.branch-ic{width:46px;height:46px;border-radius:12px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
+.branch.on .branch-ic{background:var(--accent);color:#fff}
+.branch-bd{flex:1}
+.branch-bd h4{font-family:'Sora';font-size:15px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.branch-bd p{font-size:12.5px;color:var(--muted)}
+.branch-bd .ph{font-size:12.5px;color:var(--accent);font-weight:700;margin-top:2px}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;font-family:'Sora';padding:5px 11px;border-radius:20px;white-space:nowrap}
+.status.open{background:rgba(34,180,120,.14);color:#1a9e63}
+.status.closed{background:rgba(255,90,90,.12);color:#e0483f}
+.status .sd{width:7px;height:7px;border-radius:50%;background:currentColor}
+.status.open .sd{animation:blink 1.6s infinite}
+
+/* === CTA === */
+.cta-sec{background:linear-gradient(135deg,var(--accent) 0%,var(--navy-2) 60%,var(--navy) 100%);position:relative;overflow:hidden;padding:88px 0}
+.cta-sec::after{content:'';position:absolute;top:-60px;left:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07)}
+.cta-in{position:relative;z-index:1;text-align:center}
+.cta-in h2{font-family:'Sora';font-size:clamp(30px,4.4vw,52px);font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:16px}
+.cta-in p{font-size:17px;color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 36px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-white{font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);background:#fff;border:none;border-radius:13px;padding:16px 32px;cursor:pointer;transition:var(--t);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.btn-white:hover{transform:translateY(-3px)}
+.btn-out-w{font-family:'Sora';font-size:15px;font-weight:700;color:#fff;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);border-radius:13px;padding:16px 32px;cursor:pointer;transition:var(--t)}
+.btn-out-w:hover{border-color:#fff;background:rgba(255,255,255,.18)}
+
+/* === PAGE HERO BAR === */
+.phero{background:linear-gradient(160deg,var(--navy-deep),var(--navy));padding:130px 0 64px;position:relative;overflow:hidden}
+.phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.phero .orb{opacity:.6}
+.phero h1{font-family:'Sora';font-size:clamp(34px,5vw,58px);font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:12px;position:relative;z-index:1}
+.phero h1 .hl{color:var(--accent-2)}
+.phero p{font-size:16px;color:rgba(255,255,255,.55);max-width:520px;position:relative;z-index:1}
+
+/* === FORMS === */
+.form-sec{background:var(--ice)}
+.form-card{max-width:820px;margin:0 auto;background:#fff;border-radius:26px;padding:48px;border:1px solid var(--line);box-shadow:var(--sh)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:8px}
+.fg.full{grid-column:1/-1}
+.fg label{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{background:var(--ice);border:1.5px solid var(--line);color:var(--ink);border-radius:11px;padding:13px 15px;font-size:14px;font-family:'Manrope';width:100%;outline:none;transition:var(--t)}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px rgba(61,107,255,.12)}
+select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%233D6BFF' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+textarea{resize:vertical;min-height:110px}
+.fcheck{display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.fcheck input{width:18px;height:18px;flex-shrink:0;margin-top:1px;accent-color:var(--accent);cursor:pointer}
+.form-ok{display:none;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:30px}
+.form-ok.on{display:flex;animation:pgIn .5s ease both}
+.form-ok .okic{width:84px;height:84px;border-radius:50%;background:rgba(34,180,120,.14);display:flex;align-items:center;justify-content:center;animation:pop .6s cubic-bezier(.16,1,.3,1) both}
+.form-ok h3{font-family:'Sora';font-size:26px;font-weight:800;color:var(--navy);letter-spacing:-1px}
+.form-ok p{font-size:15px;color:var(--muted);max-width:400px}
+input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba(224,72,63,.04)}
+
+/* contact */
+.kont-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:44px}
+.kinfo{display:flex;flex-direction:column}
+.kit{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.kit:first-child{padding-top:0}
+.kic{width:48px;height:48px;border-radius:13px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
+.kit strong{font-family:'Sora';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.kit p,.kit a{font-size:14px;color:var(--muted);line-height:1.7}
+.ksoc{display:flex;gap:10px;margin-top:18px}
+.ksoc a{width:42px;height:42px;border-radius:11px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:var(--t)}
+.ksoc a:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-3px)}
+
+/* legal */
+.legal-sec{background:var(--ice)}
+.legal-wrap{max-width:820px;margin:0 auto;background:#fff;border-radius:24px;padding:48px;border:1px solid var(--line);box-shadow:var(--sh-sm)}
+.legal-wrap h2{font-family:'Sora';font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.legal-wrap h3{font-family:'Sora';font-size:16px;font-weight:700;color:var(--navy);margin:26px 0 10px}
+.legal-wrap p,.legal-wrap li{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:10px}
+.legal-wrap ul{padding-left:20px;list-style:disc}
+.legal-back{display:inline-flex;align-items:center;gap:8px;font-family:'Sora';font-size:13px;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer;margin-bottom:24px}
+
+/* === FOOTER === */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding-top:74px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:46px;padding-bottom:54px;border-bottom:1px solid rgba(255,255,255,.06)}
+.foot-brand img{height:72px;margin-bottom:16px}
+.foot-desc{font-size:13.5px;color:rgba(255,255,255,.42);line-height:1.75;max-width:280px}
+.foot-soc{display:flex;gap:10px;margin-top:20px}
+.foot-soc a{width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:var(--t)}
+.foot-soc a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.fcol h5{font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:18px}
+.fcol button,.fcol p{font-size:13.5px;color:rgba(255,255,255,.45);padding:6px 0;background:none;border:none;cursor:pointer;display:block;text-align:left;transition:var(--t);width:100%}
+.fcol button:hover{color:#fff;padding-left:4px}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding:22px 0}
+.foot-lic{display:flex;align-items:center;gap:8px;font-family:'Sora';font-size:10px;font-weight:700;letter-spacing:.5px;color:rgba(255,255,255,.32)}
+.foot-copy{font-size:12px;color:rgba(255,255,255,.28)}
+
+/* back to top */
+#totop{position:fixed;bottom:26px;right:26px;width:50px;height:50px;border-radius:50%;background:var(--accent);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:900;opacity:0;pointer-events:none;transform:translateY(20px);transition:var(--t);box-shadow:0 10px 30px var(--glow)}
+#totop.show{opacity:1;pointer-events:auto;transform:none}
+
+/* cookie banner */
+.cookie{position:fixed;left:26px;right:26px;bottom:26px;max-width:560px;margin:0 auto;z-index:1500;background:rgba(6,20,61,.97);backdrop-filter:blur(16px);border:1px solid var(--line-d);border-radius:18px;padding:20px 22px;display:flex;align-items:center;gap:18px;box-shadow:var(--sh-lg);transform:translateY(140%);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.cookie.show{transform:none}
+.cookie p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6}
+.cookie p button{background:none;border:none;color:var(--accent-2);font-weight:700;cursor:pointer;text-decoration:underline;font-size:13px}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-ok{font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:11px 18px;cursor:pointer;white-space:nowrap;transition:var(--t)}
+.cookie-ok:hover{background:#2c57e8}
+.cookie-no{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:1px solid var(--line-d);border-radius:10px;padding:11px 16px;cursor:pointer;white-space:nowrap}
+@media(max-width:600px){#totop{right:16px;bottom:16px}.cookie{flex-direction:column;align-items:stretch;text-align:center;left:14px;right:14px}.cookie-btns{justify-content:center}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .nav-links{display:none;position:fixed;top:88px;left:0;right:0;flex-direction:column;background:var(--navy);padding:18px;gap:4px;border-bottom:1px solid var(--line-d)}
+  .nav-links.open{display:flex}
+  .nav-links .nav-cta{display:block;margin:8px 0 0;text-align:center}
+  #navCtaDesk{display:none}
+  .burger{display:flex}
+  .hero-in{align-items:center;padding:24px 0}
+  .hero-grid2{grid-template-columns:1fr;gap:18px;text-align:center;align-items:center}
+  .hero-text{display:flex;flex-direction:column;align-items:center;order:1}
+  .hero-eye,.hero-ctas,.hero-stats{justify-content:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-visual{height:auto;min-height:0;order:-1;max-width:430px;margin:0 auto;padding-top:6px}
+  .woman{height:420px}.woman-ring{width:300px;height:300px;bottom:0}
+  .chip{display:flex;padding:7px 10px;gap:8px;backdrop-filter:blur(10px)}
+  .chip .ci{width:27px;height:27px;border-radius:8px}
+  .chip b{font-size:11.5px}.chip small{font-size:9px}
+  .chip.c1{top:-4px;left:-14px}
+  .chip.c2{top:auto;bottom:78px;right:-14px}
+  .chip.c3{bottom:-4px;left:-14px}
+  .about-grid,.kont-grid,.calc-wrap,.map-grid,.gauge-wrap{grid-template-columns:1fr}
+  .about-grid{gap:40px}
+  .about-vis{height:400px;max-width:420px;margin:0 auto;order:-1}
+  .prods,.values{grid-template-columns:1fr 1fr}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:40px}
+  .proc-grid::after{display:none}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-it:nth-child(2){border-right:none}
+  .tcard{flex:0 0 calc(50% - 11px)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .q-opts{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .calc-types{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .section{padding:64px 0}
+  .container{padding:0 18px}
+  /* O nama page – phero + stacked about visual */
+  .phero{padding:104px 0 44px}
+  .phero p{font-size:14.5px}
+  .about-grid{gap:30px}
+  .about-vis{height:auto;max-width:100%;display:flex;flex-direction:column;gap:14px}
+  .about-vis .about-card{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:100%}
+  .about-main{height:220px;padding:22px}
+  .about-main p{font-size:16px}
+  .about-acc{height:128px;flex-direction:row;gap:16px;padding:0 18px}
+  .about-acc .n{font-size:46px}
+  .about-acc .l{margin-top:0;text-align:left;padding:0;font-size:13px;max-width:150px}
+  .about-list{margin-top:24px}
+  .prods,.values,.proc-grid,.trust-grid{grid-template-columns:1fr}
+  .trust-it{border-right:none}
+  .tcard{flex:0 0 100%}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+  .hero-stats{gap:18px;flex-wrap:wrap;justify-content:center}
+  .hstat{min-width:80px}
+  .form-card,.legal-wrap{padding:30px 22px}
+  .calc-left,.calc-right{padding:32px 24px}
+  .quiz-box{padding:30px 22px}
+  .hero-h1{letter-spacing:-1px;font-size:clamp(38px,11vw,52px)}
+  .brand img{height:58px}
+  .nav-in{height:72px}
+  .nav-links{top:72px}
+  .hero{padding-top:72px}
+  .hero-in{padding:18px 0}
+  .hero-visual{min-height:0}
+  .woman{height:400px}.woman-ring{width:280px;height:280px}
+  .hero-eye{font-size:10px;letter-spacing:1.5px;padding:6px 12px}
+  .hero-ctas{width:100%}
+  .btn-pri,.btn-ghost{flex:1;justify-content:center;padding:15px 18px}
+  .map-stage{height:380px}
+  .gauge-row{flex-direction:column}
+  .testi-nav{margin-top:26px}
+  .cta-btns{flex-direction:column}
+  .cta-btns button{width:100%}
+}
+</style>
+</head>
+<body>
+<script>
+/* tries alternate filename casings before showing the text fallback */
+function tryImg(el){
+  var alts=el.getAttribute('data-alts');
+  alts=alts?alts.split('|'):[];
+  if(alts.length){el.setAttribute('data-alts',alts.slice(1).join('|'));el.src=alts[0];}
+  else{el.style.display='none';var fb=el.nextElementSibling;if(fb)fb.style.display=el.getAttribute('data-fb')||'flex';}
+}
+</script>
+<div id="scrollbar"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container nav-in">
+    <div class="brand" onclick="go('pocetna')">
+      <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
+      <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
+      <img src="c:\Users\pavli\OneDrive\Desktop\lmfao\BP.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <div class="fallback" style="display:none">
+        <div class="mono">B<span style="color:var(--accent-2)">P</span></div>
+        <div class="bt"><b>BILANS PLUS</b><small>KREDIT</small></div>
+      </div>
+    </div>
+    <div class="nav-links" id="navlinks">
+      <button class="nlink active" data-nl="pocetna" onclick="go('pocetna')">Početna</button>
+      <button class="nlink" data-nl="onama" onclick="go('onama')">O nama</button>
+      <button class="nlink" data-nl="krediti" onclick="go('krediti')">Krediti</button>
+      <button class="nlink" data-nl="kalkulator" onclick="go('kalkulator')">Kalkulator</button>
+      <button class="nlink" data-nl="poslovnice" onclick="go('poslovnice')">Poslovnice</button>
+      <button class="nlink" data-nl="kontakt" onclick="go('kontakt')">Kontakt</button>
+      <button class="nav-cta" onclick="go('zahtjev')" style="margin-left:8px">Podnesi zahtjev</button>
+    </div>
+    <button class="nav-cta" onclick="go('zahtjev')" id="navCtaDesk">Podnesi zahtjev</button>
+    <button class="burger" id="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ============ PAGE: POČETNA ============ -->
+<section class="page active" id="pg-pocetna">
+
+<div class="hero">
+  <div class="hero-bg"><div class="hero-grid"></div></div>
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-in">
+    <div class="container hero-grid2">
+      <div class="hero-text">
+        <span class="hero-eye"><span class="d"></span>Licencirana mikrokreditna organizacija</span>
+        <h1 class="hero-h1">
+          <span class="ln"><em>Finansiramo</em></span>
+          <span class="ln"><em class="grad-txt" id="rotWord">ambicije.</em></span>
+          <span class="ln"><em>Vi gradite budućnost.</em></span>
+        </h1>
+        <p class="hero-sub">Brzi, transparentni i personalizovani krediti za fizička i pravna lica. Odobrenje za 24 sata, uz minimalnu papirologiju i ljudski pristup.</p>
+        <div class="hero-ctas">
+          <button class="btn-pri" onclick="go('zahtjev')">Podnesi zahtjev
+            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="btn-ghost" onclick="go('kalkulator')">
+            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/></svg>
+            Izračunaj ratu
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="woman-ring"></div>
+        <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ZE.PNG" -->
+        <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ze.png" -->
+        <img class="woman" src="c:\Users\pavli\OneDrive\Desktop\lmfao\ze2.png" data-alts="ze.png|ZE.PNG|ZE.png" alt="Bilans Plus Kredit savjetnica" onerror="tryImg(this)"/>
+        <div class="woman-fallback" style="display:none">Vaša savjetnica<br/>(ZE.PNG)</div>
+        <div class="chip c1">
+          <div class="ci"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div><b>Bez žiranata</b><small>za brze pozajmice</small></div>
+        </div>
+        <div class="chip c2">
+          <div class="ci"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><b>Odgovor isti dan</b><small>uz online zahtjev</small></div>
+        </div>
+        <div class="chip c3">
+          <div class="ci"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+          <div><b>4.9/5 ocjena</b><small>zadovoljnih klijenata</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="ticker-tr" id="tickerTrack"></div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="container trust-grid">
+    <div class="trust-it"><div class="trust-ic"><svg width="22" height="22" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="trust-text"><strong>Licencirano</strong><p>Agencija za bankarstvo Republike Srpske</p></div></div>
+    <div class="trust-it"><div class="trust-ic"><svg width="22" height="22" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="trust-text"><strong>Odobrenje za 24h</strong><p>Brza obrada svakog zahtjeva</p></div></div>
+    <div class="trust-it"><div class="trust-ic"><svg width="22" height="22" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div><div class="trust-text"><strong>Bez skrivenih troškova</strong><p>Jasna EKS u svakom ugovoru</p></div></div>
+    <div class="trust-it"><div class="trust-ic"><svg width="22" height="22" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div><div class="trust-text"><strong>Lični savjetnik</strong><p>Personalizovana analiza za svakog</p></div></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section prod-sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Naša ponuda</div>
+      <h2 class="title">Krediti koji <span class="hl">prate vaš život</span></h2>
+      <p class="lead">Od gotovinskih i stambenih do poslovnih i poljoprivrednih kredita — za svaku potrebu imamo rješenje sa uslovima prilagođenim vama.</p>
+    </div>
+    <div class="prod-tabs reveal rd1" id="prodTabs"></div>
+    <div class="prods" id="prodsHome"></div>
+  </div>
+</section>
+
+<!-- AI QUIZ -->
+<section class="section quiz-sec">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow" style="color:var(--accent-2)">Pametni vodič · AI preporuka</div>
+      <h2 class="title title-light">Ne znate koji kredit vam treba?</h2>
+      <p class="lead lead-light">Odgovorite na 3 kratka pitanja i naš vodič će vam u sekundi preporučiti idealan tip kredita.</p>
+    </div>
+    <div class="quiz-box reveal rd1">
+      <div class="quiz-prog" id="quizProg"><i class="cur"></i><i></i><i></i></div>
+
+      <div class="q-step on" data-step="0">
+        <div class="q-kicker">Pitanje 1 / 3</div>
+        <div class="q-q">Za šta vam je potreban kredit?</div>
+        <div class="q-opts">
+          <button class="q-opt" onclick="quizAns(0,'gotovinski')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span><span><b>Lične potrebe</b><small>slobodno raspolaganje</small></span></button>
+          <button class="q-opt" onclick="quizAns(0,'stambeni')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span><span><b>Stan / kuća</b><small>kupovina ili adaptacija</small></span></button>
+          <button class="q-opt" onclick="quizAns(0,'poslovni')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><span><b>Biznis</b><small>razvoj ili proširenje</small></span></button>
+          <button class="q-opt" onclick="quizAns(0,'vozilo')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg></span><span><b>Vozilo</b><small>kupovina i registracija</small></span></button>
+        </div>
+      </div>
+
+      <div class="q-step" data-step="1">
+        <div class="q-kicker">Pitanje 2 / 3</div>
+        <div class="q-q">Koji vam je status zaposlenja?</div>
+        <div class="q-opts">
+          <button class="q-opt" onclick="quizAns(1,'zaposlen')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0112 0v1"/></svg></span><span><b>Zaposlen/a</b><small>redovna primanja</small></span></button>
+          <button class="q-opt" onclick="quizAns(1,'penzioner')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></span><span><b>Penzioner/ka</b><small>PIO/MIO RS ili FBiH</small></span></button>
+          <button class="q-opt" onclick="quizAns(1,'preduzetnik')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></span><span><b>Preduzetnik</b><small>vlasnik firme/obrta</small></span></button>
+          <button class="q-opt" onclick="quizAns(1,'poljoprivrednik')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v18M5 8c0 4 3 6 7 6M19 8c0 4-3 6-7 6"/></svg></span><span><b>Poljoprivrednik</b><small>agrarni proizvođač</small></span></button>
+        </div>
+      </div>
+
+      <div class="q-step" data-step="2">
+        <div class="q-kicker">Pitanje 3 / 3</div>
+        <div class="q-q">Koliko brzo vam trebaju sredstva?</div>
+        <div class="q-opts">
+          <button class="q-opt" onclick="quizAns(2,'hitno')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Odmah / hitno</b><small>isti dan</small></span></button>
+          <button class="q-opt" onclick="quizAns(2,'normalno')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span><b>Za par dana</b><small>nije hitno</small></span></button>
+        </div>
+      </div>
+
+      <div class="q-result" id="quizResult">
+        <div class="q-res-ic"><svg width="38" height="38" fill="none" stroke="#fff" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="q-res-k">Naša preporuka za vas</div>
+        <div class="q-res-name" id="quizName">Gotovinski kredit</div>
+        <div class="q-res-desc" id="quizDesc"></div>
+        <div class="q-res-btns">
+          <button class="btn-pri" onclick="go('zahtjev')">Podnesi zahtjev
+            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="q-restart" onclick="quizRestart()">Počni ponovo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section proc-sec">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Jednostavno do kredita</div>
+      <h2 class="title">Kredit u <span class="hl">2 koraka</span></h2>
+      <p class="lead">Bez redova i nepotrebne papirologije — od prijave do novca na računu u dva jednostavna koraka.</p>
+    </div>
+    <div class="proc-grid proc-2">
+      <div class="pstep reveal"><div class="pnum">1</div><h4>Online zahtjev i analiza</h4><p>Popunite kratki obrazac ili nas pozovite — naš savjetnik odmah analizira vašu situaciju i predlaže najpovoljnije uslove.</p></div>
+      <div class="pstep reveal rd1"><div class="pnum">2</div><h4>Odobrenje i isplata</h4><p>Odobrenje gotovinskih kredita za 24h, a sredstva su na vašem računu odmah po potpisu ugovora.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testi-sec">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Iskustva klijenata</div>
+      <h2 class="title">Šta kažu naši <span class="hl">klijenti</span></h2>
+    </div>
+    <div class="testi-wrap reveal rd1">
+      <div class="testi-tr" id="testiTrack"></div>
+    </div>
+    <div class="testi-nav">
+      <button class="tbtn" onclick="testiMove(-1)"><svg width="20" height="20" fill="none" stroke="#0A2363" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="tbtn" onclick="testiMove(1)"><svg width="20" height="20" fill="none" stroke="#0A2363" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIT CAPACITY GAUGE (unique tool) -->
+<section class="section gauge-sec">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Provjeri za 10 sekundi</div>
+      <h2 class="title">Kolika je vaša <span class="hl">kreditna sposobnost?</span></h2>
+      <p class="lead">Pomjerite klizače i naš pametni mjerač odmah procjenjuje koliki kredit biste okvirno mogli dobiti. Bez prijave i bez obaveza.</p>
+    </div>
+    <div class="gauge-wrap reveal rd1">
+      <div class="gauge-left">
+        <div class="cgroup"><label>Mjesečna primanja <span id="gIncL">1.500 KM</span></label>
+          <input type="range" id="gInc" min="400" max="6000" step="50" value="1500"/></div>
+        <div class="cgroup"><label>Postojeće mjesečne obaveze <span id="gOblL">200 KM</span></label>
+          <input type="range" id="gObl" min="0" max="3000" step="50" value="200"/></div>
+        <div class="cgroup"><label>Rok otplate <span id="gTrmL">60 mjeseci</span></label>
+          <input type="range" id="gTrm" min="6" max="120" step="6" value="60"/></div>
+        <div class="gauge-note">* Procjena je informativna. Konačnu sposobnost utvrđuje savjetnik individualnom analizom.</div>
+      </div>
+      <div class="gauge-vis">
+        <svg viewBox="0 0 220 138" class="gauge-svg">
+          <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#e0483f"/><stop offset="0.5" stop-color="#f0a500"/><stop offset="1" stop-color="#1a9e63"/>
+          </linearGradient></defs>
+          <path d="M20,118 A90,90 0 0 1 200,118" fill="none" stroke="var(--ice-2)" stroke-width="16" stroke-linecap="round"/>
+          <path id="gArc" d="M20,118 A90,90 0 0 1 200,118" fill="none" stroke="url(#gg)" stroke-width="16" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+          <g id="gNeedle" transform="rotate(0 110 118)">
+            <line x1="110" y1="118" x2="110" y2="46" stroke="var(--navy)" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="110" cy="118" r="8" fill="var(--navy)"/>
+          </g>
+        </svg>
+        <div class="gauge-amt" id="gAmt">35.000 KM</div>
+        <div class="gauge-amt-l">procijenjeni maksimalni iznos</div>
+        <div class="gauge-row">
+          <div><span id="gRate">730 KM</span><small>moguća rata / mj</small></div>
+          <div><span class="gauge-badge" id="gBadge">Dobra</span><small>kreditna sposobnost</small></div>
+        </div>
+        <button class="btn-pri" style="width:100%;justify-content:center;margin-top:6px" onclick="go('zahtjev')">Podnesi zahtjev
+          <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-sec">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Pitanja i odgovori</div>
+      <h2 class="title">Često <span class="hl">postavljana pitanja</span></h2>
+    </div>
+    <div class="faq-wrap" id="faqWrap"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="container cta-in reveal">
+    <h2>Pripremite se za snažan bilans.</h2>
+    <p>Podnesite zahtjev danas — naš tim će vas kontaktirati u roku od 24 sata.</p>
+    <div class="cta-btns">
+      <button class="btn-white" onclick="go('zahtjev')">Podnesi zahtjev</button>
+      <button class="btn-out-w" onclick="go('kalkulator')">Izračunaj ratu</button>
+    </div>
+  </div>
+</section>
+</section><!-- /pocetna -->
+
+<!-- ============ PAGE: O NAMA ============ -->
+<section class="page" id="pg-onama">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Pouzdanost i <span class="hl">profesionalnost</span></h1><p>Novoosnovana licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj.</p></div>
+  </div>
+  <section class="section dark-sec">
+    <div class="container about-grid">
+      <div class="about-vis reveal">
+        <div class="about-card about-main">
+          <!-- PLACEHOLDER foto (Unsplash) — zamijeni svojom -->
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=80" alt="Bilans Plus tim" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.7" onerror="this.style.display='none'"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(6,20,61,.85))"></div>
+          <p style="position:relative;z-index:1">Finansijska podrška koja mijenja živote.</p>
+        </div>
+        <div class="about-card about-acc"><div class="n">100%</div><div class="l">transparentnih uslova</div></div>
+      </div>
+      <div class="about-text reveal rd1">
+        <div class="eyebrow" style="color:var(--accent-2)">O nama</div>
+        <h2 class="title title-light">Finansijska podrška<br/>koja mijenja živote</h2>
+        <p class="lead lead-light">MKD Bilans Plus Kredit je licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj. Naša misija je pružiti brzu, transparentnu i personalizovanu finansijsku podršku fizičkim i pravnim licima — uz minimalnu papirologiju.</p>
+        <div class="about-list">
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Licencirani</strong> od strane Agencije za bankarstvo Republike Srpske.</p></div>
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Personalizovana</strong> kreditna analiza za svakog klijenta.</p></div>
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Poslovnice</strong> raspoređene po cijeloj Republici Srpskoj.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="sec-head center reveal" style="margin-top:90px;margin-bottom:50px">
+        <div class="eyebrow" style="color:var(--accent-2)">Naše vrijednosti</div>
+        <h2 class="title title-light">Principi koji nas <span style="color:var(--accent-2)">definišu</span></h2>
+      </div>
+      <div class="values">
+        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div><h4>Transparentnost</h4><p>Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.</p></div>
+        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>Lični pristup</h4><p>Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.</p></div>
+        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h4>Brzina i efikasnost</h4><p>Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-sec"><div class="container cta-in reveal"><h2>Spremni da krenemo zajedno?</h2><p>Javite nam se — odgovorićemo na svako pitanje prije nego donesete odluku.</p><div class="cta-btns"><button class="btn-white" onclick="go('zahtjev')">Podnesi zahtjev</button><button class="btn-out-w" onclick="go('kontakt')">Kontaktiraj nas</button></div></div></section>
+</section><!-- /onama -->
+
+<!-- ============ PAGE: KREDITI ============ -->
+<section class="page" id="pg-krediti">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Kreditne <span class="hl">ponude</span></h1><p>Devet vrsta kredita za fizička i pravna lica — pronađite onaj koji odgovara vašim potrebama.</p></div>
+  </div>
+  <section class="section prod-sec">
+    <div class="container">
+      <div class="prod-tabs reveal" id="prodTabs2"></div>
+      <div class="prods" id="prodsAll"></div>
+    </div>
+  </section>
+  <section class="cta-sec"><div class="container cta-in reveal"><h2>Niste sigurni koji je pravi?</h2><p>Pokrenite naš pametni vodič ili izračunajte ratu prije nego se odlučite.</p><div class="cta-btns"><button class="btn-white" onclick="go('pocetna');setTimeout(()=>document.querySelector('.quiz-sec').scrollIntoView({behavior:'smooth'}),300)">Pokreni AI vodič</button><button class="btn-out-w" onclick="go('kalkulator')">Kalkulator</button></div></div></section>
+</section><!-- /krediti -->
+
+<!-- ============ PAGE: KALKULATOR ============ -->
+<section class="page" id="pg-kalkulator">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Kreditni <span class="hl">kalkulator</span></h1><p>Pomjerite klizače i odmah vidite mjesečnu ratu, ukupan iznos i okvirnu EKS. Informativnog je karaktera.</p></div>
+  </div>
+  <section class="section calc-sec">
+    <div class="container">
+      <div class="calc-wrap reveal">
+        <div class="calc-left">
+          <div class="cgroup">
+            <label style="margin-bottom:14px">Vrsta kredita</label>
+            <div class="calc-types" id="calcTypes"></div>
+          </div>
+          <div class="cgroup">
+            <label>Iznos kredita <span id="calcAmtL">10.000 KM</span></label>
+            <input type="range" id="calcAmt" min="500" max="100000" step="500" value="10000"/>
+          </div>
+          <div class="cgroup">
+            <label>Rok otplate <span id="calcTermL">36 mjeseci</span></label>
+            <input type="range" id="calcTerm" min="3" max="120" step="1" value="36"/>
+          </div>
+          <div class="cgroup">
+            <label>Godišnja kamatna stopa <span id="calcRateL">7,9 %</span></label>
+            <input type="range" id="calcRate" min="4" max="18" step="0.1" value="7.9"/>
+          </div>
+        </div>
+        <div class="calc-right">
+          <div class="calc-rk">Mjesečna rata</div>
+          <div class="calc-big" id="calcMonthly">312 <small>KM</small></div>
+          <div class="calc-bigsub" id="calcSubline">36 rata · gotovinski kredit</div>
+          <div class="calc-chart" id="calcChart"></div>
+          <div class="calc-lines">
+            <div class="cline"><span>Glavnica</span><span id="calcPrincipal">10.000 KM</span></div>
+            <div class="cline"><span>Ukupna kamata</span><span id="calcInterest">1.232 KM</span></div>
+            <div class="cline"><span>Ukupno za otplatu</span><span id="calcTotal">11.232 KM</span></div>
+            <div class="cline"><span>Okvirna EKS</span><span id="calcEks">8,4 %</span></div>
+          </div>
+          <button class="calc-apply" onclick="go('zahtjev')">Podnesi zahtjev sa ovim iznosom
+            <svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <p class="lead" style="text-align:center;margin:28px auto 0;font-size:13px">Prikazani iznosi su informativni i ne predstavljaju konačnu kreditnu ponudu. Konačni uslovi i EKS definišu se individualnom obradom zahtjeva.</p>
+    </div>
+  </section>
+</section><!-- /kalkulator -->
+
+<!-- ============ PAGE: POSLOVNICE ============ -->
+<section class="page" id="pg-poslovnice">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Naše <span class="hl">poslovnice</span></h1><p>Šest poslovnica širom Republike Srpske. Kliknite na pin ili karticu da vidite detalje i da li je trenutno otvoreno.</p></div>
+  </div>
+  <section class="section map-sec">
+    <div class="container">
+      <div class="map-grid">
+        <div class="map-stage reveal">
+          <div class="map-label">REPUBLIKA SRPSKA</div>
+          <div class="rs-map">
+            <div class="rs-map-box">
+              <!-- Prava mapa RS (rs-map.svg je u istom folderu) -->
+              <img src="rs-map.svg" class="rs-map-img show" alt="Mapa Republike Srpske" onerror="this.style.display='none'"/>
+              <div class="map-pins" id="mapPins"></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-list reveal rd1" id="branchList"></div>
+      </div>
+    </div>
+  </section>
+</section><!-- /poslovnice -->
+
+<!-- ============ PAGE: ZAHTJEV ============ -->
+<section class="page" id="pg-zahtjev">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Online zahtjev za <span class="hl">kredit</span></h1><p>Popunite obrazac i naš tim će vas kontaktirati u roku od 24 sata.</p></div>
+  </div>
+  <section class="section form-sec">
+    <div class="container">
+      <div class="form-card reveal">
+        <form id="zForm" novalidate>
+          <div class="form-grid">
+            <div class="fg"><label>Ime i prezime *</label><input type="text" id="z-ime" placeholder="Vaše ime"/></div>
+            <div class="fg"><label>Broj telefona *</label><input type="tel" id="z-tel" placeholder="+387 65 000 000"/></div>
+            <div class="fg"><label>E-mail adresa *</label><input type="email" id="z-email" placeholder="vas@email.com"/></div>
+            <div class="fg"><label>Grad *</label>
+              <select id="z-grad"><option value="">Odaberite grad...</option><option>Banja Luka</option><option>Bijeljina</option><option>Trebinje</option><option>Doboj</option><option>Zvornik</option><option>Prijedor</option><option>Mrkonjić Grad</option><option>Drugo</option></select>
+            </div>
+            <div class="fg"><label>Vrsta kredita *</label>
+              <select id="z-tip"><option value="">Odaberite...</option><option>Gotovinski kredit</option><option>Brza pozajmica</option><option>Stambeni kredit</option><option>Kredit za vozilo</option><option>Kredit za penzionere</option><option>Poslovni kredit</option><option>Nenamjenski kredit</option><option>Kredit za poljoprivredu</option><option>Kratkoročna pozajmica</option></select>
+            </div>
+            <div class="fg"><label>Željeni iznos (KM)</label><input type="number" id="z-iznos" placeholder="npr. 10000"/></div>
+            <div class="fg"><label>Status</label>
+              <select id="z-status"><option value="">Odaberite...</option><option>Zaposlen/a</option><option>Penzioner</option><option>Preduzetnik / Vlasnik firme</option><option>Poljoprivrednik</option><option>Ostalo</option></select>
+            </div>
+            <div class="fg"><label>Rok otplate (mjeseci)</label><input type="number" id="z-rok" placeholder="npr. 36"/></div>
+            <div class="fg full"><label>Napomena (opcionalno)</label><textarea id="z-napomena" placeholder="Dodatne informacije o vašem zahtjevu..."></textarea></div>
+            <div class="fg full"><label class="fcheck"><input type="checkbox" id="z-gdpr"/><span>Saglasan/na sam sa obradom ličnih podataka u skladu sa Politikom privatnosti MKD Bilans Plus Kredit.</span></label></div>
+          </div>
+          <button type="submit" class="btn-pri" style="width:100%;justify-content:center;margin-top:8px">Pošalji zahtjev
+            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <div class="form-ok" id="zOk">
+          <div class="okic"><svg width="40" height="40" fill="none" stroke="#1a9e63" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Zahtjev uspješno poslan!</h3>
+          <p>Naš tim će vas kontaktirati u roku od 24 sata na navedeni broj telefona ili e-mail adresu.</p>
+          <button class="btn-ghost" style="color:var(--navy);border-color:var(--line)" onclick="go('pocetna')">Nazad na početnu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</section><!-- /zahtjev -->
+
+<!-- ============ PAGE: KONTAKT ============ -->
+<section class="page" id="pg-kontakt">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Kontaktirajte <span class="hl">nas</span></h1><p>Naš tim je tu za vas svakog radnog dana. Javite nam se i odgovorićemo što prije.</p></div>
+  </div>
+  <section class="section form-sec">
+    <div class="container">
+      <div class="kont-grid">
+        <div class="kinfo reveal">
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><strong>Telefon</strong><p>+387 51 000 000<br/>+387 65 000 000</p></div></div>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div><div><strong>E-mail</strong><p>info@bilanspluskredit.ba</p></div></div>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Sjedište</strong><p>Ul. Kralja Petra I Karađorđevića 12<br/>78000 Banja Luka, Republika Srpska</p></div></div>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div><strong>Radno vrijeme</strong><p>Pon – Pet: 08:00 – 16:00<br/>Subota: 09:00 – 13:00</p>
+            <div class="ksoc">
+              <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+              <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+              <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4c.5 2 2 3.5 4 4"/></svg></a>
+            </div>
+          </div></div>
+        </div>
+        <div class="form-card reveal rd1" style="margin:0">
+          <form id="kForm" novalidate>
+            <div class="form-grid">
+              <div class="fg"><label>Ime i prezime *</label><input type="text" id="k-ime" placeholder="Vaše ime"/></div>
+              <div class="fg"><label>Telefon *</label><input type="tel" id="k-tel" placeholder="+387 65 000 000"/></div>
+              <div class="fg full"><label>E-mail *</label><input type="email" id="k-email" placeholder="vas@email.com"/></div>
+              <div class="fg full"><label>Tema</label><select id="k-tema"><option>Opšte informacije</option><option>Zahtjev za kredit</option><option>Postojeći kredit</option><option>Poslovnice</option><option>Ostalo</option></select></div>
+              <div class="fg full"><label>Poruka *</label><textarea id="k-poruka" placeholder="Vaša poruka..."></textarea></div>
+            </div>
+            <button type="submit" class="btn-pri" style="width:100%;justify-content:center;margin-top:8px">Pošalji poruku
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </form>
+          <div class="form-ok" id="kOk">
+            <div class="okic"><svg width="40" height="40" fill="none" stroke="#1a9e63" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Poruka poslana!</h3>
+            <p>Hvala na poruci — odgovorićemo vam u najkraćem mogućem roku.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section><!-- /kontakt -->
+
+<!-- ============ PAGE: PRIVATNOST ============ -->
+<section class="page" id="pg-privatnost">
+  <div class="phero"><div class="orb a"></div><div class="container"><h1>Politika <span class="hl">privatnosti</span></h1></div></div>
+  <section class="section legal-sec"><div class="container"><div class="legal-wrap reveal">
+    <button class="legal-back" onclick="go('pocetna')"><svg width="16" height="16" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad</button>
+    <h2>Politika privatnosti</h2>
+    <p>MKD Bilans Plus Kredit poštuje vašu privatnost i posvećen je zaštiti vaših ličnih podataka u skladu sa važećim propisima Republike Srpske.</p>
+    <h3>1. Prikupljanje podataka</h3><p>Prikupljamo podatke koje nam dobrovoljno dostavite prilikom podnošenja zahtjeva ili kontakta:</p>
+    <ul><li>Ime i prezime</li><li>Kontakt podatke (adresa, telefon, e-mail)</li><li>Podatke relevantne za kreditnu analizu</li></ul>
+    <h3>2. Svrha obrade</h3><p>Vaše podatke koristimo isključivo za obradu kreditnih zahtjeva, komunikaciju i ispunjavanje zakonskih obaveza.</p>
+    <h3>3. Dijeljenje podataka</h3><p>Vaše podatke ne dijelimo sa trećim licima osim kada to nalaže zakon ili je neophodno za realizaciju usluge.</p>
+    <h3>4. Čuvanje podataka</h3><p>Podatke čuvamo onoliko koliko je potrebno za ostvarivanje svrhe obrade i u skladu sa zakonskim rokovima.</p>
+    <h3>5. Vaša prava</h3><p>Imate pravo na pristup, ispravku, brisanje i prenosivost vaših ličnih podataka, kao i pravo na prigovor. Za ostvarivanje prava obratite nam se na: info@bilanspluskredit.ba.</p>
+    <h3>6. Kolačići</h3><p>Web stranica može koristiti kolačiće radi poboljšanja korisničkog iskustva. Možete ih onemogućiti u postavkama pretraživača.</p>
+    <h3>7. Kontakt</h3><p>Za sva pitanja vezana za privatnost kontaktirajte nas na: info@bilanspluskredit.ba ili na adresu sjedišta MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.</p>
+  </div></div></section>
+</section>
+
+<!-- ============ PAGE: USLOVI ============ -->
+<section class="page" id="pg-uslovi">
+  <div class="phero"><div class="orb a"></div><div class="container"><h1>Uslovi <span class="hl">korišćenja</span></h1></div></div>
+  <section class="section legal-sec"><div class="container"><div class="legal-wrap reveal">
+    <button class="legal-back" onclick="go('pocetna')"><svg width="16" height="16" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad</button>
+    <h2>Uslovi korišćenja</h2>
+    <h3>1. Prihvatanje uslova</h3><p>Pristupanjem i korišćenjem web stranice www.bilanspluskredit.ba potvrđujete da prihvatate ove Uslove korišćenja. Ukoliko se ne slažete s njima, molimo vas da prestanete s korišćenjem stranice.</p>
+    <h3>2. Informativni karakter</h3><p>Informacije na ovoj stranici su informativnog karaktera i ne predstavljaju konačnu kreditnu ponudu. MKD Bilans Plus Kredit ne preuzima odgovornost za eventualne greške u podacima. Sve kreditne odluke donose se po individualnoj obradi svakog zahtjeva.</p>
+    <h3>3. Kamatne stope i naknade</h3><p>Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u svim poslovnicama i na web stranici. Efektivna kamatna stopa (EKS) navodi se u ugovoru o kreditu za svaki kreditni proizvod.</p>
+    <h3>4. Prava korisnika</h3><p>Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora.</p>
+  </div></div></section>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
+        <img src="c:\Users\pavli\OneDrive\Desktop\lmfao\BP.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" data-fb="block" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+        <b style="display:none;font-family:'Sora';color:#fff;font-size:18px">BILANS PLUS KREDIT</b>
+        <p class="foot-desc">Licencirana mikrokreditna organizacija sa sjedištem u Banjoj Luci. Brza, transparentna i personalizovana finansijska podrška.</p>
+        <div class="foot-soc">
+          <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4c.5 2 2 3.5 4 4"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><h5>Stranice</h5>
+        <button onclick="go('pocetna')">Početna</button><button onclick="go('onama')">O nama</button><button onclick="go('krediti')">Krediti</button><button onclick="go('kalkulator')">Kalkulator</button>
+      </div>
+      <div class="fcol"><h5>Usluge</h5>
+        <button onclick="go('poslovnice')">Poslovnice</button><button onclick="go('kontakt')">Kontakt</button><button onclick="go('zahtjev')">Podnesi zahtjev</button>
+      </div>
+      <div class="fcol"><h5>Kontakt</h5>
+        <p>+387 51 000 000</p><p>info@bilanspluskredit.ba</p><p>Ul. Kralja Petra I Karađorđevića 12<br/>78000 Banja Luka, RS</p>
+        <p>Pon–Pet: 08:00–16:00</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-lic"><svg width="14" height="14" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>Licencirano · Agencija za bankarstvo RS</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
+        <button class="foot-copy" style="background:none;border:none;cursor:pointer" onclick="go('privatnost')">Politika privatnosti</button>
+        <button class="foot-copy" style="background:none;border:none;cursor:pointer" onclick="go('uslovi')">Uslovi korišćenja</button>
+      </div>
+      <div class="foot-copy">© 2026 MKD Bilans Plus Kredit. Sva prava zadržana.</div>
+    </div>
+  </div>
+</footer>
+
+<button id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Vrh"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<!-- COOKIE BANNER -->
+<div class="cookie" id="cookie">
+  <p>Koristimo kolačiće radi boljeg korisničkog iskustva. Više u <button onclick="go('privatnost')">Politici privatnosti</button>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-no" onclick="cookieClose()">Odbij</button>
+    <button class="cookie-ok" onclick="cookieClose()">Prihvati</button>
+  </div>
+</div>
+
+<div id="confetti"></div>
+
+<script>
+/* mark JS active so reveal hiding only applies when JS can un-hide it */
+document.documentElement.classList.add('js');
+
+/* ========= REVEAL (defined early — used during initial render) ========= */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.10});
+function revealScan(){document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+  const r=el.getBoundingClientRect();
+  if(r.top<window.innerHeight-40)el.classList.add('in');else io.observe(el);
+});}
+
+/* ========= DATA ========= */
+const ic = {
+  cash:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>',
+  bolt:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>',
+  home:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>',
+  car:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M5 16l1.5-5h11L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>',
+  pension:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg>',
+  biz:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>',
+  free:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="16.5" cy="14" r="1.3"/></svg>',
+  agro:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M3 19h18M5 19l2-4h10l2 4"/></svg>',
+  short:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>'
+};
+const products = [
+  {cat:'gotovinski',ic:ic.cash,name:'Gotovinski kredit',desc:'Za lične potrebe, bez namjenskog opravdanja.',range:'1.000 – 50.000 KM',badge:'Popularno',hot:false},
+  {cat:'gotovinski',ic:ic.bolt,name:'Brza pozajmica',desc:'Bez žiranata, isti dan odgovor.',range:'500 – 5.000 KM',badge:'Najbrže',hot:true},
+  {cat:'stambeni',ic:ic.home,name:'Stambeni kredit',desc:'Za kupovinu, izgradnju ili adaptaciju nekretnine.',range:'10.000 – 100.000 KM',badge:'',hot:false},
+  {cat:'gotovinski',ic:ic.car,name:'Kredit za vozilo',desc:'Kupovina i registracija novog ili polovnog vozila.',range:'3.000 – 60.000 KM',badge:'',hot:false},
+  {cat:'penzioneri',ic:ic.pension,name:'Kredit za penzionere',desc:'Za penzionere PIO/MIO RS i Federacije BiH.',range:'1.000 – 20.000 KM',badge:'PIO/MIO',hot:false},
+  {cat:'poslovni',ic:ic.biz,name:'Poslovni kredit',desc:'Za razvoj i proširenje biznisa u RS.',range:'5.000 – 100.000 KM',badge:'',hot:false},
+  {cat:'gotovinski',ic:ic.free,name:'Nenamjenski kredit',desc:'Slobodna sredstva bez opravdanja, i za refinansiranje.',range:'1.000 – 40.000 KM',badge:'',hot:false},
+  {cat:'poslovni',ic:ic.agro,name:'Kredit za poljoprivredu',desc:'Namjenski za agrarne proizvođače.',range:'2.000 – 80.000 KM',badge:'',hot:false},
+  {cat:'gotovinski',ic:ic.short,name:'Kratkoročna pozajmica',desc:'Ultra brza pozajmica za hitne potrebe.',range:'300 – 3.000 KM',badge:'Hitno',hot:true}
+];
+const cats = [{k:'sve',l:'Sve'},{k:'gotovinski',l:'Gotovinski'},{k:'stambeni',l:'Stambeni'},{k:'penzioneri',l:'Penzioneri'},{k:'poslovni',l:'Poslovni'}];
+
+function prodCardHTML(p){
+  return `<div class="pcard reveal">
+    ${p.badge?`<span class="pbadge ${p.hot?'hot':''}">${p.badge}</span>`:''}
+    <div class="pic">${p.ic}</div>
+    <h3>${p.name}</h3><p>${p.desc}</p>
+    <div class="prange">${p.range}</div><div class="prange-l">iznos kredita</div>
+  </div>`;
+}
+function renderProds(container,filter){
+  const list = filter==='sve'||!filter ? products : products.filter(p=>p.cat===filter);
+  container.innerHTML = list.map(prodCardHTML).join('');
+  revealScan();
+}
+function renderTabs(container,target){
+  container.innerHTML = cats.map((c,i)=>`<button class="ptab ${i===0?'on':''}" data-cat="${c.k}">${c.l}</button>`).join('');
+  container.querySelectorAll('.ptab').forEach(b=>b.onclick=()=>{
+    container.querySelectorAll('.ptab').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); renderProds(target,b.dataset.cat);
+  });
+}
+const prodsHome=document.getElementById('prodsHome');
+const prodsAll=document.getElementById('prodsAll');
+renderTabs(document.getElementById('prodTabs'),prodsHome);
+renderTabs(document.getElementById('prodTabs2'),prodsAll);
+renderProds(prodsHome,'sve'); renderProds(prodsAll,'sve');
+
+/* ========= TICKER ========= */
+const tItems=['Odobrenje za 24 sata','Bez skrivenih troškova','Licencirano · Agencija za bankarstvo RS','6 poslovnica u Republici Srpskoj','Brza pozajmica bez žiranata','Personalizovana kreditna analiza','Lični savjetnik za svakog klijenta'];
+const tt=document.getElementById('tickerTrack');
+const tHTML=tItems.map(t=>`<span class="ticker-it"><span class="dot"></span>${t}</span>`).join('');
+tt.innerHTML=tHTML+tHTML;
+
+/* ========= PARTICLES ========= */
+const pc=document.getElementById('particles');
+for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.bottom='-10px';s.style.animationDuration=(7+Math.random()*9)+'s';s.style.animationDelay=(-Math.random()*12)+'s';s.style.opacity=(.2+Math.random()*.4);s.style.transform=`scale(${.5+Math.random()})`;pc.appendChild(s);}
+
+/* ========= TESTIMONIALS ========= */
+const testi=[
+  {n:'Marko J.',l:'Banja Luka',t:'Gotovinski kredit odobren za jedan dan. Sve jasno objašnjeno, bez sitnih slova. Najljepše iskustvo s nekom finansijskom kućom do sada.',init:'MJ'},
+  {n:'Snežana P.',l:'Bijeljina',t:'Profesionalan tim koji vas sluša. Stambeni kredit smo sredili bez stresa, uslovi tačno onakvi kakvi su nam objašnjeni.',init:'SP'},
+  {n:'Dragan M.',l:'Trebinje',t:'Kao penzioner mislio sam da je teško doći do kredita. Ovdje su mi sve sredili za par sati, automatska naplata iz penzije.',init:'DM'},
+  {n:'Jelena K.',l:'Doboj',t:'Brza pozajmica bez žiranata mi je spasila situaciju. Novac isti dan na računu. Preporučujem svima.',init:'JK'},
+  {n:'Nenad V.',l:'Prijedor',t:'Poslovni kredit za proširenje radnje. Savjetnik je razumio moju situaciju i ponudio realnu ratu. Korektno od početka do kraja.',init:'NV'},
+  {n:'Milica T.',l:'Zvornik',t:'Transparentno, brzo i ljudski. Tačno znaš šta plaćaš. Vraćam se i za sljedeći kredit.',init:'MT'}
+];
+const ttr=document.getElementById('testiTrack');
+ttr.innerHTML=testi.map(x=>`<div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">${x.t}</p><div class="tauthor"><div class="tav">${x.init}</div><div><div class="tname">${x.n}</div><div class="tloc">${x.l}</div></div></div></div>`).join('');
+let tIdx=0;
+function testiMove(d){
+  const card=ttr.querySelector('.tcard'); if(!card) return;
+  const per=window.innerWidth<600?1:window.innerWidth<980?2:3;
+  const max=Math.max(0,testi.length-per);
+  tIdx=Math.min(max,Math.max(0,tIdx+d));
+  const gap=22, w=card.getBoundingClientRect().width+gap;
+  ttr.style.transform=`translateX(${-tIdx*w}px)`;
+}
+window.addEventListener('resize',()=>{tIdx=0;ttr.style.transform='translateX(0)';});
+
+/* ========= FAQ ========= */
+const faqs=[
+  {q:'Koliko brzo dobijam odobrenje?',a:'Gotovinski kredit odobravamo u roku od 24 sata od podnošenja kompletnog zahtjeva. Stambeni i poslovni krediti zahtijevaju do 48 sati zbog detaljnije analize.'},
+  {q:'Da li mi treba žirant?',a:'Za brze pozajmice i većinu gotovinskih kredita žirant nije potreban. Za veće iznose i poslovne kredite uslovi se utvrđuju individualnom analizom.'},
+  {q:'Mogu li kao penzioner dobiti kredit?',a:'Da. Imamo poseban proizvod za penzionere PIO/MIO RS i Federacije BiH, sa automatskom naplatom rate iz penzije.'},
+  {q:'Šta je EKS i gdje ga vidim?',a:'Efektivna kamatna stopa (EKS) prikazuje ukupan trošak kredita. Navodi se u ugovoru o kreditu za svaki proizvod, a okvirno ga možete vidjeti u našem kalkulatoru.'},
+  {q:'Koju dokumentaciju trebam?',a:'Za većinu kredita dovoljna je lična karta i potvrda o primanjima. Tačan spisak zavisi od vrste kredita i dostavlja ga vaš savjetnik.'},
+  {q:'Mogu li refinansirati postojeći kredit?',a:'Da, kroz nenamjenski kredit moguće je refinansiranje postojećih obaveza uz povoljnije uslove i jednu ratu.'}
+];
+const fw=document.getElementById('faqWrap');
+fw.innerHTML=faqs.map(f=>`<div class="faq"><div class="faq-q">${f.q}<span class="pl">+</span></div><div class="faq-a"><p>${f.a}</p></div></div>`).join('');
+fw.querySelectorAll('.faq').forEach(f=>{
+  f.querySelector('.faq-q').onclick=()=>{
+    const open=f.classList.contains('open');
+    fw.querySelectorAll('.faq').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){f.classList.add('open');const a=f.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}
+  };
+});
+
+/* ========= QUIZ ========= */
+let quizState={};
+function quizAns(step,val){
+  quizState[step]=val;
+  const steps=document.querySelectorAll('.q-step');
+  const prog=document.querySelectorAll('#quizProg i');
+  if(step<2){
+    steps[step].classList.remove('on');
+    steps[step+1].classList.add('on');
+    prog[step].classList.add('done');prog[step].classList.remove('cur');
+    prog[step+1].classList.add('cur');
+  } else {
+    prog[step].classList.add('done');prog[step].classList.remove('cur');
+    steps[step].classList.remove('on');
+    showQuizResult();
+  }
+}
+function showQuizResult(){
+  const purpose=quizState[0], status=quizState[1], speed=quizState[2];
+  let name='Gotovinski kredit', desc='Univerzalno rješenje za vaše lične potrebe, bez namjenskog opravdanja i sa fleksibilnim rokom otplate.';
+  if(status==='penzioner'){name='Kredit za penzionere';desc='Prilagođen penzionerima PIO/MIO RS i Federacije BiH, sa automatskom naplatom rate direktno iz penzije.';}
+  else if(status==='poljoprivrednik'){name='Kredit za poljoprivredu';desc='Namjenski kredit za agrarne proizvođače, sa uslovima prilagođenim sezonskom prilivu prihoda.';}
+  else if(purpose==='stambeni'){name='Stambeni kredit';desc='Za kupovinu, izgradnju ili adaptaciju nekretnine, uz duži rok otplate i povoljnu kamatu.';}
+  else if(purpose==='poslovni'||status==='preduzetnik'){name='Poslovni kredit';desc='Finansijska podrška za razvoj i proširenje vašeg biznisa u Republici Srpskoj.';}
+  else if(purpose==='vozilo'){name='Kredit za vozilo';desc='Za kupovinu i registraciju novog ili polovnog vozila, uz ratu skrojenu po mjeri.';}
+  else if(speed==='hitno'){name='Brza pozajmica';desc='Bez žiranata i sa odgovorom isti dan — idealno kada vam sredstva trebaju odmah.';}
+  document.getElementById('quizName').textContent=name;
+  document.getElementById('quizDesc').textContent=desc;
+  document.getElementById('quizResult').classList.add('on');
+}
+function quizRestart(){
+  quizState={};
+  document.querySelectorAll('.q-step').forEach((s,i)=>s.classList.toggle('on',i===0));
+  document.getElementById('quizResult').classList.remove('on');
+  document.querySelectorAll('#quizProg i').forEach((p,i)=>{p.classList.remove('done','cur');if(i===0)p.classList.add('cur');});
+}
+
+/* ========= CALCULATOR ========= */
+const calcRates={gotovinski:7.9,stambeni:5.4,poslovni:8.9};
+let calcType='gotovinski';
+const ctypeDefs=[{k:'gotovinski',l:'Gotovinski'},{k:'stambeni',l:'Stambeni'},{k:'poslovni',l:'Poslovni'}];
+const ctEl=document.getElementById('calcTypes');
+ctEl.innerHTML=ctypeDefs.map((c,i)=>`<button class="ctype ${i===0?'on':''}" data-k="${c.k}">${c.l}</button>`).join('');
+ctEl.querySelectorAll('.ctype').forEach(b=>b.onclick=()=>{
+  ctEl.querySelectorAll('.ctype').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  calcType=b.dataset.k; const r=calcRates[calcType];
+  document.getElementById('calcRate').value=r; calcUpdate();
+});
+const fmt=n=>Math.round(n).toLocaleString('de-DE');
+function calcUpdate(){
+  const amt=+document.getElementById('calcAmt').value;
+  const term=+document.getElementById('calcTerm').value;
+  const rate=+document.getElementById('calcRate').value;
+  document.getElementById('calcAmtL').textContent=fmt(amt)+' KM';
+  document.getElementById('calcTermL').textContent=term+' mjeseci';
+  document.getElementById('calcRateL').textContent=rate.toFixed(1).replace('.',',')+' %';
+  const mr=rate/100/12;
+  const monthly=mr>0?amt*mr/(1-Math.pow(1+mr,-term)):amt/term;
+  const total=monthly*term, interest=total-amt, eks=rate+0.5;
+  document.getElementById('calcMonthly').innerHTML=fmt(monthly)+' <small>KM</small>';
+  document.getElementById('calcSubline').textContent=term+' rata · '+ctypeDefs.find(c=>c.k===calcType).l.toLowerCase()+' kredit';
+  document.getElementById('calcPrincipal').textContent=fmt(amt)+' KM';
+  document.getElementById('calcInterest').textContent=fmt(interest)+' KM';
+  document.getElementById('calcTotal').textContent=fmt(total)+' KM';
+  document.getElementById('calcEks').textContent=eks.toFixed(1).replace('.',',')+' %';
+  // chart: remaining balance over time
+  const ch=document.getElementById('calcChart');const bars=18;let bal=amt;let parts=[];
+  const stepM=term/bars;
+  for(let i=0;i<bars;i++){parts.push(bal);for(let m=0;m<stepM;m++){bal=bal*(1+mr)-monthly;}}
+  const mx=Math.max(...parts);
+  ch.innerHTML=parts.map(v=>`<div class="bar" style="height:${Math.max(5,(v/mx)*100)}%"></div>`).join('');
+}
+['calcAmt','calcTerm','calcRate'].forEach(id=>document.getElementById(id).addEventListener('input',calcUpdate));
+calcUpdate();
+
+/* ========= CREDIT CAPACITY GAUGE ========= */
+const ARC=283;
+function gaugeUpdate(){
+  const inc=+document.getElementById('gInc').value;
+  const obl=+document.getElementById('gObl').value;
+  const trm=+document.getElementById('gTrm').value;
+  document.getElementById('gIncL').textContent=fmt(inc)+' KM';
+  document.getElementById('gOblL').textContent=fmt(obl)+' KM';
+  document.getElementById('gTrmL').textContent=trm+' mjeseci';
+  const cap=inc*0.45;                       // dozvoljeni teret (DSTI 45%)
+  const maxRate=Math.max(0,cap-obl);        // slobodna rata
+  const i=0.08/12, factor=(1-Math.pow(1+i,-trm))/i;
+  const maxLoan=maxRate*factor;
+  const score=cap>0?Math.max(0,Math.min(100,maxRate/cap*100)):0;
+  document.getElementById('gAmt').textContent=fmt(maxLoan)+' KM';
+  document.getElementById('gRate').textContent=fmt(maxRate)+' KM';
+  document.getElementById('gArc').style.strokeDashoffset=ARC*(1-score/100);
+  document.getElementById('gNeedle').setAttribute('transform','rotate('+((score/100)*180-90)+' 110 118)');
+  const b=document.getElementById('gBadge');
+  b.className='gauge-badge '+(score>=60?'good':score>=30?'mid':'low');
+  b.textContent=score>=60?'Odlična':score>=30?'Dobra':'Slabija';
+}
+['gInc','gObl','gTrm'].forEach(id=>document.getElementById(id).addEventListener('input',gaugeUpdate));
+gaugeUpdate();
+
+/* ========= BRANCH MAP ========= */
+const branches=[
+  {city:'Banja Luka',name:'Banja Luka – Centar',addr:'Ul. Kralja Petra I Karađorđevića 12',tel:'+387 51 000 001',xp:33,yp:29},
+  {city:'Prijedor',name:'Prijedor',addr:'Ul. Kozaračka 15',tel:'+387 52 000 006',xp:21,yp:23},
+  {city:'Doboj',name:'Doboj',addr:'Ul. Cara Dušana 3',tel:'+387 53 000 004',xp:50,yp:35},
+  {city:'Bijeljina',name:'Bijeljina',addr:'Ul. Srpske Vojske 45',tel:'+387 55 000 002',xp:77,yp:29},
+  {city:'Zvornik',name:'Zvornik',addr:'Ul. Svetog Save 22',tel:'+387 56 000 005',xp:73,yp:49},
+  {city:'Trebinje',name:'Trebinje',addr:'Ul. Jovana Dučića 8',tel:'+387 59 000 003',xp:58,yp:84}
+];
+function isOpenNow(){
+  const now=new Date();const d=now.getDay();const h=now.getHours()+now.getMinutes()/60;
+  if(d===0) return false;
+  if(d===6) return h>=9 && h<13;
+  return h>=8 && h<16;
+}
+const openNow=isOpenNow();
+const statusHTML=openNow?'<span class="status open"><span class="sd"></span>Otvoreno</span>':'<span class="status closed"><span class="sd"></span>Zatvoreno</span>';
+const mapPins=document.getElementById('mapPins');
+mapPins.innerHTML=branches.map((b,i)=>`<button type="button" class="map-pin" data-i="${i}" style="left:${b.xp}%;top:${b.yp}%">
+  <span><span class="mp-pulse"></span><span class="mp-dot"></span></span>
+  <span class="mp-label">${b.city}</span></button>`).join('');
+const bl=document.getElementById('branchList');
+bl.innerHTML=branches.map((b,i)=>`<div class="branch" data-i="${i}">
+  <div class="branch-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+  <div class="branch-bd"><h4>${b.name}</h4><p>${b.addr}</p><div class="ph">${b.tel}</div></div>
+  ${statusHTML}</div>`).join('');
+function selBranch(i){
+  document.querySelectorAll('.map-pin').forEach(p=>p.classList.toggle('on',+p.dataset.i===i));
+  document.querySelectorAll('.branch').forEach(p=>p.classList.toggle('on',+p.dataset.i===i));
+}
+document.querySelectorAll('.map-pin').forEach(p=>p.onclick=()=>selBranch(+p.dataset.i));
+document.querySelectorAll('.branch').forEach(p=>{p.onmouseenter=()=>selBranch(+p.dataset.i);p.onclick=()=>selBranch(+p.dataset.i);});
+selBranch(0);
+
+/* ========= ROUTER ========= */
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('pg-'+id);
+  if(pg)pg.classList.add('active');
+  document.querySelectorAll('.nlink').forEach(n=>n.classList.toggle('active',n.dataset.nl===id));
+  document.getElementById('navlinks').classList.remove('open');
+  document.getElementById('burger').classList.remove('open');
+  window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+  setTimeout(revealScan,60);
+}
+
+/* ========= NAV / BURGER / SCROLL ========= */
+const nav=document.getElementById('nav');
+const burger=document.getElementById('burger');
+burger.onclick=()=>{document.getElementById('navlinks').classList.toggle('open');burger.classList.toggle('open');};
+const totop=document.getElementById('totop');
+const sb=document.getElementById('scrollbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>20);
+  totop.classList.toggle('show',window.scrollY>500);
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  sb.style.width=(window.scrollY/h*100)+'%';
+});
+
+/* ========= REVEAL: initial scan + safety net ========= */
+revealScan();
+window.addEventListener('load',revealScan);
+/* failsafe: if anything goes wrong, never leave content hidden */
+setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight-40)el.classList.add('in');}),1500);
+
+/* ========= FORMS ========= */
+function validate(form,fields){
+  let ok=true;
+  fields.forEach(id=>{const el=document.getElementById(id);if(!el)return;
+    const bad=!el.value.trim()||(el.type==='email'&&!/^[^@]+@[^@]+\.[^@]+$/.test(el.value));
+    el.classList.toggle('err',bad);if(bad)ok=false;});
+  return ok;
+}
+const zf=document.getElementById('zForm');
+zf.addEventListener('submit',e=>{e.preventDefault();
+  const ok=validate(zf,['z-ime','z-tel','z-email','z-grad','z-tip']);
+  const g=document.getElementById('z-gdpr');g.parentElement.style.color=g.checked?'':'#e0483f';
+  if(ok&&g.checked){zf.style.display='none';document.getElementById('zOk').classList.add('on');confetti();}
+});
+const kf=document.getElementById('kForm');
+kf.addEventListener('submit',e=>{e.preventDefault();
+  if(validate(kf,['k-ime','k-tel','k-email','k-poruka'])){kf.style.display='none';document.getElementById('kOk').classList.add('on');confetti();}
+});
+
+/* ========= COOKIE BANNER ========= */
+function cookieClose(){document.getElementById('cookie').classList.remove('show');try{localStorage.setItem('bpk_cookie','1');}catch(e){}}
+(function(){let seen=false;try{seen=localStorage.getItem('bpk_cookie')==='1';}catch(e){}
+  if(!seen)setTimeout(()=>document.getElementById('cookie').classList.add('show'),1400);})();
+
+/* ========= ANIMATED COUNTERS ========= */
+function runCounters(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    if(el.dataset.done)return; el.dataset.done='1';
+    const target=+el.dataset.count, suf=el.dataset.suffix||''; const dur=1400; const t0=performance.now();
+    (function step(t){const p=Math.min(1,(t-t0)/dur);const e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e)+suf; if(p<1)requestAnimationFrame(step);})(t0);
+  });
+}
+setTimeout(runCounters,500);
+
+/* ========= HERO WORD ROTATOR ========= */
+(function(){var el=document.getElementById('rotWord');if(!el)return;
+  var words=['ambicije.','ideje.','rast.','snove.','uspjeh.'];var i=0;
+  setInterval(function(){el.classList.add('swap');
+    setTimeout(function(){i=(i+1)%words.length;el.textContent=words[i];el.classList.remove('swap');},300);
+  },2600);})();
+
+/* ========= 3D TILT PRODUCT CARDS ========= */
+function bindTilt(){
+  document.querySelectorAll('.pcard').forEach(function(c){
+    if(c.dataset.tilt)return; c.dataset.tilt='1';
+    c.addEventListener('mousemove',function(e){
+      var r=c.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      c.classList.add('tilting');
+      c.style.transform='perspective(1000px) rotateY('+(px*9)+'deg) rotateX('+(-py*9)+'deg) translateY(-8px)';
+    });
+    c.addEventListener('mouseleave',function(){c.classList.remove('tilting');c.style.transform='';});
+  });
+}
+bindTilt();
+document.addEventListener('click',function(e){if(e.target&&e.target.classList&&e.target.classList.contains('ptab'))setTimeout(bindTilt,60);});
+
+/* ========= MAGNETIC PRIMARY BUTTONS ========= */
+document.querySelectorAll('.btn-pri').forEach(function(b){
+  b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();
+    b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+(((e.clientY-r.top-r.height/2)*.35)-3)+'px)';});
+  b.addEventListener('mouseleave',function(){b.style.transform='';});
+});
+
+/* ========= CONFETTI (na uspješno poslan obrazac) ========= */
+function confetti(){var c=document.getElementById('confetti');if(!c)return;c.innerHTML='';
+  var cols=['#3D6BFF','#6E94FF','#0A2363','#1a9e63','#f0a500','#fff'];
+  for(var k=0;k<90;k++){var p=document.createElement('i');
+    p.style.left=Math.random()*100+'%';
+    p.style.background=cols[k%cols.length];
+    p.style.animationDelay=(Math.random()*.5)+'s';
+    p.style.animationDuration=(1.8+Math.random()*1.4)+'s';
+    p.style.borderRadius=Math.random()>.5?'2px':'50%';
+    c.appendChild(p);}
+  setTimeout(function(){c.innerHTML='';},3400);
+}
+
+/* parallax orbs on mouse (hero only) */
+document.querySelector('.hero').addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5),y=(e.clientY/window.innerHeight-.5);
+  document.querySelectorAll('#pg-pocetna .orb').forEach((o,i)=>{const f=(i+1)*14;o.style.transform=`translate(${x*f}px,${y*f}px)`;});
+  const w=document.querySelector('.woman');if(w)w.style.transform=`translate(${x*-16}px,0)`;
+});
+</script>
+</body>
+</html>
