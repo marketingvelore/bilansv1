@@ -222,15 +222,14 @@ button{font-family:inherit}
 /* responsive signature - bottom-right on mobile */
 @media(max-width:980px){
   .sig-desktop{display:none}
-  .hero-visual{flex-direction:column;align-items:center}
-  .sig-mobile{display:block;position:static;align-self:flex-end;text-align:right;margin:12px 8px 0 0;max-width:none;animation:fadeUp .8s .6s both}
-  .sig-mobile .sig-name{font-size:20px;margin-bottom:2px}
-  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:8.5px}
+  .sig-mobile{display:block;position:absolute;right:8px;bottom:10px;left:auto;top:auto;text-align:right;max-width:150px;z-index:6;pointer-events:none;animation:fadeUp .8s .8s both}
+  .sig-mobile .sig-name{font-size:18px;margin-bottom:2px}
+  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:8px}
 }
 @media(max-width:600px){
-  .sig-mobile{margin:10px 6px 0 0}
-  .sig-mobile .sig-name{font-size:18px}
-  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:8px}
+  .sig-mobile{right:6px;bottom:8px;max-width:135px}
+  .sig-mobile .sig-name{font-size:16px}
+  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:7.5px}
 }
 /* marquee ticker */
 .ticker{background:var(--accent);height:46px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:5}
@@ -670,7 +669,7 @@ function tryImg(el){
     <div class="brand" onclick="go('pocetna')">
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
-      <img src="BilansNoviLogo.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <img src="BP.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
       <div class="fallback" style="display:none">
         <div class="mono">B<span style="color:var(--accent-2)">P</span></div>
         <div class="bt"><b>BILANS PLUS</b><small>KREDIT</small></div>
@@ -718,7 +717,7 @@ function tryImg(el){
         <div class="woman-ring"></div>
         <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ZE.PNG" -->
         <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ze.png" -->
-        <img class="woman" src="ze7.png" data-alts="ze.png|ZE.PNG|ZE.png" alt="Bilans Plus Kredit savjetnica" onerror="tryImg(this)"/>
+        <img class="woman" src="ze4.png" data-alts="ze.png|ZE.PNG|ZE.png" alt="Bilans Plus Kredit savjetnica" onerror="tryImg(this)"/>
         <div class="woman-fallback" style="display:none">Vaša savjetnica<br/>(ZE.PNG)</div>
         <div class="woman-signature sig-mobile">
           <span class="sig-name">Dajana Mizdrak</span>
