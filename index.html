@@ -222,14 +222,14 @@ button{font-family:inherit}
 /* responsive signature - bottom-right on mobile */
 @media(max-width:980px){
   .sig-desktop{display:none}
-  .sig-mobile{display:block;position:absolute;right:calc((100% - 100vw)/2 + 12px);bottom:10px;left:auto;top:auto;text-align:right;max-width:130px;z-index:6;pointer-events:none;animation:fadeUp .8s .8s both}
-  .sig-mobile .sig-name{font-size:15px;margin-bottom:2px}
-  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:7px}
+  .sig-mobile{display:block;position:absolute;right:calc((100% - 100vw)/2 + 12px);bottom:10px;left:auto;top:auto;text-align:right;max-width:116px;z-index:6;pointer-events:none;animation:fadeUp .8s .8s both}
+  .sig-mobile .sig-name{font-size:13px;margin-bottom:2px}
+  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:6.5px}
 }
 @media(max-width:600px){
-  .sig-mobile{right:calc((100% - 100vw)/2 + 10px);bottom:8px;max-width:112px}
-  .sig-mobile .sig-name{font-size:13px}
-  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:6.5px}
+  .sig-mobile{right:calc((100% - 100vw)/2 + 10px);bottom:8px;max-width:96px}
+  .sig-mobile .sig-name{font-size:11px}
+  .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:6px}
 }
 /* marquee ticker */
 .ticker{background:var(--accent);height:46px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:5}
@@ -669,7 +669,7 @@ function tryImg(el){
     <div class="brand" onclick="go('pocetna')">
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
-      <img src="BilansPlusNovi.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <img src="BilansNoviLogo.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
       <div class="fallback" style="display:none">
         <div class="mono">B<span style="color:var(--accent-2)">P</span></div>
         <div class="bt"><b>BILANS PLUS</b><small>KREDIT</small></div>
