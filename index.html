@@ -106,6 +106,21 @@ button{font-family:inherit}
 .particles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
 .particles i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.5;animation:rise linear infinite}
 @keyframes rise{from{transform:translateY(0);opacity:0}10%{opacity:.6}to{transform:translateY(-110vh);opacity:0}}
+/* hero pozadinski „kanali" — krediti koji se polako kreću (Wii-stil), duboko iza */
+.hero-channels{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;opacity:.13;display:flex;flex-direction:column;justify-content:center;gap:18px;
+  -webkit-mask-image:radial-gradient(ellipse 95% 85% at 50% 45%,#000 35%,transparent 86%);
+  mask-image:radial-gradient(ellipse 95% 85% at 50% 45%,#000 35%,transparent 86%)}
+.hch-row{display:flex;gap:18px;width:max-content;flex-shrink:0;will-change:transform}
+.hch-row.l{animation:hchL 50s linear infinite}
+.hch-row.r{animation:hchR 60s linear infinite}
+@keyframes hchL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes hchR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.hch-tile{position:relative;width:168px;height:108px;border-radius:13px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,.2);background:var(--navy-2);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.hch-tile img{width:100%;height:100%;object-fit:cover}
+.hch-tile span{position:absolute;left:0;right:0;bottom:0;padding:6px 9px;font-family:'Sora';font-size:11px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(6,20,61,.9));line-height:1.2}
+@media(max-width:600px){.hch-tile{width:120px;height:80px}.hero-channels{opacity:.13;gap:14px;justify-content:space-around;
+  -webkit-mask-image:radial-gradient(ellipse 135% 96% at 50% 45%,#000 58%,transparent 97%);
+  mask-image:radial-gradient(ellipse 135% 96% at 50% 45%,#000 58%,transparent 97%)}}
 .hero-in{position:relative;z-index:5;flex:1;display:flex;align-items:stretch;padding:40px 0 0}
 .hero-grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:stretch;width:100%}
 .hero-text{display:flex;flex-direction:column;justify-content:center;padding-bottom:54px}
@@ -679,7 +694,7 @@ function tryImg(el){
     <div class="brand" onclick="go('pocetna')">
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
-      <img src="BilansNoviLogo.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <img src="BilansPlusNovi.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
       <div class="fallback" style="display:none">
         <div class="mono">B<span style="color:var(--accent-2)">P</span></div>
         <div class="bt"><b>BILANS PLUS</b><small>KREDIT</small></div>
@@ -703,6 +718,7 @@ function tryImg(el){
   <div class="hero-bg"><div class="hero-grid"></div></div>
   <div class="orb a"></div><div class="orb b"></div>
   <div class="particles" id="particles"></div>
+  <div class="hero-channels" id="heroChannels"></div>
   <div class="hero-in">
     <div class="container hero-grid2">
       <div class="hero-text">
@@ -726,7 +742,7 @@ function tryImg(el){
         <div class="woman-ring"></div>
         <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ZE.PNG" -->
         <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ze.png" -->
-        <img class="woman" src="ze6.png" data-alts="ze.png|ZE.PNG|ZE.png" alt="Bilans Plus Kredit savjetnica" onerror="tryImg(this)"/>
+        <img class="woman" src="ze4.png" data-alts="ze.png|ZE.PNG|ZE.png" alt="Bilans Plus Kredit savjetnica" onerror="tryImg(this)"/>
         <div class="woman-fallback" style="display:none">Vaša savjetnica<br/>(ZE.PNG)</div>
         <div class="woman-signature">
           <span class="sig-name">Dajana Mizdrak</span>
@@ -1302,6 +1318,21 @@ tt.innerHTML=tHTML+tHTML;
 /* ========= PARTICLES ========= */
 const pc=document.getElementById('particles');
 for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.bottom='-10px';s.style.animationDuration=(7+Math.random()*9)+'s';s.style.animationDelay=(-Math.random()*12)+'s';s.style.opacity=(.2+Math.random()*.4);s.style.transform=`scale(${.5+Math.random()})`;pc.appendChild(s);}
+/* ========= HERO POZADINSKI KANALI (krediti koji se kreću) ========= */
+(function(){
+  const host=document.getElementById('heroChannels'); if(!host||!window.products&&typeof products==='undefined') return;
+  const tile=p=>`<div class="hch-tile"><img src="${p.img}" alt="" loading="lazy" onerror="this.style.display='none'"/><span>${p.name}</span></div>`;
+  for(let r=0;r<6;r++){
+    const off=r%products.length;
+    const rot=products.slice(off).concat(products.slice(0,off));
+    const set=rot.map(tile).join('');
+    const row=document.createElement('div');
+    row.className='hch-row '+(r%2?'r':'l');
+    row.innerHTML=set+set;
+    row.style.animationDuration=(48+r*9)+'s';
+    host.appendChild(row);
+  }
+})();
 /* ========= TESTIMONIALS ========= */
 const testi=[
   {n:'Marko J.',l:'Banja Luka',t:'Gotovinski kredit odobren za jedan dan. Sve jasno objašnjeno, bez sitnih slova. Najljepše iskustvo s nekom finansijskom kućom do sada.',init:'MJ'},
