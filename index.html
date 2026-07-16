@@ -1804,7 +1804,7 @@ function sfxTickThrottled(){var n=Date.now();if(n-lastTick>70){lastTick=n;sfx('t
    Za sve poznate fraze pušta se studijski snimak — prirodni ženski srpski
    glas (Sophie neural), identičan kod SVAKOG posjetioca, u svakom browseru.
    Ako fajl ne postoji, automatski i tiho se koristi sistemski TTS kao rezerva. */
-var AUDIO_DIR='audio/';
+var AUDIO_DIR=''; /* mp3 fajlovi su u korijenu repozitorija, ne u podfolderu audio/ */
 var player=new Audio(),audioMiss={},seqQueue=null,seqFallback=null;
 player.preload='none';
 player.addEventListener('playing',function(){btnEl.classList.add('speaking');});
