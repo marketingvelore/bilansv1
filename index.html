@@ -650,6 +650,34 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .cta-btns{flex-direction:column}
   .cta-btns button{width:100%}
 }
+/* ============ PRISTUPAČNOST (A11Y) — dodatak, ne mijenja postojeći izgled ============ */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:fixed;top:-70px;left:16px;z-index:3000;background:var(--navy);color:#fff;font-family:'Sora';font-weight:700;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;border:2px solid var(--accent);cursor:pointer;transition:top .2s ease}
+.skip-link:focus{top:0}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.nav button:focus-visible,.footer button:focus-visible,.btn-pri:focus-visible,.btn-ghost:focus-visible,.q-opt:focus-visible,.q-restart:focus-visible,.btn-out-w:focus-visible,.map-pin:focus-visible{outline:3px solid #fff;outline-offset:2px}
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .hero-h1 .ln em{transform:none}
+  html.js .reveal{opacity:1;transform:none}
+}
+/* audio vodič — plutajuće dugme + panel */
+#audioGuideBtn{position:fixed;bottom:26px;left:26px;z-index:1600;width:56px;height:56px;border-radius:50%;background:var(--navy);border:2px solid var(--accent);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(6,20,61,.4);transition:var(--t)}
+#audioGuideBtn:hover{background:var(--accent);transform:translateY(-2px)}
+#audioGuideBtn.speaking{animation:agPulse 1.4s ease-in-out infinite}
+@keyframes agPulse{0%,100%{box-shadow:0 0 0 0 var(--glow)}50%{box-shadow:0 0 0 14px rgba(61,107,255,0)}}
+#audioGuidePanel{position:fixed;bottom:94px;left:26px;z-index:1600;width:300px;max-width:calc(100vw - 40px);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-lg);padding:18px;display:none}
+#audioGuidePanel.open{display:block;animation:pgIn .3s ease both}
+#audioGuidePanel h3{font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);margin-bottom:4px}
+#audioGuidePanel .ag-sub{font-size:11.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.ag-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font-family:'Sora';font-size:13px;font-weight:700;color:var(--navy);background:var(--ice);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;cursor:pointer;transition:var(--t);margin-bottom:8px}
+.ag-btn:hover{border-color:var(--accent);color:var(--accent)}
+.ag-btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.ag-hint{font-size:10.5px;color:var(--muted);line-height:1.6;margin-top:4px}
+.ag-hint b{color:var(--navy)}
+@media(max-width:600px){#audioGuideBtn{left:16px;bottom:16px;width:50px;height:50px}#audioGuidePanel{left:16px;bottom:76px}}
 </style>
 </head>
 <body>
@@ -662,9 +690,11 @@ function tryImg(el){
   else{el.style.display='none';var fb=el.nextElementSibling;if(fb)fb.style.display=el.getAttribute('data-fb')||'flex';}
 }
 </script>
-<div id="scrollbar"></div>
+<button class="skip-link" onclick="a11ySkip()">Preskoči na glavni sadržaj</button>
+<div id="ariaLive" class="sr-only" role="status" aria-live="polite"></div>
+<div id="scrollbar" aria-hidden="true"></div>
 <!-- ============ NAV ============ -->
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Glavna navigacija">
   <div class="container nav-in">
     <div class="brand" onclick="go('pocetna')">
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
@@ -684,7 +714,7 @@ function tryImg(el){
       <button class="nlink" data-nl="rjecnik" onclick="go('rjecnik')">Rječnik</button>
       <button class="nlink" data-nl="kontakt" onclick="go('kontakt')">Kontakt</button>
     </div>
-    <button class="burger" id="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Meni" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <!-- ============ PAGE: POČETNA ============ -->
@@ -1205,7 +1235,23 @@ function tryImg(el){
     <button class="cookie-ok" onclick="cookieClose()">Prihvati</button>
   </div>
 </div>
-<div id="confetti"></div>
+<!-- ============ AUDIO VODIČ — pristupačnost za slijepe i slabovidne ============ -->
+<button id="audioGuideBtn" aria-label="Audio vodič za slijepe i slabovidne korisnike" aria-expanded="false" aria-controls="audioGuidePanel" title="Audio vodič (Alt+G)">
+  <svg width="26" height="26" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9.5 9.5 0 010 13"/></svg>
+</button>
+<div id="audioGuidePanel" role="dialog" aria-label="Audio vodič — postavke">
+  <h3>Audio vodič</h3>
+  <div class="ag-sub" id="agSub">Glasovna podrška za slijepe i slabovidne korisnike — sajt vam čita sadržaj naglas.</div>
+  <button class="ag-btn" id="agRead">▶&nbsp; Pročitaj ovu stranicu</button>
+  <button class="ag-btn" id="agPause">⏸&nbsp; Pauziraj / nastavi</button>
+  <button class="ag-btn" id="agStop">⏹&nbsp; Zaustavi čitanje</button>
+  <button class="ag-btn" id="agAuto" aria-pressed="false">Automatske najave: <span id="agAutoState">isključene</span></button>
+  <button class="ag-btn" id="agSpeed">Brzina govora: <span id="agSpeedState">normalna</span></button>
+  <button class="ag-btn" id="agVoice">Rezervni glas: <span id="agVoiceState">automatski</span></button>
+  <button class="ag-btn" id="agSfx" aria-pressed="true">Zvučni efekti: <span id="agSfxState">uključeni</span></button>
+  <div class="ag-hint"><b>Prečice:</b> Alt+G — otvori vodič &nbsp;·&nbsp; Alt+R — pročitaj stranicu &nbsp;·&nbsp; Esc — zaustavi govor</div>
+</div>
+<div id="confetti" aria-hidden="true"></div>
 <script>
 /* mark JS active so reveal hiding only applies when JS can un-hide it */
 document.documentElement.classList.add('js');
@@ -1639,6 +1685,566 @@ document.querySelector('.hero').addEventListener('mousemove',e=>{
   document.querySelectorAll('#pg-pocetna .orb').forEach((o,i)=>{const f=(i+1)*14;o.style.transform=`translate(${x*f}px,${y*f}px)`;});
   const w=document.querySelector('.woman');if(w)w.style.transform=`translate(${x*-16}px,0)`;
 });
+</script>
+<script>
+/* ================================================================
+   PRISTUPAČNOST + AUDIO VODIČ (Web Speech API)
+   Dodatak za slijepe i slabovidne korisnike — ne mijenja postojeći
+   izgled ni ponašanje sajta, samo ga nadograđuje.
+   ================================================================ */
+(function(){
+'use strict';
+var live=document.getElementById('ariaLive');
+var synth=('speechSynthesis' in window)?window.speechSynthesis:null;
+var btnEl=document.getElementById('audioGuideBtn');
+var panel=document.getElementById('audioGuidePanel');
+var PAGE_NAMES={pocetna:'Početna',onama:'O nama',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',poslovnice:'Poslovnice',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova'};
+var QUIZ_KEYS={'Keš PLUS':'quiz-res-kes-plus','Keš PLUS MAX':'quiz-res-kes-plus-max','Siguran put PLUS':'quiz-res-siguran-put','DOM PLUS':'quiz-res-dom-plus','Ljepota i zdravlje':'quiz-res-ljepota','Treća mladost':'quiz-res-treca-mladost','Đak Prvak PLUS':'quiz-res-djak-prvak','Biznis Keš PLUS':'quiz-res-biznis-kes','Invest PLUS':'quiz-res-invest'};
+/* ---------- stanje vodiča (pamti se u localStorage) ---------- */
+var AG={auto:false,rate:1,voice:null,voiceName:null,sfx:true,open:false};
+try{var sv=JSON.parse(localStorage.getItem('bpk_ag')||'{}');AG.auto=!!sv.auto;if(sv.rate)AG.rate=sv.rate;if(sv.voiceName)AG.voiceName=sv.voiceName;if(sv.sfx===false)AG.sfx=false;}catch(e){}
+function saveAG(){try{localStorage.setItem('bpk_ag',JSON.stringify({auto:AG.auto,rate:AG.rate,voiceName:AG.voiceName,sfx:AG.sfx}));}catch(e){}}
+/* ---------- izbor glasa: boduje sve dostupne glasove i bira najprirodniji
+   ženski srpski (npr. Microsoft Sophie neural u Edge-u), pa hrvatski/bosanski.
+   Korisnik dugmetom "Glas" može ručno prebaciti na bilo koji drugi. ---------- */
+var voiceList=[];
+function scoreVoice(v){
+  var n=(v.name||'').toLowerCase(),l=(v.lang||'').toLowerCase(),s=0;
+  if(l.indexOf('sr')===0)s+=40;else if(l.indexOf('bs')===0)s+=34;else if(l.indexOf('hr')===0)s+=30;else return -1;
+  if(/natural|neural/.test(n))s+=30;   /* Edge-ovi prirodni (neural) glasovi — zvuče kao prava osoba */
+  if(/online/.test(n))s+=10;
+  if(/sophie|sofija|gabrijela|zora|lana|vesna|milica|jelena|ana|female|zens|žens/.test(n))s+=15; /* ženski glas */
+  if(/stefan|nicholas|matej|srecko|srećko|\bmale\b/.test(n))s-=8;
+  return s;
+}
+function pickVoice(){
+  if(!synth)return;
+  var vs=synth.getVoices()||[];
+  voiceList=vs.map(function(v){return{v:v,s:scoreVoice(v)};})
+    .filter(function(x){return x.s>=0;})
+    .sort(function(a,b){return b.s-a.s;})
+    .map(function(x){return x.v;});
+  var saved=null;
+  if(AG.voiceName){for(var i=0;i<voiceList.length;i++){if(voiceList[i].name===AG.voiceName){saved=voiceList[i];break;}}}
+  AG.voice=saved||voiceList[0]||null;
+  syncVoiceUI();
+}
+function shortVoiceName(v){
+  if(!v)return 'automatski';
+  return v.name.replace(/^Microsoft\s*/i,'').replace(/^Google\s*/i,'')
+    .replace(/\s*Online\s*\(Natural\)/i,' (prirodni)').replace(/\s*[-–—]\s*.*$/,'').trim()||v.name;
+}
+function syncVoiceUI(){var el=document.getElementById('agVoiceState');if(el)el.textContent=shortVoiceName(AG.voice);}
+if(synth){pickVoice();if('onvoiceschanged' in synth)synth.addEventListener('voiceschanged',pickVoice);}
+/* ---------- priprema teksta za govor ---------- */
+function cleanForSpeech(t){
+  return String(t)
+    .replace(/\s+/g,' ')
+    .replace(/(\d)\.(\d{3})/g,'$1$2')      /* 10.000 -> 10000 */
+    .replace(/\bKM\b/g,'konvertibilnih maraka')
+    .replace(/–/g,' do ')
+    .replace(/·/g,', ')
+    .replace(/%/g,' posto')
+    .trim();
+}
+function speak(text,interrupt){
+  if(!synth||!text)return;
+  if(interrupt){synth.cancel();if(typeof stopAudio==='function')stopAudio();}
+  var u=new SpeechSynthesisUtterance(cleanForSpeech(text));
+  if(AG.voice)u.voice=AG.voice;
+  u.lang=AG.voice?AG.voice.lang:'hr-HR';
+  u.rate=AG.rate;
+  u.pitch=1.04; /* blago topliji ton */
+  u.onstart=function(){btnEl.classList.add('speaking');};
+  u.onend=function(){if(!synth.speaking&&!synth.pending)btnEl.classList.remove('speaking');};
+  u.onerror=function(){btnEl.classList.remove('speaking');};
+  synth.speak(u);
+}
+function stopSpeech(){if(synth){synth.cancel();btnEl.classList.remove('speaking');}}
+/* ---------- zvučni efekti (WebAudio — sintetizovani toni, bez audio fajlova) ---------- */
+var actx=null;
+function audioCtx(){
+  var AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC)return null;
+  if(!actx)actx=new AC();
+  if(actx.state==='suspended')actx.resume();
+  return actx;
+}
+function tone(freq,start,dur,vol,type,endFreq){
+  var c=audioCtx();if(!c)return;
+  var o=c.createOscillator(),g=c.createGain(),t=c.currentTime+start;
+  o.type=type||'sine';
+  o.frequency.setValueAtTime(freq,t);
+  if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+dur);
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.exponentialRampToValueAtTime(vol,t+0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g);g.connect(c.destination);
+  o.start(t);o.stop(t+dur+0.05);
+}
+function sfx(name){
+  if(!AG.sfx)return;
+  try{
+    switch(name){
+      case 'page':    tone(440,0,.09,.05,'sine',660);tone(880,.06,.12,.04);break;                       /* promjena stranice */
+      case 'tick':    tone(1250,0,.035,.028,'square');break;                                            /* pomjeranje klizača */
+      case 'set':     tone(660,0,.08,.05);tone(990,.07,.1,.045);break;                                  /* postavljena vrijednost */
+      case 'click':   tone(520,0,.06,.05,'triangle');break;                                             /* odgovor u kvizu */
+      case 'quiz':    [660,830,990,1320].forEach(function(f,i){tone(f,i*.09,.22,.055);});break;         /* rezultat kviza — iskrica */
+      case 'success': [523,659,784,1047].forEach(function(f,i){tone(f,i*.11,.3,.06);});tone(1568,.44,.4,.04);break; /* poslan obrazac — fanfara */
+      case 'error':   tone(300,0,.14,.06,'triangle',220);tone(220,.13,.18,.05,'triangle');break;        /* greška u obrascu */
+      case 'open':    tone(520,0,.07,.04,'sine',740);break;
+      case 'close':   tone(740,0,.07,.04,'sine',520);break;
+    }
+  }catch(e){}
+}
+var lastTick=0;
+function sfxTickThrottled(){var n=Date.now();if(n-lastTick>70){lastTick=n;sfx('tick');}}
+/* ---------- snimljeni glas (MP3 fajlovi u folderu "audio/") ----------
+   Za sve poznate fraze pušta se studijski snimak — prirodni ženski srpski
+   glas (Sophie neural), identičan kod SVAKOG posjetioca, u svakom browseru.
+   Ako fajl ne postoji, automatski i tiho se koristi sistemski TTS kao rezerva. */
+var AUDIO_DIR='audio/';
+var player=new Audio(),audioMiss={},seqQueue=null,seqFallback=null;
+player.preload='none';
+player.addEventListener('playing',function(){btnEl.classList.add('speaking');});
+player.addEventListener('ended',function(){
+  if(seqQueue&&seqQueue.length){playKeyRaw(seqQueue.shift());}
+  else{seqQueue=null;btnEl.classList.remove('speaking');}
+});
+function stopAudio(){seqQueue=null;try{player.pause();player.currentTime=0;}catch(e){}btnEl.classList.remove('speaking');}
+function playClip(key,fallback,interrupt){
+  var runFallback=function(){
+    if(typeof fallback==='function')fallback();
+    else if(fallback)speak(fallback,interrupt);
+  };
+  if(audioMiss[key]){runFallback();return;}
+  if(interrupt){if(synth)synth.cancel();stopAudio();}
+  var done=false;
+  var onFail=function(){
+    if(done)return;done=true;
+    audioMiss[key]=true;btnEl.classList.remove('speaking');
+    runFallback();
+  };
+  player.onerror=onFail;
+  player.src=AUDIO_DIR+key+'.mp3';
+  player.playbackRate=AG.rate;
+  var pr=player.play();
+  /* AbortError = ovaj snimak je namjerno prekinut novim — to NIJE greška fajla */
+  if(pr&&pr.catch)pr.catch(function(err){if(err&&err.name==='AbortError')return;onFail();});
+}
+/* govori: snimak ako postoji, inače TTS */
+function say(text,interrupt,key){
+  if(key)playClip(key,text,interrupt);
+  else speak(text,interrupt);
+}
+/* ---------- sastavljanje dinamičnih rečenica iz snimaka ----------
+   Brojevi (rata, iznos, rok) sastavljaju se iz snimljenih riječi
+   ("petsto", "sedamdeset", "tri"...), pa i kalkulator govori istim
+   ženskim glasom — sistemski TTS se koristi samo ako snimci fale. */
+function playKeyRaw(key){
+  var done=false;
+  var fail=function(){
+    if(done)return;done=true;
+    audioMiss[key]=true;
+    var fb=seqFallback;seqQueue=null;seqFallback=null;
+    btnEl.classList.remove('speaking');
+    if(fb)speak(fb,true);
+  };
+  player.onerror=fail;
+  player.src=AUDIO_DIR+key+'.mp3';
+  player.playbackRate=AG.rate;
+  var pr=player.play();
+  if(pr&&pr.catch)pr.catch(function(err){if(err&&err.name==='AbortError')return;fail();});
+}
+function playSeq(keys,fallbackText){
+  for(var i=0;i<keys.length;i++){
+    if(audioMiss[keys[i]]){speak(fallbackText,true);return;}
+  }
+  if(synth)synth.cancel();
+  stopAudio();
+  seqQueue=keys.slice();seqFallback=fallbackText;
+  playKeyRaw(seqQueue.shift());
+}
+/* broj -> ključevi snimaka (srpski/bosanski izgovor) */
+function sub999(n,fem){
+  var out=[],h=Math.floor(n/100),r=n%100;
+  if(h)out.push('n-'+(h*100));
+  if(r){
+    if(r<20){
+      if(r===1)out.push(fem?'n-1f':'n-1');
+      else if(r===2)out.push(fem?'n-2f':'n-2');
+      else out.push('n-'+r);
+    }else{
+      out.push('n-'+(Math.floor(r/10)*10));
+      var d=r%10;
+      if(d){
+        if(d===1)out.push(fem?'n-1f':'n-1');
+        else if(d===2)out.push(fem?'n-2f':'n-2');
+        else out.push('n-'+d);
+      }
+    }
+  }
+  return out;
+}
+function numKeys(n){
+  n=Math.round(n);if(n<=0)return['n-0'];
+  var out=[],th=Math.floor(n/1000),rest=n%1000;
+  if(th){
+    if(th===1)out.push('n-1000');
+    else{
+      out=out.concat(sub999(th,true));
+      var v=th%100,d=th%10;
+      if(v>=12&&v<=14)out.push('n-1000p');
+      else if(d===1)out.push('n-1000p');
+      else if(d>=2&&d<=4)out.push('n-1000s');
+      else out.push('n-1000p');
+    }
+  }
+  if(rest)out=out.concat(sub999(rest,false));
+  return out;
+}
+function monthKey(n){var v=n%100,d=n%10;if(v>=12&&v<=14)return 't-mjeseci';return(d>=2&&d<=4)?'t-mjeseca':'t-mjeseci';}
+function digitsOf(sel){var el=document.getElementById(sel);return parseInt(String(el?(el.innerText||el.textContent):'0').replace(/[^\d]/g,''),10)||0;}
+var BADGE_KEYS={'Odlična':'t-odlicna','Dobra':'t-dobra','Slabija':'t-slabija'};
+var PROD_KEYS2={'Keš PLUS':'prod-kes-plus','Keš PLUS MAX':'prod-kes-plus-max','Siguran put PLUS':'prod-siguran-put','DOM PLUS':'prod-dom-plus','Ljepota i zdravlje':'prod-ljepota','Treća mladost':'prod-treca-mladost','Đak Prvak PLUS':'prod-djak-prvak','Biznis Keš PLUS':'prod-biznis-kes','Invest PLUS':'prod-invest'};
+/* najava: uvijek ide u aria-live (za čitače ekrana), a naglas samo ako su najave uključene */
+function announce(txt,key){
+  if(!txt)return;
+  live.textContent='';
+  setTimeout(function(){live.textContent=txt;},30);
+  if(AG.auto)say(txt,true,key);
+}
+/* ---------- čitanje cijele aktivne stranice ----------
+   prvo pokuša snimljenu naraciju (audio/pg-<id>.mp3), pa tek onda TTS */
+function readPage(){
+  var pg=document.querySelector('.page.active');if(!pg)return;
+  var id=pg.id.replace('pg-','');
+  playClip('pg-'+id,function(){readPageTTS();},true);
+}
+function readPageTTS(){
+  if(!synth){announce('Nažalost, vaš pretraživač ne podržava govornu sintezu.');return;}
+  synth.cancel();
+  var pg=document.querySelector('.page.active');if(!pg)return;
+  var id=pg.id.replace('pg-','');
+  var sel='h1,h2,h3,h4,.lead,p,li,.pspecs>div,.cline,.q-q,.q-opt,.faq-q,.branch-bd,.kit,.trust-it,.hstat,.gauge-amt,.gauge-amt-l,.chip';
+  var nodes=pg.querySelectorAll(sel),kept=[];
+  nodes.forEach(function(el){
+    if(el.closest('[aria-hidden="true"]'))return;
+    if(el.offsetParent===null)return; /* nevidljivo (display:none grana) */
+    for(var i=0;i<kept.length;i++){if(kept[i].contains(el))return;}
+    kept.push(el);
+  });
+  speak('Stranica: '+(PAGE_NAMES[id]||id)+'.',false);
+  var count=0;
+  kept.forEach(function(el){
+    if(count>=150)return;
+    var t=(el.innerText||'').replace(/\s+/g,' ').trim();
+    if(t&&t.length>1){speak(t,false);count++;}
+  });
+}
+/* ---------- panel vodiča ---------- */
+function togglePanel(force){
+  AG.open=(force!==undefined)?force:!AG.open;
+  panel.classList.toggle('open',AG.open);
+  btnEl.setAttribute('aria-expanded',AG.open?'true':'false');
+  sfx(AG.open?'open':'close');
+  if(AG.open){
+    var f=document.getElementById('agRead');if(f)f.focus();
+    var hi=false;try{hi=localStorage.getItem('bpk_ag_hi')==='1';}catch(e){}
+    if(!hi){
+      try{localStorage.setItem('bpk_ag_hi','1');}catch(e){}
+      playClip('ag-welcome','Dobrodošli u audio vodič. Dugme Pročitaj ovu stranicu čita vam sadržaj naglas, a automatske najave javljaju promjene stranica i rezultate.',false);
+    }
+  }
+  else btnEl.focus();
+}
+btnEl.addEventListener('click',function(){togglePanel();});
+document.getElementById('agRead').addEventListener('click',readPage);
+document.getElementById('agPause').addEventListener('click',function(){
+  /* prvo MP3 player, pa TTS */
+  if(player.src&&!player.ended&&player.currentTime>0){
+    if(player.paused)player.play();else player.pause();
+    return;
+  }
+  if(!synth)return;
+  if(synth.paused)synth.resume();
+  else if(synth.speaking)synth.pause();
+});
+document.getElementById('agStop').addEventListener('click',function(){stopAudio();stopSpeech();});
+var autoBtn=document.getElementById('agAuto'),autoState=document.getElementById('agAutoState');
+function syncAuto(){
+  autoState.textContent=AG.auto?'uključene':'isključene';
+  autoBtn.classList.toggle('on',AG.auto);
+  autoBtn.setAttribute('aria-pressed',AG.auto?'true':'false');
+}
+autoBtn.addEventListener('click',function(){
+  AG.auto=!AG.auto;saveAG();syncAuto();
+  say(AG.auto?'Automatske glasovne najave su uključene. Najavljivaću promjene stranica, rezultate kalkulatora i preporuke vodiča.':'Automatske najave su isključene.',true,AG.auto?'ag-auto-on':'ag-auto-off');
+});
+syncAuto();
+var SPEEDS=[[0.8,'sporija'],[1,'normalna'],[1.25,'brža']];
+var spBtn=document.getElementById('agSpeed'),spState=document.getElementById('agSpeedState');
+function syncSpeed(){for(var i=0;i<SPEEDS.length;i++){if(SPEEDS[i][0]===AG.rate){spState.textContent=SPEEDS[i][1];return;}}spState.textContent='normalna';}
+spBtn.addEventListener('click',function(){
+  var idx=0;for(var i=0;i<SPEEDS.length;i++){if(SPEEDS[i][0]===AG.rate)idx=i;}
+  AG.rate=SPEEDS[(idx+1)%SPEEDS.length][0];saveAG();syncSpeed();
+  player.playbackRate=AG.rate; /* važi i za snimke koji trenutno sviraju */
+  var spKey={'sporija':'ag-speed-sporija','normalna':'ag-speed-normalna','brža':'ag-speed-brza'}[spState.textContent];
+  say('Brzina govora: '+spState.textContent+'.',true,spKey);
+});
+syncSpeed();
+/* izbor glasa — kruži kroz sve dostupne glasove našeg jezika */
+var vBtn=document.getElementById('agVoice');
+vBtn.addEventListener('click',function(){
+  if(!voiceList.length){playClip('ag-voice-none','Na ovom uređaju nema instaliranih glasova za naš jezik, pa rezervni govor koristi zadani glas pretraživača.',true);return;}
+  var idx=-1;
+  for(var i=0;i<voiceList.length;i++){if(AG.voice&&voiceList[i].name===AG.voice.name)idx=i;}
+  AG.voice=voiceList[(idx+1)%voiceList.length];
+  AG.voiceName=AG.voice.name;saveAG();syncVoiceUI();
+  speak('Ovako zvuči glas '+shortVoiceName(AG.voice)+'. Dobrodošli u Bilans Plus Kredit — finansije moraju imati karakter.',true);
+});
+/* zvučni efekti on/off */
+var sfxBtn=document.getElementById('agSfx'),sfxState=document.getElementById('agSfxState');
+function syncSfx(){
+  sfxState.textContent=AG.sfx?'uključeni':'isključeni';
+  sfxBtn.classList.toggle('on',AG.sfx);
+  sfxBtn.setAttribute('aria-pressed',AG.sfx?'true':'false');
+}
+sfxBtn.addEventListener('click',function(){AG.sfx=!AG.sfx;saveAG();syncSfx();if(AG.sfx)sfx('success');});
+syncSfx();
+if(!synth){
+  /* i bez TTS-a vodič radi preko snimljenog glasa — gasi se samo izbor TTS glasa */
+  document.getElementById('agSub').textContent='Vodič koristi snimljeni ženski glas. Vaš pretraživač ne podržava govornu sintezu, pa se dinamičke vrijednosti (npr. rata iz kalkulatora) ne mogu izgovarati.';
+  document.getElementById('agVoice').disabled=true;
+}
+/* ---------- tastaturne prečice ---------- */
+document.addEventListener('keydown',function(e){
+  if(e.altKey&&(e.key==='g'||e.key==='G')){e.preventDefault();togglePanel();}
+  if(e.altKey&&(e.key==='r'||e.key==='R')){e.preventDefault();readPage();}
+  if(e.key==='Escape'){
+    var audioBusy=player.src&&!player.paused&&!player.ended;
+    if(audioBusy||(synth&&(synth.speaking||synth.pending))){stopAudio();stopSpeech();}
+    else if(AG.open)togglePanel(false);
+  }
+});
+/* ---------- "preskoči na sadržaj" + fokus na naslov stranice ---------- */
+function focusPageHeading(){
+  var pg=document.querySelector('.page.active');if(!pg)return;
+  var h=pg.querySelector('h1,h2');
+  if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}
+}
+window.a11ySkip=function(){focusPageHeading();};
+/* ---------- SPA router: najava promjene stranice + fokus + aria-current ---------- */
+var _go=window.go;
+window.go=function(id){
+  _go(id);
+  sfx('page');
+  announce('Otvorena stranica: '+(PAGE_NAMES[id]||id)+'.','nav-'+id);
+  document.querySelectorAll('.nlink').forEach(function(n){
+    if(n.dataset.nl===id)n.setAttribute('aria-current','page');
+    else n.removeAttribute('aria-current');
+  });
+  setTimeout(focusPageHeading,120);
+};
+document.querySelectorAll('.nlink').forEach(function(n){
+  if(n.classList.contains('active'))n.setAttribute('aria-current','page');
+});
+/* ---------- burger meni: aria-expanded ---------- */
+var burgerEl=document.getElementById('burger');
+burgerEl.addEventListener('click',function(){
+  burgerEl.setAttribute('aria-expanded',document.getElementById('navlinks').classList.contains('open')?'true':'false');
+});
+/* ---------- dekorativni elementi — sakrij od čitača ekrana ---------- */
+document.querySelectorAll('svg').forEach(function(s){s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');});
+['.ticker','.particles','#heroChannels','.orb','.hero-bg','.woman-ring','.quiz-prog','.calc-chart','.faq-q .pl','.tstars','.mp-pulse','.mp-dot'].forEach(function(sel){
+  document.querySelectorAll(sel).forEach(function(el){el.setAttribute('aria-hidden','true');});
+});
+/* ---------- logo / brand kao link dostupan tastaturi ---------- */
+var brand=document.querySelector('.brand');
+if(brand){
+  brand.setAttribute('role','link');brand.setAttribute('tabindex','0');
+  brand.setAttribute('aria-label','Bilans Plus Kredit — početna stranica');
+  brand.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.go('pocetna');}});
+}
+/* ---------- dugmad sa samo ikonom ---------- */
+var tb=document.querySelectorAll('.tbtn');
+if(tb[0])tb[0].setAttribute('aria-label','Prethodne recenzije klijenata');
+if(tb[1])tb[1].setAttribute('aria-label','Sljedeće recenzije klijenata');
+/* ---------- mapa i poslovnice ---------- */
+document.querySelectorAll('.map-pin').forEach(function(p){
+  var l=p.querySelector('.mp-label');
+  if(l)p.setAttribute('aria-label','Poslovnica '+l.textContent.trim());
+});
+document.querySelectorAll('.branch').forEach(function(b){
+  b.setAttribute('role','button');b.setAttribute('tabindex','0');
+  b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();b.click();}});
+});
+/* ---------- FAQ: tastatura + aria-expanded + čitanje odgovora ---------- */
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.setAttribute('role','button');q.setAttribute('tabindex','0');q.setAttribute('aria-expanded','false');
+  q.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+  q.addEventListener('click',function(){
+    setTimeout(function(){
+      document.querySelectorAll('.faq-q').forEach(function(x){
+        x.setAttribute('aria-expanded',x.parentElement.classList.contains('open')?'true':'false');
+      });
+      var f=q.parentElement;
+      if(f.classList.contains('open')){
+        sfx('open');
+        if(AG.auto){
+          var a=f.querySelector('.faq-a p');
+          if(a){
+            var fi=Array.prototype.indexOf.call(document.querySelectorAll('.faq-q'),q);
+            say(q.innerText.replace(/\+\s*$/,'')+'. '+a.innerText,true,'faq-'+(fi+1));
+          }
+        }
+      }
+    },20);
+  });
+});
+/* ---------- tabovi i filteri: aria-pressed ---------- */
+function syncPressed(){
+  document.querySelectorAll('.ptab,.ktab,.ctype').forEach(function(x){
+    x.setAttribute('aria-pressed',x.classList.contains('on')?'true':'false');
+  });
+}
+syncPressed();
+document.addEventListener('click',function(e){
+  if(e.target.closest&&e.target.closest('.ptab,.ktab,.ctype'))setTimeout(syncPressed,20);
+});
+/* ---------- povezivanje labela sa poljima (label -> for) ---------- */
+document.querySelectorAll('.fg,.cgroup').forEach(function(wrap){
+  var lab=wrap.querySelector('label'),inp=wrap.querySelector('input,select,textarea');
+  if(lab&&inp&&inp.id&&!lab.getAttribute('for')&&!lab.contains(inp))lab.setAttribute('for',inp.id);
+});
+/* obavezna polja */
+['z-ime','z-tel','z-email','z-grad','z-tip','z-gdpr','k-ime','k-tel','k-email','k-poruka'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.setAttribute('aria-required','true');
+});
+/* ---------- klizači: aria-valuetext + glasna najava rezultata na otpuštanje ---------- */
+function sliderA11y(id,labelId){
+  var el=document.getElementById(id);if(!el)return;
+  var set=function(){var l=document.getElementById(labelId);if(l)el.setAttribute('aria-valuetext',l.textContent);};
+  el.addEventListener('input',set);set();
+  el.addEventListener('input',sfxTickThrottled); /* nježan tik dok se klizač pomjera */
+}
+sliderA11y('calcAmt','calcAmtL');sliderA11y('calcTerm','calcTermL');
+sliderA11y('gInc','gIncL');sliderA11y('gObl','gOblL');sliderA11y('gTrm','gTrmL');
+function onRelease(id,fn){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener('change',function(){sfx('set');if(AG.auto)fn();});
+}
+function calcAnnounce(){
+  var amt=+document.getElementById('calcAmt').value;
+  var term=+document.getElementById('calcTerm').value;
+  var monthly=digitsOf('calcMonthly');
+  var total=digitsOf('calcTotal');
+  var seq=['t-iznos'].concat(numKeys(amt),['t-km','t-rok'],numKeys(term),[monthKey(term),'t-rata'],numKeys(monthly),['t-km','t-ukupno'],numKeys(total),['t-km']);
+  var txt='Iznos '+document.getElementById('calcAmtL').textContent
+    +', rok '+document.getElementById('calcTermL').textContent
+    +'. Mjesečna rata: '+document.getElementById('calcMonthly').innerText
+    +'. Ukupno za otplatu: '+document.getElementById('calcTotal').textContent+'.';
+  playSeq(seq,txt);
+}
+onRelease('calcAmt',calcAnnounce);onRelease('calcTerm',calcAnnounce);
+var calcSel=document.getElementById('calcProd');
+if(calcSel)calcSel.addEventListener('change',function(){
+  if(!AG.auto)return;
+  var full=calcSel.options[calcSel.selectedIndex].text;
+  var name=full.split('—')[0].replace(/\s+$/,'').trim();
+  var monthly=digitsOf('calcMonthly');
+  var pk=PROD_KEYS2[name];
+  if(pk){
+    playSeq(['t-proizvod',pk,'t-rata'].concat(numKeys(monthly),['t-km']),
+      'Odabran proizvod: '+full+'. Mjesečna rata: '+document.getElementById('calcMonthly').innerText+'.');
+  }else{
+    speak('Odabran proizvod: '+full+'. '+document.getElementById('calcMonthly').innerText+' mjesečno.',true);
+  }
+});
+function gaugeAnnounce(){
+  var badge=document.getElementById('gBadge').textContent;
+  var seq=['t-max'].concat(numKeys(digitsOf('gAmt')),['t-km','t-moguca'],numKeys(digitsOf('gRate')),['t-km','t-sposobnost',BADGE_KEYS[badge]||'t-dobra']);
+  var txt='Procijenjeni maksimalni iznos kredita: '+document.getElementById('gAmt').textContent
+    +'. Moguća mjesečna rata: '+document.getElementById('gRate').textContent
+    +'. Kreditna sposobnost: '+badge+'.';
+  playSeq(seq,txt);
+}
+onRelease('gInc',gaugeAnnounce);onRelease('gObl',gaugeAnnounce);onRelease('gTrm',gaugeAnnounce);
+/* ---------- AI kviz: najava pitanja i rezultata ---------- */
+var _quizAns=window.quizAns;
+window.quizAns=function(step,val){
+  _quizAns(step,val);
+  if(step<2){
+    sfx('click');
+    var s=document.querySelector('.q-step.on');
+    if(s){var qq=s.querySelector('.q-q');if(qq)announce('Pitanje '+(step+2)+' od 3: '+qq.textContent,'quiz-q'+(step+2));}
+  }else{
+    sfx('quiz');
+    var qn=document.getElementById('quizName').textContent;
+    announce('Naša preporuka za vas: '+qn+'. '+document.getElementById('quizDesc').textContent,QUIZ_KEYS[qn]);
+  }
+};
+var _quizRestart=window.quizRestart;
+window.quizRestart=function(){
+  _quizRestart();
+  sfx('click');
+  announce('Vodič je vraćen na početak. Pitanje 1 od 3: Ko podnosi zahtjev za kredit?','quiz-restart');
+};
+/* ---------- obrasci: najava grešaka i uspjeha ---------- */
+function formA11y(formId,okId){
+  var f=document.getElementById(formId);if(!f)return;
+  f.addEventListener('submit',function(){
+    setTimeout(function(){
+      var ok=document.getElementById(okId);
+      if(ok&&ok.classList.contains('on')){
+        var h=ok.querySelector('h3'),p=ok.querySelector('p');
+        sfx('success');
+        announce((h?h.textContent:'Uspješno poslano.')+' '+(p?p.textContent:''),formId==='zForm'?'form-ok-zahtjev':'form-ok-kontakt');
+        return;
+      }
+      f.querySelectorAll('input,select,textarea').forEach(function(i){
+        i.setAttribute('aria-invalid',i.classList.contains('err')?'true':'false');
+      });
+      var errs=f.querySelectorAll('.err');
+      if(errs.length){
+        var names=[];
+        errs.forEach(function(e2){
+          var fg=e2.closest('.fg');var l=fg?fg.querySelector('label'):null;
+          if(l)names.push(l.textContent.replace(/\*/g,'').trim());
+        });
+        sfx('error');
+        announce('Obrazac nije poslan. Provjerite polja: '+names.join(', ')+'.','form-err');
+        errs[0].focus();
+        return;
+      }
+      var g=document.getElementById('z-gdpr');
+      if(formId==='zForm'&&g&&!g.checked){
+        sfx('error');
+        announce('Obrazac nije poslan. Morate označiti saglasnost sa obradom ličnih podataka.','form-gdpr');
+        g.focus();
+      }
+    },60);
+  });
+}
+formA11y('zForm','zOk');formA11y('kForm','kOk');
+/* ---------- rječnik: najava broja rezultata pretrage ---------- */
+var gs=document.getElementById('glosSearch');
+if(gs){
+  gs.setAttribute('aria-label','Pretraži pojmove rječnika');
+  var gt;
+  gs.addEventListener('input',function(){
+    clearTimeout(gt);
+    gt=setTimeout(function(){
+      var n=document.querySelectorAll('#glosWrap .gitem').length;
+      live.textContent=n?(n+' pojmova pronađeno.'):'Nema rezultata.';
+    },700);
+  });
+}
+/* ---------- cookie banner kao imenovana regija ---------- */
+var ck=document.getElementById('cookie');
+if(ck){ck.setAttribute('role','region');ck.setAttribute('aria-label','Obavještenje o kolačićima');}
+})();
 </script>
 </body>
 </html>
