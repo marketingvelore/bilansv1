@@ -69,7 +69,7 @@ button{font-family:inherit}
 .nav.scrolled{background:var(--navy);box-shadow:0 10px 40px rgba(0,0,0,.3)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:124px;gap:18px}
 .brand{display:flex;align-items:center;gap:12px;cursor:pointer}
-.brand img{height:124px;width:auto;max-width:310px;object-fit:contain}
+.brand img{height:56px;width:auto;max-width:274px;object-fit:contain}
 .brand .fallback{display:flex;align-items:center;gap:11px}
 .brand .mono{width:42px;height:42px;border-radius:10px;background:var(--navy);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#fff;font-size:20px;letter-spacing:-1px}
 .brand .bt{display:flex;flex-direction:column;line-height:1.05}
@@ -81,6 +81,10 @@ button{font-family:inherit}
 .nav-cta{font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:11px 22px;cursor:pointer;transition:var(--t);white-space:nowrap;box-shadow:0 6px 22px var(--glow)}
 .nav-cta:hover{background:#2c57e8;transform:translateY(-2px);box-shadow:0 10px 30px var(--glow)}
 .nav-links .nav-cta{display:none} /* in-menu CTA hidden on desktop, shown only in mobile menu */
+/* prekidač jezika BS ⇄ EN */
+.lang-btn{font-family:'Sora';font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:9px 14px;cursor:pointer;transition:var(--t);flex-shrink:0;line-height:1}
+.lang-btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+@media(max-width:980px){.lang-btn{margin-left:auto;margin-right:6px}}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--t)}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -107,20 +111,29 @@ button{font-family:inherit}
 .particles i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.5;animation:rise linear infinite}
 @keyframes rise{from{transform:translateY(0);opacity:0}10%{opacity:.6}to{transform:translateY(-110vh);opacity:0}}
 /* hero pozadinski „kanali" — krediti koji se polako kreću (Wii-stil), duboko iza */
-.hero-channels{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;opacity:.13;display:flex;flex-direction:column;justify-content:center;gap:18px;
-  -webkit-mask-image:radial-gradient(ellipse 95% 85% at 50% 45%,#000 35%,transparent 86%);
-  mask-image:radial-gradient(ellipse 95% 85% at 50% 45%,#000 35%,transparent 86%)}
-.hch-row{display:flex;gap:18px;width:max-content;flex-shrink:0;will-change:transform}
+/* lokalno zatamnjenje samo iza teksta — slike ostaju pune vidljivosti svuda drugo */
+.hero-text-scrim{position:absolute;left:0;top:124px;bottom:0;width:min(62vw,800px);z-index:3;pointer-events:none;
+  background:linear-gradient(90deg,rgba(6,20,61,.66) 0%,rgba(6,20,61,.42) 55%,rgba(6,20,61,0) 100%)}
+@media(max-width:980px){.hero-text-scrim{left:0;right:0;top:auto;bottom:0;width:auto;height:64%;
+  background:linear-gradient(180deg,rgba(6,20,61,0) 0%,rgba(6,20,61,.4) 40%,rgba(6,20,61,.68) 100%)}}
+.hero-h1{text-shadow:0 3px 18px rgba(6,20,61,.5)}
+.hero-sub{text-shadow:0 2px 14px rgba(6,20,61,.55)}
+/* dva reda „kartica" pune cijelu vidljivu površinu heroa (ispod navigacije) */
+.hero-channels{position:absolute;left:0;right:0;top:124px;bottom:0;z-index:2;overflow:hidden;pointer-events:none;opacity:.44;display:flex;flex-direction:column;justify-content:space-between;
+  -webkit-mask-image:radial-gradient(ellipse 122% 112% at 50% 50%,#000 70%,transparent 100%);
+  mask-image:radial-gradient(ellipse 122% 112% at 50% 50%,#000 70%,transparent 100%)}
+.hch-row{display:flex;gap:16px;width:max-content;flex:0 0 auto;height:48%;will-change:transform}
 .hch-row.l{animation:hchL 50s linear infinite}
 .hch-row.r{animation:hchR 60s linear infinite}
 @keyframes hchL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes hchR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.hch-tile{position:relative;width:168px;height:108px;border-radius:13px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,.2);background:var(--navy-2);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.hch-tile img{width:100%;height:100%;object-fit:cover}
-.hch-tile span{position:absolute;left:0;right:0;bottom:0;padding:6px 9px;font-family:'Sora';font-size:11px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(6,20,61,.9));line-height:1.2}
-@media(max-width:600px){.hch-tile{width:120px;height:80px}.hero-channels{opacity:.13;gap:14px;justify-content:space-around;
-  -webkit-mask-image:radial-gradient(ellipse 135% 96% at 50% 45%,#000 58%,transparent 97%);
-  mask-image:radial-gradient(ellipse 135% 96% at 50% 45%,#000 58%,transparent 97%)}}
+.hch-tile{position:relative;height:100%;width:auto;aspect-ratio:3/4;border-radius:18px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,.26);background:var(--navy-2);box-shadow:0 10px 30px rgba(0,0,0,.32)}
+.hch-tile img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
+.hch-tile span{position:absolute;left:0;right:0;bottom:0;padding:9px 12px;font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(6,20,61,.92));line-height:1.2}
+@media(max-width:600px){.hch-tile{border-radius:14px}.hch-tile span{font-size:11px;padding:8px 10px}
+  .hero-channels{top:90px;opacity:.4;
+  -webkit-mask-image:radial-gradient(ellipse 145% 115% at 50% 50%,#000 72%,transparent 100%);
+  mask-image:radial-gradient(ellipse 145% 115% at 50% 50%,#000 72%,transparent 100%)}}
 .hero-in{position:relative;z-index:5;flex:1;display:flex;align-items:stretch;padding:40px 0 0}
 .hero-grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:stretch;width:100%}
 .hero-text{display:flex;flex-direction:column;justify-content:center;padding-bottom:54px}
@@ -148,7 +161,8 @@ button{font-family:inherit}
 @keyframes conf{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:.9;transform:translateY(110vh) rotate(720deg)}}
 .hero-sub{font-size:17px;color:rgba(255,255,255,.66);max-width:480px;line-height:1.7;margin-bottom:34px;animation:fadeUp .9s .45s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .9s .6s both}
+.hero-ctas{display:flex;flex-direction:column;gap:14px;align-items:stretch;width:max-content;max-width:100%;animation:fadeUp .9s .6s both}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
 .btn-pri{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-size:15px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:13px;padding:16px 30px;cursor:pointer;transition:var(--t);box-shadow:0 10px 34px var(--glow);position:relative;overflow:hidden}
 .btn-pri::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}
 .btn-pri:hover{transform:translateY(-3px);box-shadow:0 16px 44px var(--glow)}
@@ -551,7 +565,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 /* === FOOTER === */
 .footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding-top:74px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:46px;padding-bottom:54px;border-bottom:1px solid rgba(255,255,255,.06)}
-.foot-brand img{height:116px;max-width:310px;width:auto;object-fit:contain;margin-bottom:16px}
+.foot-brand img{height:51px;max-width:248px;width:auto;object-fit:contain;margin-bottom:16px}
 .foot-desc{font-size:13.5px;color:rgba(255,255,255,.42);line-height:1.75;max-width:280px}
 .foot-soc{display:flex;gap:10px;margin-top:20px}
 .foot-soc a{width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:var(--t)}
@@ -585,10 +599,16 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .hero-in{align-items:center;padding:24px 0}
   .hero-grid2{grid-template-columns:1fr;gap:18px;text-align:center;align-items:center}
   .hero-text{display:flex;flex-direction:column;align-items:center;order:1}
-  .hero-eye,.hero-ctas,.hero-stats{justify-content:center}
+  .hero-eye,.hero-stats{justify-content:center}
+  .hero-ctas{margin-left:auto;margin-right:auto}
+  .cta-row{justify-content:center}
+  /* uspravni ekrani: hero je znatno viši, pa redovi zauzimaju manji dio i
+     raspoređuju se ravnomjerno — bez velike rupe u sredini */
+  .hch-row{height:27%}
+  .hero-channels{top:124px;justify-content:space-evenly}
   .hero-sub{margin-left:auto;margin-right:auto}
   .hero-visual{height:auto;min-height:0;order:-1;max-width:min(430px,calc(100vw - 36px));margin:0 auto;padding-top:6px}
-  .woman{height:420px}.woman-ring{width:300px;height:300px;bottom:0}
+  .woman{height:380px}.woman-ring{width:290px;height:290px;bottom:0}
   .chip{display:flex;padding:7px 10px;gap:8px;backdrop-filter:blur(10px)}
   .chip .ci{width:27px;height:27px;border-radius:8px}
   .chip b{font-size:11.5px}.chip small{font-size:9px}
@@ -634,16 +654,25 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .calc-left,.calc-right{padding:32px 24px}
   .quiz-box{padding:30px 22px}
   .hero-h1{letter-spacing:-1px;font-size:clamp(30px,9vw,44px)}
-  .brand img{height:74px;max-width:200px}
+  .brand img{height:39px;max-width:190px}
   .nav-in{height:90px}
   .nav-links{top:90px}
   .hero{padding-top:90px}
-  .hero-in{padding:18px 0}
-  .hero-visual{min-height:0}
-  .woman{height:400px}.woman-ring{width:280px;height:280px}
-  .hero-eye{font-size:10px;letter-spacing:1.5px;padding:6px 12px}
+  .hero-channels{top:90px}
+  .hero-in{padding:12px 0}
+  .hero-grid2{gap:10px}
+  .hero-visual{min-height:0;padding-top:0}
+  .woman{height:326px}.woman-ring{width:250px;height:250px}
+  .hero-text{padding-bottom:20px}
+  .hero-eye{font-size:10px;letter-spacing:1.5px;padding:6px 12px;margin-bottom:16px}
+  .hero-h1{margin-bottom:14px}
+  .hero-sub{font-size:15.5px;margin-bottom:24px;line-height:1.6}
   .hero-ctas{width:100%}
-  .btn-pri,.btn-ghost{flex:1;justify-content:center;padding:15px 18px}
+  .cta-row .btn-pri,.cta-row .btn-ghost{flex:1;justify-content:center;padding:15px 18px}
+  .btn-adv{font-size:15px;padding:14px 18px;gap:12px}
+  .btn-adv .bax small{font-size:11px}
+  .av-stack i{width:32px;height:32px;border-width:2.5px;margin-left:-11px}
+  .hero-ctas .btn-adv .bar{width:32px;height:32px}
   .map-stage{height:380px}
   .gauge-row{flex-direction:column}
   .testi-nav{margin-top:26px}
@@ -663,21 +692,70 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
   .hero-h1 .ln em{transform:none}
   html.js .reveal{opacity:1;transform:none}
 }
-/* audio vodič — plutajuće dugme + panel */
-#audioGuideBtn{position:fixed;bottom:26px;left:26px;z-index:1600;width:56px;height:56px;border-radius:50%;background:var(--navy);border:2px solid var(--accent);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(6,20,61,.4);transition:var(--t)}
-#audioGuideBtn:hover{background:var(--accent);transform:translateY(-2px)}
-#audioGuideBtn.speaking{animation:agPulse 1.4s ease-in-out infinite}
-@keyframes agPulse{0%,100%{box-shadow:0 0 0 0 var(--glow)}50%{box-shadow:0 0 0 14px rgba(61,107,255,0)}}
-#audioGuidePanel{position:fixed;bottom:94px;left:26px;z-index:1600;width:300px;max-width:calc(100vw - 40px);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-lg);padding:18px;display:none}
-#audioGuidePanel.open{display:block;animation:pgIn .3s ease both}
-#audioGuidePanel h3{font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);margin-bottom:4px}
-#audioGuidePanel .ag-sub{font-size:11.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
-.ag-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font-family:'Sora';font-size:13px;font-weight:700;color:var(--navy);background:var(--ice);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;cursor:pointer;transition:var(--t);margin-bottom:8px}
-.ag-btn:hover{border-color:var(--accent);color:var(--accent)}
-.ag-btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.ag-hint{font-size:10.5px;color:var(--muted);line-height:1.6;margin-top:4px}
-.ag-hint b{color:var(--navy)}
-@media(max-width:600px){#audioGuideBtn{left:16px;bottom:16px;width:50px;height:50px}#audioGuidePanel{left:16px;bottom:76px}}
+/* ============ MODALI (savjetnici + detalji kredita) ============ */
+.modal{position:fixed;inset:0;z-index:2500;display:none;align-items:center;justify-content:center;padding:26px}
+.modal.open{display:flex}
+.modal-bd{position:absolute;inset:0;background:rgba(6,20,61,.74);backdrop-filter:blur(7px);animation:mFade .3s ease both}
+@keyframes mFade{from{opacity:0}to{opacity:1}}
+.modal-box{position:relative;z-index:1;background:#fff;border-radius:28px;width:100%;max-width:880px;max-height:88vh;overflow-y:auto;box-shadow:var(--sh-lg);padding:44px;animation:mIn .4s cubic-bezier(.16,1,.3,1) both}
+@keyframes mIn{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
+.modal-x{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);z-index:3}
+.modal-x:hover{background:var(--navy);border-color:var(--navy);transform:rotate(90deg)}
+.modal-x:hover svg{stroke:#fff}
+.modal-k{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+.modal-t{font-family:'Sora';font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);letter-spacing:-1.2px;line-height:1.1;margin-bottom:12px}
+.modal-lead{font-size:14.5px;color:var(--muted);line-height:1.7;max-width:560px}
+/* savjetnici */
+.adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:28px}
+.adv{display:flex;gap:15px;align-items:center;text-align:left;width:100%;padding:16px;border:1.5px solid var(--line);border-radius:19px;background:var(--ice);cursor:pointer;transition:var(--t);font-family:inherit}
+.adv:hover{background:#fff;border-color:var(--accent);box-shadow:var(--sh-sm);transform:translateY(-4px)}
+.adv-ph{width:70px;height:70px;border-radius:17px;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,var(--accent),var(--navy));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Sora';font-weight:800;font-size:21px;position:relative}
+.adv-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.adv-bd{flex:1;min-width:0}
+.adv-bd h4{font-family:'Sora';font-size:15.5px;font-weight:800;color:var(--navy);line-height:1.2}
+.adv-bd .role{font-size:11.5px;color:var(--accent);font-weight:700;margin:3px 0 6px;font-family:'Sora'}
+.adv-bd p{font-size:12px;color:var(--muted);line-height:1.55}
+.adv-go{font-size:11px;font-weight:700;color:var(--accent);font-family:'Sora';margin-top:7px;display:inline-flex;align-items:center;gap:5px}
+.modal-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.modal-note p{font-size:12.5px;color:var(--muted)}
+/* dugme „lični savjetnik" u herou */
+.btn-adv{display:inline-flex;align-items:center;gap:15px;font-family:'Sora';font-size:17px;font-weight:800;color:var(--navy);background:#fff;border:none;border-radius:15px;padding:17px 26px 17px 19px;cursor:pointer;transition:var(--t);box-shadow:0 14px 40px rgba(0,0,0,.32);position:relative;overflow:hidden}
+.btn-adv::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(61,107,255,.18),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn-adv:hover{transform:translateY(-3px);box-shadow:0 20px 52px rgba(0,0,0,.4)}
+.btn-adv:hover::after{left:130%}
+.hero-ctas .btn-adv{width:100%;justify-content:flex-start}
+.hero-ctas .btn-adv .bar{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 18px var(--glow);transition:var(--t)}
+.hero-ctas .btn-adv:hover .bar{transform:translateX(3px)}
+.av-stack{display:flex;flex-shrink:0}
+.av-stack i{width:38px;height:38px;border-radius:50%;border:3px solid #fff;margin-left:-13px;background-size:cover;background-position:center 20%;background-color:var(--navy-2);box-shadow:0 3px 9px rgba(0,0,0,.25)}
+.av-stack i:first-child{margin-left:0}
+.btn-adv .bax{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;text-align:left}
+.btn-adv .bax small{font-size:12px;font-weight:600;color:var(--muted);font-family:'Manrope';margin-top:2px}
+/* detalji kredita u modalu */
+.lm-top{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
+.lm-img{width:210px;height:140px;border-radius:16px;overflow:hidden;flex-shrink:0;background:var(--ice-2);position:relative}
+.lm-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lm-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:26px}
+.lm-specs>div{background:var(--ice);border:1px solid var(--line);border-radius:15px;padding:15px 16px}
+.lm-specs span{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.lm-specs b{font-family:'Sora';font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-.4px}
+.lm-specs>div.hi{background:linear-gradient(150deg,var(--navy),var(--navy-2));border-color:var(--navy)}
+.lm-specs>div.hi span{color:rgba(255,255,255,.6)}
+.lm-specs>div.hi b{color:#fff}
+.lm-btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.pcard-more{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent);margin-top:16px;transition:var(--t)}
+.pcard:hover .pcard-more{color:#fff}
+/* Boris — stranica arhitekte finansija */
+.boris-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
+.boris-ph{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(150deg,var(--navy-2),var(--navy-3));box-shadow:var(--sh-lg)}
+.boris-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.boris-ph .bq{position:absolute;left:0;right:0;bottom:0;padding:26px 24px 22px;background:linear-gradient(transparent,rgba(6,20,61,.92));color:#fff;font-family:'Sora';font-size:15px;font-weight:700;line-height:1.35}
+.boris-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+.boris-stats>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 16px}
+.boris-stats b{display:block;font-family:'Sora';font-size:27px;font-weight:800;color:var(--accent-2);letter-spacing:-1px;line-height:1}
+.boris-stats span{display:block;font-size:11.5px;color:rgba(255,255,255,.6);margin-top:6px}
+@media(max-width:980px){.adv-grid{grid-template-columns:1fr}.boris-grid{grid-template-columns:1fr;gap:34px}.lm-specs{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.modal{padding:14px}.modal-box{padding:30px 22px;border-radius:22px}.lm-specs{grid-template-columns:1fr}.lm-img{width:100%;height:170px}.btn-adv{width:100%;justify-content:center}.boris-stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -699,7 +777,7 @@ function tryImg(el){
     <div class="brand" onclick="go('pocetna')">
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
       <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
-      <img src="Blogo.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <img src="BilansLogo.svg" data-alts="Blogo.png|BP.png|BP.PNG|logo.png" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
       <div class="fallback" style="display:none">
         <div class="mono">B<span style="color:var(--accent-2)">P</span></div>
         <div class="bt"><b>BILANS PLUS</b><small>KREDIT</small></div>
@@ -714,6 +792,7 @@ function tryImg(el){
       <button class="nlink" data-nl="rjecnik" onclick="go('rjecnik')">Rječnik</button>
       <button class="nlink" data-nl="kontakt" onclick="go('kontakt')">Kontakt</button>
     </div>
+    <button class="lang-btn" id="langBtn" data-no-i18n onclick="toggleLang()" aria-label="Switch language to English" title="Switch language to English">EN</button>
     <button class="burger" id="burger" aria-label="Meni" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -724,6 +803,7 @@ function tryImg(el){
   <div class="orb a"></div><div class="orb b"></div>
   <div class="particles" id="particles"></div>
   <div class="hero-channels" id="heroChannels"></div>
+  <div class="hero-text-scrim" aria-hidden="true"></div>
   <div class="hero-in">
     <div class="container hero-grid2">
       <div class="hero-text">
@@ -734,12 +814,25 @@ function tryImg(el){
         </h1>
         <p class="hero-sub">Svjesni da svaki kredit utiče na život ljudi, gradimo poslovanje na odgovornim finansijskim odlukama, povjerenju i dugoročnoj održivosti</p>
         <div class="hero-ctas">
-          <button class="btn-pri" onclick="go('zahtjev')">Podnesi zahtjev
-            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <button class="btn-ghost" onclick="go('kalkulator')">
-            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/></svg>
-            Kreditni kalkulator
+          <div class="cta-row">
+            <button class="btn-pri" onclick="go('zahtjev')">Podnesi zahtjev
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="btn-ghost" onclick="go('kalkulator')">
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/></svg>
+              Kreditni kalkulator
+            </button>
+          </div>
+          <button class="btn-adv" onclick="openAdvisors()">
+            <span class="av-stack" aria-hidden="true">
+              <i style="background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80')"></i>
+              <i style="background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80')"></i>
+              <i style="background-image:url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80')"></i>
+            </span>
+            <span class="bax">Rezerviši ličnog savjetnika<small>Besplatan razgovor, bez obaveze</small></span>
+            <span class="bar" aria-hidden="true">
+              <svg width="17" height="17" fill="none" stroke="#fff" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
           </button>
         </div>
       </div>
@@ -960,6 +1053,13 @@ function tryImg(el){
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Personalizovana</strong> kreditna analiza za svakog klijenta.</p></div>
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Poslovnice</strong> raspoređene po cijeloj Republici Srpskoj.</p></div>
         </div>
+        <button class="btn-adv" style="margin-top:30px" onclick="go('boris')">
+          <span class="av-stack" aria-hidden="true">
+            <i style="background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80')"></i>
+          </span>
+          <span class="bax">Upoznajte našeg arhitektu finansija<small>Boris Knežević · 18 godina iskustva</small></span>
+          <svg width="17" height="17" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
     <div class="container">
@@ -976,6 +1076,53 @@ function tryImg(el){
   </section>
   <section class="cta-sec"><div class="container cta-in reveal"><h2>Spremni da krenemo zajedno?</h2><p>Javite nam se — odgovorićemo na svako pitanje prije nego donesete odluku.</p><div class="cta-btns"><button class="btn-white" onclick="go('zahtjev')">Podnesi zahtjev</button><button class="btn-out-w" onclick="go('kontakt')">Kontaktiraj nas</button></div></div></section>
 </section><!-- /onama -->
+<!-- ============ PAGE: BORIS KNEŽEVIĆ (nije u navigaciji) ============ -->
+<section class="page" id="pg-boris">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container">
+      <button class="legal-back" style="color:var(--accent-2);position:relative;z-index:2" onclick="go('onama')">
+        <svg width="16" height="16" fill="none" stroke="#6E94FF" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad na O nama
+      </button>
+      <h1>Boris <span class="hl">Knežević</span></h1>
+      <p>Arhitekta finansija — čovjek koji vaš bilans posmatra kao cjelinu, a ne kao jedan kredit.</p>
+    </div>
+  </div>
+  <section class="section dark-sec">
+    <div class="container boris-grid">
+      <div class="boris-ph reveal">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Boris Knežević, arhitekta finansija" onerror="this.style.display='none'"/>
+        <div class="bq">„Kredit nije proizvod koji se prodaje. To je plan koji se pravi.”</div>
+      </div>
+      <div class="reveal rd1">
+        <div class="eyebrow" style="color:var(--accent-2)">Arhitekta finansija</div>
+        <h2 class="title title-light">Vaš bilans zaslužuje<br/>plan, ne improvizaciju</h2>
+        <p class="lead lead-light">Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Osamnaest godina radi sa ljudima i firmama u Republici Srpskoj — od prve pozajmice za registraciju vozila do investicionih planova za proizvodne pogone. Njegov pristup je jednostavan: prvo se razumije situacija, pa tek onda bira proizvod.</p>
+        <div class="boris-stats">
+          <div><b>18</b><span>godina u finansijama</span></div>
+          <div><b>2.400+</b><span>odobrenih planova</span></div>
+          <div><b>6</b><span>poslovnica pod nadzorom</span></div>
+        </div>
+        <div class="about-list">
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Ekonomski fakultet, Banja Luka</strong> — smjer finansije i bankarstvo, magistar ekonomskih nauka.</p></div>
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Specijalnost:</strong> restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.</p></div>
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Princip rada:</strong> nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="sec-head center reveal" style="margin-top:88px;margin-bottom:48px">
+        <div class="eyebrow" style="color:var(--accent-2)">Kako izgleda razgovor</div>
+        <h2 class="title title-light">Tri koraka do <span style="color:var(--accent-2)">finansijskog plana</span></h2>
+      </div>
+      <div class="values">
+        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h4>1 · Slušanje</h4><p>Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.</p></div>
+        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg></div><h4>2 · Analiza</h4><p>Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.</p></div>
+        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h4>3 · Plan</h4><p>Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-sec"><div class="container cta-in reveal"><h2>Zakažite razgovor sa Borisom</h2><p>Prvi razgovor je besplatan i ne obavezuje vas ni na šta.</p><div class="cta-btns"><button class="btn-white" onclick="go('zahtjev')">Podnesi zahtjev</button><button class="btn-out-w" onclick="go('kontakt')">Kontaktiraj nas</button></div></div></section>
+</section><!-- /boris -->
 <!-- ============ PAGE: KREDITI ============ -->
 <section class="page" id="pg-krediti">
   <div class="phero"><div class="orb a"></div>
@@ -1196,7 +1343,7 @@ function tryImg(el){
     <div class="foot-grid">
       <div class="foot-brand">
         <!-- PLACEHOLDER logo (Unsplash) — zamijeni src sa "BP.png" -->
-        <img src="Blogo.png" data-alts="BP.png|BP.PNG|bp.png|logo.png" data-fb="block" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+        <img src="BilansLogo.svg" data-alts="Blogo.png|BP.png|BP.PNG|logo.png" data-fb="block" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
         <b style="display:none;font-family:'Sora';color:#fff;font-size:18px">BILANS PLUS KREDIT</b>
         <p class="foot-desc">Licencirana mikrokreditna organizacija sa sjedištem u Banjoj Luci. Brza, transparentna i personalizovana finansijska podrška.</p>
         <div class="foot-soc">
@@ -1235,21 +1382,25 @@ function tryImg(el){
     <button class="cookie-ok" onclick="cookieClose()">Prihvati</button>
   </div>
 </div>
-<!-- ============ AUDIO VODIČ — pristupačnost za slijepe i slabovidne ============ -->
-<button id="audioGuideBtn" aria-label="Audio vodič za slijepe i slabovidne korisnike" aria-expanded="false" aria-controls="audioGuidePanel" title="Audio vodič (Alt+G)">
-  <svg width="26" height="26" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9.5 9.5 0 010 13"/></svg>
-</button>
-<div id="audioGuidePanel" role="dialog" aria-label="Audio vodič — postavke">
-  <h3>Audio vodič</h3>
-  <div class="ag-sub" id="agSub">Glasovna podrška za slijepe i slabovidne korisnike — sajt vam čita sadržaj naglas.</div>
-  <button class="ag-btn" id="agRead">▶&nbsp; Pročitaj ovu stranicu</button>
-  <button class="ag-btn" id="agPause">⏸&nbsp; Pauziraj / nastavi</button>
-  <button class="ag-btn" id="agStop">⏹&nbsp; Zaustavi čitanje</button>
-  <button class="ag-btn" id="agAuto" aria-pressed="false">Automatske najave: <span id="agAutoState">isključene</span></button>
-  <button class="ag-btn" id="agSpeed">Brzina govora: <span id="agSpeedState">normalna</span></button>
-  <button class="ag-btn" id="agVoice">Rezervni glas: <span id="agVoiceState">automatski</span></button>
-  <button class="ag-btn" id="agSfx" aria-pressed="true">Zvučni efekti: <span id="agSfxState">uključeni</span></button>
-  <div class="ag-hint"><b>Prečice:</b> Alt+G — otvori vodič &nbsp;·&nbsp; Alt+R — pročitaj stranicu &nbsp;·&nbsp; Esc — zaustavi govor</div>
+<!-- ============ MODAL: LIČNI SAVJETNICI ============ -->
+<div class="modal" id="advModal" role="dialog" aria-modal="true" aria-labelledby="advTitle">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-box">
+    <button class="modal-x" data-close aria-label="Zatvori"><svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-k">Vaš lični savjetnik</div>
+    <h3 class="modal-t" id="advTitle">Izaberite osobu koja vas vodi kroz proces</h3>
+    <p class="modal-lead">Svaki klijent kod nas dobija jednog savjetnika — istu osobu od prvog razgovora do isplate. Odaberite koga želite i javljamo se u roku od 24 sata.</p>
+    <div class="adv-grid" id="advGrid"></div>
+    <div class="modal-note">
+      <p>Nije vam svejedno ko? Odaberite „bilo koji savjetnik” u obrascu — rasporedićemo najbržeg slobodnog.</p>
+      <button class="btn-pri" onclick="closeModals();go('zahtjev')">Podnesi zahtjev<svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</div>
+<!-- ============ MODAL: DETALJI KREDITA ============ -->
+<div class="modal" id="loanModal" role="dialog" aria-modal="true" aria-labelledby="loanTitle">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-box" id="loanBox"></div>
 </div>
 <div id="confetti" aria-hidden="true"></div>
 <script>
@@ -1292,7 +1443,8 @@ const products = [
 ];
 const cats = [{k:'sve',l:'Svi krediti'},{k:'fizicka',l:'Fizička lica'},{k:'pravna',l:'Pravna lica'}];
 function prodCardHTML(p){
-  return `<div class="pcard reveal">
+  const i=products.indexOf(p);
+  return `<div class="pcard reveal" role="button" tabindex="0" data-loan="${i}" aria-label="${p.name} — otvori detalje i kamatne stope">
     <div class="pcard-img">
       <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"/>
     </div>
@@ -1300,10 +1452,10 @@ function prodCardHTML(p){
     <div class="pspecs">
       <div><span>Iznos</span><b>${p.amount}</b></div>
       <div><span>Rok otplate</span><b>${p.term}</b></div>
-      <div><span>Kamata (NKS)</span><b>${p.nks}</b></div>
-      <div><span>EKS</span><b>${p.eks}</b></div>
-      ${p.grace?`<div><span>Grace period</span><b>${p.grace}</b></div>`:''}
     </div>
+    <span class="pcard-more">Detalji i kamatne stope
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
   </div>`;
 }
 function renderProds(container,filter){
@@ -1336,6 +1488,87 @@ function selKtab(tip){
   if(typeof bindTilt==='function') setTimeout(bindTilt,60);
 }
 if(prodsAll) selKtab('fizicka');
+/* ========= MODALI: detalji kredita + lični savjetnici ========= */
+let lastFocus=null;
+function openModal(id){
+  lastFocus=document.activeElement;
+  const m=document.getElementById(id);
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  const f=m.querySelector('.modal-x, button');
+  if(f)setTimeout(()=>f.focus(),40);
+}
+function closeModals(){
+  document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
+  document.body.style.overflow='';
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+function openLoan(i){
+  const p=products[i];if(!p)return;
+  document.getElementById('loanBox').innerHTML=`
+    <button class="modal-x" data-close aria-label="Zatvori"><svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="lm-top">
+      <div class="lm-img"><img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'"/></div>
+      <div style="flex:1;min-width:220px">
+        <div class="modal-k">${p.tip==='pravna'?'Za pravna lica':'Za fizička lica'}</div>
+        <h3 class="modal-t" id="loanTitle">${p.name}</h3>
+        <p class="modal-lead">${p.desc}</p>
+      </div>
+    </div>
+    <div class="lm-specs">
+      <div><span>Iznos kredita</span><b>${p.amount}</b></div>
+      <div><span>Rok otplate</span><b>${p.term}</b></div>
+      ${p.grace?`<div><span>Grace period</span><b>${p.grace}</b></div>`:''}
+      <div class="hi"><span>Nominalna kamata (NKS)</span><b>${p.nks}</b></div>
+      <div class="hi"><span>Efektivna kamata (EKS)</span><b>${p.eks}</b></div>
+      <div><span>Kamatna stopa</span><b>fiksna</b></div>
+    </div>
+    <p class="gauge-note" style="margin-top:18px">EKS je izračunata na reprezentativnom primjeru i uključuje sve troškove obrade. Konačni uslovi utvrđuju se individualnom obradom zahtjeva.</p>
+    <div class="lm-btns">
+      <button class="btn-pri" onclick="closeModals();go('zahtjev')">Podnesi zahtjev<svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="btn-ghost" style="color:var(--navy);border-color:var(--line)" onclick="closeModals();go('kalkulator');setTimeout(function(){var s=document.getElementById('calcProd');if(s){s.value='${i}';s.dispatchEvent(new Event('change'));}},260)">Izračunaj ratu</button>
+    </div>`;
+  openModal('loanModal');
+}
+const advisors=[
+  {n:'Boris Knežević',r:'Arhitekta finansija',d:'Vodi tim savjetnika. Specijalnost: restrukturiranje obaveza i investicioni planovi.',img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80',init:'BK',page:'boris'},
+  {n:'Milena Todorović',r:'Gotovinski krediti',d:'Vodi vas kroz Keš PLUS i Keš PLUS MAX — od papirologije do isplate na račun.',img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',init:'MT'},
+  {n:'Aleksandar Vuković',r:'Poslovni krediti',d:'Radi sa preduzetnicima i firmama — obrtna sredstva, likvidnost i nabavka opreme.',img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',init:'AV'},
+  {n:'Tanja Simić',r:'Penzioneri i porodica',d:'Treća mladost i porodični krediti. Strpljivo objašnjava svaku stavku ugovora.',img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80',init:'TS'}
+];
+function openAdvisors(){
+  document.getElementById('advGrid').innerHTML=advisors.map((a,i)=>`
+    <button class="adv" data-adv="${i}">
+      <span class="adv-ph">${a.init}<img src="${a.img}" alt="" onerror="this.style.display='none'"/></span>
+      <span class="adv-bd">
+        <h4>${a.n}</h4>
+        <span class="role">${a.r}</span>
+        <p>${a.d}</p>
+        <span class="adv-go">${a.page?'Pogledaj profil':'Rezerviši razgovor'}
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </span>
+    </button>`).join('');
+  openModal('advModal');
+}
+document.addEventListener('click',e=>{
+  if(e.target.closest('[data-close]')){closeModals();return;}
+  const adv=e.target.closest('[data-adv]');
+  if(adv){
+    const a=advisors[+adv.dataset.adv];
+    closeModals();
+    if(a.page)go(a.page);
+    else{go('zahtjev');setTimeout(()=>{const n=document.getElementById('z-napomena');if(n){n.value='Želim razgovor sa savjetnikom: '+a.n+' ('+a.r+').';n.focus();}},280);}
+    return;
+  }
+  const card=e.target.closest('[data-loan]');
+  if(card)openLoan(+card.dataset.loan);
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.querySelector('.modal.open'))closeModals();
+  const c=e.target.closest&&e.target.closest('[data-loan]');
+  if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openLoan(+c.dataset.loan);}
+});
 /* ========= TICKER ========= */
 const tItems=['Odobrenje za 24 sata','Bez skrivenih troškova','Licencirano · Agencija za bankarstvo RS','6 poslovnica u Republici Srpskoj','Brza pozajmica bez žiranata','Personalizovana kreditna analiza','Lični savjetnik za svakog klijenta'];
 const tt=document.getElementById('tickerTrack');
@@ -1348,14 +1581,14 @@ for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.rand
 (function(){
   const host=document.getElementById('heroChannels'); if(!host||!window.products&&typeof products==='undefined') return;
   const tile=p=>`<div class="hch-tile"><img src="${p.img}" alt="" loading="lazy" onerror="this.style.display='none'"/><span>${p.name}</span></div>`;
-  for(let r=0;r<6;r++){
+  for(let r=0;r<2;r++){
     const off=r%products.length;
     const rot=products.slice(off).concat(products.slice(0,off));
     const set=rot.map(tile).join('');
     const row=document.createElement('div');
     row.className='hch-row '+(r%2?'r':'l');
     row.innerHTML=set+set;
-    row.style.animationDuration=(48+r*9)+'s';
+    row.style.animationDuration=(52+r*12)+'s';
     host.appendChild(row);
   }
 })();
@@ -1688,346 +1921,19 @@ document.querySelector('.hero').addEventListener('mousemove',e=>{
 </script>
 <script>
 /* ================================================================
-   PRISTUPAČNOST + AUDIO VODIČ (Web Speech API)
-   Dodatak za slijepe i slabovidne korisnike — ne mijenja postojeći
-   izgled ni ponašanje sajta, samo ga nadograđuje.
+   PRISTUPAČNOST (A11Y) — tihi sloj za čitače ekrana i tastaturu.
+   Bez zvuka: audio vodič je uklonjen na zahtjev.
    ================================================================ */
 (function(){
 'use strict';
 var live=document.getElementById('ariaLive');
-var synth=('speechSynthesis' in window)?window.speechSynthesis:null;
-var btnEl=document.getElementById('audioGuideBtn');
-var panel=document.getElementById('audioGuidePanel');
-var PAGE_NAMES={pocetna:'Početna',onama:'O nama',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',poslovnice:'Poslovnice',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova'};
-var QUIZ_KEYS={'Keš PLUS':'quiz-res-kes-plus','Keš PLUS MAX':'quiz-res-kes-plus-max','Siguran put PLUS':'quiz-res-siguran-put','DOM PLUS':'quiz-res-dom-plus','Ljepota i zdravlje':'quiz-res-ljepota','Treća mladost':'quiz-res-treca-mladost','Đak Prvak PLUS':'quiz-res-djak-prvak','Biznis Keš PLUS':'quiz-res-biznis-kes','Invest PLUS':'quiz-res-invest'};
-/* ---------- stanje vodiča (pamti se u localStorage) ---------- */
-var AG={auto:false,rate:1,voice:null,voiceName:null,sfx:true,open:false};
-try{var sv=JSON.parse(localStorage.getItem('bpk_ag')||'{}');AG.auto=!!sv.auto;if(sv.rate)AG.rate=sv.rate;if(sv.voiceName)AG.voiceName=sv.voiceName;if(sv.sfx===false)AG.sfx=false;}catch(e){}
-function saveAG(){try{localStorage.setItem('bpk_ag',JSON.stringify({auto:AG.auto,rate:AG.rate,voiceName:AG.voiceName,sfx:AG.sfx}));}catch(e){}}
-/* ---------- izbor glasa: boduje sve dostupne glasove i bira najprirodniji
-   ženski srpski (npr. Microsoft Sophie neural u Edge-u), pa hrvatski/bosanski.
-   Korisnik dugmetom "Glas" može ručno prebaciti na bilo koji drugi. ---------- */
-var voiceList=[];
-function scoreVoice(v){
-  var n=(v.name||'').toLowerCase(),l=(v.lang||'').toLowerCase(),s=0;
-  if(l.indexOf('sr')===0)s+=40;else if(l.indexOf('bs')===0)s+=34;else if(l.indexOf('hr')===0)s+=30;else return -1;
-  if(/natural|neural/.test(n))s+=30;   /* Edge-ovi prirodni (neural) glasovi — zvuče kao prava osoba */
-  if(/online/.test(n))s+=10;
-  if(/sophie|sofija|gabrijela|zora|lana|vesna|milica|jelena|ana|female|zens|žens/.test(n))s+=15; /* ženski glas */
-  if(/stefan|nicholas|matej|srecko|srećko|\bmale\b/.test(n))s-=8;
-  return s;
-}
-function pickVoice(){
-  if(!synth)return;
-  var vs=synth.getVoices()||[];
-  voiceList=vs.map(function(v){return{v:v,s:scoreVoice(v)};})
-    .filter(function(x){return x.s>=0;})
-    .sort(function(a,b){return b.s-a.s;})
-    .map(function(x){return x.v;});
-  var saved=null;
-  if(AG.voiceName){for(var i=0;i<voiceList.length;i++){if(voiceList[i].name===AG.voiceName){saved=voiceList[i];break;}}}
-  AG.voice=saved||voiceList[0]||null;
-  syncVoiceUI();
-}
-function shortVoiceName(v){
-  if(!v)return 'automatski';
-  return v.name.replace(/^Microsoft\s*/i,'').replace(/^Google\s*/i,'')
-    .replace(/\s*Online\s*\(Natural\)/i,' (prirodni)').replace(/\s*[-–—]\s*.*$/,'').trim()||v.name;
-}
-function syncVoiceUI(){var el=document.getElementById('agVoiceState');if(el)el.textContent=shortVoiceName(AG.voice);}
-if(synth){pickVoice();if('onvoiceschanged' in synth)synth.addEventListener('voiceschanged',pickVoice);}
-/* ---------- priprema teksta za govor ---------- */
-function cleanForSpeech(t){
-  return String(t)
-    .replace(/\s+/g,' ')
-    .replace(/(\d)\.(\d{3})/g,'$1$2')      /* 10.000 -> 10000 */
-    .replace(/\bKM\b/g,'konvertibilnih maraka')
-    .replace(/–/g,' do ')
-    .replace(/·/g,', ')
-    .replace(/%/g,' posto')
-    .trim();
-}
-function speak(text,interrupt){
-  if(!synth||!text)return;
-  if(interrupt){synth.cancel();if(typeof stopAudio==='function')stopAudio();}
-  var u=new SpeechSynthesisUtterance(cleanForSpeech(text));
-  if(AG.voice)u.voice=AG.voice;
-  u.lang=AG.voice?AG.voice.lang:'hr-HR';
-  u.rate=AG.rate;
-  u.pitch=1.04; /* blago topliji ton */
-  u.onstart=function(){btnEl.classList.add('speaking');};
-  u.onend=function(){if(!synth.speaking&&!synth.pending)btnEl.classList.remove('speaking');};
-  u.onerror=function(){btnEl.classList.remove('speaking');};
-  synth.speak(u);
-}
-function stopSpeech(){if(synth){synth.cancel();btnEl.classList.remove('speaking');}}
-/* ---------- zvučni efekti (WebAudio — sintetizovani toni, bez audio fajlova) ---------- */
-var actx=null;
-function audioCtx(){
-  var AC=window.AudioContext||window.webkitAudioContext;
-  if(!AC)return null;
-  if(!actx)actx=new AC();
-  if(actx.state==='suspended')actx.resume();
-  return actx;
-}
-function tone(freq,start,dur,vol,type,endFreq){
-  var c=audioCtx();if(!c)return;
-  var o=c.createOscillator(),g=c.createGain(),t=c.currentTime+start;
-  o.type=type||'sine';
-  o.frequency.setValueAtTime(freq,t);
-  if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+dur);
-  g.gain.setValueAtTime(0.0001,t);
-  g.gain.exponentialRampToValueAtTime(vol,t+0.012);
-  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
-  o.connect(g);g.connect(c.destination);
-  o.start(t);o.stop(t+dur+0.05);
-}
-function sfx(name){
-  if(!AG.sfx)return;
-  try{
-    switch(name){
-      case 'page':    tone(440,0,.09,.05,'sine',660);tone(880,.06,.12,.04);break;                       /* promjena stranice */
-      case 'tick':    tone(1250,0,.035,.028,'square');break;                                            /* pomjeranje klizača */
-      case 'set':     tone(660,0,.08,.05);tone(990,.07,.1,.045);break;                                  /* postavljena vrijednost */
-      case 'click':   tone(520,0,.06,.05,'triangle');break;                                             /* odgovor u kvizu */
-      case 'quiz':    [660,830,990,1320].forEach(function(f,i){tone(f,i*.09,.22,.055);});break;         /* rezultat kviza — iskrica */
-      case 'success': [523,659,784,1047].forEach(function(f,i){tone(f,i*.11,.3,.06);});tone(1568,.44,.4,.04);break; /* poslan obrazac — fanfara */
-      case 'error':   tone(300,0,.14,.06,'triangle',220);tone(220,.13,.18,.05,'triangle');break;        /* greška u obrascu */
-      case 'open':    tone(520,0,.07,.04,'sine',740);break;
-      case 'close':   tone(740,0,.07,.04,'sine',520);break;
-    }
-  }catch(e){}
-}
-var lastTick=0;
-function sfxTickThrottled(){var n=Date.now();if(n-lastTick>70){lastTick=n;sfx('tick');}}
-/* ---------- snimljeni glas (MP3 fajlovi u folderu "audio/") ----------
-   Za sve poznate fraze pušta se studijski snimak — prirodni ženski srpski
-   glas (Sophie neural), identičan kod SVAKOG posjetioca, u svakom browseru.
-   Ako fajl ne postoji, automatski i tiho se koristi sistemski TTS kao rezerva. */
-var AUDIO_DIR=''; /* mp3 fajlovi su u korijenu repozitorija, ne u podfolderu audio/ */
-var player=new Audio(),audioMiss={},seqQueue=null,seqFallback=null;
-player.preload='none';
-player.addEventListener('playing',function(){btnEl.classList.add('speaking');});
-player.addEventListener('ended',function(){
-  if(seqQueue&&seqQueue.length){playKeyRaw(seqQueue.shift());}
-  else{seqQueue=null;btnEl.classList.remove('speaking');}
-});
-function stopAudio(){seqQueue=null;try{player.pause();player.currentTime=0;}catch(e){}btnEl.classList.remove('speaking');}
-function playClip(key,fallback,interrupt){
-  var runFallback=function(){
-    if(typeof fallback==='function')fallback();
-    else if(fallback)speak(fallback,interrupt);
-  };
-  if(audioMiss[key]){runFallback();return;}
-  if(interrupt){if(synth)synth.cancel();stopAudio();}
-  var done=false;
-  var onFail=function(){
-    if(done)return;done=true;
-    audioMiss[key]=true;btnEl.classList.remove('speaking');
-    runFallback();
-  };
-  player.onerror=onFail;
-  player.src=AUDIO_DIR+key+'.mp3';
-  player.playbackRate=AG.rate;
-  var pr=player.play();
-  /* AbortError = ovaj snimak je namjerno prekinut novim — to NIJE greška fajla */
-  if(pr&&pr.catch)pr.catch(function(err){if(err&&err.name==='AbortError')return;onFail();});
-}
-/* govori: snimak ako postoji, inače TTS */
-function say(text,interrupt,key){
-  if(key)playClip(key,text,interrupt);
-  else speak(text,interrupt);
-}
-/* ---------- sastavljanje dinamičnih rečenica iz snimaka ----------
-   Brojevi (rata, iznos, rok) sastavljaju se iz snimljenih riječi
-   ("petsto", "sedamdeset", "tri"...), pa i kalkulator govori istim
-   ženskim glasom — sistemski TTS se koristi samo ako snimci fale. */
-function playKeyRaw(key){
-  var done=false;
-  var fail=function(){
-    if(done)return;done=true;
-    audioMiss[key]=true;
-    var fb=seqFallback;seqQueue=null;seqFallback=null;
-    btnEl.classList.remove('speaking');
-    if(fb)speak(fb,true);
-  };
-  player.onerror=fail;
-  player.src=AUDIO_DIR+key+'.mp3';
-  player.playbackRate=AG.rate;
-  var pr=player.play();
-  if(pr&&pr.catch)pr.catch(function(err){if(err&&err.name==='AbortError')return;fail();});
-}
-function playSeq(keys,fallbackText){
-  for(var i=0;i<keys.length;i++){
-    if(audioMiss[keys[i]]){speak(fallbackText,true);return;}
-  }
-  if(synth)synth.cancel();
-  stopAudio();
-  seqQueue=keys.slice();seqFallback=fallbackText;
-  playKeyRaw(seqQueue.shift());
-}
-/* broj -> ključevi snimaka (srpski/bosanski izgovor) */
-function sub999(n,fem){
-  var out=[],h=Math.floor(n/100),r=n%100;
-  if(h)out.push('n-'+(h*100));
-  if(r){
-    if(r<20){
-      if(r===1)out.push(fem?'n-1f':'n-1');
-      else if(r===2)out.push(fem?'n-2f':'n-2');
-      else out.push('n-'+r);
-    }else{
-      out.push('n-'+(Math.floor(r/10)*10));
-      var d=r%10;
-      if(d){
-        if(d===1)out.push(fem?'n-1f':'n-1');
-        else if(d===2)out.push(fem?'n-2f':'n-2');
-        else out.push('n-'+d);
-      }
-    }
-  }
-  return out;
-}
-function numKeys(n){
-  n=Math.round(n);if(n<=0)return['n-0'];
-  var out=[],th=Math.floor(n/1000),rest=n%1000;
-  if(th){
-    if(th===1)out.push('n-1000');
-    else{
-      out=out.concat(sub999(th,true));
-      var v=th%100,d=th%10;
-      if(v>=12&&v<=14)out.push('n-1000p');
-      else if(d===1)out.push('n-1000p');
-      else if(d>=2&&d<=4)out.push('n-1000s');
-      else out.push('n-1000p');
-    }
-  }
-  if(rest)out=out.concat(sub999(rest,false));
-  return out;
-}
-function monthKey(n){var v=n%100,d=n%10;if(v>=12&&v<=14)return 't-mjeseci';return(d>=2&&d<=4)?'t-mjeseca':'t-mjeseci';}
-function digitsOf(sel){var el=document.getElementById(sel);return parseInt(String(el?(el.innerText||el.textContent):'0').replace(/[^\d]/g,''),10)||0;}
-var BADGE_KEYS={'Odlična':'t-odlicna','Dobra':'t-dobra','Slabija':'t-slabija'};
-var PROD_KEYS2={'Keš PLUS':'prod-kes-plus','Keš PLUS MAX':'prod-kes-plus-max','Siguran put PLUS':'prod-siguran-put','DOM PLUS':'prod-dom-plus','Ljepota i zdravlje':'prod-ljepota','Treća mladost':'prod-treca-mladost','Đak Prvak PLUS':'prod-djak-prvak','Biznis Keš PLUS':'prod-biznis-kes','Invest PLUS':'prod-invest'};
-/* najava: uvijek ide u aria-live (za čitače ekrana), a naglas samo ako su najave uključene */
-function announce(txt,key){
-  if(!txt)return;
+var PAGE_NAMES={pocetna:'Početna',onama:'O nama',boris:'Boris Knežević — arhitekta finansija',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',poslovnice:'Poslovnice',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova'};
+/* najava za čitače ekrana */
+function announce(txt){
+  if(!txt||!live)return;
   live.textContent='';
   setTimeout(function(){live.textContent=txt;},30);
-  if(AG.auto)say(txt,true,key);
 }
-/* ---------- čitanje cijele aktivne stranice ----------
-   prvo pokuša snimljenu naraciju (audio/pg-<id>.mp3), pa tek onda TTS */
-function readPage(){
-  var pg=document.querySelector('.page.active');if(!pg)return;
-  var id=pg.id.replace('pg-','');
-  playClip('pg-'+id,function(){readPageTTS();},true);
-}
-function readPageTTS(){
-  if(!synth){announce('Nažalost, vaš pretraživač ne podržava govornu sintezu.');return;}
-  synth.cancel();
-  var pg=document.querySelector('.page.active');if(!pg)return;
-  var id=pg.id.replace('pg-','');
-  var sel='h1,h2,h3,h4,.lead,p,li,.pspecs>div,.cline,.q-q,.q-opt,.faq-q,.branch-bd,.kit,.trust-it,.hstat,.gauge-amt,.gauge-amt-l,.chip';
-  var nodes=pg.querySelectorAll(sel),kept=[];
-  nodes.forEach(function(el){
-    if(el.closest('[aria-hidden="true"]'))return;
-    if(el.offsetParent===null)return; /* nevidljivo (display:none grana) */
-    for(var i=0;i<kept.length;i++){if(kept[i].contains(el))return;}
-    kept.push(el);
-  });
-  speak('Stranica: '+(PAGE_NAMES[id]||id)+'.',false);
-  var count=0;
-  kept.forEach(function(el){
-    if(count>=150)return;
-    var t=(el.innerText||'').replace(/\s+/g,' ').trim();
-    if(t&&t.length>1){speak(t,false);count++;}
-  });
-}
-/* ---------- panel vodiča ---------- */
-function togglePanel(force){
-  AG.open=(force!==undefined)?force:!AG.open;
-  panel.classList.toggle('open',AG.open);
-  btnEl.setAttribute('aria-expanded',AG.open?'true':'false');
-  sfx(AG.open?'open':'close');
-  if(AG.open){
-    var f=document.getElementById('agRead');if(f)f.focus();
-    var hi=false;try{hi=localStorage.getItem('bpk_ag_hi')==='1';}catch(e){}
-    if(!hi){
-      try{localStorage.setItem('bpk_ag_hi','1');}catch(e){}
-      playClip('ag-welcome','Dobrodošli u audio vodič. Dugme Pročitaj ovu stranicu čita vam sadržaj naglas, a automatske najave javljaju promjene stranica i rezultate.',false);
-    }
-  }
-  else btnEl.focus();
-}
-btnEl.addEventListener('click',function(){togglePanel();});
-document.getElementById('agRead').addEventListener('click',readPage);
-document.getElementById('agPause').addEventListener('click',function(){
-  /* prvo MP3 player, pa TTS */
-  if(player.src&&!player.ended&&player.currentTime>0){
-    if(player.paused)player.play();else player.pause();
-    return;
-  }
-  if(!synth)return;
-  if(synth.paused)synth.resume();
-  else if(synth.speaking)synth.pause();
-});
-document.getElementById('agStop').addEventListener('click',function(){stopAudio();stopSpeech();});
-var autoBtn=document.getElementById('agAuto'),autoState=document.getElementById('agAutoState');
-function syncAuto(){
-  autoState.textContent=AG.auto?'uključene':'isključene';
-  autoBtn.classList.toggle('on',AG.auto);
-  autoBtn.setAttribute('aria-pressed',AG.auto?'true':'false');
-}
-autoBtn.addEventListener('click',function(){
-  AG.auto=!AG.auto;saveAG();syncAuto();
-  say(AG.auto?'Automatske glasovne najave su uključene. Najavljivaću promjene stranica, rezultate kalkulatora i preporuke vodiča.':'Automatske najave su isključene.',true,AG.auto?'ag-auto-on':'ag-auto-off');
-});
-syncAuto();
-var SPEEDS=[[0.8,'sporija'],[1,'normalna'],[1.25,'brža']];
-var spBtn=document.getElementById('agSpeed'),spState=document.getElementById('agSpeedState');
-function syncSpeed(){for(var i=0;i<SPEEDS.length;i++){if(SPEEDS[i][0]===AG.rate){spState.textContent=SPEEDS[i][1];return;}}spState.textContent='normalna';}
-spBtn.addEventListener('click',function(){
-  var idx=0;for(var i=0;i<SPEEDS.length;i++){if(SPEEDS[i][0]===AG.rate)idx=i;}
-  AG.rate=SPEEDS[(idx+1)%SPEEDS.length][0];saveAG();syncSpeed();
-  player.playbackRate=AG.rate; /* važi i za snimke koji trenutno sviraju */
-  var spKey={'sporija':'ag-speed-sporija','normalna':'ag-speed-normalna','brža':'ag-speed-brza'}[spState.textContent];
-  say('Brzina govora: '+spState.textContent+'.',true,spKey);
-});
-syncSpeed();
-/* izbor glasa — kruži kroz sve dostupne glasove našeg jezika */
-var vBtn=document.getElementById('agVoice');
-vBtn.addEventListener('click',function(){
-  if(!voiceList.length){playClip('ag-voice-none','Na ovom uređaju nema instaliranih glasova za naš jezik, pa rezervni govor koristi zadani glas pretraživača.',true);return;}
-  var idx=-1;
-  for(var i=0;i<voiceList.length;i++){if(AG.voice&&voiceList[i].name===AG.voice.name)idx=i;}
-  AG.voice=voiceList[(idx+1)%voiceList.length];
-  AG.voiceName=AG.voice.name;saveAG();syncVoiceUI();
-  speak('Ovako zvuči glas '+shortVoiceName(AG.voice)+'. Dobrodošli u Bilans Plus Kredit — finansije moraju imati karakter.',true);
-});
-/* zvučni efekti on/off */
-var sfxBtn=document.getElementById('agSfx'),sfxState=document.getElementById('agSfxState');
-function syncSfx(){
-  sfxState.textContent=AG.sfx?'uključeni':'isključeni';
-  sfxBtn.classList.toggle('on',AG.sfx);
-  sfxBtn.setAttribute('aria-pressed',AG.sfx?'true':'false');
-}
-sfxBtn.addEventListener('click',function(){AG.sfx=!AG.sfx;saveAG();syncSfx();if(AG.sfx)sfx('success');});
-syncSfx();
-if(!synth){
-  /* i bez TTS-a vodič radi preko snimljenog glasa — gasi se samo izbor TTS glasa */
-  document.getElementById('agSub').textContent='Vodič koristi snimljeni ženski glas. Vaš pretraživač ne podržava govornu sintezu, pa se dinamičke vrijednosti (npr. rata iz kalkulatora) ne mogu izgovarati.';
-  document.getElementById('agVoice').disabled=true;
-}
-/* ---------- tastaturne prečice ---------- */
-document.addEventListener('keydown',function(e){
-  if(e.altKey&&(e.key==='g'||e.key==='G')){e.preventDefault();togglePanel();}
-  if(e.altKey&&(e.key==='r'||e.key==='R')){e.preventDefault();readPage();}
-  if(e.key==='Escape'){
-    var audioBusy=player.src&&!player.paused&&!player.ended;
-    if(audioBusy||(synth&&(synth.speaking||synth.pending))){stopAudio();stopSpeech();}
-    else if(AG.open)togglePanel(false);
-  }
-});
 /* ---------- "preskoči na sadržaj" + fokus na naslov stranice ---------- */
 function focusPageHeading(){
   var pg=document.querySelector('.page.active');if(!pg)return;
@@ -2039,8 +1945,7 @@ window.a11ySkip=function(){focusPageHeading();};
 var _go=window.go;
 window.go=function(id){
   _go(id);
-  sfx('page');
-  announce('Otvorena stranica: '+(PAGE_NAMES[id]||id)+'.','nav-'+id);
+  announce('Otvorena stranica: '+(PAGE_NAMES[id]||id)+'.');
   document.querySelectorAll('.nlink').forEach(function(n){
     if(n.dataset.nl===id)n.setAttribute('aria-current','page');
     else n.removeAttribute('aria-current');
@@ -2052,12 +1957,12 @@ document.querySelectorAll('.nlink').forEach(function(n){
 });
 /* ---------- burger meni: aria-expanded ---------- */
 var burgerEl=document.getElementById('burger');
-burgerEl.addEventListener('click',function(){
+if(burgerEl)burgerEl.addEventListener('click',function(){
   burgerEl.setAttribute('aria-expanded',document.getElementById('navlinks').classList.contains('open')?'true':'false');
 });
 /* ---------- dekorativni elementi — sakrij od čitača ekrana ---------- */
 document.querySelectorAll('svg').forEach(function(s){s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');});
-['.ticker','.particles','#heroChannels','.orb','.hero-bg','.woman-ring','.quiz-prog','.calc-chart','.faq-q .pl','.tstars','.mp-pulse','.mp-dot'].forEach(function(sel){
+['.ticker','.particles','#heroChannels','.orb','.hero-bg','.woman-ring','.quiz-prog','.calc-chart','.faq-q .pl','.tstars','.mp-pulse','.mp-dot','.av-stack'].forEach(function(sel){
   document.querySelectorAll(sel).forEach(function(el){el.setAttribute('aria-hidden','true');});
 });
 /* ---------- logo / brand kao link dostupan tastaturi ---------- */
@@ -2080,7 +1985,7 @@ document.querySelectorAll('.branch').forEach(function(b){
   b.setAttribute('role','button');b.setAttribute('tabindex','0');
   b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();b.click();}});
 });
-/* ---------- FAQ: tastatura + aria-expanded + čitanje odgovora ---------- */
+/* ---------- FAQ: tastatura + aria-expanded ---------- */
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.setAttribute('role','button');q.setAttribute('tabindex','0');q.setAttribute('aria-expanded','false');
   q.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
@@ -2089,17 +1994,6 @@ document.querySelectorAll('.faq-q').forEach(function(q){
       document.querySelectorAll('.faq-q').forEach(function(x){
         x.setAttribute('aria-expanded',x.parentElement.classList.contains('open')?'true':'false');
       });
-      var f=q.parentElement;
-      if(f.classList.contains('open')){
-        sfx('open');
-        if(AG.auto){
-          var a=f.querySelector('.faq-a p');
-          if(a){
-            var fi=Array.prototype.indexOf.call(document.querySelectorAll('.faq-q'),q);
-            say(q.innerText.replace(/\+\s*$/,'')+'. '+a.innerText,true,'faq-'+(fi+1));
-          }
-        }
-      }
     },20);
   });
 });
@@ -2122,74 +2016,49 @@ document.querySelectorAll('.fg,.cgroup').forEach(function(wrap){
 ['z-ime','z-tel','z-email','z-grad','z-tip','z-gdpr','k-ime','k-tel','k-email','k-poruka'].forEach(function(id){
   var el=document.getElementById(id);if(el)el.setAttribute('aria-required','true');
 });
-/* ---------- klizači: aria-valuetext + glasna najava rezultata na otpuštanje ---------- */
+/* ---------- klizači: aria-valuetext ---------- */
 function sliderA11y(id,labelId){
   var el=document.getElementById(id);if(!el)return;
   var set=function(){var l=document.getElementById(labelId);if(l)el.setAttribute('aria-valuetext',l.textContent);};
   el.addEventListener('input',set);set();
-  el.addEventListener('input',sfxTickThrottled); /* nježan tik dok se klizač pomjera */
 }
 sliderA11y('calcAmt','calcAmtL');sliderA11y('calcTerm','calcTermL');
 sliderA11y('gInc','gIncL');sliderA11y('gObl','gOblL');sliderA11y('gTrm','gTrmL');
+/* rezultat kalkulatora i mjerača — najava za čitače ekrana */
 function onRelease(id,fn){
   var el=document.getElementById(id);
-  if(el)el.addEventListener('change',function(){sfx('set');if(AG.auto)fn();});
+  if(el)el.addEventListener('change',fn);
 }
 function calcAnnounce(){
-  var amt=+document.getElementById('calcAmt').value;
-  var term=+document.getElementById('calcTerm').value;
-  var monthly=digitsOf('calcMonthly');
-  var total=digitsOf('calcTotal');
-  var seq=['t-iznos'].concat(numKeys(amt),['t-km','t-rok'],numKeys(term),[monthKey(term),'t-rata'],numKeys(monthly),['t-km','t-ukupno'],numKeys(total),['t-km']);
-  var txt='Iznos '+document.getElementById('calcAmtL').textContent
-    +', rok '+document.getElementById('calcTermL').textContent
-    +'. Mjesečna rata: '+document.getElementById('calcMonthly').innerText
-    +'. Ukupno za otplatu: '+document.getElementById('calcTotal').textContent+'.';
-  playSeq(seq,txt);
+  announce('Mjesečna rata: '+document.getElementById('calcMonthly').innerText
+    +'. Ukupno za otplatu: '+document.getElementById('calcTotal').textContent+'.');
 }
 onRelease('calcAmt',calcAnnounce);onRelease('calcTerm',calcAnnounce);
 var calcSel=document.getElementById('calcProd');
 if(calcSel)calcSel.addEventListener('change',function(){
-  if(!AG.auto)return;
-  var full=calcSel.options[calcSel.selectedIndex].text;
-  var name=full.split('—')[0].replace(/\s+$/,'').trim();
-  var monthly=digitsOf('calcMonthly');
-  var pk=PROD_KEYS2[name];
-  if(pk){
-    playSeq(['t-proizvod',pk,'t-rata'].concat(numKeys(monthly),['t-km']),
-      'Odabran proizvod: '+full+'. Mjesečna rata: '+document.getElementById('calcMonthly').innerText+'.');
-  }else{
-    speak('Odabran proizvod: '+full+'. '+document.getElementById('calcMonthly').innerText+' mjesečno.',true);
-  }
+  announce('Odabran proizvod: '+calcSel.options[calcSel.selectedIndex].text+'. Mjesečna rata: '+document.getElementById('calcMonthly').innerText+'.');
 });
 function gaugeAnnounce(){
-  var badge=document.getElementById('gBadge').textContent;
-  var seq=['t-max'].concat(numKeys(digitsOf('gAmt')),['t-km','t-moguca'],numKeys(digitsOf('gRate')),['t-km','t-sposobnost',BADGE_KEYS[badge]||'t-dobra']);
-  var txt='Procijenjeni maksimalni iznos kredita: '+document.getElementById('gAmt').textContent
+  announce('Procijenjeni maksimalni iznos: '+document.getElementById('gAmt').textContent
     +'. Moguća mjesečna rata: '+document.getElementById('gRate').textContent
-    +'. Kreditna sposobnost: '+badge+'.';
-  playSeq(seq,txt);
+    +'. Kreditna sposobnost: '+document.getElementById('gBadge').textContent+'.');
 }
 onRelease('gInc',gaugeAnnounce);onRelease('gObl',gaugeAnnounce);onRelease('gTrm',gaugeAnnounce);
-/* ---------- AI kviz: najava pitanja i rezultata ---------- */
+/* ---------- kviz: najava pitanja i rezultata ---------- */
 var _quizAns=window.quizAns;
 window.quizAns=function(step,val){
   _quizAns(step,val);
   if(step<2){
-    sfx('click');
     var s=document.querySelector('.q-step.on');
-    if(s){var qq=s.querySelector('.q-q');if(qq)announce('Pitanje '+(step+2)+' od 3: '+qq.textContent,'quiz-q'+(step+2));}
+    if(s){var qq=s.querySelector('.q-q');if(qq)announce('Pitanje '+(step+2)+' od 3: '+qq.textContent);}
   }else{
-    sfx('quiz');
-    var qn=document.getElementById('quizName').textContent;
-    announce('Naša preporuka za vas: '+qn+'. '+document.getElementById('quizDesc').textContent,QUIZ_KEYS[qn]);
+    announce('Naša preporuka za vas: '+document.getElementById('quizName').textContent+'. '+document.getElementById('quizDesc').textContent);
   }
 };
 var _quizRestart=window.quizRestart;
 window.quizRestart=function(){
   _quizRestart();
-  sfx('click');
-  announce('Vodič je vraćen na početak. Pitanje 1 od 3: Ko podnosi zahtjev za kredit?','quiz-restart');
+  announce('Vodič je vraćen na početak. Pitanje 1 od 3: Ko podnosi zahtjev za kredit?');
 };
 /* ---------- obrasci: najava grešaka i uspjeha ---------- */
 function formA11y(formId,okId){
@@ -2199,8 +2068,7 @@ function formA11y(formId,okId){
       var ok=document.getElementById(okId);
       if(ok&&ok.classList.contains('on')){
         var h=ok.querySelector('h3'),p=ok.querySelector('p');
-        sfx('success');
-        announce((h?h.textContent:'Uspješno poslano.')+' '+(p?p.textContent:''),formId==='zForm'?'form-ok-zahtjev':'form-ok-kontakt');
+        announce((h?h.textContent:'Uspješno poslano.')+' '+(p?p.textContent:''));
         return;
       }
       f.querySelectorAll('input,select,textarea').forEach(function(i){
@@ -2213,15 +2081,13 @@ function formA11y(formId,okId){
           var fg=e2.closest('.fg');var l=fg?fg.querySelector('label'):null;
           if(l)names.push(l.textContent.replace(/\*/g,'').trim());
         });
-        sfx('error');
-        announce('Obrazac nije poslan. Provjerite polja: '+names.join(', ')+'.','form-err');
+        announce('Obrazac nije poslan. Provjerite polja: '+names.join(', ')+'.');
         errs[0].focus();
         return;
       }
       var g=document.getElementById('z-gdpr');
       if(formId==='zForm'&&g&&!g.checked){
-        sfx('error');
-        announce('Obrazac nije poslan. Morate označiti saglasnost sa obradom ličnih podataka.','form-gdpr');
+        announce('Obrazac nije poslan. Morate označiti saglasnost sa obradom ličnih podataka.');
         g.focus();
       }
     },60);
@@ -2237,13 +2103,174 @@ if(gs){
     clearTimeout(gt);
     gt=setTimeout(function(){
       var n=document.querySelectorAll('#glosWrap .gitem').length;
-      live.textContent=n?(n+' pojmova pronađeno.'):'Nema rezultata.';
+      if(live)live.textContent=n?(n+' pojmova pronađeno.'):'Nema rezultata.';
     },700);
   });
 }
 /* ---------- cookie banner kao imenovana regija ---------- */
 var ck=document.getElementById('cookie');
 if(ck){ck.setAttribute('role','region');ck.setAttribute('aria-label','Obavještenje o kolačićima');}
+})();
+</script>
+<script>
+/* ================================================================
+   DVOJEZIČNOST / BILINGUAL (BS ⇄ EN)
+   Rječnik prevoda + sloj koji mijenja tekstove u DOM-u.
+   Radi i na sadržaj koji JavaScript naknadno iscrta (kartice,
+   modali, rječnik pojmova) — preko MutationObserver-a.
+   ================================================================ */
+(function(){
+'use strict';
+var DICT={
+/* ---------- navigacija, hero, opšte ---------- */
+"Početna":"Home","O nama":"About us","Krediti":"Loans","Kalkulator":"Calculator","Poslovnice":"Branches","Rječnik":"Glossary","Kontakt":"Contact","Meni":"Menu","Vrh":"Top","Zatvori":"Close","Nazad":"Back","Preskoči na glavni sadržaj":"Skip to main content","Glavna navigacija":"Main navigation","Bilans Plus Kredit — početna stranica":"Bilans Plus Kredit — home page","Prethodne recenzije klijenata":"Previous client reviews","Sljedeće recenzije klijenata":"Next client reviews",
+"Licencirana mikrokreditna organizacija":"Licensed microcredit organisation","Finansije moraju":"Finance must","imati karakter":"have character","Svjesni da svaki kredit utiče na život ljudi, gradimo poslovanje na odgovornim finansijskim odlukama, povjerenju i dugoročnoj održivosti":"Aware that every loan affects people's lives, we build our business on responsible financial decisions, trust and long-term sustainability","Podnesi zahtjev":"Apply now","Kreditni kalkulator":"Loan calculator","Rezerviši ličnog savjetnika":"Book a personal advisor","Besplatan razgovor, bez obaveze":"Free consultation, no obligation","Zaštitno lice":"Compliance officer","MKD Bilans Plus Kredit":"MKD Bilans Plus Kredit","Vaša savjetnica":"Your advisor","Bilans Plus Kredit savjetnica":"Bilans Plus Kredit advisor",
+/* ---------- ticker / trust ---------- */
+"Odobrenje za 24 sata":"Approval within 24 hours","Bez skrivenih troškova":"No hidden costs","Licencirano · Agencija za bankarstvo RS":"Licensed · Banking Agency of RS","6 poslovnica u Republici Srpskoj":"6 branches across Republika Srpska","Brza pozajmica bez žiranata":"Quick loan without guarantors","Personalizovana kreditna analiza":"Personalised credit analysis","Lični savjetnik za svakog klijenta":"A personal advisor for every client",
+"Licencirano":"Licensed","Agencija za bankarstvo Republike Srpske":"Banking Agency of Republika Srpska","Odobrenje za 24h":"Approval in 24h","Brza obrada svakog zahtjeva":"Fast processing of every application","Jasna EKS u svakom ugovoru":"Clear APR in every contract","Lični savjetnik":"Personal advisor","Personalizovana analiza za svakog":"Personalised analysis for everyone",
+/* ---------- proizvodi / sekcija ---------- */
+"Naša ponuda":"Our offer","Krediti koji":"Loans that","prate vaš život":"follow your life","Devet kreditnih proizvoda za fizička i pravna lica — gotovinski, namjenski, penzionerski i poslovni krediti, sa fiksnom kamatnom stopom i jasnom EKS.":"Nine loan products for individuals and businesses — cash, purpose-specific, pensioner and business loans, with a fixed interest rate and a clear APR.","Svi krediti":"All loans","Fizička lica":"Individuals","Pravna lica":"Businesses","Za fizička lica":"For individuals","Za pravna lica":"For businesses","Iznos":"Amount","Rok otplate":"Repayment term","Detalji i kamatne stope":"Details and interest rates","Kamata (NKS)":"Interest (nominal)","EKS":"APR","NKS":"Nominal rate","Grace period":"Grace period","Iznos kredita":"Loan amount","Nominalna kamata (NKS)":"Nominal interest rate","Efektivna kamata (EKS)":"Effective rate (APR)","Kamatna stopa":"Interest rate","fiksna":"fixed","EKS je izračunata na reprezentativnom primjeru i uključuje sve troškove obrade. Konačni uslovi utvrđuju se individualnom obradom zahtjeva.":"The APR is calculated on a representative example and includes all processing costs. Final terms are determined through individual assessment of your application.","Izračunaj ratu":"Calculate instalment",
+"Nenamjenski gotovinski kredit za lične potrebe, bez navođenja namjene.":"Non-purpose cash loan for personal needs, with no need to state the purpose.","Nenamjenski gotovinski kredit za veće iznose, bez navođenja namjene.":"Non-purpose cash loan for larger amounts, with no need to state the purpose.","Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa.":"Financing for vehicle registration, insurance, technical inspection, tyres and minor servicing.","Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD.":"Buy now — financing for goods and services at our contracted partners.","Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD.":"Financing for medical and cosmetic services at our contracted partners.","Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju.":"Non-purpose loan for pensioners, with the option of an administrative garnishment on the pension.","Finansiranje školskog pribora, udžbenika, odjeće i obuće za polazak u školu.":"Financing for school supplies, textbooks, clothing and footwear for the start of school.","Obrtna sredstva i likvidnost — zalihe, plate, zakup, porezi i refinansiranje obaveza.":"Working capital and liquidity — inventory, wages, rent, taxes and refinancing of obligations.","Investicioni kredit — mašine, oprema, vozila, IT i opremanje poslovnog prostora.":"Investment loan — machinery, equipment, vehicles, IT and fitting out business premises.",
+/* ---------- kviz ---------- */
+"Pametni vodič · AI preporuka":"Smart guide · AI recommendation","Ne znate koji kredit vam treba?":"Not sure which loan you need?","Odgovorite na 3 kratka pitanja i naš vodič će vam u sekundi preporučiti idealan tip kredita.":"Answer 3 short questions and our guide will recommend the ideal type of loan in seconds.","Pitanje 1 / 3":"Question 1 / 3","Pitanje 2 / 3":"Question 2 / 3","Pitanje 3 / 3":"Question 3 / 3","Ko podnosi zahtjev za kredit?":"Who is applying for the loan?","Fizičko lice":"Individual","građanin / penzioner":"private person / pensioner","Pravno lice":"Legal entity","firma / preduzetnik":"company / entrepreneur","Šta želite finansirati?":"What would you like to finance?","Lične potrebe":"Personal needs","gotovina":"cash","Registracija vozila":"Vehicle registration","osiguranje, servis":"insurance, servicing","Kupovina za dom":"Purchases for the home","dobra i usluge":"goods and services","Zdravlje i ljepota":"Health and beauty","medicinske usluge":"medical services","Polazak u školu":"Starting school","đak prvak":"first-grader","Poslovanje":"Business","Još nešto bitno?":"Anything else important?","Penzioner sam":"I am a pensioner","Veći iznos / duži rok":"Larger amount / longer term","do 84 mjeseca":"up to 84 months","Investicija u opremu":"Investment in equipment","mašine, vozila":"machinery, vehicles","Ništa posebno":"Nothing in particular","standardni uslovi":"standard terms","Naša preporuka za vas":"Our recommendation for you","Počni ponovo":"Start over","Pokreni AI vodič":"Launch the AI guide","Niste sigurni koji je pravi?":"Not sure which one is right?","Pokrenite naš pametni vodič ili izračunajte ratu prije nego se odlučite.":"Launch our smart guide or calculate your instalment before you decide.",
+"Nenamjenski gotovinski kredit za lične potrebe, bez obaveze navođenja namjene. Iznos do 7.000 KM, rok do 18 mjeseci.":"Non-purpose cash loan for personal needs, with no obligation to state the purpose. Amount up to 7,000 KM, term up to 18 months.","Nenamjenski gotovinski kredit za veće iznose — do 30.000 KM, rok do 84 mjeseca.":"Non-purpose cash loan for larger amounts — up to 30,000 KM, term up to 84 months.","Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa. Iznos 300–3.000 KM.":"Financing for vehicle registration, insurance, technical inspection, tyres and minor servicing. Amount 300–3,000 KM.","Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD. Iznos 300–10.000 KM.":"Buy now — financing for goods and services at our contracted partners. Amount 300–10,000 KM.","Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD. Iznos do 30.000 KM.":"Financing for medical and cosmetic services at our contracted partners. Amount up to 30,000 KM.","Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju. Iznos do 30.000 KM, rok do 84 mjeseca.":"Non-purpose loan for pensioners, with the option of an administrative garnishment on the pension. Amount up to 30,000 KM, term up to 84 months.","Za školski pribor, udžbenike, odjeću i obuću za polazak u školu. Iznos 500–2.000 KM, najniža kamata 19,99%.":"For school supplies, textbooks, clothing and footwear for the start of school. Amount 500–2,000 KM, lowest interest rate 19.99%.","Kredit za obrtna sredstva i likvidnost poslovnog subjekta. Iznos 2.000–50.000 KM, grace do 3 mjeseca.":"Loan for working capital and liquidity of a business. Amount 2,000–50,000 KM, grace period up to 3 months.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila i opremanje prostora. Iznos 10.000–50.000 KM, grace do 9 mjeseci.":"Investment loan for businesses — machinery, equipment, vehicles and fitting out premises. Amount 10,000–50,000 KM, grace period up to 9 months.",
+/* ---------- proces ---------- */
+"Jednostavno do kredita":"A simple path to your loan","Kredit u":"A loan in","2 koraka":"2 steps","Bez redova i nepotrebne papirologije — od prijave do novca na računu u dva jednostavna koraka.":"No queues and no unnecessary paperwork — from application to money in your account in two simple steps.","Online zahtjev i analiza":"Online application and analysis","Popunite kratki obrazac ili nas pozovite — naš savjetnik odmah analizira vašu situaciju i predlaže najpovoljnije uslove.":"Fill in the short form or call us — our advisor immediately analyses your situation and proposes the most favourable terms.","Odobrenje i isplata":"Approval and disbursement","Odobrenje gotovinskih kredita za 24h, a sredstva su na vašem računu odmah po potpisu ugovora.":"Cash loans are approved within 24h, and the funds are in your account as soon as the contract is signed.",
+/* ---------- recenzije ---------- */
+"Iskustva klijenata":"Client experiences","Šta kažu naši":"What our","klijenti":"clients say","Gotovinski kredit odobren za jedan dan. Sve jasno objašnjeno, bez sitnih slova. Najljepše iskustvo s nekom finansijskom kućom do sada.":"Cash loan approved in a single day. Everything clearly explained, no fine print. The best experience I have had with a financial institution so far.","Profesionalan tim koji vas sluša. Stambeni kredit smo sredili bez stresa, uslovi tačno onakvi kakvi su nam objašnjeni.":"A professional team that listens to you. We arranged our housing loan without stress, on exactly the terms that were explained to us.","Kao penzioner mislio sam da je teško doći do kredita. Ovdje su mi sve sredili za par sati, automatska naplata iz penzije.":"As a pensioner I thought it would be hard to get a loan. Here they sorted everything out in a couple of hours, with automatic collection from my pension.","Brza pozajmica bez žiranata mi je spasila situaciju. Novac isti dan na računu. Preporučujem svima.":"A quick loan without guarantors saved the day for me. Money in my account the same day. I recommend it to everyone.","Poslovni kredit za proširenje radnje. Savjetnik je razumio moju situaciju i ponudio realnu ratu. Korektno od početka do kraja.":"A business loan to expand my shop. The advisor understood my situation and offered a realistic instalment. Fair from start to finish.","Transparentno, brzo i ljudski. Tačno znaš šta plaćaš. Vraćam se i za sljedeći kredit.":"Transparent, fast and human. You know exactly what you are paying. I will be back for my next loan.",
+/* ---------- mjerač sposobnosti ---------- */
+"Provjeri za 10 sekundi":"Check in 10 seconds","Kolika je vaša":"What is your","kreditna sposobnost?":"borrowing capacity?","Pomjerite klizače i naš pametni mjerač odmah procjenjuje koliki kredit biste okvirno mogli dobiti. Bez prijave i bez obaveza.":"Move the sliders and our smart gauge instantly estimates roughly how much you could borrow. No sign-up and no obligation.","Mjesečna primanja":"Monthly income","Postojeće mjesečne obaveze":"Existing monthly obligations","* Procjena je informativna. Konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* This estimate is informative only. Final capacity is determined by an advisor through individual analysis.","procijenjeni maksimalni iznos":"estimated maximum amount","moguća rata / mj":"possible instalment / month","kreditna sposobnost":"borrowing capacity","Odlična":"Excellent","Dobra":"Good","Slabija":"Limited",
+/* ---------- FAQ ---------- */
+"Pitanja i odgovori":"Questions and answers","Često":"Frequently","postavljana pitanja":"asked questions","Koliko brzo dobijam odobrenje?":"How quickly do I get approval?","Gotovinske kredite (Keš PLUS, Keš PLUS MAX) odobravamo u roku od 24 sata od podnošenja kompletnog zahtjeva. Poslovni krediti za pravna lica mogu zahtijevati do 48 sati zbog detaljnije analize.":"Cash loans (Keš PLUS, Keš PLUS MAX) are approved within 24 hours of a complete application being submitted. Business loans for legal entities may take up to 48 hours due to more detailed analysis.","Da li mi treba žirant?":"Do I need a guarantor?","Za brze pozajmice i većinu gotovinskih kredita žirant nije potreban. Za veće iznose i poslovne kredite uslovi se utvrđuju individualnom analizom.":"For quick loans and most cash loans a guarantor is not required. For larger amounts and business loans, the terms are determined through individual analysis.","Mogu li kao penzioner dobiti kredit?":"Can I get a loan as a pensioner?","Da. Imamo poseban proizvod za penzionere PIO/MIO RS i Federacije BiH, sa automatskom naplatom rate iz penzije.":"Yes. We have a dedicated product for pensioners of the PIO/MIO funds of RS and the Federation of BiH, with the instalment collected automatically from the pension.","Šta je EKS i gdje ga vidim?":"What is the APR and where can I see it?","Efektivna kamatna stopa (EKS) prikazuje ukupan trošak kredita. Navodi se u ugovoru o kreditu za svaki proizvod, a okvirno ga možete vidjeti u našem kalkulatoru.":"The effective interest rate (APR) shows the total cost of the loan. It is stated in the loan contract for every product, and you can see an approximate figure in our calculator.","Koju dokumentaciju trebam?":"What documents do I need?","Za većinu kredita dovoljna je lična karta i potvrda o primanjima. Tačan spisak zavisi od vrste kredita i dostavlja ga vaš savjetnik.":"For most loans an ID card and proof of income are sufficient. The exact list depends on the type of loan and is provided by your advisor.","Mogu li refinansirati postojeći kredit?":"Can I refinance an existing loan?","Da, kroz nenamjenski kredit moguće je refinansiranje postojećih obaveza uz povoljnije uslove i jednu ratu.":"Yes, through a non-purpose loan it is possible to refinance existing obligations on more favourable terms and with a single instalment.",
+/* ---------- CTA ---------- */
+"Pripremite se za snažan bilans.":"Get ready for a strong balance sheet.","Podnesite zahtjev danas — naš tim će vas kontaktirati u roku od 24 sata.":"Apply today — our team will contact you within 24 hours.","Spremni da krenemo zajedno?":"Ready to start together?","Javite nam se — odgovorićemo na svako pitanje prije nego donesete odluku.":"Get in touch — we will answer every question before you make a decision.","Kontaktiraj nas":"Contact us",
+/* ---------- O nama ---------- */
+"Pouzdanost i":"Reliability and","profesionalnost":"professionalism","Novoosnovana licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj.":"A newly founded licensed microcredit organisation headquartered in Republika Srpska.","Finansijska podrška":"Financial support","koja mijenja živote":"that changes lives","Finansijska podrška koja mijenja živote.":"Financial support that changes lives.","MKD Bilans Plus Kredit je licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj. Naša misija je pružiti brzu, transparentnu i personalizovanu finansijsku podršku fizičkim i pravnim licima — uz minimalnu papirologiju.":"MKD Bilans Plus Kredit is a licensed microcredit organisation headquartered in Republika Srpska. Our mission is to provide fast, transparent and personalised financial support to individuals and businesses — with minimal paperwork.","Licencirani":"Licensed","od strane Agencije za bankarstvo Republike Srpske.":"by the Banking Agency of Republika Srpska.","Personalizovana":"Personalised","kreditna analiza za svakog klijenta.":"credit analysis for every client.","Poslovnice":"Branches","raspoređene po cijeloj Republici Srpskoj.":"located throughout Republika Srpska.","transparentnih uslova":"transparent terms","Naše vrijednosti":"Our values","Principi koji nas":"The principles that","definišu":"define us","Transparentnost":"Transparency","Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.":"All terms, interest rates and fees are clearly defined before the contract is signed. No fine print and no hidden costs.","Lični pristup":"A personal approach","Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.":"Every client gets an advisor who understands their situation and finds a tailor-made solution.","Brzina i efikasnost":"Speed and efficiency","Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.":"A cash loan approved in just 24 hours. We value your time as much as your trust.","Upoznajte našeg arhitektu finansija":"Meet our financial architect","Boris Knežević · 18 godina iskustva":"Boris Knežević · 18 years of experience",
+/* ---------- Boris ---------- */
+"Nazad na O nama":"Back to About us","Arhitekta finansija":"Financial architect","Arhitekta finansija — čovjek koji vaš bilans posmatra kao cjelinu, a ne kao jedan kredit.":"Financial architect — someone who sees your balance sheet as a whole, not as a single loan.","Boris Knežević, arhitekta finansija":"Boris Knežević, financial architect","„Kredit nije proizvod koji se prodaje. To je plan koji se pravi.”":"“A loan is not a product to be sold. It is a plan to be made.”","Vaš bilans zaslužuje":"Your balance sheet deserves","plan, ne improvizaciju":"a plan, not improvisation","Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Osamnaest godina radi sa ljudima i firmama u Republici Srpskoj — od prve pozajmice za registraciju vozila do investicionih planova za proizvodne pogone. Njegov pristup je jednostavan: prvo se razumije situacija, pa tek onda bira proizvod.":"Boris Knežević leads the team of advisors at MKD Bilans Plus Kredit. For eighteen years he has worked with people and companies across Republika Srpska — from a first loan for vehicle registration to investment plans for production facilities. His approach is simple: first understand the situation, only then choose the product.","godina u finansijama":"years in finance","odobrenih planova":"approved plans","poslovnica pod nadzorom":"branches under supervision","Ekonomski fakultet, Banja Luka":"Faculty of Economics, Banja Luka","— smjer finansije i bankarstvo, magistar ekonomskih nauka.":"— finance and banking, Master of Economics.","Specijalnost:":"Specialty:","restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.":"restructuring of obligations, refinancing and investment plans for small and medium-sized enterprises.","Princip rada:":"Working principle:","nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.":"no application moves forward until the client understands every item of the contract.","Kako izgleda razgovor":"What the conversation looks like","Tri koraka do":"Three steps to a","finansijskog plana":"financial plan","1 · Slušanje":"1 · Listening","Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.":"For the first half hour there are no numbers. We talk about what you want to achieve, how much you can realistically set aside and what worries you.","2 · Analiza":"2 · Analysis","Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.":"Boris reviews your income and obligations, then calculates several scenarios — including the one in which a loan is not the best solution.","3 · Plan":"3 · Plan","Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.":"You receive a written proposal with the exact instalment, term and total cost. You decide without pressure and without an expiry date on the offer.","Zakažite razgovor sa Borisom":"Book a conversation with Boris","Prvi razgovor je besplatan i ne obavezuje vas ni na šta.":"The first conversation is free and commits you to nothing.",
+/* ---------- Krediti stranica ---------- */
+"Kreditne":"Loan","ponude":"offers","Devet vrsta kredita za fizička i pravna lica — pronađite onaj koji odgovara vašim potrebama.":"Nine types of loans for individuals and businesses — find the one that suits your needs.","7 kreditnih proizvoda":"7 loan products","2 kreditna proizvoda":"2 loan products",
+/* ---------- Kalkulator ---------- */
+"Kreditni":"Loan","kalkulator":"calculator","Pomjerite klizače i odmah vidite mjesečnu ratu, ukupan iznos i okvirnu EKS. Informativnog je karaktera.":"Move the sliders to instantly see the monthly instalment, the total amount and an approximate APR. For information purposes only.","Kreditni proizvod":"Loan product","Kamatna stopa (NKS)":"Interest rate (nominal)","Fiksna godišnja kamatna stopa za odabrani proizvod (iz kataloga).":"Fixed annual interest rate for the selected product (from the catalogue).","Mjesečna rata":"Monthly instalment","Glavnica":"Principal","Ukupna kamata":"Total interest","Ukupno za otplatu":"Total repayment","Okvirna EKS":"Approximate APR","Podnesi zahtjev sa ovim iznosom":"Apply with this amount","Prikazani iznosi su informativni i ne predstavljaju konačnu kreditnu ponudu. Konačni uslovi i EKS definišu se individualnom obradom zahtjeva.":"The amounts shown are informative and do not constitute a final loan offer. Final terms and the APR are defined through individual assessment of your application.",
+/* ---------- Poslovnice ---------- */
+"Naše":"Our","poslovnice":"branches","Šest poslovnica širom Republike Srpske. Kliknite na pin ili karticu da vidite detalje i da li je trenutno otvoreno.":"Six branches across Republika Srpska. Click a pin or a card to see the details and whether it is currently open.","REPUBLIKA SRPSKA":"REPUBLIKA SRPSKA","Mapa Republike Srpske":"Map of Republika Srpska","Banja Luka – Centar":"Banja Luka – City centre","Otvoreno":"Open","Zatvoreno":"Closed","Poslovnica Banja Luka":"Banja Luka branch","Poslovnica Bijeljina":"Bijeljina branch","Poslovnica Doboj":"Doboj branch","Poslovnica Prijedor":"Prijedor branch","Poslovnica Trebinje":"Trebinje branch","Poslovnica Zvornik":"Zvornik branch",
+/* ---------- Zahtjev / obrasci ---------- */
+"Online zahtjev za":"Online application for a","kredit":"loan","Popunite obrazac i naš tim će vas kontaktirati u roku od 24 sata.":"Fill in the form and our team will contact you within 24 hours.","Ime i prezime *":"Full name *","Ime i prezime":"Full name","Vaše ime":"Your name","Broj telefona *":"Phone number *","Telefon *":"Phone *","Telefon":"Phone","E-mail adresa *":"Email address *","E-mail *":"Email *","E-mail":"Email","Grad *":"City *","Odaberite grad...":"Select a city...","Drugo":"Other","Vrsta kredita *":"Loan type *","Odaberite...":"Select...","Siguran put PLUS (vozilo)":"Siguran put PLUS (vehicle)","Treća mladost (penzioneri)":"Treća mladost (pensioners)","Željeni iznos (KM)":"Desired amount (KM)","npr. 10000":"e.g. 10000","Status":"Status","Zaposlen/a":"Employed","Penzioner":"Pensioner","Preduzetnik / Vlasnik firme":"Entrepreneur / Business owner","Poljoprivrednik":"Farmer","Ostalo":"Other","Rok otplate (mjeseci)":"Repayment term (months)","npr. 36":"e.g. 36","Napomena (opcionalno)":"Note (optional)","Dodatne informacije o vašem zahtjevu...":"Additional information about your application...","Saglasan/na sam sa obradom ličnih podataka u skladu sa Politikom privatnosti MKD Bilans Plus Kredit.":"I consent to the processing of my personal data in accordance with the Privacy Policy of MKD Bilans Plus Kredit.","Pošalji zahtjev":"Send application","Zahtjev uspješno poslan!":"Application sent successfully!","Naš tim će vas kontaktirati u roku od 24 sata na navedeni broj telefona ili e-mail adresu.":"Our team will contact you within 24 hours on the phone number or email address provided.","Nazad na početnu":"Back to home",
+/* ---------- Kontakt ---------- */
+"Kontaktirajte":"Contact","nas":"us","Naš tim je tu za vas svakog radnog dana. Javite nam se i odgovorićemo što prije.":"Our team is here for you every working day. Get in touch and we will reply as soon as possible.","Sjedište":"Head office","Radno vrijeme":"Opening hours","Pon – Pet: 08:00 – 16:00":"Mon – Fri: 08:00 – 16:00","Subota: 09:00 – 13:00":"Saturday: 09:00 – 13:00","Pon–Pet: 08:00–16:00":"Mon–Fri: 08:00–16:00","Tema":"Subject","Opšte informacije":"General information","Zahtjev za kredit":"Loan application","Postojeći kredit":"Existing loan","Poruka *":"Message *","Vaša poruka...":"Your message...","Pošalji poruku":"Send message","Poruka poslana!":"Message sent!","Hvala na poruci — odgovorićemo vam u najkraćem mogućem roku.":"Thank you for your message — we will reply as soon as possible.","vas@email.com":"you@email.com",
+/* ---------- Savjetnici ---------- */
+"Vaš lični savjetnik":"Your personal advisor","Izaberite osobu koja vas vodi kroz proces":"Choose the person who will guide you through the process","Svaki klijent kod nas dobija jednog savjetnika — istu osobu od prvog razgovora do isplate. Odaberite koga želite i javljamo se u roku od 24 sata.":"Every client gets a single advisor — the same person from the first conversation to disbursement. Choose who you want and we will get in touch within 24 hours.","Nije vam svejedno ko? Odaberite „bilo koji savjetnik” u obrascu — rasporedićemo najbržeg slobodnog.":"Don't mind who it is? Select “any advisor” in the form — we will assign the first one available.","Pogledaj profil":"View profile","Rezerviši razgovor":"Book a conversation","Vodi tim savjetnika. Specijalnost: restrukturiranje obaveza i investicioni planovi.":"Leads the team of advisors. Specialty: restructuring of obligations and investment plans.","Gotovinski krediti":"Cash loans","Vodi vas kroz Keš PLUS i Keš PLUS MAX — od papirologije do isplate na račun.":"Guides you through Keš PLUS and Keš PLUS MAX — from paperwork to disbursement into your account.","Poslovni krediti":"Business loans","Radi sa preduzetnicima i firmama — obrtna sredstva, likvidnost i nabavka opreme.":"Works with entrepreneurs and companies — working capital, liquidity and equipment purchases.","Penzioneri i porodica":"Pensioners and family","Treća mladost i porodični krediti. Strpljivo objašnjava svaku stavku ugovora.":"Treća mladost and family loans. Patiently explains every item of the contract.",
+/* ---------- Rječnik ---------- */
+"Rječnik":"Glossary","pojmova":"of terms","Objašnjenje skraćenica i stručnih izraza korištenih na ovoj stranici i u kreditnim ugovorima.":"An explanation of the abbreviations and technical terms used on this website and in loan contracts.","Pretraži pojmove (npr. EKS, anuitet, mjenica)...":"Search terms (e.g. APR, annuity, promissory note)...","Pretraži pojmove rječnika":"Search glossary terms","MKD":"MCO","Mikrokreditno društvo":"Microcredit company","Finansijska institucija licencirana za odobravanje mikrokredita. Na ovom sajtu: MKD Bilans Plus Kredit.":"A financial institution licensed to grant microloans. On this website: MKD Bilans Plus Kredit.","Nominalna kamatna stopa":"Nominal interest rate","Osnovna godišnja kamatna stopa na kredit, bez dodatnih troškova. Kod nas je fiksna za cijeli period otplate.":"The basic annual interest rate on the loan, excluding additional costs. With us it is fixed for the entire repayment period.","Efektivna kamatna stopa":"Effective interest rate (APR)","Ukupna cijena kredita izražena na godišnjem nivou — uključuje kamatu i sve troškove (obrada, mjenica). Najvažniji pokazatelj za poređenje kredita.":"The total cost of the loan expressed on an annual basis — it includes interest and all costs (processing, promissory note). The most important indicator for comparing loans.","p.a.":"p.a.","per annum":"per annum","Latinski izraz za „godišnje\". Kamatna stopa se uvijek izražava na godišnjem nivou.":"Latin for “per year”. An interest rate is always expressed on an annual basis.","Anuitet":"Annuity","Mjesečna rata kredita koja sadrži dio glavnice i dio kamate. Kod nas su anuiteti jednaki tokom cijele otplate.":"The monthly loan instalment containing part of the principal and part of the interest. With us the instalments are equal throughout the repayment period.","Iznos novca koji se posuđuje, bez kamate i troškova.":"The amount of money borrowed, excluding interest and costs.","Period odgode otplate glavnice na početku kredita. Tokom njega se obično plaća samo kamata. Dostupan kod kredita za pravna lica.":"A period at the start of the loan during which repayment of the principal is deferred. Usually only interest is paid during this time. Available on loans for businesses.","Mjenica":"Promissory note","Pisani instrument obezbjeđenja kojim korisnik garantuje vraćanje duga. Obavezna je kod svih naših kredita.":"A written security instrument by which the borrower guarantees repayment of the debt. It is mandatory for all our loans.","Administrativna zabrana":"Administrative garnishment","Obustava dijela plate ili penzije koja se direktno usmjerava na otplatu rate kredita.":"A deduction from part of a salary or pension that is directed straight to the repayment of the loan instalment.","Sadužnik / sudužnik":"Co-borrower","Osoba koja zajedno s korisnikom kredita odgovara za njegovu otplatu.":"A person who is liable for the repayment of the loan together with the borrower.","Jemac / jemstvo":"Guarantor / guarantee","Garant koji preuzima obavezu otplate kredita ako to korisnik ne učini.":"A guarantor who assumes the obligation to repay the loan if the borrower does not.","Kolateral":"Collateral","Imovina koja služi kao obezbjeđenje kredita (npr. zalog ili hipoteka).":"Property that serves as security for the loan (e.g. a pledge or a mortgage).","Zalog":"Pledge","Pokretna imovina (vozilo, oprema i sl.) data kao obezbjeđenje kredita.":"Movable property (a vehicle, equipment and similar) given as security for the loan.","Hipoteka (I reda)":"Mortgage (first rank)","Založno pravo na nekretnini. „I reda\" znači da MKD ima prvenstvo u naplati iz te nekretnine.":"A lien on real estate. “First rank” means the lender has priority in collecting from that property.","Zatezna kamata":"Default interest","Kamata koja se obračunava na iznos koji nije plaćen u roku, prema zakonu RS.":"Interest charged on an amount not paid on time, in accordance with the law of Republika Srpska.","Refinansiranje":"Refinancing","Zatvaranje postojećeg kredita novim, najčešće radi povoljnijih uslova ili objedinjavanja u jednu ratu.":"Closing an existing loan with a new one, usually to obtain more favourable terms or to consolidate into a single instalment.","Izlazna klauzula":"Early repayment fee","Naknada za prijevremenu otplatu (0,5% na preostalu glavnicu). Ne naplaćuje se ako se refinansira sredstvima MKD Bilans Plus Kredit.":"A fee for early repayment (0.5% of the remaining principal). It is not charged if refinancing is done with funds from MKD Bilans Plus Kredit.","Polisa osiguranja":"Insurance policy","Osiguranje koje pokriva otplatu kredita ili predmet obezbjeđenja (npr. rizik smrti ili invaliditeta).":"Insurance covering the repayment of the loan or the item of security (e.g. the risk of death or disability).","Vinkulacija":"Assignment of policy","Prenos prava iz polise osiguranja u korist MKD — MKD postaje korisnik naknade iz osiguranja.":"Transfer of the rights under an insurance policy in favour of the lender — the lender becomes the beneficiary of the insurance payout.","Plasman":"Placement","Odobreni i isplaćeni kredit.":"An approved and disbursed loan.","Nenamjenski kredit":"Non-purpose loan","Kredit koji se može trošiti slobodno, bez obaveze dokazivanja namjene.":"A loan that can be spent freely, with no obligation to prove its purpose.","Namjenski kredit":"Purpose-specific loan","Kredit koji se koristi isključivo za tačno određenu svrhu (npr. vozilo, škola, zdravlje).":"A loan used exclusively for one specific purpose (e.g. a vehicle, school, health).","Učešće":"Down payment","Vlastiti novčani udio korisnika u finansiranju, pored sredstava kredita.":"The borrower's own monetary contribution to the financing, in addition to the loan funds.","Trošak obrade":"Processing fee","Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva.":"A one-off fee charged by the lender for processing the loan application.","Reprezentativni primjer":"Representative example","Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti.":"An example calculation of the total cost of a loan on a typical amount and term, for the sake of clarity.","Kreditna sposobnost":"Borrowing capacity","Procjena mogućnosti korisnika da uredno otplaćuje kredit, na osnovu primanja i obaveza.":"An assessment of the borrower's ability to repay the loan properly, based on income and obligations.","Ugovorni partner":"Contracted partner","Prodavac robe ili pružalac usluge s kojim MKD ima zaključen ugovor o saradnji.":"A seller of goods or a service provider with whom the lender has a cooperation agreement.","Dekurzivni obračun":"Interest in arrears","Način obračuna gdje se kamata obračunava i plaća na kraju obračunskog perioda (mjesečno).":"A calculation method where interest is calculated and paid at the end of the accounting period (monthly).","Proporcionalni metod":"Proportional method","Metod obračuna kamate u kojem se godišnja stopa ravnomjerno raspoređuje na obračunske periode.":"A method of calculating interest in which the annual rate is spread evenly across the accounting periods.","PIO / MIO":"PIO / MIO","Penzijsko i invalidsko osiguranje":"Pension and disability insurance","Sistem isplate penzija — PIO u Republici Srpskoj, MIO u Federaciji BiH.":"The pension payment system — PIO in Republika Srpska, MIO in the Federation of BiH.","RS":"RS","Republika Srpska":"Republika Srpska","Entitet Bosne i Hercegovine u kojem MKD Bilans Plus Kredit posluje.":"The entity of Bosnia and Herzegovina in which MKD Bilans Plus Kredit operates.","FBiH":"FBiH","Federacija BiH":"Federation of BiH","Federacija Bosne i Hercegovine — drugi entitet BiH.":"The Federation of Bosnia and Herzegovina — the other entity of BiH.",
+/* ---------- Pravne stranice ---------- */
+"Politika":"Privacy","privatnosti":"policy","Politika privatnosti":"Privacy policy","Politici privatnosti":"Privacy policy","MKD Bilans Plus Kredit poštuje vašu privatnost i posvećen je zaštiti vaših ličnih podataka u skladu sa važećim propisima Republike Srpske.":"MKD Bilans Plus Kredit respects your privacy and is committed to protecting your personal data in accordance with the applicable regulations of Republika Srpska.","1. Prikupljanje podataka":"1. Data collection","Prikupljamo podatke koje nam dobrovoljno dostavite prilikom podnošenja zahtjeva ili kontakta:":"We collect the data you voluntarily provide when submitting an application or contacting us:","Kontakt podatke (adresa, telefon, e-mail)":"Contact details (address, phone, email)","Podatke relevantne za kreditnu analizu":"Data relevant to credit analysis","2. Svrha obrade":"2. Purpose of processing","Vaše podatke koristimo isključivo za obradu kreditnih zahtjeva, komunikaciju i ispunjavanje zakonskih obaveza.":"We use your data exclusively to process loan applications, to communicate and to fulfil legal obligations.","3. Dijeljenje podataka":"3. Data sharing","Vaše podatke ne dijelimo sa trećim licima osim kada to nalaže zakon ili je neophodno za realizaciju usluge.":"We do not share your data with third parties except where required by law or necessary to deliver the service.","4. Čuvanje podataka":"4. Data retention","Podatke čuvamo onoliko koliko je potrebno za ostvarivanje svrhe obrade i u skladu sa zakonskim rokovima.":"We keep data for as long as is necessary to achieve the purpose of processing and in accordance with statutory time limits.","5. Vaša prava":"5. Your rights","Imate pravo na pristup, ispravku, brisanje i prenosivost vaših ličnih podataka, kao i pravo na prigovor. Za ostvarivanje prava obratite nam se na: info@bilanspluskredit.ba.":"You have the right to access, rectify, erase and port your personal data, as well as the right to object. To exercise these rights, contact us at: info@bilanspluskredit.ba.","6. Kolačići":"6. Cookies","Web stranica može koristiti kolačiće radi poboljšanja korisničkog iskustva. Možete ih onemogućiti u postavkama pretraživača.":"This website may use cookies to improve the user experience. You can disable them in your browser settings.","7. Kontakt":"7. Contact","Za sva pitanja vezana za privatnost kontaktirajte nas na: info@bilanspluskredit.ba ili na adresu sjedišta MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.":"For all privacy-related questions, contact us at: info@bilanspluskredit.ba or at the head office address of MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.",
+"Uslovi":"Terms","korišćenja":"of use","Uslovi korišćenja":"Terms of use","1. Prihvatanje uslova":"1. Acceptance of terms","Pristupanjem i korišćenjem web stranice [www.bilanspluskredit.ba](https://www.bilanspluskredit.ba) potvrđujete da prihvatate ove Uslove korišćenja. Ukoliko se ne slažete s njima, molimo vas da prestanete s korišćenjem stranice.":"By accessing and using the website www.bilanspluskredit.ba you confirm that you accept these Terms of use. If you do not agree with them, please stop using the website.","2. Informativni karakter":"2. Informative nature","Informacije na ovoj stranici su informativnog karaktera i ne predstavljaju konačnu kreditnu ponudu. MKD Bilans Plus Kredit ne preuzima odgovornost za eventualne greške u podacima. Sve kreditne odluke donose se po individualnoj obradi svakog zahtjeva.":"The information on this website is informative in nature and does not constitute a final loan offer. MKD Bilans Plus Kredit accepts no liability for any errors in the data. All lending decisions are made following individual assessment of each application.","3. Kamatne stope i naknade":"3. Interest rates and fees","Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u svim poslovnicama i na web stranici. Efektivna kamatna stopa (EKS) navodi se u ugovoru o kreditu za svaki kreditni proizvod.":"Interest rates and other fees are defined in a separate Price list of services, available at all branches and on the website. The effective interest rate (APR) is stated in the loan contract for each loan product.","4. Prava korisnika":"4. User rights","Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora.":"The user has the right to clear and comprehensible information about the loan terms before signing the contract.",
+/* ---------- Footer / kolačići ---------- */
+"Licencirana mikrokreditna organizacija sa sjedištem u Banjoj Luci. Brza, transparentna i personalizovana finansijska podrška.":"A licensed microcredit organisation headquartered in Banja Luka. Fast, transparent and personalised financial support.","Stranice":"Pages","Usluge":"Services","Rječnik pojmova":"Glossary of terms","© 2026 MKD Bilans Plus Kredit. Sva prava zadržana.":"© 2026 MKD Bilans Plus Kredit. All rights reserved.","Koristimo kolačiće radi boljeg korisničkog iskustva. Više u":"We use cookies to improve your experience. More in our","Prihvati":"Accept","Odbij":"Decline","Obavještenje o kolačićima":"Cookie notice","Otvorena stranica: Početna.":"Page opened: Home."
+};
+/* obrasci za tekstove sa brojevima (kalkulator, rokovi, EKS…) */
+var PATTERNS=[
+  [/^do (\d[\d.,]*) mjesec(a|i)$/,"up to $1 months"],
+  [/^(\d[\d.,]*) mjesec(a|i)$/,"$1 months"],
+  [/^do (\d[\d.,]*) KM$/,"up to $1 KM"],
+  [/^(\d[\d.,]*) rat(a|e|u) · (.+)$/,"$1 instalments · $3"],
+  [/^≈ (.+) \(katalog\)$/,"≈ $1 (catalogue)"],
+  [/^(.+) — otvori detalje i kamatne stope$/,"$1 — open details and interest rates"],
+  [/^(.+) — fizička lica$/,"$1 — individuals"],
+  [/^(.+) — pravna lica$/,"$1 — businesses"],
+  [/^Otvorena stranica: (.+)\.$/,"Page opened: $1."],
+  [/^(\d+) pojmova pronađeno\.$/,"$1 terms found."],
+  [/^Nema rezultata\.$/,"No results."],
+  [/^Nema rezultata za „(.+)\".$/,"No results for “$1”."]
+];
+/* brojevi: 3.000 -> 3,000 i 25,99 -> 25.99 */
+function locNum(s){
+  return s.replace(/\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+,\d+/g,function(m){
+    var p=m.split(","),ip=p[0].replace(/\./g,"");
+    var out=ip.replace(/\B(?=(\d{3})+(?!\d))/g,",");
+    return p.length>1?out+"."+p[1]:out;
+  });
+}
+function translate(raw){
+  var k=raw.trim(); if(!k) return null;
+  if(DICT[k]!==undefined) return raw.replace(k,function(){return DICT[k];});
+  for(var i=0;i<PATTERNS.length;i++){
+    if(PATTERNS[i][0].test(k)){
+      var out=locNum(k.replace(PATTERNS[i][0],PATTERNS[i][1]));
+      return raw.replace(k,function(){return out;});
+    }
+  }
+  if(/\d/.test(k)){var l=locNum(k);if(l!==k)return raw.replace(k,function(){return l;});}
+  return null;
+}
+var lang='bs',busy=false;
+try{lang=localStorage.getItem('bpk_lang')||'bs';}catch(e){}
+var ATTRS=['placeholder','aria-label','title','alt','label'];
+function walk(root){
+  if(!root||(root.nodeType!==1&&root.nodeType!==9&&root.nodeType!==11))return;
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),n,list=[];
+  while(n=w.nextNode())list.push(n);
+  list.forEach(function(node){
+    var p=node.parentElement;
+    if(!p||p.tagName==='SCRIPT'||p.tagName==='STYLE'||p.closest('[data-no-i18n]'))return;
+    if(node.__bs===undefined)node.__bs=node.nodeValue;
+    if(lang==='en'){var t=translate(node.__bs);node.nodeValue=(t!==null)?t:node.__bs;}
+    else node.nodeValue=node.__bs;
+  });
+  var els=root.querySelectorAll?root.querySelectorAll('*'):[];
+  var all=[].slice.call(els); if(root.nodeType===1)all.push(root);
+  all.forEach(function(el){
+    if(el.closest&&el.closest('[data-no-i18n]'))return;
+    ATTRS.forEach(function(a){
+      if(!el.hasAttribute||!el.hasAttribute(a))return;
+      var key='bs_'+a.replace('-','_');
+      if(el.dataset[key]===undefined)el.dataset[key]=el.getAttribute(a);
+      if(lang==='en'){var t=translate(el.dataset[key]);el.setAttribute(a,(t!==null)?t:el.dataset[key]);}
+      else el.setAttribute(a,el.dataset[key]);
+    });
+  });
+}
+var TITLES={bs:'Bilans Plus Kredit – Finansije moraju imati karakter',en:'Bilans Plus Kredit – Finance must have character'};
+function apply(){
+  busy=true;
+  walk(document.body);
+  document.documentElement.lang=(lang==='en')?'en':'bs';
+  document.title=TITLES[lang]||TITLES.bs;
+  var btn=document.getElementById('langBtn');
+  if(btn){btn.textContent=(lang==='en')?'BS':'EN';
+    btn.setAttribute('aria-label',(lang==='en')?'Prebaci na bosanski jezik':'Switch language to English');
+    btn.setAttribute('title',btn.getAttribute('aria-label'));
+    btn.dataset.bs_aria_label=btn.getAttribute('aria-label');
+    btn.dataset.bs_title=btn.getAttribute('title');}
+  setTimeout(function(){busy=false;},0);
+}
+window.setLang=function(l){
+  lang=(l==='en')?'en':'bs';
+  try{localStorage.setItem('bpk_lang',lang);}catch(e){}
+  apply();
+};
+window.toggleLang=function(){window.setLang(lang==='en'?'bs':'en');};
+/* novi sadržaj koji JS iscrta (kartice, modali, rječnik) — prevedi automatski */
+var mo=new MutationObserver(function(muts){
+  if(busy||lang!=='en')return;
+  busy=true;
+  muts.forEach(function(m){
+    [].forEach.call(m.addedNodes,function(n){
+      if(n.nodeType===1)walk(n);
+      else if(n.nodeType===3){
+        if(n.__bs===undefined)n.__bs=n.nodeValue;
+        var t=translate(n.__bs);if(t!==null)n.nodeValue=t;
+      }
+    });
+  });
+  busy=false;
+});
+function start(){
+  mo.observe(document.body,{childList:true,subtree:true});
+  if(lang==='en')apply(); else apply();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);
+else start();
 })();
 </script>
 </body>
