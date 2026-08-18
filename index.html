@@ -448,22 +448,24 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .gauge-row small{display:block;font-size:11px;color:var(--muted);margin-top:3px}
 .gauge-badge{font-size:14px!important;padding:3px 12px;border-radius:20px;color:#fff!important}
 .gauge-badge.good{background:#1a9e63}.gauge-badge.mid{background:#f0a500}.gauge-badge.low{background:#e0483f}
-/* === TESTIMONIALS === */
-.testi-sec{background:#fff}
-.testi-wrap{overflow:hidden}
-.testi-tr{display:flex;gap:22px;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.tcard{flex:0 0 calc(33.333% - 15px);background:var(--ice);border-radius:22px;padding:32px;border:1px solid var(--line);transition:var(--t)}
-.tcard:hover{box-shadow:var(--sh);transform:translateY(-5px);background:#fff}
-.tstars{color:#FFB020;margin-bottom:14px;font-size:15px;letter-spacing:2px}
-.ttext{font-size:14.5px;color:var(--ink);line-height:1.75;margin-bottom:22px}
-.tauthor{display:flex;align-items:center;gap:12px}
-.tav{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--navy));display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#fff;flex-shrink:0}
-.tname{font-family:'Sora';font-size:14px;font-weight:700;color:var(--navy)}
-.tloc{font-size:12px;color:var(--muted)}
-.testi-nav{display:flex;gap:10px;justify-content:center;margin-top:38px}
-.tbtn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--t)}
-.tbtn:hover{background:var(--accent);border-color:var(--accent)}
-.tbtn:hover svg{stroke:#fff}
+.gauge-dti{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 18px}
+.gauge-dti>div{background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 14px}
+.gauge-dti span{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.gauge-dti b{font-family:'Sora';font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-.4px}
+.gauge-cap{font-size:11.5px;color:var(--accent);font-weight:700;line-height:1.5;max-width:300px;margin:6px auto 0}
+/* obezbjeđenje + reprezentativni primjer na kartici proizvoda */
+.psec{font-size:11.5px!important;color:var(--muted);line-height:1.55;margin:14px 0 0!important;padding-top:12px;border-top:1px dashed var(--line);min-height:0!important;transition:var(--t)}
+.psec b{font-family:'Sora';font-weight:800;color:var(--navy);transition:var(--t)}
+.pcard:hover .psec{color:rgba(255,255,255,.62);border-top-color:rgba(255,255,255,.18)}
+.pcard:hover .psec b{color:#fff}
+.prep{font-size:11.5px!important;color:var(--muted);line-height:1.55;margin:10px 0 0!important;min-height:0!important;transition:var(--t)}
+.pcard:hover .prep{color:rgba(255,255,255,.62)}
+/* lanac NKS → naknada → EKS u kalkulatoru */
+.cline.chain{border-bottom:1px solid rgba(255,255,255,.07)}
+.cline.chain:first-of-type{margin-top:6px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px}
+.cline.eks span:first-child{color:rgba(255,255,255,.85);font-weight:700}
+.cline.eks span:last-child{color:var(--accent-2);font-size:18px}
+.calc-eksnote{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.55;margin:12px 0 4px;position:relative}
 /* === FAQ === */
 .faq-sec{background:var(--ice)}
 .faq-wrap{max-width:820px;margin:0 auto}
@@ -474,38 +476,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .faq.open .pl{background:var(--accent);color:#fff;transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
 .faq-a p{padding:0 26px 22px;font-size:14px;color:var(--muted);line-height:1.7}
-/* === MAP / POSLOVNICE === */
-.map-sec{background:#fff}
-.map-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.map-stage{position:relative;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:24px;padding:30px;height:520px;overflow:hidden;border:1px solid var(--line)}
-.map-stage::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 30% 30%,rgba(61,107,255,.15),transparent 50%);pointer-events:none}
-.map-label{position:absolute;top:22px;left:0;right:0;text-align:center;z-index:3;font-family:'Sora';font-size:13px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.42)}
-.rs-map{position:absolute;inset:30px;top:54px;display:flex;align-items:center;justify-content:center}
-.rs-map-box{position:relative;height:100%;aspect-ratio:231/280;max-width:100%;line-height:0}
-.rs-map-img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 44px rgba(0,0,0,.45))}
-.map-pins{position:absolute;inset:0;pointer-events:none}
-.map-pin{position:absolute;transform:translate(-50%,-50%);background:none;border:none;cursor:pointer;pointer-events:auto;padding:8px;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
-.map-pin>span:first-child{position:relative;display:flex}
-.mp-dot{position:relative;width:14px;height:14px;border-radius:50%;background:var(--accent-2);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);transition:var(--t);pointer-events:none}
-.mp-pulse{position:absolute;top:0;width:14px;height:14px;border-radius:50%;background:var(--accent);opacity:.5;animation:pulse 2.4s ease-out infinite;pointer-events:none}
-.mp-label{position:absolute;top:calc(100% + 3px);left:50%;transform:translateX(-50%);font-family:'Sora';font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;background:rgba(6,20,61,.72);padding:2px 8px;border-radius:20px;transition:var(--t);pointer-events:none}
-.map-pin:hover .mp-dot,.map-pin.on .mp-dot{background:#fff;transform:scale(1.35)}
-.map-pin:hover .mp-label,.map-pin.on .mp-label{color:#fff;background:var(--accent)}
-@keyframes pulse{0%{transform:scale(.6);opacity:.5}100%{transform:scale(2.8);opacity:0}}
-.branch-list{display:flex;flex-direction:column;gap:12px}
-.branch{display:flex;gap:16px;align-items:center;background:var(--ice);border:1px solid var(--line);border-radius:16px;padding:18px 20px;cursor:pointer;transition:var(--t)}
-.branch:hover,.branch.on{border-color:var(--accent);background:#fff;box-shadow:var(--sh-sm);transform:translateX(4px)}
-.branch-ic{width:46px;height:46px;border-radius:12px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
-.branch.on .branch-ic{background:var(--accent);color:#fff}
-.branch-bd{flex:1}
-.branch-bd h4{font-family:'Sora';font-size:15px;font-weight:700;color:var(--navy);margin-bottom:2px}
-.branch-bd p{font-size:12.5px;color:var(--muted)}
-.branch-bd .ph{font-size:12.5px;color:var(--accent);font-weight:700;margin-top:2px}
-.status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;font-family:'Sora';padding:5px 11px;border-radius:20px;white-space:nowrap}
-.status.open{background:rgba(34,180,120,.14);color:#1a9e63}
-.status.closed{background:rgba(255,90,90,.12);color:#e0483f}
-.status .sd{width:7px;height:7px;border-radius:50%;background:currentColor}
-.status.open .sd{animation:blink 1.6s infinite}
 /* === CTA === */
 .cta-sec{background:linear-gradient(135deg,var(--accent) 0%,var(--navy-2) 60%,var(--navy) 100%);position:relative;overflow:hidden;padding:88px 0}
 .cta-sec::after{content:'';position:absolute;top:-60px;left:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07)}
@@ -562,6 +532,37 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .legal-wrap p,.legal-wrap li{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:10px}
 .legal-wrap ul{padding-left:20px;list-style:disc}
 .legal-back{display:inline-flex;align-items:center;gap:8px;font-family:'Sora';font-size:13px;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer;margin-bottom:24px}
+.inline-link{background:none;border:none;padding:0;font:inherit;color:var(--accent);font-weight:700;cursor:pointer;text-decoration:underline}
+/* === DOKUMENTI === */
+.doc-sec{background:var(--ice)}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin:0 auto}
+.doc{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;transition:var(--t)}
+.doc:hover{box-shadow:var(--sh-sm);border-color:rgba(61,107,255,.3);transform:translateY(-3px)}
+.doc-ic{width:46px;height:46px;border-radius:13px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
+.doc-bd{flex:1;min-width:0}
+.doc-bd h4{font-family:'Sora';font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:5px}
+.doc-bd p{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.doc-a{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;transition:var(--t)}
+.doc-a:hover{gap:11px}
+.doc-a[disabled]{color:var(--muted);cursor:default;opacity:.75}
+.doc-full{grid-column:1/-1}
+.doc-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:6px}
+.doc-list button{display:flex;align-items:center;gap:9px;text-align:left;background:var(--ice);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-family:'Sora';font-size:12.5px;font-weight:700;color:var(--navy);cursor:pointer;transition:var(--t)}
+.doc-list button:hover{background:#fff;border-color:var(--accent);color:var(--accent);transform:translateX(3px)}
+@media(max-width:760px){.doc-grid,.doc-list{grid-template-columns:1fr}}
+/* === KARIJERA === */
+.car-sec{background:#fff}
+.car-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:44px;align-items:start}
+.car-why{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.car-why div{display:flex;gap:13px;align-items:flex-start}
+.car-why .ck{width:26px;height:26px;border-radius:50%;background:rgba(61,107,255,.12);border:1px solid rgba(61,107,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:var(--accent)}
+.car-why p{font-size:14px;color:var(--muted);line-height:1.6}
+.car-why strong{color:var(--navy)}
+.car-open{margin-top:30px;background:var(--ice);border:1px solid var(--line);border-radius:18px;padding:22px 24px}
+.car-open h4{font-family:'Sora';font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--navy);margin-bottom:12px}
+.car-open li{font-size:13.5px;color:var(--muted);line-height:1.9;display:flex;gap:9px}
+.car-open li::before{content:'▸';color:var(--accent);font-weight:800}
+@media(max-width:980px){.car-grid{grid-template-columns:1fr;gap:34px}}
 /* === FOOTER === */
 .footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding-top:74px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:46px;padding-bottom:54px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -588,7 +589,20 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .cookie-ok{font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:11px 18px;cursor:pointer;white-space:nowrap;transition:var(--t)}
 .cookie-ok:hover{background:#2c57e8}
 .cookie-no{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:1px solid var(--line-d);border-radius:10px;padding:11px 16px;cursor:pointer;white-space:nowrap}
-@media(max-width:600px){#totop{right:16px;bottom:16px}.cookie{flex-direction:column;align-items:stretch;text-align:center;left:14px;right:14px}.cookie-btns{justify-content:center}}
+@media(max-width:600px){#totop{right:16px;bottom:16px}
+  .cookie{flex-direction:column;align-items:stretch;text-align:center;left:12px;right:12px;bottom:12px;padding:15px 16px;gap:12px}
+  .cookie p{font-size:12px;line-height:1.5}
+  .cookie p button{font-size:12px}
+  .cookie-btns{justify-content:center}
+  .cookie-ok,.cookie-no{flex:1;padding:10px 12px;font-size:12.5px}}
+/* dok je traka sa kolačićima vidljiva, hero sadržaj se podigne za njenu visinu
+   (--cookie-h mjeri JS) tako da ne prekriva naslov ni dugmad na malim ekranima */
+@media(max-width:980px){
+  body.cookie-on .hero-text{padding-bottom:calc(54px + var(--cookie-h,0px))}
+}
+@media(max-width:600px){
+  body.cookie-on .hero-text{padding-bottom:calc(20px + var(--cookie-h,0px))}
+}
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
   .nav-links{display:none;position:fixed;top:124px;left:0;right:0;flex-direction:column;background:var(--navy);padding:18px;gap:4px;border-bottom:1px solid var(--line-d)}
@@ -615,7 +629,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .chip.c1{top:-4px;left:-14px}
   .chip.c2{top:auto;bottom:78px;right:-14px}
   .chip.c3{bottom:-4px;left:-14px}
-  .about-grid,.kont-grid,.calc-wrap,.map-grid,.gauge-wrap{grid-template-columns:1fr}
+  .about-grid,.kont-grid,.calc-wrap,.gauge-wrap{grid-template-columns:1fr}
   .about-grid{gap:40px}
   .about-vis{height:400px;max-width:420px;margin:0 auto;order:-1}
   .prods,.values{grid-template-columns:1fr 1fr}
@@ -623,7 +637,6 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .proc-grid::after{display:none}
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-it:nth-child(2){border-right:none}
-  .tcard{flex:0 0 calc(50% - 11px)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .q-opts{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
@@ -646,7 +659,6 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .about-list{margin-top:24px}
   .prods,.values,.proc-grid,.trust-grid{grid-template-columns:1fr}
   .trust-it{border-right:none}
-  .tcard{flex:0 0 100%}
   .foot-grid{grid-template-columns:1fr;gap:34px}
   .hero-stats{gap:18px;flex-wrap:wrap;justify-content:center}
   .hstat{min-width:80px}
@@ -673,9 +685,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .btn-adv .bax small{font-size:11px}
   .av-stack i{width:32px;height:32px;border-width:2.5px;margin-left:-11px}
   .hero-ctas .btn-adv .bar{width:32px;height:32px}
-  .map-stage{height:380px}
   .gauge-row{flex-direction:column}
-  .testi-nav{margin-top:26px}
   .cta-btns{flex-direction:column}
   .cta-btns button{width:100%}
 }
@@ -743,6 +753,44 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .lm-specs>div.hi span{color:rgba(255,255,255,.6)}
 .lm-specs>div.hi b{color:#fff}
 .lm-btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+/* lanac NKS → naknada → EKS u modalu proizvoda */
+.lm-chain{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.lm-chain-h{background:var(--ice);padding:13px 18px;font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--line)}
+.lm-ci{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 18px;border-bottom:1px solid var(--line)}
+.lm-ci span{font-size:13px;color:var(--muted)}
+.lm-ci b{font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);white-space:nowrap}
+.lm-ci.tot{background:linear-gradient(150deg,var(--navy),var(--navy-2))}
+.lm-ci.tot span{color:rgba(255,255,255,.7)}
+.lm-ci.tot b{color:var(--accent-2);font-size:19px}
+.lm-chain-n{padding:13px 18px;font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+.lm-sec,.lm-rep{margin-top:20px;padding:18px 20px;border-radius:16px;background:var(--ice);border:1px solid var(--line)}
+.lm-rep{background:rgba(61,107,255,.07);border-color:rgba(61,107,255,.28)}
+.lm-sec-t{font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.lm-sec p,.lm-rep p{font-size:13.5px;color:var(--muted);line-height:1.7}
+.lm-rep p b{color:var(--navy)}
+.btn-doc{display:inline-flex;align-items:center;gap:9px;font-family:'Sora';font-size:14px;font-weight:700;color:var(--navy);background:var(--ice);border:1.5px solid var(--line);border-radius:13px;padding:15px 22px;cursor:pointer;transition:var(--t)}
+.btn-doc:hover{border-color:var(--accent);color:var(--accent);background:#fff;transform:translateY(-2px)}
+/* === INFORMACIONI LIST U STRANICI === */
+.is-k{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.is-h{font-family:'Sora';font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
+.is-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:600px}
+.is-tbl{width:100%;border-collapse:collapse}
+.is-tbl th,.is-tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13.5px;line-height:1.55}
+.is-tbl th{width:40%;color:var(--muted);font-weight:600}
+.is-tbl td{font-family:'Sora';font-weight:700;color:var(--navy)}
+.is-tbl tr.hi th,.is-tbl tr.hi td{background:var(--ice)}
+.is-rep{margin-top:22px;background:rgba(61,107,255,.07);border:1px solid rgba(61,107,255,.28);border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:16px 18px;font-size:13.5px;color:var(--muted);line-height:1.7}
+.is-note{font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:22px;padding-top:14px;border-top:1px solid var(--line)}
+@media print{
+  @page{margin:14mm}
+  body.print-sheet{background:#fff}
+  body.print-sheet>*{display:none!important}
+  body.print-sheet #infoModal{display:block!important;position:static!important;inset:auto!important;padding:0!important}
+  body.print-sheet #infoModal .modal-bd{display:none!important}
+  body.print-sheet #infoModal .modal-box{position:static!important;max-width:none!important;max-height:none!important;overflow:visible!important;box-shadow:none!important;border-radius:0!important;padding:0!important;animation:none!important}
+  body.print-sheet .is-noprint{display:none!important}
+  .is-tbl tr,.is-rep{page-break-inside:avoid}
+}
 .pcard-more{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent);margin-top:16px;transition:var(--t)}
 .pcard:hover .pcard-more{color:#fff}
 /* Boris — stranica arhitekte finansija */
@@ -788,7 +836,7 @@ function tryImg(el){
       <button class="nlink" data-nl="onama" onclick="go('onama')">O nama</button>
       <button class="nlink" data-nl="krediti" onclick="go('krediti')">Krediti</button>
       <button class="nlink" data-nl="kalkulator" onclick="go('kalkulator')">Kalkulator</button>
-      <button class="nlink" data-nl="poslovnice" onclick="go('poslovnice')">Poslovnice</button>
+      <button class="nlink" data-nl="dokumenti" onclick="go('dokumenti')">Dokumenti</button>
       <button class="nlink" data-nl="rjecnik" onclick="go('rjecnik')">Rječnik</button>
       <button class="nlink" data-nl="kontakt" onclick="go('kontakt')">Kontakt</button>
     </div>
@@ -948,22 +996,6 @@ function tryImg(el){
     </div>
   </div>
 </section>
-<!-- TESTIMONIALS -->
-<section class="section testi-sec">
-  <div class="container">
-    <div class="sec-head center reveal">
-      <div class="eyebrow">Iskustva klijenata</div>
-      <h2 class="title">Šta kažu naši <span class="hl">klijenti</span></h2>
-    </div>
-    <div class="testi-wrap reveal rd1">
-      <div class="testi-tr" id="testiTrack"></div>
-    </div>
-    <div class="testi-nav">
-      <button class="tbtn" onclick="testiMove(-1)"><svg width="20" height="20" fill="none" stroke="#0A2363" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="tbtn" onclick="testiMove(1)"><svg width="20" height="20" fill="none" stroke="#0A2363" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-    </div>
-  </div>
-</section>
 <!-- CREDIT CAPACITY GAUGE (unique tool) -->
 <section class="section gauge-sec">
   <div class="container">
@@ -979,8 +1011,12 @@ function tryImg(el){
         <div class="cgroup"><label>Postojeće mjesečne obaveze <span id="gOblL">200 KM</span></label>
           <input type="range" id="gObl" min="0" max="3000" step="50" value="200"/></div>
         <div class="cgroup"><label>Rok otplate <span id="gTrmL">60 mjeseci</span></label>
-          <input type="range" id="gTrm" min="6" max="120" step="6" value="60"/></div>
-        <div class="gauge-note">* Procjena je informativna. Konačnu sposobnost utvrđuje savjetnik individualnom analizom.</div>
+          <input type="range" id="gTrm" min="6" max="84" step="6" value="60"/></div>
+        <div class="gauge-dti">
+          <div><span>Opterećenost primanja (DTI)</span><b id="gDti">13,3 %</b></div>
+          <div><span>Slobodno nakon obaveza</span><b id="gFree">1.300 KM</b></div>
+        </div>
+        <div class="gauge-note">* Ocjena se računa iz odnosa obaveza i primanja (DTI), a ne iz apsolutnog iznosa obaveza. Procjena je informativna — konačnu sposobnost utvrđuje savjetnik individualnom analizom.</div>
       </div>
       <div class="gauge-vis">
         <svg viewBox="0 0 220 138" class="gauge-svg">
@@ -996,6 +1032,7 @@ function tryImg(el){
         </svg>
         <div class="gauge-amt" id="gAmt">35.000 KM</div>
         <div class="gauge-amt-l">procijenjeni maksimalni iznos</div>
+        <div class="gauge-cap" id="gCap" style="display:none">Vaša sposobnost prelazi najveći iznos u našoj ponudi — prikazan je maksimum od 50.000 KM.</div>
         <div class="gauge-row">
           <div><span id="gRate">730 KM</span><small>moguća rata / mj</small></div>
           <div><span class="gauge-badge" id="gBadge">Dobra</span><small>kreditna sposobnost</small></div>
@@ -1051,13 +1088,13 @@ function tryImg(el){
         <div class="about-list">
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Licencirani</strong> od strane Agencije za bankarstvo Republike Srpske.</p></div>
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Personalizovana</strong> kreditna analiza za svakog klijenta.</p></div>
-          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Poslovnice</strong> raspoređene po cijeloj Republici Srpskoj.</p></div>
+          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Jasni uslovi</strong> — NKS, naknada i EKS iskazani odvojeno uz svaki kredit.</p></div>
         </div>
         <button class="btn-adv" style="margin-top:30px" onclick="go('boris')">
           <span class="av-stack" aria-hidden="true">
             <i style="background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80')"></i>
           </span>
-          <span class="bax">Upoznajte našeg arhitektu finansija<small>Boris Knežević · 18 godina iskustva</small></span>
+          <span class="bax">Upoznajte našeg arhitektu finansija<small>Boris Knežević · vodi tim savjetnika</small></span>
           <svg width="17" height="17" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -1096,14 +1133,8 @@ function tryImg(el){
       <div class="reveal rd1">
         <div class="eyebrow" style="color:var(--accent-2)">Arhitekta finansija</div>
         <h2 class="title title-light">Vaš bilans zaslužuje<br/>plan, ne improvizaciju</h2>
-        <p class="lead lead-light">Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Osamnaest godina radi sa ljudima i firmama u Republici Srpskoj — od prve pozajmice za registraciju vozila do investicionih planova za proizvodne pogone. Njegov pristup je jednostavan: prvo se razumije situacija, pa tek onda bira proizvod.</p>
-        <div class="boris-stats">
-          <div><b>18</b><span>godina u finansijama</span></div>
-          <div><b>2.400+</b><span>odobrenih planova</span></div>
-          <div><b>6</b><span>poslovnica pod nadzorom</span></div>
-        </div>
+        <p class="lead lead-light">Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Njegov pristup je jednostavan: prvo se razumije situacija klijenta, pa tek onda bira proizvod — uključujući i scenarij u kojem kredit nije najbolje rješenje.</p>
         <div class="about-list">
-          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Ekonomski fakultet, Banja Luka</strong> — smjer finansije i bankarstvo, magistar ekonomskih nauka.</p></div>
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Specijalnost:</strong> restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.</p></div>
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Princip rada:</strong> nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.</p></div>
         </div>
@@ -1168,7 +1199,11 @@ function tryImg(el){
           </div>
           <div class="cgroup">
             <label>Kamatna stopa (NKS) <span id="calcRateL">25,99 %</span></label>
-            <div class="gauge-note" style="margin-top:0">Fiksna godišnja kamatna stopa za odabrani proizvod (iz kataloga).</div>
+            <div class="gauge-note" style="margin-top:0">Fiksna godišnja kamatna stopa za odabrani proizvod. Ne mijenja se sa iznosom ni rokom.</div>
+          </div>
+          <div class="cgroup">
+            <label>Naknada za obradu <span id="calcFeeL">2,00 %</span></label>
+            <div class="gauge-note" style="margin-top:0" id="calcFeeNote">Jednokratna naknada, obračunava se na iznos kredita i ulazi u izračun EKS.</div>
           </div>
         </div>
         <div class="calc-right">
@@ -1180,8 +1215,11 @@ function tryImg(el){
             <div class="cline"><span>Glavnica</span><span id="calcPrincipal">10.000 KM</span></div>
             <div class="cline"><span>Ukupna kamata</span><span id="calcInterest">1.232 KM</span></div>
             <div class="cline"><span>Ukupno za otplatu</span><span id="calcTotal">11.232 KM</span></div>
-            <div class="cline"><span>Okvirna EKS</span><span id="calcEks">8,4 %</span></div>
+            <div class="cline chain"><span>Nominalna kamatna stopa (NKS)</span><span id="calcNks">25,99 %</span></div>
+            <div class="cline chain"><span>Naknada (provizija) za obradu</span><span id="calcFee">200 KM</span></div>
+            <div class="cline chain eks"><span>Efektivna kamatna stopa (EKS)</span><span id="calcEks">34,02 %</span></div>
           </div>
+          <p class="calc-eksnote">EKS je stvarno preračunata za izabrani iznos, rok i naknadu — zato se mijenja kad pomjerite klizače.</p>
           <button class="calc-apply" onclick="go('zahtjev')">Podnesi zahtjev sa ovim iznosom
             <svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
@@ -1191,29 +1229,6 @@ function tryImg(el){
     </div>
   </section>
 </section><!-- /kalkulator -->
-<!-- ============ PAGE: POSLOVNICE ============ -->
-<section class="page" id="pg-poslovnice">
-  <div class="phero"><div class="orb a"></div>
-    <div class="container"><h1>Naše <span class="hl">poslovnice</span></h1><p>Šest poslovnica širom Republike Srpske. Kliknite na pin ili karticu da vidite detalje i da li je trenutno otvoreno.</p></div>
-  </div>
-  <section class="section map-sec">
-    <div class="container">
-      <div class="map-grid">
-        <div class="map-stage reveal">
-          <div class="map-label">REPUBLIKA SRPSKA</div>
-          <div class="rs-map">
-            <div class="rs-map-box">
-              <!-- Prava mapa RS (rs-map.svg je u istom folderu) -->
-              <img src="rs-map.svg" class="rs-map-img show" alt="Mapa Republike Srpske" onerror="this.style.display='none'"/>
-              <div class="map-pins" id="mapPins"></div>
-            </div>
-          </div>
-        </div>
-        <div class="branch-list reveal rd1" id="branchList"></div>
-      </div>
-    </div>
-  </section>
-</section><!-- /poslovnice -->
 <!-- ============ PAGE: ZAHTJEV ============ -->
 <section class="page" id="pg-zahtjev">
   <div class="phero"><div class="orb a"></div>
@@ -1263,9 +1278,12 @@ function tryImg(el){
     <div class="container">
       <div class="kont-grid">
         <div class="kinfo reveal">
-          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><strong>Telefon</strong><p>+387 51 000 000<br/>+387 65 000 000</p></div></div>
-          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div><div><strong>E-mail</strong><p>info@bilanspluskredit.ba</p></div></div>
-          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Sjedište</strong><p>Ul. Kralja Petra I Karađorđevića 12<br/>78000 Banja Luka, Republika Srpska</p></div></div>
+          <!-- ADRESA I JIB: potvrđeno iz sudskog/poslovnog registra (CompanyWall, 18.08.2026.)
+               ⚠ TELEFON I E-MAIL SU I DALJE PLACEHOLDER — registar ih ne sadrži.
+               Kad dobijete prave brojeve, zamijenite ih i u footeru i u nizu `branches` u JS-u. -->
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><strong>Telefon</strong><p><a href="tel:+38751000000">+387 51 000 000</a><br/><a href="tel:+38765000000">+387 65 000 000</a></p></div></div>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div><div><strong>E-mail</strong><p><a href="mailto:info@bilanspluskredit.ba">info@bilanspluskredit.ba</a></p></div></div>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Sjedište</strong><p>Pave Radana 33<br/>78000 Banja Luka, Republika Srpska</p></div></div>
           <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div><strong>Radno vrijeme</strong><p>Pon – Pet: 08:00 – 16:00<br/>Subota: 09:00 – 13:00</p>
             <div class="ksoc">
               <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
@@ -1280,7 +1298,7 @@ function tryImg(el){
               <div class="fg"><label>Ime i prezime *</label><input type="text" id="k-ime" placeholder="Vaše ime"/></div>
               <div class="fg"><label>Telefon *</label><input type="tel" id="k-tel" placeholder="+387 65 000 000"/></div>
               <div class="fg full"><label>E-mail *</label><input type="email" id="k-email" placeholder="vas@email.com"/></div>
-              <div class="fg full"><label>Tema</label><select id="k-tema"><option>Opšte informacije</option><option>Zahtjev za kredit</option><option>Postojeći kredit</option><option>Poslovnice</option><option>Ostalo</option></select></div>
+              <div class="fg full"><label>Tema</label><select id="k-tema"><option>Opšte informacije</option><option>Zahtjev za kredit</option><option>Postojeći kredit</option><option>Karijera</option><option>Ostalo</option></select></div>
               <div class="fg full"><label>Poruka *</label><textarea id="k-poruka" placeholder="Vaša poruka..."></textarea></div>
             </div>
             <button type="submit" class="btn-pri" style="width:100%;justify-content:center;margin-top:8px">Pošalji poruku
@@ -1321,8 +1339,13 @@ function tryImg(el){
     <h2>Uslovi korišćenja</h2>
     <h3>1. Prihvatanje uslova</h3><p>Pristupanjem i korišćenjem web stranice [www.bilanspluskredit.ba](https://www.bilanspluskredit.ba) potvrđujete da prihvatate ove Uslove korišćenja. Ukoliko se ne slažete s njima, molimo vas da prestanete s korišćenjem stranice.</p>
     <h3>2. Informativni karakter</h3><p>Informacije na ovoj stranici su informativnog karaktera i ne predstavljaju konačnu kreditnu ponudu. MKD Bilans Plus Kredit ne preuzima odgovornost za eventualne greške u podacima. Sve kreditne odluke donose se po individualnoj obradi svakog zahtjeva.</p>
-    <h3>3. Kamatne stope i naknade</h3><p>Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u svim poslovnicama i na web stranici. Efektivna kamatna stopa (EKS) navodi se u ugovoru o kreditu za svaki kreditni proizvod.</p>
-    <h3>4. Prava korisnika</h3><p>Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora.</p>
+    <h3>3. Kamatne stope i naknade</h3><p>Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u sjedištu MKD i na web stranici. Nominalna kamatna stopa (NKS), naknada (provizija) za obradu kredita i efektivna kamatna stopa (EKS) iskazuju se odvojeno uz svaki kreditni proizvod, u kalkulatoru i u informacionom listu, a EKS se navodi i u ugovoru o kreditu.</p>
+    <h3>4. Prava korisnika</h3><p>Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora, uključujući informacioni list sa reprezentativnim primjerom, iznosom naknada, obezbjeđenjem kredita i visinom EKS.</p>
+    <h3>5. Pravo na odustanak (14 dana)</h3><p>Korisnik ima pravo da odustane od zaključenog ugovora o kreditu u roku od <strong>14 dana od dana zaključenja ugovora</strong>, bez navođenja razloga i bez plaćanja naknade za odustanak. Odustanak se dostavlja u pisanoj formi, u sjedištu MKD Bilans Plus Kredit ili na adresu sjedišta, odnosno na e-mail info@bilanspluskredit.ba, u navedenom roku. Korisnik je dužan da bez odlaganja, a najkasnije u roku od 30 dana od slanja obavještenja o odustanku, vrati glavnicu i kamatu obračunatu za period u kojem je koristio sredstva.</p>
+    <h3>6. Prijevremena otplata</h3><p>Korisnik u svakom trenutku može djelimično ili u cijelosti prijevremeno otplatiti kredit. Naknada za prijevremenu otplatu iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.</p>
+    <h3>7. Valuta i valutna klauzula</h3><p>Krediti se odobravaju i otplaćuju u konvertibilnim markama (KM/BAM), bez valutne klauzule. Promjena kursa nema uticaja na visinu anuiteta.</p>
+    <h3>8. Opšti uslovi poslovanja</h3><p>Opšti uslovi poslovanja MKD Bilans Plus Kredit, Cjenovnik usluga i informacioni listovi po kreditnim proizvodima javno su dostupni na stranici <button class="inline-link" onclick="go('dokumenti')">Dokumenti</button> i u sjedištu MKD.</p>
+    <h3>9. Prigovori korisnika</h3><p>Korisnik ima pravo da podnese prigovor na rad MKD Bilans Plus Kredit usmeno u sjedištu, pisanim putem na adresu sjedišta ili na e-mail info@bilanspluskredit.ba. Odgovor na prigovor dostavlja se u roku propisanom važećim propisima Republike Srpske. Ako nije zadovoljan odgovorom, korisnik se može obratiti Ombudsmanu za bankarski sistem Republike Srpske.</p>
   </div></div></section>
 </section>
 <!-- ============ PAGE: RJEČNIK ============ -->
@@ -1334,6 +1357,95 @@ function tryImg(el){
     <div class="container">
       <div class="glos-search"><input type="text" id="glosSearch" placeholder="Pretraži pojmove (npr. EKS, anuitet, mjenica)..."/></div>
       <div class="glos" id="glosWrap"></div>
+    </div>
+  </section>
+</section>
+<!-- ============ PAGE: DOKUMENTI ============ -->
+<section class="page" id="pg-dokumenti">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Dokumenti i <span class="hl">informacioni listovi</span></h1><p>Opšti uslovi poslovanja, cjenovnik i informacioni list za svaki kreditni proizvod — javno dostupni, prije nego išta potpišete.</p></div>
+  </div>
+  <section class="section doc-sec">
+    <div class="container">
+      <div class="doc-grid" id="docGrid"></div>
+      <div class="doc-grid" style="margin-top:16px">
+        <div class="doc doc-full">
+          <div class="doc-ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="doc-bd">
+            <h4>Informacioni listovi po kreditnim proizvodima</h4>
+            <p>Za svaki proizvod: iznos, rok, NKS, naknada za obradu, EKS, obezbjeđenje, grace period i reprezentativni primjer. Otvara se kao dokument spreman za štampu ili čuvanje u PDF.</p>
+            <div class="doc-list" id="docProds"></div>
+          </div>
+        </div>
+      </div>
+      <p class="lead" style="text-align:center;margin:30px auto 0;font-size:13px">Dokumenti su dostupni i u štampanom obliku u sjedištu MKD u Banjoj Luci.</p>
+    </div>
+  </section>
+</section>
+<!-- ============ PAGE: KARIJERA ============ -->
+<section class="page" id="pg-karijera">
+  <div class="phero"><div class="orb a"></div>
+    <div class="container"><h1>Karijera u <span class="hl">Bilans Plus Kredit</span></h1><p>Tražimo ljude koji finansije shvataju kao odgovornost, a ne kao prodaju. Pošaljite nam CV — javljamo se svakome.</p></div>
+  </div>
+  <section class="section car-sec">
+    <div class="container car-grid">
+      <div class="reveal">
+        <div class="eyebrow">Zašto kod nas</div>
+        <h2 class="title">Posao u kojem se <span class="hl">zna čemu služi</span></h2>
+        <div class="car-why">
+          <div><span class="ck"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><p><strong>Jedan savjetnik — jedan klijent.</strong> Vodite svoje klijente od prvog razgovora do isplate.</p></div>
+          <div><span class="ck"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><p><strong>Obuka i mentorstvo</strong> od prvog dana, bez obzira na prethodno iskustvo u finansijama.</p></div>
+          <div><span class="ck"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><p><strong>Mlad tim u nastajanju</strong> — prilika da učestvujete u izgradnji organizacije od početka.</p></div>
+          <div><span class="ck"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><p><strong>Stimulativna zarada</strong> vezana za kvalitet portfelja, a ne samo za broj plasmana.</p></div>
+        </div>
+        <div class="car-open">
+          <h4>Otvorene pozicije</h4>
+          <ul>
+            <li>Kreditni savjetnik — Banja Luka</li>
+            <li>Savjetnik za poslovne subjekte — Banja Luka</li>
+            <li>Referent u back office-u — Banja Luka</li>
+            <li>Otvorena prijava — pošaljite CV i za pozicije koje trenutno nisu oglašene</li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-card reveal rd1" style="margin:0">
+        <!-- ⚠ OVA FORMA TRENUTNO NE ŠALJE PODATKE NIGDJE.
+             Nema `action` ni backend — JS samo prikaže potvrdu, a unos se izgubi.
+             Isto važi i za #zForm (Zahtjev) i #kForm (Kontakt).
+             Da bi prijave stvarno stizale, potrebno je jedno od:
+               a) servis za forme (npr. Formspree/Web3Forms) — dodati action="..." i method="post"
+               b) PHP skripta na hostingu koja šalje mail
+               c) vlastiti backend endpoint
+             Tek uz backend ima smisla dodati i <input type="file"> za prilog CV-a. -->
+        <form id="cvForm" novalidate>
+          <div class="form-grid">
+            <div class="fg"><label>Ime i prezime *</label><input type="text" id="c-ime" placeholder="Vaše ime"/></div>
+            <div class="fg"><label>Broj telefona *</label><input type="tel" id="c-tel" placeholder="+387 65 000 000"/></div>
+            <div class="fg"><label>E-mail adresa *</label><input type="email" id="c-email" placeholder="vas@email.com"/></div>
+            <div class="fg"><label>Grad *</label>
+              <select id="c-grad"><option value="">Odaberite grad...</option><option>Banja Luka</option><option>Bijeljina</option><option>Trebinje</option><option>Doboj</option><option>Zvornik</option><option>Prijedor</option><option>Drugo</option></select>
+            </div>
+            <div class="fg full"><label>Pozicija *</label>
+              <select id="c-poz"><option value="">Odaberite...</option><option>Kreditni savjetnik</option><option>Savjetnik za poslovne subjekte</option><option>Referent u back office-u</option><option>Otvorena prijava</option></select>
+            </div>
+            <div class="fg full"><label>Link na CV (LinkedIn, Google Drive, Dropbox…)</label><input type="text" id="c-cv" placeholder="https://..."/></div>
+            <div class="fg full"><label>Nekoliko rečenica o vama *</label><textarea id="c-poruka" placeholder="Radno iskustvo, obrazovanje i zašto vas zanima rad kod nas..."></textarea></div>
+            <div class="fg full"><label class="fcheck"><input type="checkbox" id="c-gdpr"/><span>Saglasan/na sam da MKD Bilans Plus Kredit obrađuje moje lične podatke radi razmatranja moje prijave za posao, u skladu sa Politikom privatnosti.</span></label></div>
+          </div>
+          <button type="submit" class="btn-pri" style="width:100%;justify-content:center;margin-top:8px">Pošalji prijavu
+            <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <!-- ⚠ E-MAIL ZA PRIJAVE — potvrditi adresu prije objave. Trenutno pokazuje na istu
+               adresu koja se koristi na stranici Kontakt. Ako MKD otvori zasebnu adresu za
+               karijeru, zamijeniti je ovdje (i u href i u tekstu). -->
+          <p class="gauge-note" style="text-align:center;margin-top:14px">CV možete poslati i direktno na <a href="mailto:info@bilanspluskredit.ba" style="color:var(--accent);font-weight:700">info@bilanspluskredit.ba</a></p>
+        </form>
+        <div class="form-ok" id="cvOk">
+          <div class="okic"><svg width="40" height="40" fill="none" stroke="#1a9e63" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Prijava poslana!</h3>
+          <p>Hvala na interesovanju. Pregledamo svaku prijavu i javljamo se u roku od 14 dana.</p>
+          <button class="btn-ghost" style="color:var(--navy);border-color:var(--line)" onclick="go('pocetna')">Nazad na početnu</button>
+        </div>
+      </div>
     </div>
   </section>
 </section>
@@ -1356,10 +1468,11 @@ function tryImg(el){
         <button onclick="go('pocetna')">Početna</button><button onclick="go('onama')">O nama</button><button onclick="go('krediti')">Krediti</button><button onclick="go('kalkulator')">Kalkulator</button><button onclick="go('rjecnik')">Rječnik pojmova</button>
       </div>
       <div class="fcol"><h5>Usluge</h5>
-        <button onclick="go('poslovnice')">Poslovnice</button><button onclick="go('kontakt')">Kontakt</button><button onclick="go('zahtjev')">Podnesi zahtjev</button>
+        <button onclick="go('dokumenti')">Dokumenti</button><button onclick="go('karijera')">Karijera</button><button onclick="go('kontakt')">Kontakt</button><button onclick="go('zahtjev')">Podnesi zahtjev</button>
       </div>
+      <!-- Adresa i JIB potvrđeni iz registra; ⚠ telefon i e-mail su i dalje placeholder -->
       <div class="fcol"><h5>Kontakt</h5>
-        <p>+387 51 000 000</p><p>info@bilanspluskredit.ba</p><p>Ul. Kralja Petra I Karađorđevića 12<br/>78000 Banja Luka, RS</p>
+        <p>+387 51 000 000</p><p>info@bilanspluskredit.ba</p><p>Pave Radana 33<br/>78000 Banja Luka, RS</p>
         <p>Pon–Pet: 08:00–16:00</p>
       </div>
     </div>
@@ -1402,6 +1515,11 @@ function tryImg(el){
   <div class="modal-bd" data-close></div>
   <div class="modal-box" id="loanBox"></div>
 </div>
+<!-- ============ MODAL: INFORMACIONI LIST (štampa se u PDF) ============ -->
+<div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-box" id="infoBox"></div>
+</div>
 <div id="confetti" aria-hidden="true"></div>
 <script>
 /* mark JS active so reveal hiding only applies when JS can un-hide it */
@@ -1427,23 +1545,100 @@ const ic = {
   school:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>',
   invest:'<svg width="24" height="24" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg>'
 };
-/* Krediti iz zvaničnog kataloga MKD Bilans Plus Kredit. Slike s Unsplasha — zamjenjive. */
+/* ================================================================================
+   KREDITNI PROIZVODI — jedini izvor istine za sve prikaze na sajtu
+   (kartice, modal, kalkulator, informacioni list, reprezentativni primjer).
+
+   ⚠ PODACI KOJE JE OBAVEZNO POTVRDITI SA ZVANIČNIM CJENOVNIKOM MKD:
+     fee    — naknada (provizija) za obradu kredita, u % glavnice. 0 = bez naknade.
+              Trenutno su upisane privremene vrijednosti (2,00% / 1,50%).
+              Od ovog polja direktno zavisi izračun EKS na cijelom sajtu.
+     feeFix — fiksni dio naknade u KM (npr. trošak mjenice), trenutno privremenih
+              10 KM kod svih proizvoda.
+              VAŽNO ZAŠTO POSTOJI: dok je naknada isključivo procenat glavnice,
+              EKS je matematički nezavisna od iznosa kredita — sve se skalira
+              linearno, pa je interna stopa prinosa identična za 1.000 i za
+              30.000 KM. Tek fiksni dio čini EKS osjetljivom i na iznos, jer
+              njegov udio pada kako kredit raste. Ako Cjenovnik MKD nema nikakav
+              fiksni trošak, ovdje treba upisati 0 — tada je ispravno i očekivano
+              da se EKS mijenja samo sa rokom otplate.
+     sec   — obezbjeđenje kredita (mjenica, žirant, zalog, hipoteka…)
+     grace — grace period po proizvodu
+     repA / repN — iznos i rok reprezentativnog primjera koji se prikazuje uz proizvod
+     eksKat — EKS iz ranije objavljenog kataloga; NE prikazuje se, čuva se samo
+             radi poređenja sa novoizračunatom EKS (vidi napomenu u izvještaju).
+   ================================================================================ */
+const VALUTA = 'KM (BAM) — bez valutne klauzule';   /* ⚠ potvrditi: da li ijedan proizvod ima vezu za EUR */
+const VALUTA_KRATKO = 'KM, bez val. klauzule';      /* kratak oblik za usku ćeliju na kartici */
 const products = [
   // ——— FIZIČKA LICA ———
-  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS',desc:'Nenamjenski gotovinski kredit za lične potrebe, bez navođenja namjene.',amount:'do 7.000 KM',term:'do 18 mjeseci',nks:'25,99%',eks:'34,02%',amin:500,amax:7000,tmax:18,rate:25.99},
-  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS MAX',desc:'Nenamjenski gotovinski kredit za veće iznose, bez navođenja namjene.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'25,99%',eks:'34,72%',amin:1000,amax:30000,tmax:84,rate:25.99},
-  {tip:'fizicka',ic:ic.car,img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80',name:'Siguran put PLUS',desc:'Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa.',amount:'300 – 3.000 KM',term:'do 12 mjeseci',nks:'24,99%',eks:'32,70%',amin:300,amax:3000,tmax:12,rate:24.99},
-  {tip:'fizicka',ic:ic.home,img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',name:'DOM PLUS',desc:'Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD.',amount:'300 – 10.000 KM',term:'do 36 mjeseci',nks:'21,99%',eks:'33,15%',amin:300,amax:10000,tmax:36,rate:21.99},
-  {tip:'fizicka',ic:ic.health,img:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',name:'Ljepota i zdravlje',desc:'Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD.',amount:'do 30.000 KM',term:'do 12 mjeseci',nks:'21,99%',eks:'29,51%',amin:500,amax:30000,tmax:12,rate:21.99},
-  {tip:'fizicka',ic:ic.pension,img:'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',name:'Treća mladost',desc:'Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'22,99%',eks:'29,52%',amin:1000,amax:30000,tmax:84,rate:22.99},
-  {tip:'fizicka',ic:ic.school,img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80',name:'Đak Prvak PLUS',desc:'Finansiranje školskog pribora, udžbenika, odjeće i obuće za polazak u školu.',amount:'500 – 2.000 KM',term:'do 24 mjeseca',nks:'19,99%',eks:'28,60%',amin:500,amax:2000,tmax:24,rate:19.99},
+  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS',desc:'Nenamjenski gotovinski kredit za lične potrebe, bez navođenja namjene.',amount:'do 7.000 KM',term:'do 18 mjeseci',nks:'25,99%',eksKat:'34,02%',amin:500,amax:7000,tmax:18,rate:25.99,fee:2.00,feeFix:10,repA:3000,repN:18,grace:'bez grace perioda',sec:'Mjenica; za iznose preko 3.000 KM sudužnik ili žirant'},
+  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS MAX',desc:'Nenamjenski gotovinski kredit za veće iznose, bez navođenja namjene.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'25,99%',eksKat:'34,72%',amin:1000,amax:30000,tmax:84,rate:25.99,fee:2.00,feeFix:10,repA:10000,repN:60,grace:'bez grace perioda',sec:'Mjenica i administrativna zabrana; za iznose preko 10.000 KM jedan ili više žiranata, po potrebi zalog'},
+  {tip:'fizicka',ic:ic.car,img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80',name:'Siguran put PLUS',desc:'Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa.',amount:'300 – 3.000 KM',term:'do 12 mjeseci',nks:'24,99%',eksKat:'32,70%',amin:300,amax:3000,tmax:12,rate:24.99,fee:2.00,feeFix:10,repA:1500,repN:12,grace:'bez grace perioda',sec:'Mjenica'},
+  {tip:'fizicka',ic:ic.home,img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',name:'DOM PLUS',desc:'Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD.',amount:'300 – 10.000 KM',term:'do 36 mjeseci',nks:'21,99%',eksKat:'33,15%',amin:300,amax:10000,tmax:36,rate:21.99,fee:2.00,feeFix:10,repA:3000,repN:24,grace:'bez grace perioda',sec:'Mjenica; za iznose preko 5.000 KM sudužnik'},
+  {tip:'fizicka',ic:ic.health,img:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',name:'Ljepota i zdravlje',desc:'Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD.',amount:'do 30.000 KM',term:'do 12 mjeseci',nks:'21,99%',eksKat:'29,51%',amin:500,amax:30000,tmax:12,rate:21.99,fee:2.00,feeFix:10,repA:3000,repN:12,grace:'bez grace perioda',sec:'Mjenica; za iznose preko 5.000 KM sudužnik'},
+  {tip:'fizicka',ic:ic.pension,img:'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',name:'Treća mladost',desc:'Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'22,99%',eksKat:'29,52%',amin:1000,amax:30000,tmax:84,rate:22.99,fee:2.00,feeFix:10,repA:10000,repN:60,grace:'bez grace perioda',sec:'Mjenica i administrativna zabrana na penziju'},
+  {tip:'fizicka',ic:ic.school,img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80',name:'Đak Prvak PLUS',desc:'Finansiranje školskog pribora, udžbenika, odjeće i obuće za polazak u školu.',amount:'500 – 2.000 KM',term:'do 24 mjeseca',nks:'19,99%',eksKat:'28,60%',amin:500,amax:2000,tmax:24,rate:19.99,fee:2.00,feeFix:10,repA:1000,repN:12,grace:'bez grace perioda',sec:'Mjenica'},
   // ——— PRAVNA LICA ———
-  {tip:'pravna',ic:ic.biz,img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80',name:'Biznis Keš PLUS',desc:'Obrtna sredstva i likvidnost — zalihe, plate, zakup, porezi i refinansiranje obaveza.',amount:'2.000 – 50.000 KM',term:'do 60 mjeseci',grace:'do 3 mjeseca',nks:'24,99%',eks:'29,48%',amin:2000,amax:50000,tmax:60,rate:24.99},
-  {tip:'pravna',ic:ic.invest,img:'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&q=80',name:'Invest PLUS',desc:'Investicioni kredit — mašine, oprema, vozila, IT i opremanje poslovnog prostora.',amount:'10.000 – 50.000 KM',term:'do 84 mjeseca',grace:'do 9 mjeseci',nks:'21,99%',eks:'24,15%',amin:10000,amax:50000,tmax:84,rate:21.99}
+  {tip:'pravna',ic:ic.biz,img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80',name:'Biznis Keš PLUS',desc:'Obrtna sredstva i likvidnost — zalihe, plate, zakup, porezi i refinansiranje obaveza.',amount:'2.000 – 50.000 KM',term:'do 60 mjeseci',grace:'do 3 mjeseca',nks:'24,99%',eksKat:'29,48%',amin:2000,amax:50000,tmax:60,rate:24.99,fee:1.50,feeFix:10,repA:20000,repN:36,sec:'Mjenica pravnog lica i vlasnika, sudužnik; za veće iznose zalog ili hipoteka'},
+  {tip:'pravna',ic:ic.invest,img:'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&q=80',name:'Invest PLUS',desc:'Investicioni kredit — mašine, oprema, vozila, IT i opremanje poslovnog prostora.',amount:'10.000 – 50.000 KM',term:'do 84 mjeseca',grace:'do 9 mjeseci',nks:'21,99%',eksKat:'24,15%',amin:10000,amax:50000,tmax:84,rate:21.99,fee:1.50,feeFix:10,repA:30000,repN:60,sec:'Mjenica, sudužnik i zalog na predmetu finansiranja; po potrebi hipoteka I reda'}
 ];
+/* ================================================================================
+   OBRAČUN RATE I EKS — jedan motor za cijeli sajt
+   Anuitet:  A = P · i / (1 − (1+i)^−n),  i = NKS / 12 (proporcionalni metod)
+   EKS:      diskontna stopa r koja izjednačava neto isplaćeni iznos (P − naknada)
+             sa sadašnjom vrijednošću svih rata; EKS = (1+r)^12 − 1
+   Zato se EKS mijenja sa iznosom, rokom i naknadom — a NKS ostaje fiksna.
+   ================================================================================ */
+const fmt=n=>Math.round(n).toLocaleString('de-DE');
+function annuity(P,nksPct,n){
+  const i=nksPct/100/12;
+  return i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n;
+}
+/* ukupna naknada za dati iznos: procentualni dio + eventualni fiksni dio u KM */
+function feeOf(p,amt){ return amt*(p.fee||0)/100 + (p.feeFix||0); }
+function eksCalc(P,nksPct,n,feeAmt){
+  if(!(P>0)||!(n>0)) return 0;
+  const A=annuity(P,nksPct,n);
+  const net=P-(feeAmt||0);
+  if(net<=0) return 0;
+  const pv=r=> r>0 ? A*(1-Math.pow(1+r,-n))/r : A*n;
+  let lo=0,hi=1;                                  // mjesečna interna stopa prinosa
+  for(let k=0;k<120;k++){const m=(lo+hi)/2; if(pv(m)>net) lo=m; else hi=m;}
+  return (Math.pow(1+(lo+hi)/2,12)-1)*100;
+}
+/* reprezentativni primjer proizvoda — koristi se na kartici, u modalu i info listu */
+function repExample(p){
+  const P=p.repA, n=p.repN, A=annuity(P,p.rate,n), fee=feeOf(p,P);
+  return {amt:P,term:n,rata:A,fee:fee,total:A*n+fee,eks:eksCalc(P,p.rate,n,fee)};
+}
+const pct=v=>v.toFixed(2).replace('.',',')+'%';
+/* opis naknade: „2,00% od iznosa kredita", „2,00% + 15 KM fiksno" ili „bez naknade" */
+function feeDesc(p){
+  const parts=[];
+  if(p.fee>0) parts.push(pct(p.fee)+' od iznosa kredita');
+  if(p.feeFix>0) parts.push(fmt(p.feeFix)+' KM fiksno');
+  return parts.length?parts.join(' + '):'bez naknade';
+}
+/* kratki oblik za uske prostore (oznaka klizača, specifikacija na kartici) */
+function feeShort(p){
+  const parts=[];
+  if(p.fee>0) parts.push(pct(p.fee));
+  if(p.feeFix>0) parts.push(fmt(p.feeFix)+' KM');
+  return parts.length?parts.join(' + '):'bez naknade';
+}
 const cats = [{k:'sve',l:'Svi krediti'},{k:'fizicka',l:'Fizička lica'},{k:'pravna',l:'Pravna lica'}];
+function feeLabel(p){ return feeDesc(p); }
+/* Reprezentativni primjer u jednoj rečenici — vidljiv i bez interakcije korisnika. */
+function repSentence(p){
+  const r=repExample(p);
+  const nak=(r.fee>0)?`uz naknadu za obradu od ${fmt(r.fee)} KM (${feeShort(p)})`:'bez naknade za obradu';
+  return `Reprezentativni primjer: kredit od ${fmt(r.amt)} KM na ${r.term} mjeseci, NKS ${p.nks} (fiksna), `
+    +`${nak} — mjesečna rata ${fmt(r.rata)} KM, ukupno za otplatu ${fmt(r.total)} KM, EKS ${pct(r.eks)}.`;
+}
 function prodCardHTML(p){
   const i=products.indexOf(p);
+  const r=repExample(p);
   return `<div class="pcard reveal" role="button" tabindex="0" data-loan="${i}" aria-label="${p.name} — otvori detalje i kamatne stope">
     <div class="pcard-img">
       <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"/>
@@ -1452,8 +1647,14 @@ function prodCardHTML(p){
     <div class="pspecs">
       <div><span>Iznos</span><b>${p.amount}</b></div>
       <div><span>Rok otplate</span><b>${p.term}</b></div>
+      <div><span>NKS (fiksna)</span><b>${p.nks}</b></div>
+      <div><span>Naknada za obradu</span><b>${feeShort(p)}</b></div>
+      <div><span>Grace period</span><b>${p.grace}</b></div>
+      <div><span>Valuta</span><b>${VALUTA_KRATKO}</b></div>
     </div>
-    <span class="pcard-more">Detalji i kamatne stope
+    <p class="psec"><b>Obezbjeđenje:</b> ${p.sec}</p>
+    <p class="prep">${repSentence(p)}</p>
+    <span class="pcard-more">Detalji, obezbjeđenje i EKS
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </span>
   </div>`;
@@ -1500,11 +1701,13 @@ function openModal(id){
 }
 function closeModals(){
   document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
+  document.body.classList.remove('print-sheet');
   document.body.style.overflow='';
   if(lastFocus&&lastFocus.focus)lastFocus.focus();
 }
 function openLoan(i){
   const p=products[i];if(!p)return;
+  const r=repExample(p);
   document.getElementById('loanBox').innerHTML=`
     <button class="modal-x" data-close aria-label="Zatvori"><svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     <div class="lm-top">
@@ -1518,17 +1721,90 @@ function openLoan(i){
     <div class="lm-specs">
       <div><span>Iznos kredita</span><b>${p.amount}</b></div>
       <div><span>Rok otplate</span><b>${p.term}</b></div>
-      ${p.grace?`<div><span>Grace period</span><b>${p.grace}</b></div>`:''}
-      <div class="hi"><span>Nominalna kamata (NKS)</span><b>${p.nks}</b></div>
-      <div class="hi"><span>Efektivna kamata (EKS)</span><b>${p.eks}</b></div>
-      <div><span>Kamatna stopa</span><b>fiksna</b></div>
+      <div><span>Grace period</span><b>${p.grace}</b></div>
+      <div><span>Valuta</span><b>${VALUTA}</b></div>
+      <div><span>Kamatna stopa</span><b>fiksna, dekurzivna</b></div>
+      <div><span>Prijevremena otplata</span><b>0,5% preostale glavnice</b></div>
     </div>
-    <p class="gauge-note" style="margin-top:18px">EKS je izračunata na reprezentativnom primjeru i uključuje sve troškove obrade. Konačni uslovi utvrđuju se individualnom obradom zahtjeva.</p>
+    <div class="lm-chain">
+      <div class="lm-chain-h">Kako se dolazi do EKS</div>
+      <div class="lm-ci"><span>1 · Nominalna kamatna stopa (NKS)</span><b>${p.nks}</b></div>
+      <div class="lm-ci"><span>2 · Naknada (provizija) za obradu</span><b>${feeLabel(p)}</b></div>
+      <div class="lm-ci tot"><span>3 · Efektivna kamatna stopa (EKS)</span><b>${pct(r.eks)}</b></div>
+      <p class="lm-chain-n">EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknade, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.</p>
+    </div>
+    <div class="lm-sec">
+      <div class="lm-sec-t">Obezbjeđenje kredita</div>
+      <p>${p.sec}</p>
+    </div>
+    <div class="lm-rep">
+      <p>${repSentence(p)}</p>
+    </div>
+    <p class="gauge-note" style="margin-top:18px">Prikazani podaci su informativnog karaktera. Konačni uslovi i EKS utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu.</p>
     <div class="lm-btns">
       <button class="btn-pri" onclick="closeModals();go('zahtjev')">Podnesi zahtjev<svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <button class="btn-ghost" style="color:var(--navy);border-color:var(--line)" onclick="closeModals();go('kalkulator');setTimeout(function(){var s=document.getElementById('calcProd');if(s){s.value='${i}';s.dispatchEvent(new Event('change'));}},260)">Izračunaj ratu</button>
+      <button class="btn-doc" onclick="openInfoSheet(${i})">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15l3 3 3-3"/></svg>
+        Informacioni list (PDF)
+      </button>
     </div>`;
   openModal('loanModal');
+}
+/* ================================================================================
+   INFORMACIONI LIST PO PROIZVODU
+
+   Prikazuje se U STRANICI, u vlastitom modalu, a dugme „Štampaj / Sačuvaj kao PDF"
+   preko `@media print` pravila štampa samo taj list (ostatak stranice se sakrije).
+   Namjerno se NE otvara pop-up prozor: pop-up blokatori i lokalno otvaranje fajla
+   (file://) znaju to spriječiti, pa list ne bi bio dostupan korisniku.
+
+   Ako MKD ima zvanične PDF fajlove, dovoljno je proizvodu dodati polje
+   pdf:'dokumenti/informacioni-list-kes-plus.pdf' i otvara se taj fajl.
+   ================================================================================ */
+function infoSheetHTML(p){
+  const r=repExample(p);
+  const row=(k,v)=>`<tr><th>${k}</th><td>${v}</td></tr>`;
+  return `
+    <button class="modal-x is-noprint" data-close aria-label="Zatvori"><svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="isheet">
+      <div class="is-k">MKD Bilans Plus Kredit · Informacioni list</div>
+      <h3 class="is-h" id="infoTitle">${p.name}</h3>
+      <p class="is-sub">${p.desc}</p>
+      <table class="is-tbl">
+        ${row('Korisnik kredita',p.tip==='pravna'?'Pravna lica i preduzetnici':'Fizička lica')}
+        ${row('Iznos kredita',p.amount)}
+        ${row('Rok otplate',p.term)}
+        ${row('Valuta',VALUTA)}
+        ${row('Nominalna kamatna stopa (NKS)',p.nks+' godišnje, fiksna')}
+        ${row('Način obračuna kamate','proporcionalni metod, dekurzivno, mjesečno')}
+        ${row('Naknada (provizija) za obradu',feeDesc(p))}
+        ${row('Ostale naknade','prema važećem Cjenovniku usluga MKD')}
+        <tr class="hi"><th>Efektivna kamatna stopa (EKS)</th><td>${pct(r.eks)} — za reprezentativni primjer ispod</td></tr>
+        ${row('Grace period',p.grace)}
+        ${row('Obezbjeđenje kredita',p.sec)}
+        ${row('Otplata','jednaki mjesečni anuiteti')}
+        ${row('Prijevremena otplata','naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit')}
+        ${row('Pravo na odustanak','14 dana od dana zaključenja ugovora, bez navođenja razloga')}
+      </table>
+      <div class="is-rep">${repSentence(p)}</div>
+      <p class="is-note">Ovaj informacioni list je informativnog karaktera i ne predstavlja obavezujuću kreditnu ponudu. Konačni uslovi utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu. MKD Bilans Plus Kredit, Banja Luka — licencirano od Agencije za bankarstvo Republike Srpske.</p>
+    </div>
+    <div class="lm-btns is-noprint">
+      <button class="btn-pri" onclick="window.print()">
+        <svg width="17" height="17" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        Štampaj / Sačuvaj kao PDF
+      </button>
+      <button class="btn-doc" data-close>Zatvori</button>
+    </div>`;
+}
+function openInfoSheet(i){
+  const p=products[i]; if(!p) return;
+  if(p.pdf){ window.open(p.pdf,'_blank'); return; }
+  document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
+  document.getElementById('infoBox').innerHTML=infoSheetHTML(p);
+  document.body.classList.add('print-sheet');
+  openModal('infoModal');
 }
 const advisors=[
   {n:'Boris Knežević',r:'Arhitekta finansija',d:'Vodi tim savjetnika. Specijalnost: restrukturiranje obaveza i investicioni planovi.',img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80',init:'BK',page:'boris'},
@@ -1570,7 +1846,7 @@ document.addEventListener('keydown',e=>{
   if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openLoan(+c.dataset.loan);}
 });
 /* ========= TICKER ========= */
-const tItems=['Odobrenje za 24 sata','Bez skrivenih troškova','Licencirano · Agencija za bankarstvo RS','6 poslovnica u Republici Srpskoj','Brza pozajmica bez žiranata','Personalizovana kreditna analiza','Lični savjetnik za svakog klijenta'];
+const tItems=['Odobrenje za 24 sata','Bez skrivenih troškova','Licencirano · Agencija za bankarstvo RS','NKS, naknada i EKS jasno odvojeni','Informacioni list uz svaki kredit','Personalizovana kreditna analiza','Lični savjetnik za svakog klijenta'];
 const tt=document.getElementById('tickerTrack');
 const tHTML=tItems.map(t=>`<span class="ticker-it"><span class="dot"></span>${t}</span>`).join('');
 tt.innerHTML=tHTML+tHTML;
@@ -1592,35 +1868,22 @@ for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.rand
     host.appendChild(row);
   }
 })();
-/* ========= TESTIMONIALS ========= */
-const testi=[
-  {n:'Marko J.',l:'Banja Luka',t:'Gotovinski kredit odobren za jedan dan. Sve jasno objašnjeno, bez sitnih slova. Najljepše iskustvo s nekom finansijskom kućom do sada.',init:'MJ'},
-  {n:'Snežana P.',l:'Bijeljina',t:'Profesionalan tim koji vas sluša. Stambeni kredit smo sredili bez stresa, uslovi tačno onakvi kakvi su nam objašnjeni.',init:'SP'},
-  {n:'Dragan M.',l:'Trebinje',t:'Kao penzioner mislio sam da je teško doći do kredita. Ovdje su mi sve sredili za par sati, automatska naplata iz penzije.',init:'DM'},
-  {n:'Jelena K.',l:'Doboj',t:'Brza pozajmica bez žiranata mi je spasila situaciju. Novac isti dan na računu. Preporučujem svima.',init:'JK'},
-  {n:'Nenad V.',l:'Prijedor',t:'Poslovni kredit za proširenje radnje. Savjetnik je razumio moju situaciju i ponudio realnu ratu. Korektno od početka do kraja.',init:'NV'},
-  {n:'Milica T.',l:'Zvornik',t:'Transparentno, brzo i ljudski. Tačno znaš šta plaćaš. Vraćam se i za sljedeći kredit.',init:'MT'}
-];
-const ttr=document.getElementById('testiTrack');
-ttr.innerHTML=testi.map(x=>`<div class="tcard"><div class="tstars">★★★★★</div><p class="ttext">${x.t}</p><div class="tauthor"><div class="tav">${x.init}</div><div><div class="tname">${x.n}</div><div class="tloc">${x.l}</div></div></div></div>`).join('');
-let tIdx=0;
-function testiMove(d){
-  const card=ttr.querySelector('.tcard'); if(!card) return;
-  const per=window.innerWidth<600?1:window.innerWidth<980?2:3;
-  const max=Math.max(0,testi.length-per);
-  tIdx=Math.min(max,Math.max(0,tIdx+d));
-  const gap=22, w=card.getBoundingClientRect().width+gap;
-  ttr.style.transform=`translateX(${-tIdx*w}px)`;
-}
-window.addEventListener('resize',()=>{tIdx=0;ttr.style.transform='translateX(0)';});
 /* ========= FAQ ========= */
 const faqs=[
   {q:'Koliko brzo dobijam odobrenje?',a:'Gotovinske kredite (Keš PLUS, Keš PLUS MAX) odobravamo u roku od 24 sata od podnošenja kompletnog zahtjeva. Poslovni krediti za pravna lica mogu zahtijevati do 48 sati zbog detaljnije analize.'},
   {q:'Da li mi treba žirant?',a:'Za brze pozajmice i većinu gotovinskih kredita žirant nije potreban. Za veće iznose i poslovne kredite uslovi se utvrđuju individualnom analizom.'},
   {q:'Mogu li kao penzioner dobiti kredit?',a:'Da. Imamo poseban proizvod za penzionere PIO/MIO RS i Federacije BiH, sa automatskom naplatom rate iz penzije.'},
-  {q:'Šta je EKS i gdje ga vidim?',a:'Efektivna kamatna stopa (EKS) prikazuje ukupan trošak kredita. Navodi se u ugovoru o kreditu za svaki proizvod, a okvirno ga možete vidjeti u našem kalkulatoru.'},
+  {q:'Šta je EKS i gdje ga vidim?',a:'Efektivna kamatna stopa (EKS) prikazuje ukupan trošak kredita. Navodi se u ugovoru o kreditu za svaki proizvod, a možete je izračunati i u našem kalkulatoru — tamo se EKS preračunava za tačan iznos i rok koji izaberete.'},
+  {q:'Zašto se NKS i EKS razlikuju?',a:'NKS je samo godišnja kamatna stopa. EKS pored kamate uključuje i naknadu (proviziju) za obradu kredita, kao i efekat mjesečnog obračuna kamate, pa je uvijek viša od NKS. U kalkulatoru i uz svaki proizvod prikazujemo sve tri stavke odvojeno — NKS, naknadu i EKS — tako da vidite odakle razlika dolazi.'},
+  {q:'Kolika je naknada za obradu kredita?',a:'Naknada za obradu je jednokratna i obračunava se na iznos kredita. Njena visina navedena je uz svaki proizvod i u kalkulatoru, a kod proizvoda bez naknade to je izričito naznačeno. Naknada je uključena u izračun EKS.'},
+  {q:'Mogu li odustati od kredita nakon potpisivanja ugovora?',a:'Da. Imate pravo da odustanete od ugovora o kreditu u roku od 14 dana od dana zaključenja ugovora, bez navođenja razloga i bez naknade za odustanak. Dovoljno je da nas pisano obavijestite u tom roku i da vratite glavnicu uz kamatu obračunatu za dane u kojima ste sredstva koristili.'},
+  {q:'Kakvo obezbjeđenje kredita se traži?',a:'Mjenica je obavezna kod svih naših kredita. Zavisno od proizvoda i iznosa, može se tražiti i sudužnik ili žirant, administrativna zabrana na platu ili penziju, zalog na predmetu finansiranja ili hipoteka. Tačno obezbjeđenje za svaki proizvod navedeno je u detaljima proizvoda i u informacionom listu.'},
+  {q:'Da li su krediti u KM ili sa valutnom klauzulom?',a:'Svi naši krediti odobravaju se i otplaćuju u konvertibilnim markama (KM/BAM), bez valutne klauzule. To znači da promjena kursa nema uticaj na visinu vaše rate.'},
+  {q:'Da li postoji grace period?',a:'Grace period (odgoda otplate glavnice) dostupan je kod kredita za pravna lica — do 3 mjeseca kod Biznis Keš PLUS i do 9 mjeseci kod Invest PLUS. Krediti za fizička lica nemaju grace period. Podatak je naveden uz svaki proizvod.'},
+  {q:'Šta ako želim ranije otplatiti kredit?',a:'Prijevremena otplata je moguća u svakom trenutku. Naknada iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.'},
   {q:'Koju dokumentaciju trebam?',a:'Za većinu kredita dovoljna je lična karta i potvrda o primanjima. Tačan spisak zavisi od vrste kredita i dostavlja ga vaš savjetnik.'},
-  {q:'Mogu li refinansirati postojeći kredit?',a:'Da, kroz nenamjenski kredit moguće je refinansiranje postojećih obaveza uz povoljnije uslove i jednu ratu.'}
+  {q:'Mogu li refinansirati postojeći kredit?',a:'Da, kroz nenamjenski kredit moguće je refinansiranje postojećih obaveza uz povoljnije uslove i jednu ratu.'},
+  {q:'Gdje mogu naći informacioni list i opšte uslove?',a:'Informacioni list za svaki kreditni proizvod možete preuzeti u detaljima tog proizvoda ili na stranici Dokumenti, gdje se nalaze i Opšti uslovi poslovanja, Cjenovnik usluga, Uslovi korišćenja i Politika privatnosti.'}
 ];
 const fw=document.getElementById('faqWrap');
 fw.innerHTML=faqs.map(f=>`<div class="faq"><div class="faq-q">${f.q}<span class="pl">+</span></div><div class="faq-a"><p>${f.a}</p></div></div>`).join('');
@@ -1656,9 +1919,15 @@ const glossary=[
   {t:'Nenamjenski kredit',d:'Kredit koji se može trošiti slobodno, bez obaveze dokazivanja namjene.'},
   {t:'Namjenski kredit',d:'Kredit koji se koristi isključivo za tačno određenu svrhu (npr. vozilo, škola, zdravlje).'},
   {t:'Učešće',d:'Vlastiti novčani udio korisnika u finansiranju, pored sredstava kredita.'},
-  {t:'Trošak obrade',d:'Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva.'},
-  {t:'Reprezentativni primjer',d:'Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti.'},
+  {t:'Trošak obrade',a:'naknada / provizija',d:'Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva. Obračunava se na iznos kredita i ulazi u izračun EKS — zato je EKS uvijek viša od NKS.'},
+  {t:'Reprezentativni primjer',d:'Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti. Sadrži iznos, rok, NKS, naknadu, mjesečnu ratu, ukupan iznos za otplatu i EKS.'},
+  {t:'Informacioni list',d:'Sažetak svih uslova jednog kreditnog proizvoda na jednom mjestu — iznos, rok, kamata, naknade, obezbjeđenje i reprezentativni primjer. Dostupan je za preuzimanje uz svaki proizvod.'},
+  {t:'Pravo na odustanak',d:'Pravo korisnika da u roku od 14 dana od zaključenja ugovora o kreditu odustane od ugovora, bez navođenja razloga i bez naknade, uz povrat glavnice i kamate za dane korišćenja sredstava.'},
+  {t:'Valutna klauzula',d:'Vezivanje iznosa kredita za stranu valutu (npr. EUR), zbog čega rata može rasti sa promjenom kursa. Naši krediti su u KM i nemaju valutnu klauzulu.'},
+  {t:'Obezbjeđenje kredita',d:'Instrumenti kojima korisnik garantuje otplatu — mjenica, sudužnik ili žirant, administrativna zabrana, zalog ili hipoteka. Navedeni su uz svaki kreditni proizvod.'},
   {t:'Kreditna sposobnost',d:'Procjena mogućnosti korisnika da uredno otplaćuje kredit, na osnovu primanja i obaveza.'},
+  {t:'DTI',a:'odnos duga i primanja',d:'Udio postojećih mjesečnih obaveza u mjesečnim primanjima. Niži DTI znači veću kreditnu sposobnost. Naš mjerač sposobnosti ocjenu računa upravo iz ovog odnosa, a ne iz apsolutnog iznosa obaveza u KM.'},
+  {t:'DSTI',a:'opterećenost primanja ratama',d:'Najveći dio primanja koji smije otići na otplatu svih kredita zajedno. Zavisi od visine primanja i od toga koliko novca korisniku mora ostati za život.'},
   {t:'Ugovorni partner',d:'Prodavac robe ili pružalac usluge s kojim MKD ima zaključen ugovor o saradnji.'},
   {t:'Dekurzivni obračun',d:'Način obračuna gdje se kamata obračunava i plaća na kraju obračunskog perioda (mjesečno).'},
   {t:'Proporcionalni metod',d:'Metod obračuna kamate u kojem se godišnja stopa ravnomjerno raspoređuje na obračunske periode.'},
@@ -1677,6 +1946,31 @@ function renderGlos(q){
 renderGlos('');
 const glosSearch=document.getElementById('glosSearch');
 if(glosSearch) glosSearch.addEventListener('input',()=>renderGlos(glosSearch.value));
+/* ================================================================================
+   DOKUMENTI
+   ⚠ Kada MKD dostavi zvanične PDF fajlove, dovoljno je u polje `file` upisati
+   putanju (npr. 'dokumenti/opsti-uslovi-poslovanja.pdf'). Dok je `file` prazno,
+   dugme se prikazuje kao „Uskoro dostupno" — bez pokvarenog linka na sajtu.
+   ================================================================================ */
+const docIcon='<svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>';
+const DOCS=[
+  {t:'Opšti uslovi poslovanja',d:'Opšti uslovi pod kojima MKD Bilans Plus Kredit odobrava i prati kredite — prava i obaveze korisnika, obračun kamate, naplata i prigovori.',file:''},
+  {t:'Cjenovnik usluga',d:'Pregled svih naknada: obrada kreditnog zahtjeva, mjenica, prijevremena otplata, opomene i ostale usluge.',file:''},
+  {t:'Uslovi korišćenja',d:'Uslovi korišćenja web stranice, pravo na odustanak u roku od 14 dana, prijevremena otplata i postupak po prigovoru.',page:'uslovi'},
+  {t:'Politika privatnosti',d:'Kako prikupljamo, koristimo i čuvamo vaše lične podatke i koja prava imate u vezi sa njima.',page:'privatnost'}
+];
+const docGrid=document.getElementById('docGrid');
+if(docGrid){
+  docGrid.innerHTML=DOCS.map(d=>{
+    let act;
+    if(d.page) act=`<button class="doc-a" onclick="go('${d.page}')">Otvori<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`;
+    else if(d.file) act=`<a class="doc-a" href="${d.file}" target="_blank" rel="noopener">Preuzmi PDF<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg></a>`;
+    else act=`<button class="doc-a" disabled>Uskoro dostupno</button>`;
+    return `<div class="doc reveal"><div class="doc-ic">${docIcon}</div><div class="doc-bd"><h4>${d.t}</h4><p>${d.d}</p>${act}</div></div>`;
+  }).join('');
+  document.getElementById('docProds').innerHTML=products.map((p,i)=>
+    `<button onclick="openInfoSheet(${i})">${docIcon}${p.name}</button>`).join('');
+}
 /* ========= QUIZ ========= */
 let quizState={};
 function quizAns(step,val){
@@ -1718,7 +2012,6 @@ function quizRestart(){
   document.querySelectorAll('#quizProg i').forEach((p,i)=>{p.classList.remove('done','cur');if(i===0)p.classList.add('cur');});
 }
 /* ========= CALCULATOR (po proizvodima iz kataloga) ========= */
-const fmt=n=>Math.round(n).toLocaleString('de-DE');
 let calcIdx=0;
 const calcProdSel=document.getElementById('calcProd');
 calcProdSel.innerHTML=products.map((p,i)=>`<option value="${i}">${p.name} — ${p.tip==='pravna'?'pravna lica':'fizička lica'}</option>`).join('');
@@ -1739,15 +2032,28 @@ function calcUpdate(){
   document.getElementById('calcAmtL').textContent=fmt(amt)+' KM';
   document.getElementById('calcTermL').textContent=term+' mjeseci';
   document.getElementById('calcRateL').textContent=p.nks;
+  document.getElementById('calcFeeL').textContent=feeShort(p);
+  document.getElementById('calcFeeNote').textContent=(p.fee>0||p.feeFix>0)
+    ? 'Jednokratna naknada, obračunava se na iznos kredita i ulazi u izračun EKS.'
+    : 'Za ovaj proizvod se ne naplaćuje naknada za obradu kreditnog zahtjeva.';
   const mr=rate/100/12;
   const monthly=mr>0?amt*mr/(1-Math.pow(1+mr,-term)):amt/term;
-  const total=monthly*term, interest=total-amt;
+  const fee=feeOf(p,amt);
+  const interest=monthly*term-amt;
+  const total=monthly*term+fee;            /* ukupan trošak = rate + naknada */
+  const eks=eksCalc(amt,rate,term,fee);    /* stvarni izračun, ne katalog */
   document.getElementById('calcMonthly').innerHTML=fmt(monthly)+' <small>KM</small>';
   document.getElementById('calcSubline').textContent=term+' rata · '+p.name;
   document.getElementById('calcPrincipal').textContent=fmt(amt)+' KM';
   document.getElementById('calcInterest').textContent=fmt(interest)+' KM';
   document.getElementById('calcTotal').textContent=fmt(total)+' KM';
-  document.getElementById('calcEks').textContent='≈ '+p.eks+' (katalog)';
+  document.getElementById('calcNks').textContent=p.nks;
+  /* prikazuje se i sastav naknade (procenat + fiksni dio), da iznos u KM ne izgleda
+     kao da je samo procenat glavnice */
+  document.getElementById('calcFee').textContent=fee>0
+    ? fmt(fee)+' KM ('+feeShort(p)+')'
+    : 'bez naknade';
+  document.getElementById('calcEks').textContent=pct(eks);
   const ch=document.getElementById('calcChart');const bars=18;let bal=amt;let parts=[];
   const stepM=term/bars;
   for(let i=0;i<bars;i++){parts.push(bal);for(let m=0;m<stepM;m++){bal=bal*(1+mr)-monthly;}}
@@ -1756,8 +2062,26 @@ function calcUpdate(){
 }
 ['calcAmt','calcTerm'].forEach(id=>document.getElementById(id).addEventListener('input',calcUpdate));
 setCalcProduct(0);
-/* ========= CREDIT CAPACITY GAUGE ========= */
+/* ================================================================================
+   MJERAČ KREDITNE SPOSOBNOSTI
+
+   Ocjena se računa iz ODNOSA obaveza i primanja (DTI), a ne iz apsolutnog iznosa
+   obaveza u KM. Zbog toga profil 6.000 KM primanja / 1.900 KM obaveza (DTI 32%)
+   dobija bolju ocjenu od profila 1.200 / 100 samo ako je i raspoloživi iznos veći.
+
+   Tri komponente ocjene:
+     1. dtiScore  — koliko je nisko opterećenje primanja (DTI); najveća težina
+     2. dispScore — koliko novca realno ostaje mjesečno nakon obaveza
+     3. headroom  — koliko je od dozvoljenog kreditnog opterećenja još slobodno
+   Maksimalni iznos je ograničen i najvećim iznosom koji stvarno postoji u ponudi.
+   ================================================================================ */
 const ARC=283;
+const GAUGE_RATE=22.99;                                   /* reprezentativna NKS za procjenu */
+const LIVING_MIN=350;                                     /* ⚠ potvrditi: egzistencijalni minimum u KM */
+const OFFER_MAX=Math.max(...products.map(p=>p.amax));     /* najveći iznos u ponudi (50.000 KM) */
+const clamp01=v=>Math.max(0,Math.min(1,v));
+/* dozvoljeno kreditno opterećenje raste sa primanjima (viša primanja — veći DSTI) */
+function dstiCap(inc){ return inc<=1000?0.40 : inc<=2500?0.45 : inc<=5000?0.50 : 0.55; }
 function gaugeUpdate(){
   const inc=+document.getElementById('gInc').value;
   const obl=+document.getElementById('gObl').value;
@@ -1765,54 +2089,38 @@ function gaugeUpdate(){
   document.getElementById('gIncL').textContent=fmt(inc)+' KM';
   document.getElementById('gOblL').textContent=fmt(obl)+' KM';
   document.getElementById('gTrmL').textContent=trm+' mjeseci';
-  const cap=inc*0.45;                       // dozvoljeni teret (DSTI 45%)
-  const maxRate=Math.max(0,cap-obl);        // slobodna rata
-  const i=0.08/12, factor=(1-Math.pow(1+i,-trm))/i;
-  const maxLoan=maxRate*factor;
-  const score=cap>0?Math.max(0,Math.min(100,maxRate/cap*100)):0;
+
+  const dti=inc>0?obl/inc:1;                       // opterećenost primanja
+  const disposable=Math.max(0,inc-obl);            // slobodna sredstva
+  const maxBurden=inc*dstiCap(inc);                // dozvoljeni ukupni teret rata
+  const freeByDsti=maxBurden-obl;                  // slobodno unutar DSTI limita
+  const freeByLiving=inc-obl-LIVING_MIN;           // mora ostati egzistencijalni minimum
+  const maxRate=Math.max(0,Math.min(freeByDsti,freeByLiving));
+
+  const i=GAUGE_RATE/100/12, factor=(1-Math.pow(1+i,-trm))/i;
+  const maxLoan=Math.min(maxRate*factor,OFFER_MAX);   // nikad iznad stvarnog maksimuma iz ponude
+
+  const dtiScore=clamp01((0.55-dti)/0.55);
+  const dispScore=clamp01((disposable-LIVING_MIN)/1650);
+  const headroom=maxBurden>0?clamp01(maxRate/maxBurden):0;
+  let score=100*(0.50*dtiScore+0.20*dispScore+0.30*headroom);
+  if(maxRate<=0) score=0;                              // nema slobodne rate — nema sposobnosti
+
   document.getElementById('gAmt').textContent=fmt(maxLoan)+' KM';
   document.getElementById('gRate').textContent=fmt(maxRate)+' KM';
+  document.getElementById('gDti').textContent=(inc>0?(dti*100).toFixed(1).replace('.',','):'—')+' %';
+  document.getElementById('gFree').textContent=fmt(disposable)+' KM';
   document.getElementById('gArc').style.strokeDashoffset=ARC*(1-score/100);
   document.getElementById('gNeedle').setAttribute('transform','rotate('+((score/100)*180-90)+' 110 118)');
   const b=document.getElementById('gBadge');
-  b.className='gauge-badge '+(score>=60?'good':score>=30?'mid':'low');
-  b.textContent=score>=60?'Odlična':score>=30?'Dobra':'Slabija';
+  b.className='gauge-badge '+(score>=50?'good':score>=30?'mid':'low');
+  b.textContent=score>=50?'Odlična':score>=30?'Dobra':'Slabija';
+  /* kad je iznos ograničen ponudom, korisnik to mora vidjeti */
+  const cp=document.getElementById('gCap');
+  if(cp) cp.style.display=(maxRate*factor>OFFER_MAX && maxRate>0)?'block':'none';
 }
 ['gInc','gObl','gTrm'].forEach(id=>document.getElementById(id).addEventListener('input',gaugeUpdate));
 gaugeUpdate();
-/* ========= BRANCH MAP ========= */
-const branches=[
-  {city:'Banja Luka',name:'Banja Luka – Centar',addr:'Ul. Kralja Petra I Karađorđevića 12',tel:'+387 51 000 001',xp:33,yp:29},
-  {city:'Prijedor',name:'Prijedor',addr:'Ul. Kozaračka 15',tel:'+387 52 000 006',xp:21,yp:23},
-  {city:'Doboj',name:'Doboj',addr:'Ul. Cara Dušana 3',tel:'+387 53 000 004',xp:50,yp:35},
-  {city:'Bijeljina',name:'Bijeljina',addr:'Ul. Srpske Vojske 45',tel:'+387 55 000 002',xp:77,yp:29},
-  {city:'Zvornik',name:'Zvornik',addr:'Ul. Svetog Save 22',tel:'+387 56 000 005',xp:73,yp:49},
-  {city:'Trebinje',name:'Trebinje',addr:'Ul. Jovana Dučića 8',tel:'+387 59 000 003',xp:58,yp:84}
-];
-function isOpenNow(){
-  const now=new Date();const d=now.getDay();const h=now.getHours()+now.getMinutes()/60;
-  if(d===0) return false;
-  if(d===6) return h>=9 && h<13;
-  return h>=8 && h<16;
-}
-const openNow=isOpenNow();
-const statusHTML=openNow?'<span class="status open"><span class="sd"></span>Otvoreno</span>':'<span class="status closed"><span class="sd"></span>Zatvoreno</span>';
-const mapPins=document.getElementById('mapPins');
-mapPins.innerHTML=branches.map((b,i)=>`<button type="button" class="map-pin" data-i="${i}" style="left:${b.xp}%;top:${b.yp}%">
-  <span><span class="mp-pulse"></span><span class="mp-dot"></span></span>
-  <span class="mp-label">${b.city}</span></button>`).join('');
-const bl=document.getElementById('branchList');
-bl.innerHTML=branches.map((b,i)=>`<div class="branch" data-i="${i}">
-  <div class="branch-ic"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-  <div class="branch-bd"><h4>${b.name}</h4><p>${b.addr}</p><div class="ph">${b.tel}</div></div>
-  ${statusHTML}</div>`).join('');
-function selBranch(i){
-  document.querySelectorAll('.map-pin').forEach(p=>p.classList.toggle('on',+p.dataset.i===i));
-  document.querySelectorAll('.branch').forEach(p=>p.classList.toggle('on',+p.dataset.i===i));
-}
-document.querySelectorAll('.map-pin').forEach(p=>p.onclick=()=>selBranch(+p.dataset.i));
-document.querySelectorAll('.branch').forEach(p=>{p.onmouseenter=()=>selBranch(+p.dataset.i);p.onclick=()=>selBranch(+p.dataset.i);});
-selBranch(0);
 /* ========= ROUTER ========= */
 function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -1859,10 +2167,26 @@ const kf=document.getElementById('kForm');
 kf.addEventListener('submit',e=>{e.preventDefault();
   if(validate(kf,['k-ime','k-tel','k-email','k-poruka'])){kf.style.display='none';document.getElementById('kOk').classList.add('on');confetti();}
 });
-/* ========= COOKIE BANNER ========= */
-function cookieClose(){document.getElementById('cookie').classList.remove('show');try{localStorage.setItem('bpk_cookie','1');}catch(e){}}
+const cvf=document.getElementById('cvForm');
+if(cvf) cvf.addEventListener('submit',e=>{e.preventDefault();
+  const ok=validate(cvf,['c-ime','c-tel','c-email','c-grad','c-poz','c-poruka']);
+  const g=document.getElementById('c-gdpr');g.parentElement.style.color=g.checked?'':'#e0483f';
+  if(ok&&g.checked){cvf.style.display='none';document.getElementById('cvOk').classList.add('on');confetti();}
+});
+/* ========= COOKIE BANNER =========
+   Traka je fiksirana na dnu ekrana i na manjim ekranima je znala prekriti
+   naslov i dugmad u herou. Zato mjerimo njenu stvarnu visinu i za toliko
+   podignemo hero sadržaj dok je traka vidljiva. */
+function cookieReserve(){
+  const ck=document.getElementById('cookie');if(!ck)return;
+  const on=ck.classList.contains('show');
+  document.body.classList.toggle('cookie-on',on);
+  document.documentElement.style.setProperty('--cookie-h',on?(ck.offsetHeight+24)+'px':'0px');
+}
+function cookieClose(){document.getElementById('cookie').classList.remove('show');cookieReserve();try{localStorage.setItem('bpk_cookie','1');}catch(e){}}
 (function(){let seen=false;try{seen=localStorage.getItem('bpk_cookie')==='1';}catch(e){}
-  if(!seen)setTimeout(()=>document.getElementById('cookie').classList.add('show'),1400);})();
+  if(!seen)setTimeout(()=>{document.getElementById('cookie').classList.add('show');cookieReserve();},1400);})();
+window.addEventListener('resize',cookieReserve);
 /* ========= ANIMATED COUNTERS ========= */
 function runCounters(){
   document.querySelectorAll('[data-count]').forEach(el=>{
@@ -1927,7 +2251,7 @@ document.querySelector('.hero').addEventListener('mousemove',e=>{
 (function(){
 'use strict';
 var live=document.getElementById('ariaLive');
-var PAGE_NAMES={pocetna:'Početna',onama:'O nama',boris:'Boris Knežević — arhitekta finansija',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',poslovnice:'Poslovnice',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova'};
+var PAGE_NAMES={pocetna:'Početna',onama:'O nama',boris:'Boris Knežević — arhitekta finansija',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova',dokumenti:'Dokumenti i informacioni listovi',karijera:'Karijera'};
 /* najava za čitače ekrana */
 function announce(txt){
   if(!txt||!live)return;
@@ -1962,7 +2286,7 @@ if(burgerEl)burgerEl.addEventListener('click',function(){
 });
 /* ---------- dekorativni elementi — sakrij od čitača ekrana ---------- */
 document.querySelectorAll('svg').forEach(function(s){s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');});
-['.ticker','.particles','#heroChannels','.orb','.hero-bg','.woman-ring','.quiz-prog','.calc-chart','.faq-q .pl','.tstars','.mp-pulse','.mp-dot','.av-stack'].forEach(function(sel){
+['.ticker','.particles','#heroChannels','.orb','.hero-bg','.woman-ring','.quiz-prog','.calc-chart','.faq-q .pl','.av-stack'].forEach(function(sel){
   document.querySelectorAll(sel).forEach(function(el){el.setAttribute('aria-hidden','true');});
 });
 /* ---------- logo / brand kao link dostupan tastaturi ---------- */
@@ -1972,19 +2296,6 @@ if(brand){
   brand.setAttribute('aria-label','Bilans Plus Kredit — početna stranica');
   brand.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.go('pocetna');}});
 }
-/* ---------- dugmad sa samo ikonom ---------- */
-var tb=document.querySelectorAll('.tbtn');
-if(tb[0])tb[0].setAttribute('aria-label','Prethodne recenzije klijenata');
-if(tb[1])tb[1].setAttribute('aria-label','Sljedeće recenzije klijenata');
-/* ---------- mapa i poslovnice ---------- */
-document.querySelectorAll('.map-pin').forEach(function(p){
-  var l=p.querySelector('.mp-label');
-  if(l)p.setAttribute('aria-label','Poslovnica '+l.textContent.trim());
-});
-document.querySelectorAll('.branch').forEach(function(b){
-  b.setAttribute('role','button');b.setAttribute('tabindex','0');
-  b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();b.click();}});
-});
 /* ---------- FAQ: tastatura + aria-expanded ---------- */
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.setAttribute('role','button');q.setAttribute('tabindex','0');q.setAttribute('aria-expanded','false');
@@ -2013,7 +2324,7 @@ document.querySelectorAll('.fg,.cgroup').forEach(function(wrap){
   if(lab&&inp&&inp.id&&!lab.getAttribute('for')&&!lab.contains(inp))lab.setAttribute('for',inp.id);
 });
 /* obavezna polja */
-['z-ime','z-tel','z-email','z-grad','z-tip','z-gdpr','k-ime','k-tel','k-email','k-poruka'].forEach(function(id){
+['z-ime','z-tel','z-email','z-grad','z-tip','z-gdpr','k-ime','k-tel','k-email','k-poruka','c-ime','c-tel','c-email','c-grad','c-poz','c-poruka','c-gdpr'].forEach(function(id){
   var el=document.getElementById(id);if(el)el.setAttribute('aria-required','true');
 });
 /* ---------- klizači: aria-valuetext ---------- */
@@ -2085,15 +2396,16 @@ function formA11y(formId,okId){
         errs[0].focus();
         return;
       }
-      var g=document.getElementById('z-gdpr');
-      if(formId==='zForm'&&g&&!g.checked){
+      var gid=(formId==='zForm')?'z-gdpr':(formId==='cvForm')?'c-gdpr':null;
+      var g=gid?document.getElementById(gid):null;
+      if(g&&!g.checked){
         announce('Obrazac nije poslan. Morate označiti saglasnost sa obradom ličnih podataka.');
         g.focus();
       }
     },60);
   });
 }
-formA11y('zForm','zOk');formA11y('kForm','kOk');
+formA11y('zForm','zOk');formA11y('kForm','kOk');formA11y('cvForm','cvOk');
 /* ---------- rječnik: najava broja rezultata pretrage ---------- */
 var gs=document.getElementById('glosSearch');
 if(gs){
@@ -2126,7 +2438,7 @@ var DICT={
 "Početna":"Home","O nama":"About us","Krediti":"Loans","Kalkulator":"Calculator","Poslovnice":"Branches","Rječnik":"Glossary","Kontakt":"Contact","Meni":"Menu","Vrh":"Top","Zatvori":"Close","Nazad":"Back","Preskoči na glavni sadržaj":"Skip to main content","Glavna navigacija":"Main navigation","Bilans Plus Kredit — početna stranica":"Bilans Plus Kredit — home page","Prethodne recenzije klijenata":"Previous client reviews","Sljedeće recenzije klijenata":"Next client reviews",
 "Licencirana mikrokreditna organizacija":"Licensed microcredit organisation","Finansije moraju":"Finance must","imati karakter":"have character","Svjesni da svaki kredit utiče na život ljudi, gradimo poslovanje na odgovornim finansijskim odlukama, povjerenju i dugoročnoj održivosti":"Aware that every loan affects people's lives, we build our business on responsible financial decisions, trust and long-term sustainability","Podnesi zahtjev":"Apply now","Kreditni kalkulator":"Loan calculator","Rezerviši ličnog savjetnika":"Book a personal advisor","Besplatan razgovor, bez obaveze":"Free consultation, no obligation","Zaštitno lice":"Compliance officer","MKD Bilans Plus Kredit":"MKD Bilans Plus Kredit","Vaša savjetnica":"Your advisor","Bilans Plus Kredit savjetnica":"Bilans Plus Kredit advisor",
 /* ---------- ticker / trust ---------- */
-"Odobrenje za 24 sata":"Approval within 24 hours","Bez skrivenih troškova":"No hidden costs","Licencirano · Agencija za bankarstvo RS":"Licensed · Banking Agency of RS","6 poslovnica u Republici Srpskoj":"6 branches across Republika Srpska","Brza pozajmica bez žiranata":"Quick loan without guarantors","Personalizovana kreditna analiza":"Personalised credit analysis","Lični savjetnik za svakog klijenta":"A personal advisor for every client",
+"Odobrenje za 24 sata":"Approval within 24 hours","Bez skrivenih troškova":"No hidden costs","Licencirano · Agencija za bankarstvo RS":"Licensed · Banking Agency of RS","NKS, naknada i EKS jasno odvojeni":"Nominal rate, fee and APR shown separately","Informacioni list uz svaki kredit":"An information sheet with every loan","Personalizovana kreditna analiza":"Personalised credit analysis","Lični savjetnik za svakog klijenta":"A personal advisor for every client",
 "Licencirano":"Licensed","Agencija za bankarstvo Republike Srpske":"Banking Agency of Republika Srpska","Odobrenje za 24h":"Approval in 24h","Brza obrada svakog zahtjeva":"Fast processing of every application","Jasna EKS u svakom ugovoru":"Clear APR in every contract","Lični savjetnik":"Personal advisor","Personalizovana analiza za svakog":"Personalised analysis for everyone",
 /* ---------- proizvodi / sekcija ---------- */
 "Naša ponuda":"Our offer","Krediti koji":"Loans that","prate vaš život":"follow your life","Devet kreditnih proizvoda za fizička i pravna lica — gotovinski, namjenski, penzionerski i poslovni krediti, sa fiksnom kamatnom stopom i jasnom EKS.":"Nine loan products for individuals and businesses — cash, purpose-specific, pensioner and business loans, with a fixed interest rate and a clear APR.","Svi krediti":"All loans","Fizička lica":"Individuals","Pravna lica":"Businesses","Za fizička lica":"For individuals","Za pravna lica":"For businesses","Iznos":"Amount","Rok otplate":"Repayment term","Detalji i kamatne stope":"Details and interest rates","Kamata (NKS)":"Interest (nominal)","EKS":"APR","NKS":"Nominal rate","Grace period":"Grace period","Iznos kredita":"Loan amount","Nominalna kamata (NKS)":"Nominal interest rate","Efektivna kamata (EKS)":"Effective rate (APR)","Kamatna stopa":"Interest rate","fiksna":"fixed","EKS je izračunata na reprezentativnom primjeru i uključuje sve troškove obrade. Konačni uslovi utvrđuju se individualnom obradom zahtjeva.":"The APR is calculated on a representative example and includes all processing costs. Final terms are determined through individual assessment of your application.","Izračunaj ratu":"Calculate instalment",
@@ -2145,15 +2457,50 @@ var DICT={
 /* ---------- CTA ---------- */
 "Pripremite se za snažan bilans.":"Get ready for a strong balance sheet.","Podnesite zahtjev danas — naš tim će vas kontaktirati u roku od 24 sata.":"Apply today — our team will contact you within 24 hours.","Spremni da krenemo zajedno?":"Ready to start together?","Javite nam se — odgovorićemo na svako pitanje prije nego donesete odluku.":"Get in touch — we will answer every question before you make a decision.","Kontaktiraj nas":"Contact us",
 /* ---------- O nama ---------- */
-"Pouzdanost i":"Reliability and","profesionalnost":"professionalism","Novoosnovana licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj.":"A newly founded licensed microcredit organisation headquartered in Republika Srpska.","Finansijska podrška":"Financial support","koja mijenja živote":"that changes lives","Finansijska podrška koja mijenja živote.":"Financial support that changes lives.","MKD Bilans Plus Kredit je licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj. Naša misija je pružiti brzu, transparentnu i personalizovanu finansijsku podršku fizičkim i pravnim licima — uz minimalnu papirologiju.":"MKD Bilans Plus Kredit is a licensed microcredit organisation headquartered in Republika Srpska. Our mission is to provide fast, transparent and personalised financial support to individuals and businesses — with minimal paperwork.","Licencirani":"Licensed","od strane Agencije za bankarstvo Republike Srpske.":"by the Banking Agency of Republika Srpska.","Personalizovana":"Personalised","kreditna analiza za svakog klijenta.":"credit analysis for every client.","Poslovnice":"Branches","raspoređene po cijeloj Republici Srpskoj.":"located throughout Republika Srpska.","transparentnih uslova":"transparent terms","Naše vrijednosti":"Our values","Principi koji nas":"The principles that","definišu":"define us","Transparentnost":"Transparency","Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.":"All terms, interest rates and fees are clearly defined before the contract is signed. No fine print and no hidden costs.","Lični pristup":"A personal approach","Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.":"Every client gets an advisor who understands their situation and finds a tailor-made solution.","Brzina i efikasnost":"Speed and efficiency","Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.":"A cash loan approved in just 24 hours. We value your time as much as your trust.","Upoznajte našeg arhitektu finansija":"Meet our financial architect","Boris Knežević · 18 godina iskustva":"Boris Knežević · 18 years of experience",
+"Pouzdanost i":"Reliability and","profesionalnost":"professionalism","Novoosnovana licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj.":"A newly founded licensed microcredit organisation headquartered in Republika Srpska.","Finansijska podrška":"Financial support","koja mijenja živote":"that changes lives","Finansijska podrška koja mijenja živote.":"Financial support that changes lives.","MKD Bilans Plus Kredit je licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj. Naša misija je pružiti brzu, transparentnu i personalizovanu finansijsku podršku fizičkim i pravnim licima — uz minimalnu papirologiju.":"MKD Bilans Plus Kredit is a licensed microcredit organisation headquartered in Republika Srpska. Our mission is to provide fast, transparent and personalised financial support to individuals and businesses — with minimal paperwork.","Licencirani":"Licensed","od strane Agencije za bankarstvo Republike Srpske.":"by the Banking Agency of Republika Srpska.","Personalizovana":"Personalised","kreditna analiza za svakog klijenta.":"credit analysis for every client.","Jasni uslovi":"Clear terms","— NKS, naknada i EKS iskazani odvojeno uz svaki kredit.":"— nominal rate, fee and APR stated separately for every loan.","transparentnih uslova":"transparent terms","Naše vrijednosti":"Our values","Principi koji nas":"The principles that","definišu":"define us","Transparentnost":"Transparency","Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.":"All terms, interest rates and fees are clearly defined before the contract is signed. No fine print and no hidden costs.","Lični pristup":"A personal approach","Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.":"Every client gets an advisor who understands their situation and finds a tailor-made solution.","Brzina i efikasnost":"Speed and efficiency","Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.":"A cash loan approved in just 24 hours. We value your time as much as your trust.","Upoznajte našeg arhitektu finansija":"Meet our financial architect","Boris Knežević · vodi tim savjetnika":"Boris Knežević · leads the advisory team",
 /* ---------- Boris ---------- */
-"Nazad na O nama":"Back to About us","Arhitekta finansija":"Financial architect","Arhitekta finansija — čovjek koji vaš bilans posmatra kao cjelinu, a ne kao jedan kredit.":"Financial architect — someone who sees your balance sheet as a whole, not as a single loan.","Boris Knežević, arhitekta finansija":"Boris Knežević, financial architect","„Kredit nije proizvod koji se prodaje. To je plan koji se pravi.”":"“A loan is not a product to be sold. It is a plan to be made.”","Vaš bilans zaslužuje":"Your balance sheet deserves","plan, ne improvizaciju":"a plan, not improvisation","Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Osamnaest godina radi sa ljudima i firmama u Republici Srpskoj — od prve pozajmice za registraciju vozila do investicionih planova za proizvodne pogone. Njegov pristup je jednostavan: prvo se razumije situacija, pa tek onda bira proizvod.":"Boris Knežević leads the team of advisors at MKD Bilans Plus Kredit. For eighteen years he has worked with people and companies across Republika Srpska — from a first loan for vehicle registration to investment plans for production facilities. His approach is simple: first understand the situation, only then choose the product.","godina u finansijama":"years in finance","odobrenih planova":"approved plans","poslovnica pod nadzorom":"branches under supervision","Ekonomski fakultet, Banja Luka":"Faculty of Economics, Banja Luka","— smjer finansije i bankarstvo, magistar ekonomskih nauka.":"— finance and banking, Master of Economics.","Specijalnost:":"Specialty:","restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.":"restructuring of obligations, refinancing and investment plans for small and medium-sized enterprises.","Princip rada:":"Working principle:","nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.":"no application moves forward until the client understands every item of the contract.","Kako izgleda razgovor":"What the conversation looks like","Tri koraka do":"Three steps to a","finansijskog plana":"financial plan","1 · Slušanje":"1 · Listening","Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.":"For the first half hour there are no numbers. We talk about what you want to achieve, how much you can realistically set aside and what worries you.","2 · Analiza":"2 · Analysis","Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.":"Boris reviews your income and obligations, then calculates several scenarios — including the one in which a loan is not the best solution.","3 · Plan":"3 · Plan","Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.":"You receive a written proposal with the exact instalment, term and total cost. You decide without pressure and without an expiry date on the offer.","Zakažite razgovor sa Borisom":"Book a conversation with Boris","Prvi razgovor je besplatan i ne obavezuje vas ni na šta.":"The first conversation is free and commits you to nothing.",
+"Nazad na O nama":"Back to About us","Arhitekta finansija":"Financial architect","Arhitekta finansija — čovjek koji vaš bilans posmatra kao cjelinu, a ne kao jedan kredit.":"Financial architect — someone who sees your balance sheet as a whole, not as a single loan.","Boris Knežević, arhitekta finansija":"Boris Knežević, financial architect","„Kredit nije proizvod koji se prodaje. To je plan koji se pravi.”":"“A loan is not a product to be sold. It is a plan to be made.”","Vaš bilans zaslužuje":"Your balance sheet deserves","plan, ne improvizaciju":"a plan, not improvisation","Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Njegov pristup je jednostavan: prvo se razumije situacija klijenta, pa tek onda bira proizvod — uključujući i scenarij u kojem kredit nije najbolje rješenje.":"Boris Knežević leads the team of advisors at MKD Bilans Plus Kredit. His approach is simple: first understand the client's situation, only then choose the product — including the scenario in which a loan is not the best solution.","Specijalnost:":"Specialty:","restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.":"restructuring of obligations, refinancing and investment plans for small and medium-sized enterprises.","Princip rada:":"Working principle:","nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.":"no application moves forward until the client understands every item of the contract.","Kako izgleda razgovor":"What the conversation looks like","Tri koraka do":"Three steps to a","finansijskog plana":"financial plan","1 · Slušanje":"1 · Listening","Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.":"For the first half hour there are no numbers. We talk about what you want to achieve, how much you can realistically set aside and what worries you.","2 · Analiza":"2 · Analysis","Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.":"Boris reviews your income and obligations, then calculates several scenarios — including the one in which a loan is not the best solution.","3 · Plan":"3 · Plan","Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.":"You receive a written proposal with the exact instalment, term and total cost. You decide without pressure and without an expiry date on the offer.","Zakažite razgovor sa Borisom":"Book a conversation with Boris","Prvi razgovor je besplatan i ne obavezuje vas ni na šta.":"The first conversation is free and commits you to nothing.",
 /* ---------- Krediti stranica ---------- */
 "Kreditne":"Loan","ponude":"offers","Devet vrsta kredita za fizička i pravna lica — pronađite onaj koji odgovara vašim potrebama.":"Nine types of loans for individuals and businesses — find the one that suits your needs.","7 kreditnih proizvoda":"7 loan products","2 kreditna proizvoda":"2 loan products",
+/* ---------- Naknade, EKS, obezbjeđenje, dokumenti (novo) ---------- */
+"Dokumenti":"Documents","Karijera":"Careers","Naknada za obradu":"Processing fee","Efektivna kamatna stopa (EKS)":"Effective interest rate (APR)","Ukupno za otplatu":"Total repayable","Naknada (provizija) za obradu":"Processing fee (commission)","Nominalna kamatna stopa (NKS)":"Nominal interest rate (NIR)","1 · Nominalna kamatna stopa (NKS)":"1 · Nominal interest rate (NIR)","2 · Naknada (provizija) za obradu":"2 · Processing fee (commission)","3 · Efektivna kamatna stopa (EKS)":"3 · Effective interest rate (APR)","Kako se dolazi do EKS":"How the APR is arrived at","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknade, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fee, so it differs for other combinations — check it in the calculator.","Obezbjeđenje kredita":"Loan security","Obezbjeđenje:":"Security:","KM, bez val. klauzule":"KM, no currency clause","Reprezentativni primjer":"Representative example","bez naknade":"no fee","bez grace perioda":"no grace period","Valuta":"Currency","KM (BAM) — bez valutne klauzule":"KM (BAM) — no currency clause","fiksna, dekurzivna":"fixed, in arrears","Prijevremena otplata":"Early repayment","0,5% preostale glavnice":"0.5% of the remaining principal","Informacioni list (PDF)":"Information sheet (PDF)","NKS (fiksna)":"Nominal rate (fixed)","Detalji, obezbjeđenje i EKS":"Details, security and APR","Prikazani podaci su informativnog karaktera. Konačni uslovi i EKS utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu.":"The information shown is indicative. Final terms and the APR are determined through individual assessment of your application and are stated in the loan contract.",
+"Mjenica":"A promissory note","Mjenica; za iznose preko 3.000 KM sudužnik ili žirant":"A promissory note; for amounts over 3,000 KM a co-borrower or guarantor","Mjenica i administrativna zabrana; za iznose preko 10.000 KM jedan ili više žiranata, po potrebi zalog":"A promissory note and an administrative garnishment; for amounts over 10,000 KM one or more guarantors and, if required, a pledge","Mjenica; za iznose preko 5.000 KM sudužnik":"A promissory note; for amounts over 5,000 KM a co-borrower","Mjenica i administrativna zabrana na penziju":"A promissory note and an administrative garnishment on the pension","Mjenica pravnog lica i vlasnika, sudužnik; za veće iznose zalog ili hipoteka":"A promissory note from the company and the owner, a co-borrower; for larger amounts a pledge or a mortgage","Mjenica, sudužnik i zalog na predmetu finansiranja; po potrebi hipoteka I reda":"A promissory note, a co-borrower and a pledge on the financed item; if required, a first-rank mortgage",
+/* ---------- FAQ: nova i izmijenjena pitanja ---------- */
+"Efektivna kamatna stopa (EKS) prikazuje ukupan trošak kredita. Navodi se u ugovoru o kreditu za svaki proizvod, a možete je izračunati i u našem kalkulatoru — tamo se EKS preračunava za tačan iznos i rok koji izaberete.":"The effective interest rate (APR) shows the total cost of the loan. It is stated in the loan contract for every product, and you can also work it out in our calculator — there the APR is recalculated for the exact amount and term you choose.",
+"Zašto se NKS i EKS razlikuju?":"Why do the nominal rate and the APR differ?","NKS je samo godišnja kamatna stopa. EKS pored kamate uključuje i naknadu (proviziju) za obradu kredita, kao i efekat mjesečnog obračuna kamate, pa je uvijek viša od NKS. U kalkulatoru i uz svaki proizvod prikazujemo sve tri stavke odvojeno — NKS, naknadu i EKS — tako da vidite odakle razlika dolazi.":"The nominal rate is only the annual interest rate. On top of interest, the APR also includes the processing fee (commission) and the effect of monthly interest calculation, so it is always higher than the nominal rate. In the calculator and next to every product we show all three items separately — nominal rate, fee and APR — so you can see where the difference comes from.",
+"Kolika je naknada za obradu kredita?":"How much is the loan processing fee?","Naknada za obradu je jednokratna i obračunava se na iznos kredita. Njena visina navedena je uz svaki proizvod i u kalkulatoru, a kod proizvoda bez naknade to je izričito naznačeno. Naknada je uključena u izračun EKS.":"The processing fee is a one-off charge calculated on the loan amount. Its size is stated next to every product and in the calculator, and where a product carries no fee this is explicitly indicated. The fee is included in the APR calculation.",
+"Mogu li odustati od kredita nakon potpisivanja ugovora?":"Can I withdraw from the loan after signing the contract?","Da. Imate pravo da odustanete od ugovora o kreditu u roku od 14 dana od dana zaključenja ugovora, bez navođenja razloga i bez naknade za odustanak. Dovoljno je da nas pisano obavijestite u tom roku i da vratite glavnicu uz kamatu obračunatu za dane u kojima ste sredstva koristili.":"Yes. You have the right to withdraw from the loan contract within 14 days of the day it was concluded, without giving a reason and without a withdrawal fee. It is enough to notify us in writing within that period and to repay the principal together with interest calculated for the days you used the funds.",
+"Kakvo obezbjeđenje kredita se traži?":"What loan security is required?","Mjenica je obavezna kod svih naših kredita. Zavisno od proizvoda i iznosa, može se tražiti i sudužnik ili žirant, administrativna zabrana na platu ili penziju, zalog na predmetu finansiranja ili hipoteka. Tačno obezbjeđenje za svaki proizvod navedeno je u detaljima proizvoda i u informacionom listu.":"A promissory note is mandatory on all our loans. Depending on the product and the amount, a co-borrower or guarantor, an administrative garnishment on a salary or pension, a pledge on the financed item or a mortgage may also be required. The exact security for each product is stated in the product details and in the information sheet.",
+"Da li su krediti u KM ili sa valutnom klauzulom?":"Are the loans in KM or linked to a foreign currency?","Svi naši krediti odobravaju se i otplaćuju u konvertibilnim markama (KM/BAM), bez valutne klauzule. To znači da promjena kursa nema uticaj na visinu vaše rate.":"All our loans are granted and repaid in convertible marks (KM/BAM), with no currency clause. This means that a change in the exchange rate has no effect on the size of your instalment.",
+"Da li postoji grace period?":"Is there a grace period?","Grace period (odgoda otplate glavnice) dostupan je kod kredita za pravna lica — do 3 mjeseca kod Biznis Keš PLUS i do 9 mjeseci kod Invest PLUS. Krediti za fizička lica nemaju grace period. Podatak je naveden uz svaki proizvod.":"A grace period (deferral of principal repayment) is available on loans for businesses — up to 3 months on Biznis Keš PLUS and up to 9 months on Invest PLUS. Loans for individuals have no grace period. This is stated next to every product.",
+"Šta ako želim ranije otplatiti kredit?":"What if I want to repay the loan early?","Prijevremena otplata je moguća u svakom trenutku. Naknada iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.":"Early repayment is possible at any time. The fee is 0.5% of the remaining principal and is not charged if the loan is refinanced with funds from MKD Bilans Plus Kredit.",
+"Gdje mogu naći informacioni list i opšte uslove?":"Where can I find the information sheet and the general terms?","Informacioni list za svaki kreditni proizvod možete preuzeti u detaljima tog proizvoda ili na stranici Dokumenti, gdje se nalaze i Opšti uslovi poslovanja, Cjenovnik usluga, Uslovi korišćenja i Politika privatnosti.":"You can download the information sheet for every loan product from that product's details or from the Documents page, which also holds the General terms of business, the Price list of services, the Terms of use and the Privacy policy.",
+/* ---------- Uslovi korišćenja: izmijenjene i nove tačke ---------- */
+"Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u sjedištu MKD i na web stranici. Nominalna kamatna stopa (NKS), naknada (provizija) za obradu kredita i efektivna kamatna stopa (EKS) iskazuju se odvojeno uz svaki kreditni proizvod, u kalkulatoru i u informacionom listu, a EKS se navodi i u ugovoru o kreditu.":"Interest rates and other fees are defined in a separate Price list of services, available at the head office and on the website. The nominal interest rate, the processing fee (commission) and the effective interest rate (APR) are shown separately next to every loan product, in the calculator and in the information sheet, and the APR is also stated in the loan contract.",
+"Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora, uključujući informacioni list sa reprezentativnim primjerom, iznosom naknada, obezbjeđenjem kredita i visinom EKS.":"The user has the right to clear and comprehensible information about the loan terms before signing the contract, including an information sheet with a representative example, the amount of any fees, the loan security and the level of the APR.",
+"5. Pravo na odustanak (14 dana)":"5. Right of withdrawal (14 days)","Korisnik ima pravo da odustane od zaključenog ugovora o kreditu u roku od":"The user has the right to withdraw from a concluded loan contract within","14 dana od dana zaključenja ugovora":"14 days of the day the contract was concluded",
+", bez navođenja razloga i bez plaćanja naknade za odustanak. Odustanak se dostavlja u pisanoj formi, u sjedištu MKD Bilans Plus Kredit ili na adresu sjedišta, odnosno na e-mail info@bilanspluskredit.ba, u navedenom roku. Korisnik je dužan da bez odlaganja, a najkasnije u roku od 30 dana od slanja obavještenja o odustanku, vrati glavnicu i kamatu obračunatu za period u kojem je koristio sredstva.":", without giving a reason and without paying a withdrawal fee. The withdrawal must be submitted in writing, at the head office of MKD Bilans Plus Kredit or to the head office address, or by e-mail to info@bilanspluskredit.ba, within that period. The user must, without delay and no later than 30 days from sending the notice of withdrawal, repay the principal and the interest calculated for the period in which the funds were used.",
+"6. Prijevremena otplata":"6. Early repayment","Korisnik u svakom trenutku može djelimično ili u cijelosti prijevremeno otplatiti kredit. Naknada za prijevremenu otplatu iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.":"The user may repay the loan early, in part or in full, at any time. The early repayment fee is 0.5% of the remaining principal and is not charged if the loan is refinanced with funds from MKD Bilans Plus Kredit.",
+"7. Valuta i valutna klauzula":"7. Currency and currency clause","Krediti se odobravaju i otplaćuju u konvertibilnim markama (KM/BAM), bez valutne klauzule. Promjena kursa nema uticaja na visinu anuiteta.":"Loans are granted and repaid in convertible marks (KM/BAM), with no currency clause. A change in the exchange rate has no effect on the size of the instalment.",
+"8. Opšti uslovi poslovanja":"8. General terms of business","Opšti uslovi poslovanja MKD Bilans Plus Kredit, Cjenovnik usluga i informacioni listovi po kreditnim proizvodima javno su dostupni na stranici":"The General terms of business of MKD Bilans Plus Kredit, the Price list of services and the information sheets for each loan product are publicly available on the page","i u sjedištu MKD.":"and at the head office.",
+"9. Prigovori korisnika":"9. User complaints","Korisnik ima pravo da podnese prigovor na rad MKD Bilans Plus Kredit usmeno u sjedištu, pisanim putem na adresu sjedišta ili na e-mail info@bilanspluskredit.ba. Odgovor na prigovor dostavlja se u roku propisanom važećim propisima Republike Srpske. Ako nije zadovoljan odgovorom, korisnik se može obratiti Ombudsmanu za bankarski sistem Republike Srpske.":"The user has the right to complain about the work of MKD Bilans Plus Kredit orally at the head office, in writing to the head office address or by e-mail to info@bilanspluskredit.ba. A reply is provided within the period prescribed by the applicable regulations of Republika Srpska. If the user is not satisfied with the reply, they may contact the Ombudsman for the Banking System of Republika Srpska.",
+/* ---------- Rječnik: novi i izmijenjeni pojmovi ---------- */
+"naknada / provizija":"fee / commission","Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva. Obračunava se na iznos kredita i ulazi u izračun EKS — zato je EKS uvijek viša od NKS.":"A one-off fee charged by the lender for processing the loan application. It is calculated on the loan amount and enters the APR calculation — which is why the APR is always higher than the nominal rate.",
+"Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti. Sadrži iznos, rok, NKS, naknadu, mjesečnu ratu, ukupan iznos za otplatu i EKS.":"An example calculation of the total cost of a loan on a typical amount and term, for the sake of clarity. It contains the amount, the term, the nominal rate, the fee, the monthly instalment, the total amount repayable and the APR.",
+"Informacioni list":"Information sheet","Sažetak svih uslova jednog kreditnog proizvoda na jednom mjestu — iznos, rok, kamata, naknade, obezbjeđenje i reprezentativni primjer. Dostupan je za preuzimanje uz svaki proizvod.":"A summary of all the terms of one loan product in one place — amount, term, interest, fees, security and a representative example. It is available to download next to every product.",
+"Pravo na odustanak":"Right of withdrawal","Pravo korisnika da u roku od 14 dana od zaključenja ugovora o kreditu odustane od ugovora, bez navođenja razloga i bez naknade, uz povrat glavnice i kamate za dane korišćenja sredstava.":"The user's right to withdraw from a loan contract within 14 days of its conclusion, without giving a reason and without a fee, repaying the principal and the interest for the days the funds were used.",
+"Valutna klauzula":"Currency clause","Vezivanje iznosa kredita za stranu valutu (npr. EUR), zbog čega rata može rasti sa promjenom kursa. Naši krediti su u KM i nemaju valutnu klauzulu.":"Linking the loan amount to a foreign currency (e.g. EUR), which means the instalment can rise as the exchange rate changes. Our loans are in KM and have no currency clause.",
+"Instrumenti kojima korisnik garantuje otplatu — mjenica, sudužnik ili žirant, administrativna zabrana, zalog ili hipoteka. Navedeni su uz svaki kreditni proizvod.":"The instruments by which the borrower guarantees repayment — a promissory note, a co-borrower or guarantor, an administrative garnishment, a pledge or a mortgage. They are listed next to every loan product.",
+"odnos duga i primanja":"debt-to-income ratio","Udio postojećih mjesečnih obaveza u mjesečnim primanjima. Niži DTI znači veću kreditnu sposobnost. Naš mjerač sposobnosti ocjenu računa upravo iz ovog odnosa, a ne iz apsolutnog iznosa obaveza u KM.":"The share of existing monthly obligations in monthly income. A lower DTI means greater borrowing capacity. Our capacity gauge calculates its rating from exactly this ratio, not from the absolute amount of obligations in KM.",
+"opterećenost primanja ratama":"share of income taken by instalments","Najveći dio primanja koji smije otići na otplatu svih kredita zajedno. Zavisi od visine primanja i od toga koliko novca korisniku mora ostati za život.":"The largest share of income that may go towards repaying all loans together. It depends on the level of income and on how much money must be left for the borrower to live on.",
+/* ---------- Stranica Dokumenti ---------- */
+"Dokumenti i":"Documents and","informacioni listovi":"information sheets","Opšti uslovi poslovanja, cjenovnik i informacioni list za svaki kreditni proizvod — javno dostupni, prije nego išta potpišete.":"General terms of business, the price list and an information sheet for every loan product — publicly available before you sign anything.","Opšti uslovi poslovanja":"General terms of business","Opšti uslovi pod kojima MKD Bilans Plus Kredit odobrava i prati kredite — prava i obaveze korisnika, obračun kamate, naplata i prigovori.":"The general terms under which MKD Bilans Plus Kredit grants and administers loans — the rights and obligations of the borrower, interest calculation, collection and complaints.","Cjenovnik usluga":"Price list of services","Pregled svih naknada: obrada kreditnog zahtjeva, mjenica, prijevremena otplata, opomene i ostale usluge.":"An overview of all fees: processing of the loan application, promissory note, early repayment, reminders and other services.","Uslovi korišćenja web stranice, pravo na odustanak u roku od 14 dana, prijevremena otplata i postupak po prigovoru.":"The terms of use of the website, the 14-day right of withdrawal, early repayment and the complaints procedure.","Kako prikupljamo, koristimo i čuvamo vaše lične podatke i koja prava imate u vezi sa njima.":"How we collect, use and store your personal data and what rights you have in relation to it.","Informacioni listovi po kreditnim proizvodima":"Information sheets by loan product","Za svaki proizvod: iznos, rok, NKS, naknada za obradu, EKS, obezbjeđenje, grace period i reprezentativni primjer. Otvara se kao dokument spreman za štampu ili čuvanje u PDF.":"For every product: amount, term, nominal rate, processing fee, APR, security, grace period and a representative example. It opens as a document ready to print or save as PDF.","Otvori":"Open","Preuzmi PDF":"Download PDF","Uskoro dostupno":"Available soon","Dokumenti su dostupni i u štampanom obliku u sjedištu MKD u Banjoj Luci.":"The documents are also available in printed form at all our branches.",
+/* ---------- Stranica Karijera ---------- */
+"Karijera u":"Careers at","Tražimo ljude koji finansije shvataju kao odgovornost, a ne kao prodaju. Pošaljite nam CV — javljamo se svakome.":"We are looking for people who see finance as a responsibility, not as a sale. Send us your CV — we reply to everyone.","Zašto kod nas":"Why work with us","Posao u kojem se":"A job where you","zna čemu služi":"know what it is for","Jedan savjetnik — jedan klijent.":"One advisor — one client.","Vodite svoje klijente od prvog razgovora do isplate.":"You guide your clients from the first conversation to disbursement.","Obuka i mentorstvo":"Training and mentoring","od prvog dana, bez obzira na prethodno iskustvo u finansijama.":"from day one, regardless of previous experience in finance.","Mlad tim u nastajanju":"A young team being built","— prilika da učestvujete u izgradnji organizacije od početka.":"— a chance to help build the organisation from the ground up.","Stimulativna zarada":"Performance-based pay","vezana za kvalitet portfelja, a ne samo za broj plasmana.":"linked to portfolio quality, not just to the number of loans placed.","Otvorene pozicije":"Open positions","Kreditni savjetnik — Banja Luka":"Loan advisor — Banja Luka, Prijedor, Doboj","Savjetnik za poslovne subjekte — Banja Luka":"Business loan advisor — Banja Luka","Referent u back office-u — Banja Luka":"Back office officer — Banja Luka","Otvorena prijava — pošaljite CV i za pozicije koje trenutno nisu oglašene":"Open application — send your CV for roles that are not currently advertised","Pozicija *":"Position *","Kreditni savjetnik":"Loan advisor","Savjetnik za poslovne subjekte":"Business loan advisor","Referent u back office-u":"Back office officer","Otvorena prijava":"Open application","Link na CV (LinkedIn, Google Drive, Dropbox…)":"Link to your CV (LinkedIn, Google Drive, Dropbox…)","Nekoliko rečenica o vama *":"A few sentences about you *","Radno iskustvo, obrazovanje i zašto vas zanima rad kod nas...":"Work experience, education and why you are interested in working with us...","Saglasan/na sam da MKD Bilans Plus Kredit obrađuje moje lične podatke radi razmatranja moje prijave za posao, u skladu sa Politikom privatnosti.":"I consent to MKD Bilans Plus Kredit processing my personal data in order to consider my job application, in accordance with the Privacy Policy.","Pošalji prijavu":"Send application","CV možete poslati i direktno na":"You can also send your CV directly to","Prijava poslana!":"Application sent!","Hvala na interesovanju. Pregledamo svaku prijavu i javljamo se u roku od 14 dana.":"Thank you for your interest. We review every application and reply within 14 days.",
+/* ---------- Mjerač: nove stavke ---------- */
+"Opterećenost primanja (DTI)":"Income burden (DTI)","Slobodno nakon obaveza":"Free after obligations","* Ocjena se računa iz odnosa obaveza i primanja (DTI), a ne iz apsolutnog iznosa obaveza. Procjena je informativna — konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* The rating is calculated from the ratio of obligations to income (DTI), not from the absolute amount of obligations. The estimate is indicative — final capacity is determined by an advisor through individual analysis.","Vaša sposobnost prelazi najveći iznos u našoj ponudi — prikazan je maksimum od 50.000 KM.":"Your capacity exceeds the largest amount we offer — the maximum of 50,000 KM is shown.",
 /* ---------- Kalkulator ---------- */
-"Kreditni":"Loan","kalkulator":"calculator","Pomjerite klizače i odmah vidite mjesečnu ratu, ukupan iznos i okvirnu EKS. Informativnog je karaktera.":"Move the sliders to instantly see the monthly instalment, the total amount and an approximate APR. For information purposes only.","Kreditni proizvod":"Loan product","Kamatna stopa (NKS)":"Interest rate (nominal)","Fiksna godišnja kamatna stopa za odabrani proizvod (iz kataloga).":"Fixed annual interest rate for the selected product (from the catalogue).","Mjesečna rata":"Monthly instalment","Glavnica":"Principal","Ukupna kamata":"Total interest","Ukupno za otplatu":"Total repayment","Okvirna EKS":"Approximate APR","Podnesi zahtjev sa ovim iznosom":"Apply with this amount","Prikazani iznosi su informativni i ne predstavljaju konačnu kreditnu ponudu. Konačni uslovi i EKS definišu se individualnom obradom zahtjeva.":"The amounts shown are informative and do not constitute a final loan offer. Final terms and the APR are defined through individual assessment of your application.",
-/* ---------- Poslovnice ---------- */
-"Naše":"Our","poslovnice":"branches","Šest poslovnica širom Republike Srpske. Kliknite na pin ili karticu da vidite detalje i da li je trenutno otvoreno.":"Six branches across Republika Srpska. Click a pin or a card to see the details and whether it is currently open.","REPUBLIKA SRPSKA":"REPUBLIKA SRPSKA","Mapa Republike Srpske":"Map of Republika Srpska","Banja Luka – Centar":"Banja Luka – City centre","Otvoreno":"Open","Zatvoreno":"Closed","Poslovnica Banja Luka":"Banja Luka branch","Poslovnica Bijeljina":"Bijeljina branch","Poslovnica Doboj":"Doboj branch","Poslovnica Prijedor":"Prijedor branch","Poslovnica Trebinje":"Trebinje branch","Poslovnica Zvornik":"Zvornik branch",
+"Kreditni":"Loan","kalkulator":"calculator","Fiksna godišnja kamatna stopa za odabrani proizvod. Ne mijenja se sa iznosom ni rokom.":"The fixed annual interest rate for the selected product. It does not change with the amount or the term.","Jednokratna naknada, obračunava se na iznos kredita i ulazi u izračun EKS.":"A one-off fee calculated on the loan amount and included in the APR.","Za ovaj proizvod se ne naplaćuje naknada za obradu kreditnog zahtjeva.":"No processing fee is charged for this product.","EKS je stvarno preračunata za izabrani iznos, rok i naknadu — zato se mijenja kad pomjerite klizače.":"The APR is genuinely recalculated for the amount, term and fee you select — which is why it changes as you move the sliders.","Pomjerite klizače i odmah vidite mjesečnu ratu, ukupan iznos i okvirnu EKS. Informativnog je karaktera.":"Move the sliders to instantly see the monthly instalment, the total amount and an approximate APR. For information purposes only.","Kreditni proizvod":"Loan product","Kamatna stopa (NKS)":"Interest rate (nominal)","Fiksna godišnja kamatna stopa za odabrani proizvod (iz kataloga).":"Fixed annual interest rate for the selected product (from the catalogue).","Mjesečna rata":"Monthly instalment","Glavnica":"Principal","Ukupna kamata":"Total interest","Ukupno za otplatu":"Total repayment","Okvirna EKS":"Approximate APR","Podnesi zahtjev sa ovim iznosom":"Apply with this amount","Prikazani iznosi su informativni i ne predstavljaju konačnu kreditnu ponudu. Konačni uslovi i EKS definišu se individualnom obradom zahtjeva.":"The amounts shown are informative and do not constitute a final loan offer. Final terms and the APR are defined through individual assessment of your application.",
 /* ---------- Zahtjev / obrasci ---------- */
 "Online zahtjev za":"Online application for a","kredit":"loan","Popunite obrazac i naš tim će vas kontaktirati u roku od 24 sata.":"Fill in the form and our team will contact you within 24 hours.","Ime i prezime *":"Full name *","Ime i prezime":"Full name","Vaše ime":"Your name","Broj telefona *":"Phone number *","Telefon *":"Phone *","Telefon":"Phone","E-mail adresa *":"Email address *","E-mail *":"Email *","E-mail":"Email","Grad *":"City *","Odaberite grad...":"Select a city...","Drugo":"Other","Vrsta kredita *":"Loan type *","Odaberite...":"Select...","Siguran put PLUS (vozilo)":"Siguran put PLUS (vehicle)","Treća mladost (penzioneri)":"Treća mladost (pensioners)","Željeni iznos (KM)":"Desired amount (KM)","npr. 10000":"e.g. 10000","Status":"Status","Zaposlen/a":"Employed","Penzioner":"Pensioner","Preduzetnik / Vlasnik firme":"Entrepreneur / Business owner","Poljoprivrednik":"Farmer","Ostalo":"Other","Rok otplate (mjeseci)":"Repayment term (months)","npr. 36":"e.g. 36","Napomena (opcionalno)":"Note (optional)","Dodatne informacije o vašem zahtjevu...":"Additional information about your application...","Saglasan/na sam sa obradom ličnih podataka u skladu sa Politikom privatnosti MKD Bilans Plus Kredit.":"I consent to the processing of my personal data in accordance with the Privacy Policy of MKD Bilans Plus Kredit.","Pošalji zahtjev":"Send application","Zahtjev uspješno poslan!":"Application sent successfully!","Naš tim će vas kontaktirati u roku od 24 sata na navedeni broj telefona ili e-mail adresu.":"Our team will contact you within 24 hours on the phone number or email address provided.","Nazad na početnu":"Back to home",
 /* ---------- Kontakt ---------- */
@@ -2164,12 +2511,19 @@ var DICT={
 "Rječnik":"Glossary","pojmova":"of terms","Objašnjenje skraćenica i stručnih izraza korištenih na ovoj stranici i u kreditnim ugovorima.":"An explanation of the abbreviations and technical terms used on this website and in loan contracts.","Pretraži pojmove (npr. EKS, anuitet, mjenica)...":"Search terms (e.g. APR, annuity, promissory note)...","Pretraži pojmove rječnika":"Search glossary terms","MKD":"MCO","Mikrokreditno društvo":"Microcredit company","Finansijska institucija licencirana za odobravanje mikrokredita. Na ovom sajtu: MKD Bilans Plus Kredit.":"A financial institution licensed to grant microloans. On this website: MKD Bilans Plus Kredit.","Nominalna kamatna stopa":"Nominal interest rate","Osnovna godišnja kamatna stopa na kredit, bez dodatnih troškova. Kod nas je fiksna za cijeli period otplate.":"The basic annual interest rate on the loan, excluding additional costs. With us it is fixed for the entire repayment period.","Efektivna kamatna stopa":"Effective interest rate (APR)","Ukupna cijena kredita izražena na godišnjem nivou — uključuje kamatu i sve troškove (obrada, mjenica). Najvažniji pokazatelj za poređenje kredita.":"The total cost of the loan expressed on an annual basis — it includes interest and all costs (processing, promissory note). The most important indicator for comparing loans.","p.a.":"p.a.","per annum":"per annum","Latinski izraz za „godišnje\". Kamatna stopa se uvijek izražava na godišnjem nivou.":"Latin for “per year”. An interest rate is always expressed on an annual basis.","Anuitet":"Annuity","Mjesečna rata kredita koja sadrži dio glavnice i dio kamate. Kod nas su anuiteti jednaki tokom cijele otplate.":"The monthly loan instalment containing part of the principal and part of the interest. With us the instalments are equal throughout the repayment period.","Iznos novca koji se posuđuje, bez kamate i troškova.":"The amount of money borrowed, excluding interest and costs.","Period odgode otplate glavnice na početku kredita. Tokom njega se obično plaća samo kamata. Dostupan kod kredita za pravna lica.":"A period at the start of the loan during which repayment of the principal is deferred. Usually only interest is paid during this time. Available on loans for businesses.","Mjenica":"Promissory note","Pisani instrument obezbjeđenja kojim korisnik garantuje vraćanje duga. Obavezna je kod svih naših kredita.":"A written security instrument by which the borrower guarantees repayment of the debt. It is mandatory for all our loans.","Administrativna zabrana":"Administrative garnishment","Obustava dijela plate ili penzije koja se direktno usmjerava na otplatu rate kredita.":"A deduction from part of a salary or pension that is directed straight to the repayment of the loan instalment.","Sadužnik / sudužnik":"Co-borrower","Osoba koja zajedno s korisnikom kredita odgovara za njegovu otplatu.":"A person who is liable for the repayment of the loan together with the borrower.","Jemac / jemstvo":"Guarantor / guarantee","Garant koji preuzima obavezu otplate kredita ako to korisnik ne učini.":"A guarantor who assumes the obligation to repay the loan if the borrower does not.","Kolateral":"Collateral","Imovina koja služi kao obezbjeđenje kredita (npr. zalog ili hipoteka).":"Property that serves as security for the loan (e.g. a pledge or a mortgage).","Zalog":"Pledge","Pokretna imovina (vozilo, oprema i sl.) data kao obezbjeđenje kredita.":"Movable property (a vehicle, equipment and similar) given as security for the loan.","Hipoteka (I reda)":"Mortgage (first rank)","Založno pravo na nekretnini. „I reda\" znači da MKD ima prvenstvo u naplati iz te nekretnine.":"A lien on real estate. “First rank” means the lender has priority in collecting from that property.","Zatezna kamata":"Default interest","Kamata koja se obračunava na iznos koji nije plaćen u roku, prema zakonu RS.":"Interest charged on an amount not paid on time, in accordance with the law of Republika Srpska.","Refinansiranje":"Refinancing","Zatvaranje postojećeg kredita novim, najčešće radi povoljnijih uslova ili objedinjavanja u jednu ratu.":"Closing an existing loan with a new one, usually to obtain more favourable terms or to consolidate into a single instalment.","Izlazna klauzula":"Early repayment fee","Naknada za prijevremenu otplatu (0,5% na preostalu glavnicu). Ne naplaćuje se ako se refinansira sredstvima MKD Bilans Plus Kredit.":"A fee for early repayment (0.5% of the remaining principal). It is not charged if refinancing is done with funds from MKD Bilans Plus Kredit.","Polisa osiguranja":"Insurance policy","Osiguranje koje pokriva otplatu kredita ili predmet obezbjeđenja (npr. rizik smrti ili invaliditeta).":"Insurance covering the repayment of the loan or the item of security (e.g. the risk of death or disability).","Vinkulacija":"Assignment of policy","Prenos prava iz polise osiguranja u korist MKD — MKD postaje korisnik naknade iz osiguranja.":"Transfer of the rights under an insurance policy in favour of the lender — the lender becomes the beneficiary of the insurance payout.","Plasman":"Placement","Odobreni i isplaćeni kredit.":"An approved and disbursed loan.","Nenamjenski kredit":"Non-purpose loan","Kredit koji se može trošiti slobodno, bez obaveze dokazivanja namjene.":"A loan that can be spent freely, with no obligation to prove its purpose.","Namjenski kredit":"Purpose-specific loan","Kredit koji se koristi isključivo za tačno određenu svrhu (npr. vozilo, škola, zdravlje).":"A loan used exclusively for one specific purpose (e.g. a vehicle, school, health).","Učešće":"Down payment","Vlastiti novčani udio korisnika u finansiranju, pored sredstava kredita.":"The borrower's own monetary contribution to the financing, in addition to the loan funds.","Trošak obrade":"Processing fee","Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva.":"A one-off fee charged by the lender for processing the loan application.","Reprezentativni primjer":"Representative example","Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti.":"An example calculation of the total cost of a loan on a typical amount and term, for the sake of clarity.","Kreditna sposobnost":"Borrowing capacity","Procjena mogućnosti korisnika da uredno otplaćuje kredit, na osnovu primanja i obaveza.":"An assessment of the borrower's ability to repay the loan properly, based on income and obligations.","Ugovorni partner":"Contracted partner","Prodavac robe ili pružalac usluge s kojim MKD ima zaključen ugovor o saradnji.":"A seller of goods or a service provider with whom the lender has a cooperation agreement.","Dekurzivni obračun":"Interest in arrears","Način obračuna gdje se kamata obračunava i plaća na kraju obračunskog perioda (mjesečno).":"A calculation method where interest is calculated and paid at the end of the accounting period (monthly).","Proporcionalni metod":"Proportional method","Metod obračuna kamate u kojem se godišnja stopa ravnomjerno raspoređuje na obračunske periode.":"A method of calculating interest in which the annual rate is spread evenly across the accounting periods.","PIO / MIO":"PIO / MIO","Penzijsko i invalidsko osiguranje":"Pension and disability insurance","Sistem isplate penzija — PIO u Republici Srpskoj, MIO u Federaciji BiH.":"The pension payment system — PIO in Republika Srpska, MIO in the Federation of BiH.","RS":"RS","Republika Srpska":"Republika Srpska","Entitet Bosne i Hercegovine u kojem MKD Bilans Plus Kredit posluje.":"The entity of Bosnia and Herzegovina in which MKD Bilans Plus Kredit operates.","FBiH":"FBiH","Federacija BiH":"Federation of BiH","Federacija Bosne i Hercegovine — drugi entitet BiH.":"The Federation of Bosnia and Herzegovina — the other entity of BiH.",
 /* ---------- Pravne stranice ---------- */
 "Politika":"Privacy","privatnosti":"policy","Politika privatnosti":"Privacy policy","Politici privatnosti":"Privacy policy","MKD Bilans Plus Kredit poštuje vašu privatnost i posvećen je zaštiti vaših ličnih podataka u skladu sa važećim propisima Republike Srpske.":"MKD Bilans Plus Kredit respects your privacy and is committed to protecting your personal data in accordance with the applicable regulations of Republika Srpska.","1. Prikupljanje podataka":"1. Data collection","Prikupljamo podatke koje nam dobrovoljno dostavite prilikom podnošenja zahtjeva ili kontakta:":"We collect the data you voluntarily provide when submitting an application or contacting us:","Kontakt podatke (adresa, telefon, e-mail)":"Contact details (address, phone, email)","Podatke relevantne za kreditnu analizu":"Data relevant to credit analysis","2. Svrha obrade":"2. Purpose of processing","Vaše podatke koristimo isključivo za obradu kreditnih zahtjeva, komunikaciju i ispunjavanje zakonskih obaveza.":"We use your data exclusively to process loan applications, to communicate and to fulfil legal obligations.","3. Dijeljenje podataka":"3. Data sharing","Vaše podatke ne dijelimo sa trećim licima osim kada to nalaže zakon ili je neophodno za realizaciju usluge.":"We do not share your data with third parties except where required by law or necessary to deliver the service.","4. Čuvanje podataka":"4. Data retention","Podatke čuvamo onoliko koliko je potrebno za ostvarivanje svrhe obrade i u skladu sa zakonskim rokovima.":"We keep data for as long as is necessary to achieve the purpose of processing and in accordance with statutory time limits.","5. Vaša prava":"5. Your rights","Imate pravo na pristup, ispravku, brisanje i prenosivost vaših ličnih podataka, kao i pravo na prigovor. Za ostvarivanje prava obratite nam se na: info@bilanspluskredit.ba.":"You have the right to access, rectify, erase and port your personal data, as well as the right to object. To exercise these rights, contact us at: info@bilanspluskredit.ba.","6. Kolačići":"6. Cookies","Web stranica može koristiti kolačiće radi poboljšanja korisničkog iskustva. Možete ih onemogućiti u postavkama pretraživača.":"This website may use cookies to improve the user experience. You can disable them in your browser settings.","7. Kontakt":"7. Contact","Za sva pitanja vezana za privatnost kontaktirajte nas na: info@bilanspluskredit.ba ili na adresu sjedišta MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.":"For all privacy-related questions, contact us at: info@bilanspluskredit.ba or at the head office address of MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.",
-"Uslovi":"Terms","korišćenja":"of use","Uslovi korišćenja":"Terms of use","1. Prihvatanje uslova":"1. Acceptance of terms","Pristupanjem i korišćenjem web stranice [www.bilanspluskredit.ba](https://www.bilanspluskredit.ba) potvrđujete da prihvatate ove Uslove korišćenja. Ukoliko se ne slažete s njima, molimo vas da prestanete s korišćenjem stranice.":"By accessing and using the website www.bilanspluskredit.ba you confirm that you accept these Terms of use. If you do not agree with them, please stop using the website.","2. Informativni karakter":"2. Informative nature","Informacije na ovoj stranici su informativnog karaktera i ne predstavljaju konačnu kreditnu ponudu. MKD Bilans Plus Kredit ne preuzima odgovornost za eventualne greške u podacima. Sve kreditne odluke donose se po individualnoj obradi svakog zahtjeva.":"The information on this website is informative in nature and does not constitute a final loan offer. MKD Bilans Plus Kredit accepts no liability for any errors in the data. All lending decisions are made following individual assessment of each application.","3. Kamatne stope i naknade":"3. Interest rates and fees","Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u svim poslovnicama i na web stranici. Efektivna kamatna stopa (EKS) navodi se u ugovoru o kreditu za svaki kreditni proizvod.":"Interest rates and other fees are defined in a separate Price list of services, available at all branches and on the website. The effective interest rate (APR) is stated in the loan contract for each loan product.","4. Prava korisnika":"4. User rights","Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora.":"The user has the right to clear and comprehensible information about the loan terms before signing the contract.",
+"Uslovi":"Terms","korišćenja":"of use","Uslovi korišćenja":"Terms of use","1. Prihvatanje uslova":"1. Acceptance of terms","Pristupanjem i korišćenjem web stranice [www.bilanspluskredit.ba](https://www.bilanspluskredit.ba) potvrđujete da prihvatate ove Uslove korišćenja. Ukoliko se ne slažete s njima, molimo vas da prestanete s korišćenjem stranice.":"By accessing and using the website www.bilanspluskredit.ba you confirm that you accept these Terms of use. If you do not agree with them, please stop using the website.","2. Informativni karakter":"2. Informative nature","Informacije na ovoj stranici su informativnog karaktera i ne predstavljaju konačnu kreditnu ponudu. MKD Bilans Plus Kredit ne preuzima odgovornost za eventualne greške u podacima. Sve kreditne odluke donose se po individualnoj obradi svakog zahtjeva.":"The information on this website is informative in nature and does not constitute a final loan offer. MKD Bilans Plus Kredit accepts no liability for any errors in the data. All lending decisions are made following individual assessment of each application.","3. Kamatne stope i naknade":"3. Interest rates and fees","Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u sjedištu MKD i na web stranici. Efektivna kamatna stopa (EKS) navodi se u ugovoru o kreditu za svaki kreditni proizvod.":"Interest rates and other fees are defined in a separate Price list of services, available at all branches and on the website. The effective interest rate (APR) is stated in the loan contract for each loan product.","4. Prava korisnika":"4. User rights","Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora.":"The user has the right to clear and comprehensible information about the loan terms before signing the contract.",
 /* ---------- Footer / kolačići ---------- */
 "Licencirana mikrokreditna organizacija sa sjedištem u Banjoj Luci. Brza, transparentna i personalizovana finansijska podrška.":"A licensed microcredit organisation headquartered in Banja Luka. Fast, transparent and personalised financial support.","Stranice":"Pages","Usluge":"Services","Rječnik pojmova":"Glossary of terms","© 2026 MKD Bilans Plus Kredit. Sva prava zadržana.":"© 2026 MKD Bilans Plus Kredit. All rights reserved.","Koristimo kolačiće radi boljeg korisničkog iskustva. Više u":"We use cookies to improve your experience. More in our","Prihvati":"Accept","Odbij":"Decline","Obavještenje o kolačićima":"Cookie notice","Otvorena stranica: Početna.":"Page opened: Home."
 };
 /* obrasci za tekstove sa brojevima (kalkulator, rokovi, EKS…) */
 var PATTERNS=[
+  /* reprezentativni primjer — uz naknadu i bez naknade */
+  [/^Reprezentativni primjer: kredit od (.+) KM na (\d+) mjeseci, NKS (.+) \(fiksna\), uz naknadu za obradu od (.+) KM \((.+)\) — mjesečna rata (.+) KM, ukupno za otplatu (.+) KM, EKS (.+)\.$/,
+   "Representative example: a loan of $1 KM over $2 months, nominal rate $3 (fixed), with a processing fee of $4 KM ($5) — monthly instalment $6 KM, total repayable $7 KM, APR $8."],
+  [/^Reprezentativni primjer: kredit od (.+) KM na (\d+) mjeseci, NKS (.+) \(fiksna\), bez naknade za obradu — mjesečna rata (.+) KM, ukupno za otplatu (.+) KM, EKS (.+)\.$/,
+   "Representative example: a loan of $1 KM over $2 months, nominal rate $3 (fixed), with no processing fee — monthly instalment $4 KM, total repayable $5 KM, APR $6."],
+  [/^([\d.,]+%) od iznosa kredita$/,"$1 of the loan amount"],
+  [/^([\d.,]+ KM) \(([\d.,]+%)\)$/,"$1 ($2)"],
   [/^do (\d[\d.,]*) mjesec(a|i)$/,"up to $1 months"],
   [/^(\d[\d.,]*) mjesec(a|i)$/,"$1 months"],
   [/^do (\d[\d.,]*) KM$/,"up to $1 KM"],
