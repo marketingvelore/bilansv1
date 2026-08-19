@@ -351,6 +351,13 @@ html.js .reveal.in{opacity:1;transform:none}
 .q-step{display:none}
 .q-step.on{display:block;animation:pgIn .4s ease both}
 .q-kicker{font-family:'Sora';font-size:12px;font-weight:700;letter-spacing:2px;color:var(--accent-2);text-transform:uppercase;margin-bottom:10px}
+/* povratak na prethodno pitanje — u redu sa brojačem koraka */
+.q-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.q-head .q-kicker{margin-bottom:0}
+.q-back{display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-family:'Sora';font-size:12px;font-weight:700;color:rgba(255,255,255,.6);background:none;border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:7px 13px;cursor:pointer;transition:var(--t)}
+.q-back:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.06)}
+.q-back:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.q-back svg{flex-shrink:0}
 .q-q{font-family:'Sora';font-size:26px;font-weight:700;color:#fff;letter-spacing:-.8px;margin-bottom:28px}
 .q-opts{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .q-opt{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;cursor:pointer;transition:var(--t);text-align:left}
@@ -685,6 +692,16 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .woman{height:326px}.woman-ring{width:250px;height:250px}
   .hero-text{padding-bottom:20px}
   .hero-eye{font-size:10px;letter-spacing:1.5px;padding:6px 12px;margin-bottom:16px}
+  /* SAMO NA TELEFONU: značka se sidri tačno na sredinu razmaka između dvije
+     trake sa slikama. Sredina razmaka je uvijek na 50% visine .hero-channels
+     (redovi su simetrični), a .hero-in počinje na istoj visini kao .hero-channels
+     i kraći je za visinu tickera — zato 50% + pola tickera (46/2 = 23px).
+     .hero-text::before nadoknađuje prostor koji je značka zauzimala u toku,
+     da se naslov i dugmad ne pomjere. */
+  .hero-eye{position:absolute;left:0;right:0;top:calc(50% + 23px);transform:translateY(-50%);
+    margin:0 auto;width:max-content;max-width:calc(100% - 52px);
+    text-align:center;justify-content:center;z-index:6}
+  .hero-text::before{content:'';display:block;flex:0 0 auto;height:61px}
   .hero-h1{margin-bottom:14px}
   .hero-sub{font-size:15.5px;margin-bottom:24px;line-height:1.6}
   .hero-ctas{width:100%}
@@ -697,6 +714,8 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .cta-btns{flex-direction:column}
   .cta-btns button{width:100%}
 }
+/* šire telefone: značka stane u jedan red, pa je i rezervisani prostor manji */
+@media(min-width:404px) and (max-width:600px){.hero-text::before{height:45px}}
 /* ============ PRISTUPAČNOST (A11Y) — dodatak, ne mijenja postojeći izgled ============ */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip-link{position:fixed;top:-70px;left:16px;z-index:3000;background:var(--navy);color:#fff;font-family:'Sora';font-weight:700;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;border:2px solid var(--accent);cursor:pointer;transition:top .2s ease}
@@ -954,7 +973,7 @@ function tryImg(el){
       </div>
       <!-- ===== GRANA: FIZIČKA LICA ===== -->
       <div class="q-step" data-step="1" data-branch="fizicko">
-        <div class="q-kicker">Pitanje 2 / 3</div>
+        <div class="q-head"><div class="q-kicker">Pitanje 2 / 3</div><button type="button" class="q-back" onclick="quizBack()"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad</button></div>
         <div class="q-q">Šta želite finansirati?</div>
         <div class="q-opts">
           <button class="q-opt" onclick="quizAns(1,'licne')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span><span><b>Lične potrebe</b><small>gotovina</small></span></button>
@@ -965,7 +984,7 @@ function tryImg(el){
         </div>
       </div>
       <div class="q-step" data-step="2" data-branch="fizicko">
-        <div class="q-kicker">Pitanje 3 / 3</div>
+        <div class="q-head"><div class="q-kicker">Pitanje 3 / 3</div><button type="button" class="q-back" onclick="quizBack()"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad</button></div>
         <div class="q-q">Još nešto bitno?</div>
         <div class="q-opts">
           <button class="q-opt" onclick="quizAns(2,'penzioner')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></span><span><b>Penzioner sam</b><small>PIO/MIO</small></span></button>
@@ -976,7 +995,7 @@ function tryImg(el){
       </div>
       <!-- ===== GRANA: PRAVNA LICA — vlastiti kriterijumi, ne dijele pitanja sa fizičkim licima ===== -->
       <div class="q-step" data-step="1" data-branch="pravno">
-        <div class="q-kicker">Pitanje 2 / 3</div>
+        <div class="q-head"><div class="q-kicker">Pitanje 2 / 3</div><button type="button" class="q-back" onclick="quizBack()"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad</button></div>
         <div class="q-q">Za šta su vam sredstva potrebna?</div>
         <div class="q-opts">
           <button class="q-opt" onclick="quizAns(1,'obrtna')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7h18v12H3z"/><path d="M3 11h18M8 7V4h8v3"/></svg></span><span><b>Obrtna sredstva i likvidnost</b><small>zalihe, plate, zakup, porezi</small></span></button>
@@ -987,7 +1006,7 @@ function tryImg(el){
         </div>
       </div>
       <div class="q-step" data-step="2" data-branch="pravno">
-        <div class="q-kicker">Pitanje 3 / 3</div>
+        <div class="q-head"><div class="q-kicker">Pitanje 3 / 3</div><button type="button" class="q-back" onclick="quizBack()"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad</button></div>
         <div class="q-q">Šta vam je najvažnije kod otplate?</div>
         <div class="q-opts">
           <button class="q-opt" onclick="quizAns(2,'grace')"><span class="qi"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><span><b>Odgoda otplate glavnice</b><small>grace period na startu</small></span></button>
@@ -1004,6 +1023,7 @@ function tryImg(el){
         <div class="q-res-btns">
           <button class="btn-pri" onclick="go('zahtjev')">Podnesi zahtjev
             <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="q-restart" onclick="quizBack()">Nazad</button>
           <button class="q-restart" onclick="quizRestart()">Počni ponovo</button>
         </div>
       </div>
@@ -2056,6 +2076,8 @@ function qStep(step){
   return document.querySelector('.q-step[data-step="'+step+'"][data-branch="'+br+'"]')
       || document.querySelector('.q-step[data-step="'+step+'"]');
 }
+/* trenutno vidljivi korak: 0–2, ili 3 kad je prikazan rezultat */
+let quizPos=0;
 function quizAns(step,val){
   quizState[step]=val;
   const prog=document.querySelectorAll('#quizProg i');
@@ -2064,9 +2086,34 @@ function quizAns(step,val){
   if(step<2){
     qStep(step+1).classList.add('on');
     prog[step+1].classList.add('cur');
+    quizPos=step+1;
   } else {
     showQuizResult();
+    quizPos=3;
   }
+}
+/* povratak na prethodni korak — briše odgovor na koji se vraćamo, da grana
+   ostane konzistentna ako korisnik na 1. pitanju promijeni fizičko/pravno lice */
+function quizBack(){
+  if(quizPos<=0) return;
+  const prog=document.querySelectorAll('#quizProg i');
+  if(quizPos===3){
+    document.getElementById('quizResult').classList.remove('on');
+  } else {
+    qStep(quizPos).classList.remove('on');
+    prog[quizPos].classList.remove('cur','done');
+  }
+  const cilj=quizPos-1;
+  delete quizState[cilj];              // odgovor se ponovo bira
+  /* grana se čita iz quizState[0]; ako se vraćamo na 1. pitanje, sakrij oba ogranka */
+  if(cilj===0) document.querySelectorAll('.q-step[data-branch]').forEach(s=>s.classList.remove('on'));
+  const el=document.querySelector('.q-step[data-step="'+cilj+'"][data-branch="'+(quizState[0]||'fizicko')+'"]')
+        || document.querySelector('.q-step[data-step="'+cilj+'"]');
+  el.classList.add('on');
+  prog[cilj].classList.remove('done');prog[cilj].classList.add('cur');
+  quizPos=cilj;
+  const q=el.querySelector('.q-q');
+  if(q && typeof announce==='function') announce('Nazad na pitanje '+(cilj+1)+' od 3. '+q.textContent);
 }
 function showQuizResult(){
   const t=quizState[0], n=quizState[1], x=quizState[2];
@@ -2102,7 +2149,7 @@ function showQuizResult(){
   document.getElementById('quizResult').classList.add('on');
 }
 function quizRestart(){
-  quizState={};
+  quizState={}; quizPos=0;
   document.querySelectorAll('.q-step').forEach(s=>s.classList.toggle('on',s.dataset.step==='0'));
   document.getElementById('quizResult').classList.remove('on');
   document.querySelectorAll('#quizProg i').forEach((p,i)=>{p.classList.remove('done','cur');if(i===0)p.classList.add('cur');});
@@ -2669,8 +2716,12 @@ var DICT={
 /* ---------- Mjerač: nove stavke ---------- */
 "Opterećenost primanja (DTI)":"Income burden (DTI)","Slobodno nakon obaveza":"Free after obligations","* Račun ide ovako: od primanja se oduzmu postojeće obaveze i zaštićeni minimum za život, a od onoga što ostane planira se najviše 65% u novu ratu — uz dodatno ograničenje da rata ne pređe dozvoljeni udio primanja. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* The calculation works like this: existing obligations and a protected living minimum are deducted from your income, and at most 65% of what remains is planned for the new instalment — with the additional limit that the instalment may not exceed the permitted share of income. The estimate is indicative; final capacity is determined by an advisor through individual analysis.","Uz ovakav odnos primanja i obaveza ne ostaje prostora za novu ratu. Javite se savjetniku — refinansiranje postojećih obaveza često oslobodi mjesečni budžet.":"With this ratio of income to obligations there is no room for a new instalment. Talk to an advisor — refinancing existing obligations often frees up the monthly budget.","Vaša sposobnost prelazi najveći iznos u našoj ponudi — prikazan je maksimum od 50.000 KM.":"Your capacity exceeds the largest amount we offer — the maximum of 50,000 KM is shown.",
 "EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fees, so it differs for other combinations — check it in the calculator.","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka, grace perioda i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term, the grace period and the fees, so it differs for other combinations — check it in the calculator.",
+/* ---------- Pametni vodič: opisi preporučenog proizvoda (sve varijante) ---------- */
+"Kredit za obrtna sredstva i likvidnost poslovnog subjekta — zalihe, plate, zakup, porezi i refinansiranje obaveza. Iznos 2.000–50.000 KM, rok do 60 mjeseci, grace do 3 mjeseca.":"A loan for working capital and the liquidity of a business — stock, wages, rent, taxes and refinancing of obligations. Amount 2,000–50,000 KM, term up to 60 months, grace period up to 3 months.","Kredit za obrtna sredstva i likvidnost poslovnog subjekta — zalihe, plate, zakup, porezi i refinansiranje obaveza. Iznos 2.000–50.000 KM, rok do 60 mjeseci, grace do 3 mjeseca. Grace period do 3 mjeseca odgađa otplatu glavnice na početku.":"A loan for working capital and the liquidity of a business — stock, wages, rent, taxes and refinancing of obligations. Amount 2,000–50,000 KM, term up to 60 months, grace period up to 3 months. A grace period of up to 3 months defers repayment of the principal at the start.","Kredit za obrtna sredstva i likvidnost poslovnog subjekta — zalihe, plate, zakup, porezi i refinansiranje obaveza. Iznos 2.000–50.000 KM, rok do 60 mjeseci, grace do 3 mjeseca. Obrtna sredstva se obrađuju najbrže — potrebni su finansijski izvještaji i kartica prometa.":"A loan for working capital and the liquidity of a business — stock, wages, rent, taxes and refinancing of obligations. Amount 2,000–50,000 KM, term up to 60 months, grace period up to 3 months. Working capital loans are processed fastest — financial statements and a turnover statement are required.",
+"Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci. Grace period do 9 mjeseci daje vremena da investicija počne vraćati uloženo.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months. A grace period of up to 9 months gives the investment time to start paying for itself.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci. Ovo je naš proizvod sa najvećim iznosom i najdužim rokom za pravna lica.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months. This is our product with the largest amount and the longest term for businesses.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci. Za bržu obradu pripremite predračun ili ponudu za predmet finansiranja.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months. For faster processing, prepare a proforma invoice or a quotation for the item being financed.",
+"Nenamjenski gotovinski kredit za lične potrebe, bez obaveze navođenja namjene. Iznos do 7.000 KM, rok do 18 mjeseci.":"A non-purpose cash loan for personal needs, with no obligation to state the purpose. Amount up to 7,000 KM, term up to 18 months.","Nenamjenski gotovinski kredit za veće iznose — do 30.000 KM, rok do 84 mjeseca.":"A non-purpose cash loan for larger amounts — up to 30,000 KM, term up to 84 months.","Nenamjenski gotovinski kredit uz administrativnu zabranu na platu kao instrument obezbjeđenja. Iznos do 30.000 KM, rok do 84 mjeseca.":"A non-purpose cash loan secured by an administrative garnishment on your salary. Amount up to 30,000 KM, term up to 84 months.","Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju. Iznos do 30.000 KM, rok do 84 mjeseca.":"A non-purpose loan for pensioners, with the option of an administrative garnishment on the pension. Amount up to 30,000 KM, term up to 84 months.","Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa. Iznos 300–3.000 KM.":"Financing for vehicle registration, insurance, the technical inspection, tyres and a minor service. Amount 300–3,000 KM.","Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD. Iznos 300–10.000 KM.":"Buy now — financing for goods and services at the lender's contracted partners. Amount 300–10,000 KM.","Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD. Iznos do 30.000 KM.":"Financing for medical and cosmetic services at the lender's contracted partners. Amount up to 30,000 KM.","Za školski pribor, udžbenike, odjeću i obuću za polazak u školu. Iznos 500–2.000 KM, najniža kamata 19,99%.":"For school supplies, textbooks, clothing and footwear for starting school. Amount 500–2,000 KM, our lowest interest rate at 19.99%.",
 /* ---------- Informacioni list: redovi koji ranije nisu bili prevedeni ---------- */
-"Korisnik kredita":"Borrower","Fizička lica":"Individuals","Pravna lica i preduzetnici":"Businesses and entrepreneurs","Način obračuna kamate":"Interest calculation method","proporcionalni metod, dekurzivno, mjesečno, 360 dana":"proportional method, in arrears, monthly, 360 days","Ostale naknade":"Other fees","prema važećem Cjenovniku usluga MKD":"in accordance with the lender's applicable price list of services","Otplata":"Repayment","jednaki mjesečni anuiteti":"equal monthly instalments","Prijevremena otplata":"Early repayment","naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit":"a fee of 0.5% on the remaining principal; no fee when refinancing with funds from MKD Bilans Plus Kredit","Pravo na odustanak":"Right of withdrawal","14 dana od dana zaključenja ugovora, bez navođenja razloga":"14 days from the date the contract is concluded, with no reason required","Ovaj informacioni list je informativnog karaktera i ne predstavlja obavezujuću kreditnu ponudu. Konačni uslovi utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu.":"This information sheet is for information purposes only and does not constitute a binding loan offer. Final terms are determined through individual assessment of the application and are stated in the loan contract.","bez grace perioda":"no grace period","MKD Bilans Plus Kredit · Informacioni list":"MKD Bilans Plus Kredit · Information sheet",
+"Korisnik kredita":"Borrower","Fizička lica":"Individuals","Pravna lica i preduzetnici":"Businesses and entrepreneurs","Način obračuna kamate":"Interest calculation method","proporcionalni metod, dekurzivno, mjesečno, 360 dana":"proportional method, in arrears, monthly, 360 days","Ostale naknade":"Other fees","prema važećem Cjenovniku usluga MKD":"in accordance with the lender's applicable price list of services","Otplata":"Repayment","jednaki mjesečni anuiteti":"equal monthly instalments","Prijevremena otplata":"Early repayment","naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit":"a fee of 0.5% on the remaining principal; no fee when refinancing with funds from MKD Bilans Plus Kredit","Pravo na odustanak":"Right of withdrawal","14 dana od dana zaključenja ugovora, bez navođenja razloga":"14 days from the date the contract is concluded, with no reason required","Ovaj informacioni list je informativnog karaktera i ne predstavlja obavezujuću kreditnu ponudu. Konačni uslovi utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu. MKD Bilans Plus Kredit, Banja Luka — licencirano od Agencije za bankarstvo Republike Srpske.":"This information sheet is for information purposes only and does not constitute a binding loan offer. Final terms are determined through individual assessment of the application and are stated in the loan contract. MKD Bilans Plus Kredit, Banja Luka — licensed by the Banking Agency of Republika Srpska.","bez grace perioda":"no grace period","MKD Bilans Plus Kredit · Informacioni list":"MKD Bilans Plus Kredit · Information sheet",
 /* ---------- Obezbjeđenje po proizvodu (katalog 19.08.2026.) ---------- */
 "Mjenica (obavezno); sudužnik i administrativna zabrana opciono, prema procjeni kreditne sposobnosti":"Promissory note (mandatory); a co-borrower and an administrative garnishment are optional, subject to the credit assessment.","Mjenica (obavezno); sudužnik, administrativna zabrana i dodatni kolateral (zalog/hipoteka) prema procjeni rizika; moguća polisa osiguranja otplate":"Promissory note (mandatory); a co-borrower, an administrative garnishment and additional collateral (pledge/mortgage) subject to the risk assessment; a loan repayment insurance policy is possible.","Mjenica (obavezno); sudužnik prema procjeni kreditne sposobnosti. Sredstva se isplaćuju direktno ugovornom partneru MKD.":"Promissory note (mandatory); a co-borrower subject to the credit assessment. The funds are paid directly to the lender's contracted partner.","Mjenica (obavezno); sudužnik i administrativna zabrana prema procjeni rizika. Polisa osiguranja: do 5.000 KM nije obavezna, preko 5.001 KM opciono.":"Promissory note (mandatory); a co-borrower and an administrative garnishment subject to the risk assessment. Insurance policy: not required up to 5,000 KM, optional above 5,001 KM.","Mjenica (obavezno); sudužnik i administrativna zabrana na penziju prema procjeni rizika. Polisa osiguranja otplate: do 55 godina nije obavezna, 56–65 obavezna, preko 65 obavezna uz kreditno sposobnog sudužnika.":"Promissory note (mandatory); a co-borrower and an administrative garnishment on the pension subject to the risk assessment. Repayment insurance: not required up to age 55, mandatory for ages 56–65, and mandatory above 65 together with a creditworthy co-borrower.","Mjenice poslovnog subjekta i jemstvo/sadužništvo vlasnika (obavezno); dodatni jemac, zalog na vozilu ili pokretnoj imovini opciono. Hipoteka I reda obavezna za plasmane preko 30.000 KM i/ili rokove preko 36 mjeseci.":"Promissory notes of the business and a guarantee/co-obligation of the owner (mandatory); an additional guarantor and a pledge over a vehicle or movable property are optional. A first-rank mortgage is mandatory for loans above 30,000 KM and/or terms longer than 36 months.","Mjenice poslovnog subjekta i jemstvo/sadužništvo vlasnika (obavezno); dodatni jemac, zalog na vozilima, opremi i pokretnoj imovini opciono. Hipoteka I reda za veće iznose i/ili povećan rizik.":"Promissory notes of the business and a guarantee/co-obligation of the owner (mandatory); an additional guarantor and a pledge over vehicles, equipment and movable property are optional. A first-rank mortgage applies for larger amounts and/or increased risk.",
 /* ---------- Kalkulator: grace period, naknade i mjenica (katalog 19.08.2026.) ---------- */
