@@ -692,16 +692,6 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .woman{height:326px}.woman-ring{width:250px;height:250px}
   .hero-text{padding-bottom:20px}
   .hero-eye{font-size:10px;letter-spacing:1.5px;padding:6px 12px;margin-bottom:16px}
-  /* SAMO NA TELEFONU: značka se sidri tačno na sredinu razmaka između dvije
-     trake sa slikama. Sredina razmaka je uvijek na 50% visine .hero-channels
-     (redovi su simetrični), a .hero-in počinje na istoj visini kao .hero-channels
-     i kraći je za visinu tickera — zato 50% + pola tickera (46/2 = 23px).
-     .hero-text::before nadoknađuje prostor koji je značka zauzimala u toku,
-     da se naslov i dugmad ne pomjere. */
-  .hero-eye{position:absolute;left:0;right:0;top:calc(50% + 23px);transform:translateY(-50%);
-    margin:0 auto;width:max-content;max-width:calc(100% - 52px);
-    text-align:center;justify-content:center;z-index:6}
-  .hero-text::before{content:'';display:block;flex:0 0 auto;height:61px}
   .hero-h1{margin-bottom:14px}
   .hero-sub{font-size:15.5px;margin-bottom:24px;line-height:1.6}
   .hero-ctas{width:100%}
@@ -714,8 +704,6 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .cta-btns{flex-direction:column}
   .cta-btns button{width:100%}
 }
-/* šire telefone: značka stane u jedan red, pa je i rezervisani prostor manji */
-@media(min-width:404px) and (max-width:600px){.hero-text::before{height:45px}}
 /* ============ PRISTUPAČNOST (A11Y) — dodatak, ne mijenja postojeći izgled ============ */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip-link{position:fixed;top:-70px;left:16px;z-index:3000;background:var(--navy);color:#fff;font-family:'Sora';font-weight:700;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;border:2px solid var(--accent);cursor:pointer;transition:top .2s ease}
@@ -1962,6 +1950,69 @@ for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.rand
     row.innerHTML=set+set;
     row.style.animationDuration=(52+r*12)+'s';
     host.appendChild(row);
+  }
+})();
+/* ================================================================================
+   ZNAČKA „Licencirana mikrokreditna organizacija" — poravnanje sa razmakom
+   između dvije trake sa slikama. SAMO NA TELEFONU (do 600px).
+
+   Zašto JS a ne CSS: položaj razmaka zavisi od visine heroa, a položaj značke
+   od visine fotografije savjetnice iznad nje. Fotografija se skalira sa širinom
+   ekrana, pa se ta dva pomjeraju nezavisno — nijedna fiksna vrijednost u px ni
+   procentima ne važi na svim telefonima. Zato se pomak mjeri i primjenjuje kao
+   margin-top: značka ostaje u NORMALNOM TOKU, pa naslov ide zajedno s njom i
+   preklapanje je nemoguće po konstrukciji.
+
+   Petlja se ponavlja jer margin-top povećava visinu heroa, što malo pomjeri i
+   sam razmak — konvergira za 2–3 prolaza.
+   ================================================================================ */
+function placeHeroBadge(){
+  const eye=document.querySelector('.hero-eye');
+  if(!eye) return;
+  if(!window.matchMedia('(max-width:600px)').matches){ eye.style.marginTop=''; return; }
+  const rows=document.querySelectorAll('.hch-row');
+  if(rows.length<2) return;
+  const PAD=10;                                        // vazdušni prostor do trake
+  eye.style.marginTop='0px';
+  for(let i=0;i<6;i++){
+    const a=rows[0].getBoundingClientRect(), b=rows[1].getBoundingClientRect();
+    if(!(b.top>a.bottom)) return;                      // trake se preklapaju — ne diraj
+    const z=eye.getBoundingClientRect();
+    const cur=parseFloat(eye.style.marginTop)||0;
+    /* Cilj je NAJMANJI pomak koji značku uvodi u razmak — spuštamo je tek toliko
+       da joj gornja ivica prođe donju ivicu prve trake. Centriranje bi tražilo
+       znatno veći pomak i bespotrebno izdužilo hero. Ako je značka viša od samog
+       razmaka, onda je centriramo — to je tada najbolje što se može. */
+    const stane=(z.height+2*PAD)<=(b.top-a.bottom);
+    const cilj=stane ? (a.bottom+PAD) : ((a.bottom+b.top)/2-z.height/2);
+    const pomak=cilj-z.top;
+    /* nikad ne dižemo iznad prirodnog mjesta (da ne uđe u fotografiju) */
+    const next=Math.max(0,Math.min(cur+pomak,220));
+    if(Math.abs(next-cur)<0.5) break;
+    eye.style.marginTop=next+'px';
+  }
+}
+/* Raspored se mijenja kad se učita fotografija, kad se učitaju fontovi i kad se
+   prebaci jezik (engleski tekst značke je kraći i staje u jedan red). Umjesto da
+   se svaki od tih događaja hvata posebno, pratimo promjenu veličine same značke
+   i fotografije — margin-top koji upisujemo ne mijenja njihove dimenzije, pa
+   nema petlje. */
+(function(){
+  let zakazano=false;
+  const pokreni=()=>{ if(zakazano) return; zakazano=true;
+    requestAnimationFrame(()=>{ zakazano=false; placeHeroBadge(); }); };
+  pokreni();
+  window.addEventListener('load',pokreni);
+  window.addEventListener('resize',pokreni);
+  window.addEventListener('orientationchange',()=>setTimeout(pokreni,150));
+  const foto=document.querySelector('.woman');
+  if(foto){ foto.addEventListener('load',pokreni); foto.addEventListener('error',pokreni); }
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(pokreni);
+  if(window.ResizeObserver){
+    const ro=new ResizeObserver(pokreni);
+    const eye=document.querySelector('.hero-eye');
+    if(eye) ro.observe(eye);
+    if(foto) ro.observe(foto);
   }
 })();
 /* ========= FAQ ========= */
