@@ -1058,11 +1058,11 @@ function tryImg(el){
         <div class="ks-list">
           <div class="ks-it"><span>Raspoloživi prihod</span><b id="gRaspolozivi">1.300,00 KM</b></div>
           <div class="ks-it"><span>Postojeći DTI</span><b id="gDti">13,33%</b></div>
-          <div class="ks-it"><span>Maksimalno dozvoljeno opterećenje</span><b id="gPrag">40,00%</b></div>
+          <div class="ks-it"><span>Maksimalno dozvoljeno opterećenje</span><b id="gPrag">800,00 KM (53,33%)</b></div>
           <div class="ks-it hi"><span>Maksimalna nova rata</span><b id="gRate">400,00 KM</b></div>
           <div class="ks-it"><span>Ukupno opterećenje nakon novog kredita</span><b id="gDtiNovi">40,00%</b></div>
         </div>
-        <div class="gauge-note">* Od primanja se oduzmu postojeće obaveze i zaštićeni iznos za život, a nova rata dodatno ne smije preći dozvoljeno opterećenje za tu visinu primanja — uzima se ono što je manje. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.</div>
+        <div class="gauge-note">* Dozvoljeno mjesečno opterećenje računa se po tranšama primanja: prvih 1.000 KM po 50%, a sve preko 1.000 KM po 60%. Od tog iznosa se oduzmu postojeće mjesečne obaveze i dobija se maksimalna nova rata. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.</div>
       </div>
       <div class="gauge-vis">
         <svg viewBox="0 0 220 138" class="gauge-svg">
@@ -1962,44 +1962,60 @@ for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.rand
   }
 })();
 /* ================================================================================
-   ZNAČKA „Licencirana mikrokreditna organizacija" — poravnanje sa razmakom
-   između dvije trake sa slikama. SAMO NA TELEFONU (do 600px).
+   ZNAČKA „Licencirana mikrokreditna organizacija" — poravnanje sa trakama slika.
+   SAMO NA TELEFONU (do 600px).
 
-   Zašto JS a ne CSS: položaj razmaka zavisi od visine heroa, a položaj značke
-   od visine fotografije savjetnice iznad nje. Fotografija se skalira sa širinom
-   ekrana, pa se ta dva pomjeraju nezavisno — nijedna fiksna vrijednost u px ni
-   procentima ne važi na svim telefonima. Zato se pomak mjeri i primjenjuje kao
-   margin-top: značka ostaje u NORMALNOM TOKU, pa naslov ide zajedno s njom i
-   preklapanje je nemoguće po konstrukciji.
+   PRISTUP: značka ostaje tačno tamo gdje prirodno pada — odmah ispod fotografije
+   savjetnice — a POMJERAJU SE TRAKE, tako da razmak između njih padne baš na nju.
+   Ranije je bilo obrnuto (značka se gurala naniže u razmak), pa je između
+   fotografije i značke ostajao cijeli red pločica i djelovale su odvojeno.
 
-   Petlja se ponavlja jer margin-top povećava visinu heroa, što malo pomjeri i
-   sam razmak — konvergira za 2–3 prolaza.
+   Trake se pomjeraju margin-topom, ne transformom, jer im `transform` već koristi
+   animacija klizanja (translateX) i pregazila bi svaku inline vrijednost.
+
+   Zašto JS a ne CSS: položaj razmaka zavisi od visine heroa, a položaj značke od
+   visine fotografije iznad nje; fotografija se skalira sa širinom ekrana pa se to
+   dvoje pomjera nezavisno — nijedna fiksna vrijednost ne važi na svim telefonima.
    ================================================================================ */
 function placeHeroBadge(){
   const eye=document.querySelector('.hero-eye');
-  if(!eye) return;
-  if(!window.matchMedia('(max-width:600px)').matches){ eye.style.marginTop=''; return; }
-  const rows=document.querySelectorAll('.hch-row');
-  if(rows.length<2) return;
-  const PAD=10;                                        // vazdušni prostor do trake
-  eye.style.marginTop='0px';
-  for(let i=0;i<6;i++){
-    const a=rows[0].getBoundingClientRect(), b=rows[1].getBoundingClientRect();
-    if(!(b.top>a.bottom)) return;                      // trake se preklapaju — ne diraj
-    const z=eye.getBoundingClientRect();
-    const cur=parseFloat(eye.style.marginTop)||0;
-    /* Cilj je NAJMANJI pomak koji značku uvodi u razmak — spuštamo je tek toliko
-       da joj gornja ivica prođe donju ivicu prve trake. Centriranje bi tražilo
-       znatno veći pomak i bespotrebno izdužilo hero. Ako je značka viša od samog
-       razmaka, onda je centriramo — to je tada najbolje što se može. */
-    const stane=(z.height+2*PAD)<=(b.top-a.bottom);
-    const cilj=stane ? (a.bottom+PAD) : ((a.bottom+b.top)/2-z.height/2);
-    const pomak=cilj-z.top;
-    /* nikad ne dižemo iznad prirodnog mjesta (da ne uđe u fotografiju) */
-    const next=Math.max(0,Math.min(cur+pomak,220));
-    if(Math.abs(next-cur)<0.5) break;
-    eye.style.marginTop=next+'px';
+  const host=document.getElementById('heroChannels');
+  if(!eye||!host) return;
+  const rows=host.querySelectorAll('.hch-row');
+  const mobil=window.matchMedia('(max-width:600px)').matches;
+
+  /* desktop: sve vraćamo na čisto CSS stanje */
+  if(!mobil||rows.length<2){
+    eye.style.marginTop='';
+    host.style.justifyContent='';
+    rows.forEach(r=>{ r.style.marginTop=''; });
+    return;
   }
+
+  eye.style.marginTop='';                       /* značka ostaje na prirodnom mjestu */
+
+  /* prvo pročitamo prirodni raspored traka (onaj koji daje CSS) */
+  host.style.justifyContent='';
+  rows.forEach(r=>{ r.style.marginTop=''; });
+  const a0=rows[0].getBoundingClientRect(), b0=rows[1].getBoundingClientRect();
+  const visinaReda=a0.height;
+  const razmak=b0.top-a0.bottom;
+  if(!(razmak>0)||!(visinaReda>0)) return;      /* trake se preklapaju — ne diramo */
+
+  /* gdje želimo sredinu razmaka: na sredini značke */
+  const hostTop=host.getBoundingClientRect().top;
+  const z=eye.getBoundingClientRect();
+  const ciljCentar=(z.top+z.bottom)/2-hostTop;
+
+  /* razmak počinje nakon prvog reda, pa je gornja margina prvog reda: */
+  let prvaMargina=ciljCentar-visinaReda-razmak/2;
+  /* dozvoljavamo blagi negativni pomak (višak se ionako odsijeca), ali ne toliko
+     da prvi red potpuno izađe iz vidnog polja */
+  prvaMargina=Math.max(-visinaReda*0.6, prvaMargina);
+
+  host.style.justifyContent='flex-start';
+  rows[0].style.marginTop=prvaMargina+'px';
+  rows[1].style.marginTop=razmak+'px';
 }
 /* Raspored se mijenja kad se učita fotografija, kad se učitaju fontovi i kad se
    prebaci jezik (engleski tekst značke je kraći i staje u jedan red). Umjesto da
@@ -2303,40 +2319,45 @@ function calcUpdate(){
 ['calcAmt','calcTerm','calcGrace'].forEach(id=>document.getElementById(id).addEventListener('input',calcUpdate));
 setCalcProduct(0);
 /* ================================================================================
-   MJERAČ KREDITNE SPOSOBNOSTI
-   Implementirano po specifikaciji MKD Bilans Plus Kredit (19.08.2026.).
+   MJERAČ KREDITNE SPOSOBNOSTI — progresivni (tranšni) obračun
+   Specifikacija MKD Bilans Plus Kredit, 23.08.2026. Zamjenjuje raniji stepenasti
+   DTI model u cijelosti.
 
-   FORMULA
-     A = P × dozvoljeni_DTI(P) − O        (ograničenje po dozvoljenom opterećenju)
-     B = P − O − T                        (mora ostati zaštićeni iznos za život)
-     nova rata = MAX(0, MIN(A, B))        (nikad negativno)
+   DOZVOLJENO OPTEREĆENJE se računa po tranšama primanja, kao porez na dohodak:
+     prvih 1.000 KM primanja  → 50%
+     sve preko 1.000 KM       → 60%
 
-     P = mjesečna neto primanja
-     O = postojeće mjesečne kreditne obaveze
-     T = zaštićeni iznos za život
-     n = rok u mjesecima, i = mjesečna kamatna stopa
+     1.000 KM →  1.000×50%                      =   500,00 KM
+     2.000 KM →  1.000×50% + 1.000×60%          = 1.100,00 KM
+     3.000 KM →  1.000×50% + 2.000×60%          = 1.700,00 KM
 
-   Iznos kredita: K = rata × [1 − (1+i)^(−n)] / i    (i = 0 → K = rata × n)
+   Efektivni procenat time raste postepeno sa 50% prema 60%, bez skokova.
 
-   SVI PARAMETRI SU U OBJEKTU `KS` NIŽE — mijenjaju se na jednom mjestu,
-   nigdje nisu upisani u samu formulu.
+   MAKSIMALNA NOVA RATA = dozvoljeno opterećenje − postojeće obaveze, nikad < 0.
+
+   ⚠ DVIJE STVARI KOJE SPECIFIKACIJA NE DEFINIŠE, pa su ovdje kao prekidači:
+     `oduzmiObaveze` — postojeće obaveze umanjuju raspoloživu ratu. Uključeno,
+        jer bi inače klizač „postojeće mjesečne obaveze" bio bez efekta.
+     `T` — zaštićeni iznos za život. Isključen (0), jer ga nova specifikacija ne
+        pominje. Ako se vrati, upiši iznos u KM i rata se dodatno ograničava na
+        P − O − T.
+
+   SVI PARAMETRI SU U OBJEKTU `KS` — nijedan broj nije upisan u samu formulu.
    ================================================================================ */
 const KS = {
-  T: 600,                       /* zaštićeni iznos za život, u KM */
-  /* stepenasti DTI pragovi — `do` je gornja granica primanja (uključivo) */
-  pragovi: [
-    { do: 1000,     dti: 0.35 },
-    { do: 1500,     dti: 0.40 },
-    { do: 2000,     dti: 0.45 },
-    { do: 3000,     dti: 0.50 },
-    { do: Infinity, dti: 0.55 }
+  /* tranše primanja: `do` je gornja granica tranše, `stopa` udio za taj dio */
+  transe: [
+    { do: 1000,     stopa: 0.50 },
+    { do: Infinity, stopa: 0.60 }
   ],
+  oduzmiObaveze: true,          /* postojeće obaveze umanjuju novu ratu */
+  T: 0,                         /* zaštićeni iznos za život u KM; 0 = ne primjenjuje se */
   nks: 22.99,                   /* reprezentativna godišnja NKS za preračun rate u iznos */
   maxIznos: null,               /* gornja granica iznosa; null = najveći iznos iz ponude */
-  /* ocjena se određuje po tome koliki je dio dozvoljenog opterećenja još slobodan */
+  /* ocjena po tome koliki je dio dozvoljenog opterećenja još slobodan */
   ocjene: [
-    { od: 0.60, naziv: 'Odlična',   klasa: 'good' },
-    { od: 0.35, naziv: 'Dobra',     klasa: 'good' },
+    { od: 0.60, naziv: 'Odlična',    klasa: 'good' },
+    { od: 0.35, naziv: 'Dobra',      klasa: 'good' },
     { od: 0.00, naziv: 'Ograničena', klasa: 'mid'  }
   ],
   ocjenaNula: { naziv: 'Nedovoljna', klasa: 'low' }
@@ -2345,19 +2366,26 @@ const ARC=283;
 const OFFER_MAX=Math.max(...products.map(p=>p.amax));   /* najveći iznos u ponudi (50.000 KM) */
 const clamp01=v=>Math.max(0,Math.min(1,v));
 
-/* dozvoljeni DTI za data primanja — prvi prag čiju gornju granicu primanja ne prelaze */
-function dtiPrag(P){
-  const p = KS.pragovi.find(x => P <= x.do);
-  return p ? p.dti : KS.pragovi[KS.pragovi.length-1].dti;
+/* dozvoljeno mjesečno opterećenje za data primanja — zbir po tranšama */
+function dozvoljenoOpterecenje(P){
+  let ukupno=0, prethodna=0;
+  for(const t of KS.transe){
+    if(P<=prethodna) break;
+    ukupno += (Math.min(P,t.do)-prethodna)*t.stopa;
+    prethodna = t.do;
+  }
+  return ukupno;
 }
-/* maksimalna nova rata — vraća i A i B da se može prikazati šta je ograničilo */
+/* maksimalna nova rata */
 function novaRata(P,O){
-  const A = P*dtiPrag(P) - O;
-  const B = P - O - KS.T;
-  /* zaokruženje na fening: bez njega P×DTI% daje ostatke tipa 3300.0000000000005,
-     pa bi se na granici prikazalo „0,00 KM" a poruka o nultoj sposobnosti izostala */
+  const dozvoljeno = dozvoljenoOpterecenje(P);
+  const A = dozvoljeno - (KS.oduzmiObaveze ? O : 0);
+  const B = KS.T>0 ? (P - O - KS.T) : Infinity;
+  /* zaokruženje na fening: bez njega množenje procentima ostavlja repove
+     tipa 1100.0000000000002, pa bi se na granici prikazalo „0,00 KM"
+     a poruka o nultoj sposobnosti izostala */
   const rata = Math.max(0, Math.round(Math.min(A,B)*100)/100);
-  return { A, B, rata, veze: (A<=B ? 'dti' : 'minimum') };
+  return { dozvoljeno, A, B, rata };
 }
 /* glavnica koju data rata može otplatiti u n mjeseci pri godišnjoj stopi nksPct */
 function iznosIzRate(rata,n,nksPct){
@@ -2373,26 +2401,25 @@ function gaugeUpdate(){
   document.getElementById('gOblL').textContent=fmt(O)+' KM';
   document.getElementById('gTrmL').textContent=nMjeseci(n);
 
-  const prag=dtiPrag(P);
   const r=novaRata(P,O);
   const rata=r.rata;
   const raspolozivi=Math.max(0,P-O);                 /* raspoloživi prihod */
   const dtiSad=P>0 ? O/P : 0;                        /* postojeći DTI */
   const dtiNovi=P>0 ? (O+rata)/P : 0;                /* DTI nakon novog kredita */
+  const efektivni=P>0 ? r.dozvoljeno/P : 0;          /* efektivni % dozvoljenog opterećenja */
   const gornja=KS.maxIznos!=null?KS.maxIznos:OFFER_MAX;
   const iznosSirovi=iznosIzRate(rata,n,KS.nks);
   const iznos=Math.min(iznosSirovi,gornja);
 
   /* ocjena: koliki dio dozvoljenog opterećenja je ostao slobodan */
-  const dozvoljeno=P*prag;
-  const slobodno=dozvoljeno>0?clamp01(rata/dozvoljeno):0;
+  const slobodno=r.dozvoljeno>0?clamp01(rata/r.dozvoljeno):0;
   const oc = rata<=0 ? KS.ocjenaNula : KS.ocjene.find(o=>slobodno>=o.od);
   const score = rata<=0 ? 0 : slobodno*100;
 
   const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v;};
   set('gRaspolozivi',fmt2(raspolozivi)+' KM');
   set('gDti',pct(dtiSad*100));
-  set('gPrag',pct(prag*100));
+  set('gPrag',fmt2(r.dozvoljeno)+' KM ('+pct(efektivni*100)+')');
   set('gRate',fmt2(rata)+' KM');
   set('gDtiNovi',pct(dtiNovi*100));
   set('gAmt',fmt(iznos)+' KM');
@@ -2807,7 +2834,7 @@ var DICT={
 /* ---------- Stranica Dokumenti ---------- */
 "Dokumenti i":"Documents and","informacioni listovi":"information sheets","Opšti uslovi poslovanja, cjenovnik i informacioni list za svaki kreditni proizvod — javno dostupni, prije nego išta potpišete.":"General terms of business, the price list and an information sheet for every loan product — publicly available before you sign anything.","Opšti uslovi poslovanja":"General terms of business","Opšti uslovi pod kojima MKD Bilans Plus Kredit odobrava i prati kredite — prava i obaveze korisnika, obračun kamate, naplata i prigovori.":"The general terms under which MKD Bilans Plus Kredit grants and administers loans — the rights and obligations of the borrower, interest calculation, collection and complaints.","Cjenovnik usluga":"Price list of services","Pregled svih naknada: obrada kreditnog zahtjeva, mjenica, prijevremena otplata, opomene i ostale usluge.":"An overview of all fees: processing of the loan application, promissory note, early repayment, reminders and other services.","Uslovi korišćenja web stranice, pravo na odustanak u roku od 14 dana, prijevremena otplata i postupak po prigovoru.":"The terms of use of the website, the 14-day right of withdrawal, early repayment and the complaints procedure.","Kako prikupljamo, koristimo i čuvamo vaše lične podatke i koja prava imate u vezi sa njima.":"How we collect, use and store your personal data and what rights you have in relation to it.","Informacioni listovi po kreditnim proizvodima":"Information sheets by loan product","Za svaki proizvod: iznos, rok, NKS, naknada za obradu, EKS, obezbjeđenje, grace period i reprezentativni primjer. Otvara se kao dokument spreman za štampu ili čuvanje u PDF.":"For every product: amount, term, nominal rate, processing fee, APR, security, grace period and a representative example. It opens as a document ready to print or save as PDF.","Otvori":"Open","Preuzmi PDF":"Download PDF","Uskoro dostupno":"Available soon","Dokumenti su dostupni i u štampanom obliku u sjedištu MKD u Banjoj Luci.":"The documents are also available in printed form at all our branches.",
 /* ---------- Mjerač kreditne sposobnosti (specifikacija 19.08.2026.) ---------- */
-"Raspoloživi prihod":"Available income","Postojeći DTI":"Current DTI","Maksimalno dozvoljeno opterećenje":"Maximum permitted burden","Maksimalna nova rata":"Maximum new instalment","Ukupno opterećenje nakon novog kredita":"Total burden after the new loan","maksimalni iznos kredita":"maximum loan amount","ocjena kreditne sposobnosti":"borrowing capacity rating","Odlična":"Excellent","Dobra":"Good","Ograničena":"Limited","Nedovoljna":"Insufficient","* Od primanja se oduzmu postojeće obaveze i zaštićeni iznos za život, a nova rata dodatno ne smije preći dozvoljeno opterećenje za tu visinu primanja — uzima se ono što je manje. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* Existing obligations and a protected living amount are deducted from income, and the new instalment must also not exceed the permitted burden for that income level — whichever is lower applies. The estimate is indicative; final capacity is determined by an advisor through individual analysis.","Uz ovakav odnos primanja i obaveza ne ostaje prostora za novu ratu. Javite se savjetniku — refinansiranje postojećih obaveza često oslobodi mjesečni budžet.":"With this ratio of income to obligations there is no room for a new instalment. Talk to an advisor — refinancing existing obligations often frees up the monthly budget.",
+"Raspoloživi prihod":"Available income","Postojeći DTI":"Current DTI","Maksimalno dozvoljeno opterećenje":"Maximum permitted burden","Maksimalna nova rata":"Maximum new instalment","Ukupno opterećenje nakon novog kredita":"Total burden after the new loan","maksimalni iznos kredita":"maximum loan amount","ocjena kreditne sposobnosti":"borrowing capacity rating","Odlična":"Excellent","Dobra":"Good","Ograničena":"Limited","Nedovoljna":"Insufficient","* Dozvoljeno mjesečno opterećenje računa se po tranšama primanja: prvih 1.000 KM po 50%, a sve preko 1.000 KM po 60%. Od tog iznosa se oduzmu postojeće mjesečne obaveze i dobija se maksimalna nova rata. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* The permitted monthly burden is calculated in income tranches: the first 1,000 KM at 50%, and everything above 1,000 KM at 60%. Existing monthly obligations are then deducted from that amount to give the maximum new instalment. The estimate is indicative; final capacity is determined by an advisor through individual analysis.","Uz ovakav odnos primanja i obaveza ne ostaje prostora za novu ratu. Javite se savjetniku — refinansiranje postojećih obaveza često oslobodi mjesečni budžet.":"With this ratio of income to obligations there is no room for a new instalment. Talk to an advisor — refinancing existing obligations often frees up the monthly budget.",
 "EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fees, so it differs for other combinations — check it in the calculator.","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka, grace perioda i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term, the grace period and the fees, so it differs for other combinations — check it in the calculator.",
 /* ---------- Pametni vodič: opisi preporučenog proizvoda (sve varijante) ---------- */
 "Kredit za obrtna sredstva i likvidnost poslovnog subjekta — zalihe, plate, zakup, porezi i refinansiranje obaveza. Iznos 2.000–50.000 KM, rok do 60 mjeseci, grace do 3 mjeseca.":"A loan for working capital and the liquidity of a business — stock, wages, rent, taxes and refinancing of obligations. Amount 2,000–50,000 KM, term up to 60 months, grace period up to 3 months.","Kredit za obrtna sredstva i likvidnost poslovnog subjekta — zalihe, plate, zakup, porezi i refinansiranje obaveza. Iznos 2.000–50.000 KM, rok do 60 mjeseci, grace do 3 mjeseca. Grace period do 3 mjeseca odgađa otplatu glavnice na početku.":"A loan for working capital and the liquidity of a business — stock, wages, rent, taxes and refinancing of obligations. Amount 2,000–50,000 KM, term up to 60 months, grace period up to 3 months. A grace period of up to 3 months defers repayment of the principal at the start.","Kredit za obrtna sredstva i likvidnost poslovnog subjekta — zalihe, plate, zakup, porezi i refinansiranje obaveza. Iznos 2.000–50.000 KM, rok do 60 mjeseci, grace do 3 mjeseca. Obrtna sredstva se obrađuju najbrže — potrebni su finansijski izvještaji i kartica prometa.":"A loan for working capital and the liquidity of a business — stock, wages, rent, taxes and refinancing of obligations. Amount 2,000–50,000 KM, term up to 60 months, grace period up to 3 months. Working capital loans are processed fastest — financial statements and a turnover statement are required.",
