@@ -176,9 +176,6 @@ button{font-family:inherit}
 .hstat-div{width:1px;background:rgba(255,255,255,.14);align-self:stretch}
 /* hero woman visual */
 .hero-visual{position:relative;height:100%;min-height:500px;display:flex;align-items:flex-end;justify-content:center}
-.woman-ring{position:absolute;bottom:0;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(61,107,255,.4),rgba(10,35,99,.1) 60%,transparent 72%);animation:float 11s ease-in-out infinite}
-.woman-ring::before{content:'';position:absolute;inset:-30px;border-radius:50%;border:1px dashed rgba(110,148,255,.35);animation:spin 26s linear infinite}
-.woman-ring::after{content:'';position:absolute;inset:24px;border-radius:50%;border:1px solid rgba(110,148,255,.22);animation:spin 18s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 .woman{position:relative;z-index:3;height:520px;width:auto;object-fit:contain;object-position:bottom;
   -webkit-mask-image:radial-gradient(ellipse 82% 94% at 50% 40%,#000 60%,transparent 92%),linear-gradient(to top,#000 4%,transparent 36%);
@@ -473,6 +470,16 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .psec b{font-family:'Sora';font-weight:800;color:var(--navy);transition:var(--t)}
 .pcard:hover .psec{color:rgba(255,255,255,.62);border-top-color:rgba(255,255,255,.18)}
 .pcard:hover .psec b{color:#fff}
+.psec.psec-pol{margin-top:9px!important;padding-top:0;border-top:0}
+.lm-sec-t.mt{margin-top:16px}
+.lm-sec-lbl{font-family:'Sora';font-size:11.5px!important;font-weight:800;color:var(--navy);margin-top:12px;margin-bottom:4px}
+.lm-sec-lbl:first-of-type{margin-top:2px}
+.lm-sec-ul{margin:0;padding-left:17px;list-style:disc}
+.lm-sec-ul li{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:4px}
+.lm-sec-ul li::marker{color:var(--accent)}
+.is-ul{margin:0;padding-left:15px;list-style:disc}
+.is-ul li{margin-bottom:3px}
+.lm-sec-n{font-size:11.5px!important;color:var(--muted);line-height:1.65;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);opacity:.9}
 .prep{font-size:11.5px!important;color:var(--muted);line-height:1.55;margin:10px 0 0!important;min-height:0!important;transition:var(--t)}
 .pcard:hover .prep{color:rgba(255,255,255,.62)}
 /* lanac NKS → naknada → EKS u kalkulatoru */
@@ -480,6 +487,14 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .cline.chain:first-of-type{margin-top:6px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px}
 .cline.eks span:first-child{color:rgba(255,255,255,.85);font-weight:700}
 .cline.eks span:last-child{color:var(--accent-2);font-size:18px}
+.camt{display:inline-flex;align-items:center;gap:6px;background:var(--ice);border:1.5px solid var(--line);border-radius:10px;padding:3px 10px;transition:var(--t);vertical-align:middle}
+.camt:focus-within{border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px rgba(61,107,255,.12)}
+.camt.err{border-color:#e0483f;background:rgba(224,72,63,.05)}
+.camt input[type=number]{width:88px;background:transparent;border:0;outline:none;color:var(--navy);font-family:'Sora';font-size:15px;font-weight:800;text-align:right;padding:0;-moz-appearance:textfield}
+.camt input[type=number]:focus{background:transparent;border:0;box-shadow:none}
+.camt input[type=number]::-webkit-outer-spin-button,.camt input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.camt b{font-family:'Sora';font-size:12px;font-weight:700;color:var(--muted)}
+.camt-hint{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.5}
 .calc-eksnote{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.55;margin:12px 0 4px;position:relative}
 /* === FAQ === */
 .faq-sec{background:var(--ice)}
@@ -644,7 +659,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .hero-channels{top:124px;justify-content:space-evenly}
   .hero-sub{margin-left:auto;margin-right:auto}
   .hero-visual{height:auto;min-height:0;order:-1;max-width:min(430px,calc(100vw - 36px));margin:0 auto;padding-top:6px}
-  .woman{height:380px}.woman-ring{width:290px;height:290px;bottom:0}
+  .woman{height:380px}
   .chip{display:flex;padding:7px 10px;gap:8px;backdrop-filter:blur(10px)}
   .chip .ci{width:27px;height:27px;border-radius:8px}
   .chip b{font-size:11.5px}.chip small{font-size:9px}
@@ -696,7 +711,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .hero-in{padding:12px 0}
   .hero-grid2{gap:10px}
   .hero-visual{min-height:0;padding-top:0}
-  .woman{height:326px}.woman-ring{width:250px;height:250px}
+  .woman{height:326px}
   .hero-text{padding-bottom:20px}
   .hero-eye{font-size:10px;letter-spacing:1.5px;padding:6px 12px;margin-bottom:16px}
   .hero-h1{margin-bottom:14px}
@@ -905,7 +920,6 @@ function tryImg(el){
         </div>
       </div>
       <div class="hero-visual">
-        <div class="woman-ring"></div>
         <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ZE.PNG" -->
         <!-- PLACEHOLDER foto (Unsplash) — zamijeni src sa "ze.png" -->
         <img class="woman" src="ze7.png" data-alts="ze.png|ZE.PNG|ZE.png" alt="Bilans Plus Kredit savjetnica" onerror="tryImg(this)"/>
@@ -913,7 +927,7 @@ function tryImg(el){
         <div class="woman-signature sig-mobile">
           <span class="sig-name">Dajana Mizdrak</span>
           <span class="sig-label">Zaštitno lice</span>
-          <span class="sig-role">MKD Bilans Plus Kredit</span>
+          <span class="sig-role">MKD Bilans plus kredit</span>
         </div>
       </div>
     </div>
@@ -921,7 +935,7 @@ function tryImg(el){
   <div class="woman-signature sig-desktop">
     <span class="sig-name">Dajana Mizdrak</span>
     <span class="sig-label">Zaštitno lice</span>
-    <span class="sig-role">MKD Bilans Plus Kredit</span>
+    <span class="sig-role">MKD Bilans plus kredit</span>
   </div>
   <div class="ticker">
     <div class="ticker-tr" id="tickerTrack"></div>
@@ -1236,8 +1250,15 @@ function tryImg(el){
             <select id="calcProd"></select>
           </div>
           <div class="cgroup">
-            <label>Iznos kredita <span id="calcAmtL">3.000 KM</span></label>
+            <label>Iznos kredita
+              <span class="camt" id="calcAmtBox">
+                <input type="number" id="calcAmtN" inputmode="numeric" aria-label="Iznos kredita u KM — upišite željeni iznos"/>
+                <b>KM</b>
+              </span>
+              <span id="calcAmtL" class="sr-only">3.000 KM</span>
+            </label>
             <input type="range" id="calcAmt" min="500" max="7000" step="100" value="3000"/>
+            <div class="camt-hint">Klizač ili upišite iznos: <span id="calcAmtHint"></span></div>
           </div>
           <div class="cgroup">
             <label>Rok otplate <span id="calcTermL">12 mjeseci</span></label>
@@ -1274,6 +1295,7 @@ function tryImg(el){
             <div class="cline chain eks"><span>Efektivna kamatna stopa (EKS)</span><span id="calcEks">34,02 %</span></div>
           </div>
           <p class="calc-eksnote" id="calcFeeWarn" style="display:none;color:#ffcf7a"><strong>Zašto je EKS ovako visoka?</strong> <span id="calcFeeWarnT"></span></p>
+          <p class="calc-eksnote" id="calcKatNote" style="display:none">Ovo je reprezentativni primjer iz zvaničnog kataloga MKD Bilans Plus Kredit — prikazan je tačno onako kako stoji u katalogu.</p>
           <p class="calc-eksnote">EKS je stvarno preračunata za izabrani iznos, rok, grace period i naknade — zato se mijenja kad pomjerite klizače.</p>
           <button class="calc-apply" onclick="go('zahtjev')">Podnesi zahtjev sa ovim iznosom
             <svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1593,20 +1615,24 @@ const VALUTA_KRATKO = 'KM, val. klauzula EUR';           /* kratak oblik za usku
      mjenica  — trošak mjenice, 5 KM na svim proizvodima
      gmax     — najduži grace period u mjesecima (0 = proizvod nema grace)
      repA/repN/repG — reprezentativni primjer iz kataloga (iznos, rok, grace)
+     secOb    — red „Obavezni instrumenti" iz kataloga
+     secOp    — red „Opcioni instrumenti" iz kataloga, jedna stavka po redu
+     secK     — kratak sažetak obezbjeđenja za karticu proizvoda
+     polisa   — red „Polise osiguranja" iz kataloga, doslovno po proizvodu
    ================================================================================ */
 const MJENICA = 5;                       /* trošak mjenice — isti na svim proizvodima */
 const products = [
   // ——— FIZIČKA LICA ———
-  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS',desc:'Nenamjenski gotovinski kredit za lične potrebe, bez navođenja namjene.',amount:'do 7.000 KM',term:'do 18 mjeseci',nks:'25,99%',eksKat:'34,02%',amin:500,amax:7000,tmax:18,rate:25.99,fee:1.50,feeMin:50,repA:3000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',sec:'Mjenica (obavezno); sudužnik i administrativna zabrana opciono, prema procjeni kreditne sposobnosti'},
-  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS MAX',desc:'Nenamjenski gotovinski kredit za veće iznose, bez navođenja namjene.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'25,99%',eksKat:'34,72%',amin:1000,amax:30000,tmax:84,rate:25.99,fee:1.50,feeMin:100,feeMax:300,repA:5000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',sec:'Mjenica (obavezno); sudužnik, administrativna zabrana i dodatni kolateral (zalog/hipoteka) prema procjeni rizika; moguća polisa osiguranja otplate'},
-  {tip:'fizicka',ic:ic.car,img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80',name:'Siguran put PLUS',desc:'Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa.',amount:'300 – 3.000 KM',term:'do 12 mjeseci',nks:'24,99%',eksKat:'32,70%',amin:300,amax:3000,tmax:12,rate:24.99,feeFlat:50,repA:3000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',sec:'Mjenica (obavezno); sudužnik i administrativna zabrana opciono, prema procjeni kreditne sposobnosti'},
-  {tip:'fizicka',ic:ic.home,img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',name:'DOM PLUS',desc:'Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD.',amount:'300 – 10.000 KM',term:'do 36 mjeseci',nks:'21,99%',eksKat:'33,15%',amin:300,amax:10000,tmax:36,rate:21.99,fee:1.50,feeMin:30,repA:1000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',sec:'Mjenica (obavezno); sudužnik prema procjeni kreditne sposobnosti. Sredstva se isplaćuju direktno ugovornom partneru MKD.'},
-  {tip:'fizicka',ic:ic.health,img:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',name:'Ljepota i zdravlje',desc:'Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD.',amount:'do 30.000 KM',term:'do 12 mjeseci',nks:'21,99%',eksKat:'29,51%',amin:500,amax:30000,tmax:12,rate:21.99,fee:2.00,feeMin:100,feeMax:300,repA:5000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'do 10.000 KM bez učešća; od 10.001 KM učešće 10%',sec:'Mjenica (obavezno); sudužnik i administrativna zabrana prema procjeni rizika. Polisa osiguranja: do 5.000 KM nije obavezna, preko 5.001 KM opciono.'},
-  {tip:'fizicka',ic:ic.pension,img:'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',name:'Treća mladost',desc:'Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'22,99%',eksKat:'29,52%',amin:1000,amax:30000,tmax:84,rate:22.99,fee:1.50,feeMin:50,feeMax:300,repA:5000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',sec:'Mjenica (obavezno); sudužnik i administrativna zabrana na penziju prema procjeni rizika. Polisa osiguranja otplate: do 55 godina nije obavezna, 56–65 obavezna, preko 65 obavezna uz kreditno sposobnog sudužnika.'},
-  {tip:'fizicka',ic:ic.school,img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80',name:'Đak Prvak PLUS',desc:'Finansiranje školskog pribora, udžbenika, odjeće i obuće za polazak u školu.',amount:'500 – 2.000 KM',term:'do 24 mjeseca',nks:'19,99%',eksKat:'28,60%',amin:500,amax:2000,tmax:24,rate:19.99,feeFlat:50,repA:2000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',sec:'Mjenica (obavezno); sudužnik i administrativna zabrana opciono, prema procjeni kreditne sposobnosti'},
+  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS',desc:'Nenamjenski gotovinski kredit za lične potrebe, bez navođenja namjene.',amount:'do 7.000 KM',term:'do 18 mjeseci',nks:'25,99%',eksKat:'34,02%',amin:500,amax:7000,tmax:18,rate:25.99,fee:1.50,feeMin:50,repA:3000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sadužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sadužnik i administrativna zabrana',polisa:'MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, rizika korisnika i internim procedurama.',polisaK:'može se zahtijevati, prema procjeni rizika',repKat:{proc:50,fee:55,rata:286.58,gracePay:0,nAnn:12,interest:438.91,total:3493.91,eks:34.02}},
+  {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS MAX',desc:'Nenamjenski gotovinski kredit za veće iznose, bez navođenja namjene.',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'25,99%',eksKat:'34,72%',amin:1000,amax:30000,tmax:84,rate:25.99,fee:1.50,feeMin:100,feeMax:300,repA:5000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sadužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Dodatni kolateral (zalog / hipoteka) – u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sadužnik, administrativna zabrana i dodatni kolateral',polisa:'Polisa osiguranja otplate kredita – u skladu sa procjenom kreditne sposobnosti i rizika korisnika.',polisaK:'osiguranje otplate kredita, prema procjeni rizika',repKat:{proc:100,fee:105,rata:477.63,gracePay:0,nAnn:12,interest:731.52,total:5836.52,eks:34.72}},
+  {tip:'fizicka',ic:ic.car,img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80',name:'Siguran put PLUS',desc:'Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa.',amount:'300 – 3.000 KM',term:'do 12 mjeseci',nks:'24,99%',eksKat:'32,70%',amin:300,amax:3000,tmax:12,rate:24.99,feeFlat:50,repA:3000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sadužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sadužnik i administrativna zabrana',polisa:'MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, rizika korisnika i internim procedurama.',polisaK:'može se zahtijevati, prema procjeni rizika',repKat:{proc:50,fee:55,rata:285.12,gracePay:0,nAnn:12,interest:421.42,total:3476.42,eks:32.7}},
+  {tip:'fizicka',ic:ic.home,img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',name:'DOM PLUS',desc:'Finansiranje dobara i usluga "Kupuj odmah" - DOM PLUS',amount:'300 – 10.000 KM',term:'do 36 mjeseci',nks:'21,99%',eksKat:'33,15%',amin:300,amax:10000,tmax:36,rate:21.99,fee:1.50,feeMin:30,repA:1000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sadužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sadužnik',polisa:'Opciono – u skladu sa procjenom kreditne sposobnosti i rizika korisnika.',polisaK:'opciono, prema procjeni rizika',repKat:{proc:30,fee:35,rata:93.59,gracePay:0,nAnn:12,interest:123.07,total:1158.07,eks:33.15}},
+  {tip:'fizicka',ic:ic.health,img:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',name:'Ljepota i zdravlje',desc:'Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD.',amount:'do 30.000 KM',term:'do 12 mjeseci',nks:'21,99%',eksKat:'29,51%',amin:500,amax:30000,tmax:12,rate:21.99,fee:2.00,feeMin:100,feeMax:300,repA:5000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'do 10.000 KM bez učešća; od 10.001 KM učešće 10%',secOb:'Mjenica (obavezno)',secOp:['Sudužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sudužnik i administrativna zabrana',polisa:'Do 5.000 KM – nije obavezno. Preko 5.001 KM – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika.',polisaK:'do 5.000 KM nije obavezna; preko 5.001 KM opciono',repKat:{proc:100,fee:105,rata:467.95,gracePay:0,nAnn:12,interest:615.37,total:5720.37,eks:29.51}},
+  {tip:'fizicka',ic:ic.pension,img:'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',name:'Treća mladost',desc:'Nenamjenski kredit za penzionere',amount:'do 30.000 KM',term:'do 84 mjeseca',nks:'22,99%',eksKat:'29,52%',amin:1000,amax:30000,tmax:84,rate:22.99,fee:1.50,feeMin:50,feeMax:300,repA:5000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sudužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sudužnik i administrativna zabrana',polisa:'Do 55 godina – nije obavezno. Od 56 do 65 godina – obavezna polisa osiguranja otplate kredita. Preko 65 godina – obavezna polisa osiguranja i kreditno sposoban sudužnik.',polisaK:'do 55 g. nije obavezna; 56–65 obavezna; preko 65 obavezna uz sudužnika',repKat:{proc:75,fee:80,rata:470.36,gracePay:0,nAnn:12,interest:644.29,total:5724.29,eks:29.52}},
+  {tip:'fizicka',ic:ic.school,img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80',name:'Đak Prvak PLUS',desc:'Finansiranje školskog pribora, udžbenika, odjeće, obuće i ostalih osnovnih potreba djeteta za polazak u školu',amount:'500 – 2.000 KM',term:'do 24 mjeseca',nks:'19,99%',eksKat:'28,60%',amin:500,amax:2000,tmax:24,rate:19.99,feeFlat:50,repA:2000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sudužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sudužnik i administrativna zabrana',polisa:'MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, rizika korisnika i internim procedurama.',polisaK:'može se zahtijevati, prema procjeni rizika',repKat:{proc:50,fee:55,rata:185.26,gracePay:0,nAnn:12,interest:223.12,total:2278.12,eks:28.6}},
   // ——— PRAVNA LICA ———
-  {tip:'pravna',ic:ic.biz,img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80',name:'Biznis Keš PLUS',desc:'Obrtna sredstva i likvidnost — zalihe, plate, zakup, porezi i refinansiranje obaveza.',amount:'2.000 – 50.000 KM',term:'do 60 mjeseci',grace:'do 3 mjeseca',nks:'24,99%',eksKat:'29,48%',amin:2000,amax:50000,tmax:60,rate:24.99,fee:2.00,feeMin:100,feeMax:1000,repA:10000,repN:24,repG:3,gmax:3,ucesce:'nije obavezno',sec:'Mjenice poslovnog subjekta i jemstvo/sadužništvo vlasnika (obavezno); dodatni jemac, zalog na vozilu ili pokretnoj imovini opciono. Hipoteka I reda obavezna za plasmane preko 30.000 KM i/ili rokove preko 36 mjeseci.'},
-  {tip:'pravna',ic:ic.invest,img:'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&q=80',name:'Invest PLUS',desc:'Investicioni kredit — mašine, oprema, vozila, IT i opremanje poslovnog prostora.',amount:'10.000 – 50.000 KM',term:'do 84 mjeseca',grace:'do 9 mjeseci',nks:'21,99%',eksKat:'24,15%',amin:10000,amax:50000,tmax:84,rate:21.99,fee:2.00,feeMax:1000,repA:20000,repN:60,repG:9,gmax:9,ucesce:'u skladu sa procjenom investicije',sec:'Mjenice poslovnog subjekta i jemstvo/sadužništvo vlasnika (obavezno); dodatni jemac, zalog na vozilima, opremi i pokretnoj imovini opciono. Hipoteka I reda za veće iznose i/ili povećan rizik.'}
+  {tip:'pravna',ic:ic.biz,img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80',name:'Biznis Keš PLUS',desc:'Obrtna sredstva i likvidnost — zalihe, plate, zakup, porezi i refinansiranje obaveza.',amount:'2.000 – 50.000 KM',term:'do 60 mjeseci',grace:'do 3 mjeseca',nks:'24,99%',eksKat:'29,48%',amin:2000,amax:50000,tmax:60,rate:24.99,fee:2.00,feeMin:100,feeMax:1000,repA:10000,repN:24,repG:3,gmax:3,ucesce:'nije obavezno',secOb:'Mjenice poslovnog subjekta (obavezno)',secOp:['Jemstvo/sadužništvo vlasnika (obavezno)','Dodatni jemac/sadužnik (u skladu sa procjenom kreditne sposobnosti i rizika)','Zalog na vozilu ili pokretnoj imovini (opciono)','Hipoteka I reda (obavezna za plasmane preko 30.000 KM i/ili rokove preko 36 mjeseci, u skladu sa procjenom rizika)'],secK:'mjenice poslovnog subjekta i jemstvo vlasnika obavezno; zalog i hipoteka I reda prema procjeni rizika',polisa:'MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, djelatnosti i rizika klijenta.',polisaK:'može se zahtijevati, prema djelatnosti i procjeni rizika',repKat:{proc:200,fee:205,rata:594.4,gracePay:208.25,nAnn:21,interest:3107.15,total:13312.15,eks:29.48}},
+  {tip:'pravna',ic:ic.invest,img:'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&q=80',name:'Invest PLUS',desc:'Finansiranje kupovine mašina, alata, vozila, IT opreme, adaptacije i opremanja poslovnog prostora, energijske efikasnosti, ulaganja u osnovna sredstva, modernizacije poslovanja i refinansiranja investicionih ulaganja.',amount:'10.000 – 50.000 KM',term:'do 84 mjeseca',grace:'do 9 mjeseci',nks:'21,99%',eksKat:'24,15%',amin:10000,amax:50000,tmax:84,rate:21.99,fee:2.00,feeMax:1000,repA:20000,repN:60,repG:9,gmax:9,ucesce:'u skladu sa procjenom investicije',secOb:'Mjenice poslovnog subjekta (obavezno)',secOp:['Jemstvo/sadužništvo vlasnika (obavezno)','Dodatni jemac/sadužnik (u skladu sa procjenom kreditne sposobnosti i rizika)','Zalog na vozilima, opremi i pokretnoj imovini (opciono)','Hipoteka I reda (za veće iznose i/ili procjenu rizika)'],secK:'mjenice poslovnog subjekta i jemstvo vlasnika obavezno; zalog i hipoteka I reda prema procjeni rizika',polisa:'MKD zadržava pravo zahtijevanja polise osiguranja imovine i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, investicije, kolaterala i rizika klijenta.',polisaK:'osiguranje imovine, prema procjeni rizika i kolateralu',repKat:{proc:400,fee:405,rata:605.8,gracePay:366.5,nAnn:51,interest:14194.3,total:34599.3,eks:24.15}}
 ];
 /* ================================================================================
    OBRAČUN RATE I EKS — jedan motor za cijeli sajt
@@ -1668,10 +1694,19 @@ function eksCalc(P,nksPct,n,feeAmt,g){
 }
 /* reprezentativni primjer iz kataloga — koristi se na kartici, u modalu i info listu */
 function repExample(p){
-  const P=p.repA, n=p.repN, g=p.repG||0, fee=feeOf(p,P), s=schedule(P,p.rate,n,g);
+  const P=p.repA, n=p.repN, g=p.repG||0;
+  /* Reprezentativni primjer se PREPISUJE iz kataloga (polje repKat), ne racuna.
+     Katalog je zvanicni dokument MKD-a i brojevi na sajtu moraju biti identicni
+     njegovim. Kalkulator i dalje racuna zivo za proizvoljne iznose i rokove. */
+  if(p.repKat){
+    const k=p.repKat;
+    return {amt:P,term:n,grace:g,rata:k.rata,gracePay:k.gracePay,nAnn:k.nAnn,
+            fee:k.fee,proc:k.proc,interest:k.interest,total:k.total,eks:k.eks,kat:true};
+  }
+  const fee=feeOf(p,P), s=schedule(P,p.rate,n,g);
   return {amt:P,term:n,grace:g,rata:s.annuity,gracePay:s.gracePay,nAnn:s.nAnn,
           fee:fee,proc:processingFee(p,P),interest:s.totalPaid-P,
-          total:s.totalPaid+fee,eks:eksCalc(P,p.rate,n,fee,g)};
+          total:s.totalPaid+fee,eks:eksCalc(P,p.rate,n,fee,g),kat:false};
 }
 const pct=v=>v.toFixed(2).replace('.',',')+'%';
 /* slaganje broja i imenice: 21 mjesec, 24 mjeseca, 25 mjeseci */
@@ -1740,7 +1775,8 @@ function prodCardHTML(p){
       <div><span>Grace period</span><b>${p.grace}</b></div>
       <div><span>Valuta</span><b>${VALUTA_KRATKO}</b></div>
     </div>
-    <p class="psec"><b>Obezbjeđenje:</b> ${p.sec}</p>
+    <p class="psec"><b>Obezbjeđenje:</b> ${p.secK}</p>
+    <p class="psec psec-pol"><b>Polisa osiguranja:</b> ${p.polisaK}</p>
     <p class="prep">${repSentence(p)}</p>
     <span class="pcard-more">Detalji, obezbjeđenje i EKS
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1826,7 +1862,13 @@ function openLoan(i){
     </div>
     <div class="lm-sec">
       <div class="lm-sec-t">Obezbjeđenje kredita</div>
-      <p>${p.sec}</p>
+      <p class="lm-sec-lbl">Obavezni instrumenti</p>
+      <p>${p.secOb}</p>
+      <p class="lm-sec-lbl">Opcioni instrumenti</p>
+      <ul class="lm-sec-ul">${p.secOp.map(function(x){return '<li>'+x+'</li>';}).join('')}</ul>
+      <div class="lm-sec-t mt">Polisa osiguranja</div>
+      <p>${p.polisa}</p>
+      <p class="lm-sec-n">Kada je polisa osiguranja obavezna, premiju plaća korisnik prema važećoj tarifi izabrane osiguravajuće kuće. Trošak premije nije uključen u prikazanu EKS.</p>
     </div>
     <div class="lm-rep">
       <p>${repSentence(p)}</p>
@@ -1875,7 +1917,10 @@ function infoSheetHTML(p){
         <tr class="hi"><th>Efektivna kamatna stopa (EKS)</th><td>${pct(r.eks)} — za reprezentativni primjer ispod</td></tr>
         ${row('Grace period',p.grace)}
         ${row('Učešće',p.ucesce)}
-        ${row('Obezbjeđenje kredita',p.sec)}
+        ${row('Obavezni instrumenti',p.secOb)}
+        ${row('Opcioni instrumenti','<ul class="is-ul">'+p.secOp.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>')}
+        ${row('Polisa osiguranja',p.polisa)}
+        ${row('Trošak premije osiguranja','snosi korisnik prema važećoj tarifi izabrane osiguravajuće kuće, ako je polisa obavezan instrument obezbjeđenja; nije uključen u prikazanu EKS')}
         ${row('Otplata','jednaki mjesečni anuiteti')}
         ${row('Prijevremena otplata','naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit')}
         ${row('Pravo na odustanak','14 dana od dana zaključenja ugovora, bez navođenja razloga')}
@@ -2239,12 +2284,15 @@ function setCalcProduct(i){
   const a=document.getElementById('calcAmt'), t=document.getElementById('calcTerm');
   const g=document.getElementById('calcGrace'), gg=document.getElementById('calcGraceGroup');
   a.min=p.amin; a.max=p.amax; a.step=p.amax>10000?500:100;
-  if(+a.value<p.amin||+a.value>p.amax) a.value=Math.round(((p.amin+p.amax)/2)/100)*100;
-  t.min=3; t.max=p.tmax; if(+t.value>p.tmax) t.value=Math.min(12,p.tmax);
+  t.min=3; t.max=p.tmax;
   /* grace klizač postoji samo kod proizvoda koji grace uopšte nude */
   const gmax=p.gmax||0;
   gg.style.display=gmax>0?'':'none';
-  g.max=gmax; if(+g.value>gmax) g.value=0;
+  g.max=gmax;
+  /* Izbor proizvoda vodi na njegov REPREZENTATIVNI PRIMJER iz kataloga —
+     tako korisnik odmah vidi iste brojeve koje ima i u zvaničnom katalogu,
+     a odatle pomjera klizače ili upisuje svoj iznos. */
+  a.value=p.repA; t.value=p.repN; g.value=p.repG||0;
   calcUpdate();
 }
 calcProdSel.addEventListener('change',()=>setCalcProduct(+calcProdSel.value));
@@ -2259,6 +2307,10 @@ function calcUpdate(){
   const grace=(p.gmax>0)?+gEl.value:0;
   const rate=p.rate;
   document.getElementById('calcAmtL').textContent=fmt(amt)+' KM';
+  const amtN=document.getElementById('calcAmtN');
+  if(document.activeElement!==amtN) amtN.value=amt;
+  amtN.min=p.amin; amtN.max=p.amax; amtN.step=+document.getElementById('calcAmt').step;
+  document.getElementById('calcAmtHint').textContent=fmt(p.amin)+' – '+fmt(p.amax)+' KM';
   document.getElementById('calcTermL').textContent=nMjeseci(term);
   document.getElementById('calcGraceL').textContent=nMjeseci(grace);
   document.getElementById('calcRateL').textContent=p.nks;
@@ -2270,17 +2322,25 @@ function calcUpdate(){
   const s=schedule(amt,rate,term,grace);
   const proc=processingFee(p,amt);
   const fee=feeOf(p,amt);                       /* obrada + mjenica */
-  const interest=s.totalPaid-amt;
-  const total=s.totalPaid+fee;                  /* ukupan trošak = rate + naknade */
-  const eks=eksCalc(amt,rate,term,fee,grace);   /* stvarni izračun, ne katalog */
+  /* Na TACNOJ tacki reprezentativnog primjera kalkulator prikazuje kataloske
+     brojeve, da se sajt ne razilazi sa zvanicnim dokumentom MKD-a. Cim se
+     pomjeri bilo koji klizac, racuna se zivo. */
+  const naKat = !!p.repKat && amt===p.repA && term===p.repN && grace===(p.repG||0);
+  const k = naKat ? p.repKat : null;
+  const rata     = k ? k.rata     : s.annuity;
+  const gracePay = k ? k.gracePay : s.gracePay;
+  const nAnn     = k ? k.nAnn     : s.nAnn;
+  const interest = k ? k.interest : s.totalPaid-amt;
+  const total    = k ? k.total    : s.totalPaid+fee;
+  const eks      = k ? k.eks      : eksCalc(amt,rate,term,fee,grace);
 
-  document.getElementById('calcMonthly').innerHTML=fmt2(s.annuity)+' <small>KM</small>';
+  document.getElementById('calcMonthly').innerHTML=fmt2(rata)+' <small>KM</small>';
   document.getElementById('calcSubline').textContent=grace>0
-    ? nAnuiteta(s.nAnn)+' nakon '+nMjeseci(grace)+' grace perioda · '+p.name
+    ? nAnuiteta(nAnn)+' nakon '+nMjeseci(grace)+' grace perioda · '+p.name
     : term+' rata · '+p.name;
   const gl=document.getElementById('calcGraceLine');
   gl.style.display=grace>0?'':'none';
-  document.getElementById('calcGracePay').textContent=fmt2(s.gracePay)+' KM × '+grace;
+  document.getElementById('calcGracePay').textContent=fmt2(gracePay)+' KM × '+grace;
   document.getElementById('calcPrincipal').textContent=fmt2(amt)+' KM';
   document.getElementById('calcInterest').textContent=fmt2(interest)+' KM';
   document.getElementById('calcTotal').textContent=fmt2(total)+' KM';
@@ -2292,6 +2352,8 @@ function calcUpdate(){
     : 'bez naknade';
   document.getElementById('calcMjenica').textContent=fmt2(MJENICA)+' KM';
   document.getElementById('calcEks').textContent=pct(eks);
+  const kn=document.getElementById('calcKatNote');
+  if(kn) kn.style.display=naKat?'':'none';
   /* Kod malih iznosa i kratkih rokova jednokratni troškovi (minimalna ili fiksna
      naknada + mjenica) čine veliki udio glavnice, pa EKS matematički skače.
      Broj je tačan, ali korisniku bez objašnjenja djeluje kao greška. */
@@ -2310,13 +2372,33 @@ function calcUpdate(){
     parts.push(bal);
     for(let m=0;m<stepM;m++){
       const month=Math.round(i*stepM+m)+1;
-      bal = month<=grace ? bal : bal*(1+mr)-s.annuity;
+      bal = month<=grace ? bal : bal*(1+mr)-rata;
     }
   }
   const mx=Math.max(...parts);
   ch.innerHTML=parts.map(v=>`<div class="bar" style="height:${Math.max(5,(Math.max(0,v)/mx)*100)}%"></div>`).join('');
 }
 ['calcAmt','calcTerm','calcGrace'].forEach(id=>document.getElementById(id).addEventListener('input',calcUpdate));
+/* Upisivanje iznosa rukom — klizač i polje su uvijek isti broj.
+   Dok korisnik kuca ne diramo mu vrijednost; van opsega se odbija tek na
+   blur/Enter, da se ne bi ispravljalo usred kucanja. */
+(function(){
+  const n=document.getElementById('calcAmtN'), r=document.getElementById('calcAmt'), box=document.getElementById('calcAmtBox');
+  function primijeni(zaokruzi){
+    const p=products[calcIdx]; let v=parseFloat(String(n.value).replace(/[^0-9.,-]/g,'').replace(',','.'));
+    if(!isFinite(v)){ box.classList.add('err'); return; }
+    const van = v<p.amin || v>p.amax;
+    v=Math.min(p.amax,Math.max(p.amin,v));
+    if(zaokruzi){ const st=+r.step||1; v=Math.round(v/st)*st; v=Math.min(p.amax,Math.max(p.amin,v)); n.value=v; }
+    box.classList.toggle('err', van && !zaokruzi);
+    if(zaokruzi) box.classList.remove('err');
+    r.value=v; calcUpdate();
+  }
+  n.addEventListener('input',function(){primijeni(false);});
+  n.addEventListener('change',function(){primijeni(true);});
+  n.addEventListener('blur',function(){primijeni(true);});
+  n.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();primijeni(true);n.blur();} });
+})();
 setCalcProduct(0);
 /* ================================================================================
    MJERAČ KREDITNE SPOSOBNOSTI — progresivni (tranšni) obračun
@@ -2623,7 +2705,7 @@ if(burgerEl)burgerEl.addEventListener('click',function(){
 });
 /* ---------- dekorativni elementi — sakrij od čitača ekrana ---------- */
 document.querySelectorAll('svg').forEach(function(s){s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');});
-['.ticker','.particles','#heroChannels','.orb','.hero-bg','.woman-ring','.quiz-prog','.calc-chart','.faq-q .pl','.av-stack'].forEach(function(sel){
+['.ticker','.particles','#heroChannels','.orb','.hero-bg','.quiz-prog','.calc-chart','.faq-q .pl','.av-stack'].forEach(function(sel){
   document.querySelectorAll(sel).forEach(function(el){el.setAttribute('aria-hidden','true');});
 });
 /* ---------- logo / brand kao link dostupan tastaturi ---------- */
@@ -2842,8 +2924,26 @@ var DICT={
 "Nenamjenski gotovinski kredit za lične potrebe, bez obaveze navođenja namjene. Iznos do 7.000 KM, rok do 18 mjeseci.":"A non-purpose cash loan for personal needs, with no obligation to state the purpose. Amount up to 7,000 KM, term up to 18 months.","Nenamjenski gotovinski kredit za veće iznose — do 30.000 KM, rok do 84 mjeseca.":"A non-purpose cash loan for larger amounts — up to 30,000 KM, term up to 84 months.","Nenamjenski gotovinski kredit uz administrativnu zabranu na platu kao instrument obezbjeđenja. Iznos do 30.000 KM, rok do 84 mjeseca.":"A non-purpose cash loan secured by an administrative garnishment on your salary. Amount up to 30,000 KM, term up to 84 months.","Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju. Iznos do 30.000 KM, rok do 84 mjeseca.":"A non-purpose loan for pensioners, with the option of an administrative garnishment on the pension. Amount up to 30,000 KM, term up to 84 months.","Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa. Iznos 300–3.000 KM.":"Financing for vehicle registration, insurance, the technical inspection, tyres and a minor service. Amount 300–3,000 KM.","Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD. Iznos 300–10.000 KM.":"Buy now — financing for goods and services at the lender's contracted partners. Amount 300–10,000 KM.","Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD. Iznos do 30.000 KM.":"Financing for medical and cosmetic services at the lender's contracted partners. Amount up to 30,000 KM.","Za školski pribor, udžbenike, odjeću i obuću za polazak u školu. Iznos 500–2.000 KM, najniža kamata 19,99%.":"For school supplies, textbooks, clothing and footwear for starting school. Amount 500–2,000 KM, our lowest interest rate at 19.99%.",
 /* ---------- Informacioni list: redovi koji ranije nisu bili prevedeni ---------- */
 "Korisnik kredita":"Borrower","Fizička lica":"Individuals","Pravna lica i preduzetnici":"Businesses and entrepreneurs","Način obračuna kamate":"Interest calculation method","proporcionalni metod, dekurzivno, mjesečno, 360 dana":"proportional method, in arrears, monthly, 360 days","Ostale naknade":"Other fees","prema važećem Cjenovniku usluga MKD":"in accordance with the lender's applicable price list of services","Otplata":"Repayment","jednaki mjesečni anuiteti":"equal monthly instalments","Prijevremena otplata":"Early repayment","naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit":"a fee of 0.5% on the remaining principal; no fee when refinancing with funds from MKD Bilans Plus Kredit","Pravo na odustanak":"Right of withdrawal","14 dana od dana zaključenja ugovora, bez navođenja razloga":"14 days from the date the contract is concluded, with no reason required","Ovaj informacioni list je informativnog karaktera i ne predstavlja obavezujuću kreditnu ponudu. Konačni uslovi utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu. MKD Bilans Plus Kredit, Banja Luka — licencirano od Agencije za bankarstvo Republike Srpske.":"This information sheet is for information purposes only and does not constitute a binding loan offer. Final terms are determined through individual assessment of the application and are stated in the loan contract. MKD Bilans Plus Kredit, Banja Luka — licensed by the Banking Agency of Republika Srpska.","bez grace perioda":"no grace period","MKD Bilans Plus Kredit · Informacioni list":"MKD Bilans Plus Kredit · Information sheet",
+/* ---------- Nedostajali u rječniku (nadjeno reviziojm 25.08.2026.) ---------- */
+"Klizač ili upišite iznos:":"Use the slider or type an amount:","Ovo je reprezentativni primjer iz zvaničnog kataloga MKD Bilans Plus Kredit — prikazan je tačno onako kako stoji u katalogu.":"This is the representative example from the official catalogue of MKD Bilans Plus Kredit — it is shown exactly as it appears there.",
+"MKD Bilans plus kredit":"MKD Bilans plus kredit",
+"Štampaj / Sačuvaj kao PDF":"Print / Save as PDF",
+"Vaša sposobnost prelazi najveći iznos u našoj ponudi — prikazan je maksimum od 50.000 KM.":"Your capacity exceeds the largest amount we offer — the maximum of 50,000 KM is shown.","Gotovinski kredit":"Cash loan",
+/* ---------- Opisi proizvoda izmijenjeni 25.08.2026. ---------- */
+"Finansiranje dobara i usluga \"Kupuj odmah\" - DOM PLUS":"Financing of goods and services \"Buy now\" - DOM PLUS","Nenamjenski kredit za penzionere":"A non-purpose loan for pensioners","Finansiranje školskog pribora, udžbenika, odjeće, obuće i ostalih osnovnih potreba djeteta za polazak u školu":"Financing of school supplies, textbooks, clothing, footwear and other basic needs of a child starting school","Finansiranje kupovine mašina, alata, vozila, IT opreme, adaptacije i opremanja poslovnog prostora, energijske efikasnosti, ulaganja u osnovna sredstva, modernizacije poslovanja i refinansiranja investicionih ulaganja.":"Financing the purchase of machinery, tools, vehicles and IT equipment, the refurbishment and fitting out of business premises, energy efficiency, investment in fixed assets, business modernisation and the refinancing of investment outlays.",
 /* ---------- Obezbjeđenje po proizvodu (katalog 19.08.2026.) ---------- */
-"Mjenica (obavezno); sudužnik i administrativna zabrana opciono, prema procjeni kreditne sposobnosti":"Promissory note (mandatory); a co-borrower and an administrative garnishment are optional, subject to the credit assessment.","Mjenica (obavezno); sudužnik, administrativna zabrana i dodatni kolateral (zalog/hipoteka) prema procjeni rizika; moguća polisa osiguranja otplate":"Promissory note (mandatory); a co-borrower, an administrative garnishment and additional collateral (pledge/mortgage) subject to the risk assessment; a loan repayment insurance policy is possible.","Mjenica (obavezno); sudužnik prema procjeni kreditne sposobnosti. Sredstva se isplaćuju direktno ugovornom partneru MKD.":"Promissory note (mandatory); a co-borrower subject to the credit assessment. The funds are paid directly to the lender's contracted partner.","Mjenica (obavezno); sudužnik i administrativna zabrana prema procjeni rizika. Polisa osiguranja: do 5.000 KM nije obavezna, preko 5.001 KM opciono.":"Promissory note (mandatory); a co-borrower and an administrative garnishment subject to the risk assessment. Insurance policy: not required up to 5,000 KM, optional above 5,001 KM.","Mjenica (obavezno); sudužnik i administrativna zabrana na penziju prema procjeni rizika. Polisa osiguranja otplate: do 55 godina nije obavezna, 56–65 obavezna, preko 65 obavezna uz kreditno sposobnog sudužnika.":"Promissory note (mandatory); a co-borrower and an administrative garnishment on the pension subject to the risk assessment. Repayment insurance: not required up to age 55, mandatory for ages 56–65, and mandatory above 65 together with a creditworthy co-borrower.","Mjenice poslovnog subjekta i jemstvo/sadužništvo vlasnika (obavezno); dodatni jemac, zalog na vozilu ili pokretnoj imovini opciono. Hipoteka I reda obavezna za plasmane preko 30.000 KM i/ili rokove preko 36 mjeseci.":"Promissory notes of the business and a guarantee/co-obligation of the owner (mandatory); an additional guarantor and a pledge over a vehicle or movable property are optional. A first-rank mortgage is mandatory for loans above 30,000 KM and/or terms longer than 36 months.","Mjenice poslovnog subjekta i jemstvo/sadužništvo vlasnika (obavezno); dodatni jemac, zalog na vozilima, opremi i pokretnoj imovini opciono. Hipoteka I reda za veće iznose i/ili povećan rizik.":"Promissory notes of the business and a guarantee/co-obligation of the owner (mandatory); an additional guarantor and a pledge over vehicles, equipment and movable property are optional. A first-rank mortgage applies for larger amounts and/or increased risk.",
+"Sadužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika":"Co-borrower – in line with the assessment of creditworthiness and the borrower's risk","mjenica obavezno; opciono sadužnik i administrativna zabrana":"promissory note mandatory; co-borrower and administrative garnishment optional","mjenica obavezno; opciono sadužnik, administrativna zabrana i dodatni kolateral":"promissory note mandatory; co-borrower, administrative garnishment and additional collateral optional","mjenica obavezno; opciono sadužnik":"promissory note mandatory; co-borrower optional",
+
+"Obavezni instrumenti":"Mandatory instruments","Opcioni instrumenti":"Optional instruments",
+"Mjenica (obavezno)":"Promissory note (mandatory)","Mjenice poslovnog subjekta (obavezno)":"Promissory notes of the business (mandatory)",
+"Sudužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika":"Co-borrower – in line with the assessment of creditworthiness and the borrower's risk","Administrativna zabrana – u skladu sa procjenom kreditne sposobnosti i rizika korisnika":"Administrative garnishment – in line with the assessment of creditworthiness and the borrower's risk","Administrativna zabrana – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika":"Administrative garnishment – optional, in line with the assessment of creditworthiness and the borrower's risk","Dodatni kolateral (zalog / hipoteka) – u skladu sa procjenom kreditne sposobnosti i rizika korisnika":"Additional collateral (pledge / mortgage) – in line with the assessment of creditworthiness and the borrower's risk",
+"Jemstvo/sadužništvo vlasnika (obavezno)":"Guarantee/co-obligation of the owner (mandatory)","Dodatni jemac/sadužnik (u skladu sa procjenom kreditne sposobnosti i rizika)":"Additional guarantor/co-borrower (in line with the assessment of creditworthiness and risk)","Zalog na vozilu ili pokretnoj imovini (opciono)":"Pledge over a vehicle or movable property (optional)","Zalog na vozilima, opremi i pokretnoj imovini (opciono)":"Pledge over vehicles, equipment and movable property (optional)","Hipoteka I reda (obavezna za plasmane preko 30.000 KM i/ili rokove preko 36 mjeseci, u skladu sa procjenom rizika)":"First-rank mortgage (mandatory for loans above 30,000 KM and/or terms longer than 36 months, in line with the risk assessment)","Hipoteka I reda (za veće iznose i/ili procjenu rizika)":"First-rank mortgage (for larger amounts and/or subject to the risk assessment)",
+"mjenica obavezno; opciono sudužnik i administrativna zabrana":"promissory note mandatory; co-borrower and administrative garnishment optional","mjenica obavezno; opciono sudužnik, administrativna zabrana i dodatni kolateral":"promissory note mandatory; co-borrower, administrative garnishment and additional collateral optional","mjenica obavezno; opciono sudužnik":"promissory note mandatory; co-borrower optional","mjenice poslovnog subjekta i jemstvo vlasnika obavezno; zalog i hipoteka I reda prema procjeni rizika":"promissory notes of the business and the owner's guarantee mandatory; pledge and first-rank mortgage subject to the risk assessment",
+/* ---------- Polise osiguranja po proizvodu (katalog 19.08.2026.) ---------- */
+"Polisa osiguranja:":"Insurance policy:","Polise osiguranja":"Insurance policies",
+"MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, rizika korisnika i internim procedurama.":"The lender reserves the right to require an insurance policy and/or additional security instruments in line with the assessment of creditworthiness, the size of the loan, the borrower's risk and its internal procedures.","Polisa osiguranja otplate kredita – u skladu sa procjenom kreditne sposobnosti i rizika korisnika.":"A loan repayment insurance policy – in line with the assessment of creditworthiness and the borrower's risk.","Opciono – u skladu sa procjenom kreditne sposobnosti i rizika korisnika.":"Optional – in line with the assessment of creditworthiness and the borrower's risk.","Do 5.000 KM – nije obavezno. Preko 5.001 KM – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika.":"Up to 5,000 KM – not required. Above 5,001 KM – optional, in line with the assessment of creditworthiness and the borrower's risk.","Do 55 godina – nije obavezno. Od 56 do 65 godina – obavezna polisa osiguranja otplate kredita. Preko 65 godina – obavezna polisa osiguranja i kreditno sposoban sudužnik.":"Up to age 55 – not required. From 56 to 65 – a loan repayment insurance policy is mandatory. Above 65 – an insurance policy and a creditworthy co-borrower are mandatory.","MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, djelatnosti i rizika klijenta.":"The lender reserves the right to require an insurance policy and/or additional security instruments in line with the assessment of creditworthiness, the size of the loan, the client's line of business and risk.","MKD zadržava pravo zahtijevanja polise osiguranja imovine i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, investicije, kolaterala i rizika klijenta.":"The lender reserves the right to require a property insurance policy and/or additional security instruments in line with the assessment of creditworthiness, the investment, the collateral and the client's risk.",
+"može se zahtijevati, prema procjeni rizika":"may be required, subject to the risk assessment","osiguranje otplate kredita, prema procjeni rizika":"loan repayment insurance, subject to the risk assessment","opciono, prema procjeni rizika":"optional, subject to the risk assessment","do 5.000 KM nije obavezna; preko 5.001 KM opciono":"not required up to 5,000 KM; optional above 5,001 KM","do 55 g. nije obavezna; 56–65 obavezna; preko 65 obavezna uz sudužnika":"not required up to age 55; mandatory for ages 56–65; above 65 mandatory together with a co-borrower","može se zahtijevati, prema djelatnosti i procjeni rizika":"may be required, subject to the line of business and the risk assessment","osiguranje imovine, prema procjeni rizika i kolateralu":"property insurance, subject to the risk assessment and the collateral",
+"Kada je polisa osiguranja obavezna, premiju plaća korisnik prema važećoj tarifi izabrane osiguravajuće kuće. Trošak premije nije uključen u prikazanu EKS.":"Where an insurance policy is mandatory, the premium is paid by the borrower according to the current tariff of the chosen insurance company. The cost of the premium is not included in the APR shown.","Trošak premije osiguranja":"Cost of the insurance premium","snosi korisnik prema važećoj tarifi izabrane osiguravajuće kuće, ako je polisa obavezan instrument obezbjeđenja; nije uključen u prikazanu EKS":"borne by the borrower according to the current tariff of the chosen insurance company, where the policy is a mandatory security instrument; it is not included in the APR shown",
 /* ---------- Kalkulator: grace period, naknade i mjenica (katalog 19.08.2026.) ---------- */
 "Grace period":"Grace period","Odgoda otplate glavnice na početku — tokom grace perioda plaća se samo kamata. Grace je uključen u ukupan rok otplate.":"Deferral of principal repayment at the start — during the grace period only interest is paid. The grace period is included in the total repayment term.","Jednokratna naknada, obračunava se na iznos kredita uz kataloška ograničenja. Plaća se odmah pri isplati i ulazi u izračun EKS, zajedno sa troškom mjenice.":"A one-off fee calculated on the loan amount, subject to the catalogue minimum/maximum. It is paid on disbursement and is included in the APR, together with the cost of the promissory note.","Fiksna naknada za obradu, nezavisna od iznosa kredita. Plaća se odmah pri isplati i ulazi u izračun EKS, zajedno sa troškom mjenice.":"A flat processing fee, independent of the loan amount. It is paid on disbursement and is included in the APR, together with the cost of the promissory note.","Rata tokom grace perioda":"Instalment during the grace period","Trošak mjenice":"Cost of the promissory note","Naknada za obradu":"Processing fee","Učešće":"Down payment","Obračun kamate":"Interest calculation","proporcionalni, 360 dana":"proportional method, 360 days","proporcionalni metod, dekurzivno, mjesečno, 360 dana":"proportional method, in arrears, monthly, 360 days","nije obavezno":"not required","u skladu sa procjenom investicije":"in line with the assessment of the investment","do 10.000 KM bez učešća; od 10.001 KM učešće 10%":"up to 10,000 KM no down payment; from 10,001 KM a 10% down payment","Zašto je EKS ovako visoka?":"Why is the APR this high?","EKS je stvarno preračunata za izabrani iznos, rok, grace period i naknade — zato se mijenja kad pomjerite klizače.":"The APR is genuinely recalculated for the selected amount, term, grace period and fees — that is why it changes when you move the sliders.","1 · Nominalna kamatna stopa (NKS)":"1 · Nominal interest rate (NIR)","2 · Naknada za obradu":"2 · Processing fee","3 · Trošak mjenice":"3 · Cost of the promissory note","4 · Efektivna kamatna stopa (EKS)":"4 · Effective interest rate (APR)","mjenica":"promissory note","fiksno":"flat",
 /* ---------- Kalkulator ---------- */
