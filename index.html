@@ -41,8 +41,9 @@ button{font-family:inherit}
   --navy-deep:#06143D;
   --navy-2:#0E2E7A;
   --navy-3:#15388F;
-  --accent:#3D6BFF;
-  --accent-2:#6E94FF;
+  --accent:#3B68F7;
+  --accent-txt:#345BD9;      /* tamniji akcent SAMO za tekst na svijetloj pozadini — WCAG AA */
+  --accent-2:#77A0FF;
   --glow:rgba(61,107,255,0.45);
   --white:#FFFFFF;
   --ice:#EEF2FB;
@@ -82,7 +83,7 @@ button{font-family:inherit}
 .nav-cta:hover{background:#2c57e8;transform:translateY(-2px);box-shadow:0 10px 30px var(--glow)}
 .nav-links .nav-cta{display:none} /* in-menu CTA hidden on desktop, shown only in mobile menu */
 /* prekidač jezika BS ⇄ EN */
-.lang-btn{font-family:'Sora';font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:9px 14px;cursor:pointer;transition:var(--t);flex-shrink:0;line-height:1}
+.lang-btn{font-family:'Sora';font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.62);border-radius:10px;padding:9px 14px;cursor:pointer;transition:var(--t);flex-shrink:0;line-height:1}
 .lang-btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
 @media(max-width:980px){.lang-btn{margin-left:auto;margin-right:6px}}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
@@ -127,7 +128,7 @@ button{font-family:inherit}
 .hch-row.r{animation:hchR 60s linear infinite}
 @keyframes hchL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes hchR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.hch-tile{position:relative;height:100%;width:auto;aspect-ratio:3/4;border-radius:18px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,.26);background:var(--navy-2);box-shadow:0 10px 30px rgba(0,0,0,.32)}
+.hch-tile{position:relative;height:100%;width:auto;aspect-ratio:3/4;border-radius:18px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,.62);background:var(--navy-2);box-shadow:0 10px 30px rgba(0,0,0,.32)}
 .hch-tile img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
 .hch-tile span{position:absolute;left:0;right:0;bottom:0;padding:9px 12px;font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(6,20,61,.92));line-height:1.2}
 @media(max-width:600px){.hch-tile{border-radius:14px}.hch-tile span{font-size:11px;padding:8px 10px}
@@ -163,12 +164,15 @@ button{font-family:inherit}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero-ctas{display:flex;flex-direction:column;gap:14px;align-items:stretch;width:max-content;max-width:100%;animation:fadeUp .9s .6s both}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+/* hero dugmad — nešto krupnija otkako je uklonjeno dugme za savjetnika */
+.cta-row .btn-pri,.cta-row .btn-ghost{font-size:16.5px;padding:19px 36px;border-radius:15px}
+.cta-row .btn-pri svg,.cta-row .btn-ghost svg{width:20px;height:20px}
 .btn-pri{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-size:15px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:13px;padding:16px 30px;cursor:pointer;transition:var(--t);box-shadow:0 10px 34px var(--glow);position:relative;overflow:hidden}
 .btn-pri::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}
 .btn-pri:hover{transform:translateY(-3px);box-shadow:0 16px 44px var(--glow)}
 .btn-pri:hover::after{left:130%}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-size:15px;font-weight:600;color:#fff;border:1.5px solid rgba(255,255,255,.22);border-radius:13px;padding:16px 30px;cursor:pointer;transition:var(--t);background:rgba(255,255,255,.05);backdrop-filter:blur(8px)}
-.btn-ghost:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.1)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.66);background:rgba(255,255,255,.1)}
 .hero-stats{display:flex;gap:34px;margin-top:46px;animation:fadeUp .9s .75s both}
 .hstat .n{font-family:'Sora';font-size:34px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1}
 .hstat .n span{color:var(--accent-2)}
@@ -187,7 +191,7 @@ button{font-family:inherit}
 .chip{position:absolute;z-index:4;background:rgba(255,255,255,.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:13px 16px;display:flex;align-items:center;gap:11px;box-shadow:0 12px 40px rgba(0,0,0,.3);animation:bob 5s ease-in-out infinite}
 .chip .ci{width:36px;height:36px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .chip b{font-family:'Sora';font-size:15px;color:#fff;font-weight:700;display:block;line-height:1}
-.chip small{font-size:11px;color:rgba(255,255,255,.6)}
+.chip small{font-size:11px;color:rgba(255,255,255,.7)}
 .chip.c1{top:60px;left:-10px;animation-delay:0s}
 .chip.c2{top:230px;right:-20px;animation-delay:-1.5s}
 .chip.c3{bottom:90px;left:0;animation-delay:-3s}
@@ -222,7 +226,7 @@ button{font-family:inherit}
   font-family:'Manrope',sans-serif;
   font-size:8px;
   font-weight:600;
-  color:rgba(255,255,255,.85);
+  color:rgba(255,255,255,.92);
   letter-spacing:.3px;
   line-height:1.45;
   text-transform:none;
@@ -246,19 +250,19 @@ button{font-family:inherit}
 .ticker{background:var(--accent);height:46px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:5}
 .ticker-tr{display:flex;white-space:nowrap;animation:tk 32s linear infinite}
 .ticker-it{display:inline-flex;align-items:center;gap:12px;font-family:'Sora';font-size:13px;font-weight:700;color:#fff;letter-spacing:.4px;padding:0 34px}
-.ticker-it .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.55)}
+.ticker-it .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.66)}
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 /* ============ SECTIONS ============ */
 .section{padding:104px 0}
-.eyebrow{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+.eyebrow{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent-txt);text-transform:uppercase;margin-bottom:14px}
 .title{font-family:'Sora';font-size:clamp(30px,3.9vw,50px);font-weight:800;color:var(--navy);line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
-.title .hl{color:var(--accent)}
+.title .hl{color:var(--accent-txt)}
 .lead{font-size:16px;color:var(--muted);max-width:580px;line-height:1.75}
 .sec-head{margin-bottom:60px}
 .sec-head.center{text-align:center}
 .sec-head.center .lead{margin:0 auto}
 .title-light{color:#fff}
-.lead-light{color:rgba(255,255,255,.6)}
+.lead-light{color:rgba(255,255,255,.7)}
 /* trust strip */
 .trust{background:#fff;border-bottom:1px solid var(--line)}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -332,8 +336,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .glos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .gitem{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;transition:var(--t)}
 .gitem:hover{box-shadow:var(--sh-sm);border-color:rgba(61,107,255,.3);transform:translateY(-3px)}
-.gitem h4{font-family:'Sora';font-size:16px;font-weight:800;color:var(--navy);margin-bottom:7px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.gitem .abbr{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--accent);background:rgba(61,107,255,.1);padding:3px 9px;border-radius:20px}
+.gitem h3{font-family:'Sora';font-size:16px;font-weight:800;color:var(--navy);margin-bottom:7px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.gitem .abbr{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--accent-txt);background:rgba(61,107,255,.1);padding:3px 9px;border-radius:20px}
 .gitem p{font-size:13.5px;color:var(--muted);line-height:1.65}
 .glos-empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:30px;font-size:14px}
 @media(max-width:760px){.glos{grid-template-columns:1fr}}
@@ -351,7 +355,7 @@ html.js .reveal.in{opacity:1;transform:none}
 /* povratak na prethodno pitanje — u redu sa brojačem koraka */
 .q-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
 .q-head .q-kicker{margin-bottom:0}
-.q-back{display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-family:'Sora';font-size:12px;font-weight:700;color:rgba(255,255,255,.6);background:none;border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:7px 13px;cursor:pointer;transition:var(--t)}
+.q-back{display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-family:'Sora';font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:none;border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:7px 13px;cursor:pointer;transition:var(--t)}
 .q-back:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.06)}
 .q-back:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .q-back svg{flex-shrink:0}
@@ -361,16 +365,16 @@ html.js .reveal.in{opacity:1;transform:none}
 .q-opt:hover{border-color:var(--accent);background:rgba(61,107,255,.12);transform:translateY(-3px)}
 .q-opt .qi{width:42px;height:42px;border-radius:11px;background:rgba(61,107,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .q-opt b{font-family:'Sora';font-size:15px;color:#fff;font-weight:600;display:block;line-height:1.2}
-.q-opt small{font-size:12px;color:rgba(255,255,255,.55)}
+.q-opt small{font-size:12px;color:rgba(255,255,255,.66)}
 .q-result{display:none;text-align:center;animation:pgIn .5s ease both}
 .q-result.on{display:block}
 .q-res-ic{width:80px;height:80px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 12px 40px var(--glow);animation:pop .6s cubic-bezier(.16,1,.3,1) both}
 @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
 .q-res-k{font-family:'Sora';font-size:12px;letter-spacing:2px;color:var(--accent-2);text-transform:uppercase;font-weight:700;margin-bottom:8px}
 .q-res-name{font-family:'Sora';font-size:30px;font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:12px}
-.q-res-desc{font-size:15px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto 28px;line-height:1.7}
+.q-res-desc{font-size:15px;color:rgba(255,255,255,.72);max-width:440px;margin:0 auto 28px;line-height:1.7}
 .q-res-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.q-restart{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:14px 24px;cursor:pointer;transition:var(--t)}
+.q-restart{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:14px 24px;cursor:pointer;transition:var(--t)}
 .q-restart:hover{color:#fff;border-color:#fff}
 /* === PROCESS === */
 .proc-sec{background:#fff}
@@ -381,7 +385,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .pstep{text-align:center;padding:0 22px;position:relative;z-index:1}
 .pnum{width:80px;height:80px;border-radius:50%;background:#fff;border:2px solid var(--ice-2);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Sora';font-size:28px;font-weight:800;color:var(--accent);box-shadow:0 0 0 8px #fff;transition:var(--t)}
 .pstep:hover .pnum{background:var(--accent);color:#fff;border-color:var(--accent);transform:scale(1.12);box-shadow:0 0 0 8px #fff,0 14px 40px var(--glow)}
-.pstep h4{font-family:'Sora';font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.pstep h3{font-family:'Sora';font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
 .pstep p{font-size:13.5px;color:var(--muted);line-height:1.6}
 /* === ONAMA / values dark === */
 .dark-sec{background:linear-gradient(165deg,var(--navy-deep),var(--navy));position:relative;overflow:hidden}
@@ -391,9 +395,9 @@ html.js .reveal.in{opacity:1;transform:none}
 .about-card{position:absolute;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
 .about-main{left:0;top:0;width:62%;height:100%;background:linear-gradient(160deg,var(--navy-2),var(--navy-3));display:flex;align-items:flex-end;padding:26px}
 .about-main p{font-family:'Sora';color:#fff;font-weight:700;font-size:18px;line-height:1.3}
-.about-acc{right:0;bottom:30px;width:46%;height:62%;background:linear-gradient(150deg,var(--accent),#2c57e8);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 24px 70px var(--glow)}
+.about-acc{right:0;bottom:30px;width:46%;height:62%;background:linear-gradient(150deg,#3059D8,#2246bd);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 24px 70px var(--glow)}
 .about-acc .n{font-family:'Sora';font-size:54px;font-weight:800;color:#fff;letter-spacing:-2px;line-height:1}
-.about-acc .l{font-size:13px;color:rgba(255,255,255,.85);margin-top:6px;text-align:center;padding:0 14px}
+.about-acc .l{font-size:13px;color:#fff;margin-top:6px;text-align:center;padding:0 14px}
 .about-list{display:flex;flex-direction:column;gap:16px;margin-top:30px}
 .about-it{display:flex;gap:14px;align-items:flex-start}
 .about-ck{width:26px;height:26px;border-radius:50%;background:rgba(61,107,255,.22);border:1px solid rgba(61,107,255,.45);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
@@ -403,8 +407,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .vcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 26px;transition:var(--t)}
 .vcard:hover{background:rgba(255,255,255,.08);transform:translateY(-6px);border-color:rgba(61,107,255,.4)}
 .vic{width:56px;height:56px;border-radius:15px;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 10px 30px var(--glow)}
-.vcard h4{font-family:'Sora';font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
-.vcard p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.65}
+.vcard h3{font-family:'Sora';font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.vcard p{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.65}
 /* === CALCULATOR === */
 .calc-sec{background:var(--ice)}
 .calc-wrap{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;border-radius:28px;overflow:hidden;box-shadow:var(--sh-lg);border:1px solid var(--line)}
@@ -431,7 +435,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .calc-lines{position:relative;border-top:1px solid rgba(255,255,255,.1);padding-top:18px}
 .cline{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
 .cline:last-child{border-bottom:none}
-.cline span:first-child{font-size:13px;color:rgba(255,255,255,.55)}
+.cline span:first-child{font-size:13px;color:rgba(255,255,255,.66)}
 .cline span:last-child{font-family:'Sora';font-size:15px;font-weight:700}
 .calc-apply{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);background:#fff;border:none;border-radius:13px;padding:16px;cursor:pointer;transition:var(--t);position:relative}
 .calc-apply:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
@@ -452,7 +456,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .gauge-row span{display:block;font-family:'Sora';font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
 .gauge-row small{display:block;font-size:11px;color:var(--muted);margin-top:3px}
 .gauge-badge{font-size:14px!important;padding:3px 12px;border-radius:20px;color:#fff!important}
-.gauge-badge.good{background:#1a9e63}.gauge-badge.mid{background:#f0a500}.gauge-badge.low{background:#e0483f}
+.gauge-badge.good{background:#168654}.gauge-badge.mid{background:#8a5d00}.gauge-badge.low{background:#c0271d}
 /* lista rezultata mjerača kreditne sposobnosti */
 .ks-list{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:4px 0 18px}
 .ks-it{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line)}
@@ -461,9 +465,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .ks-it b{font-family:'Sora';font-size:16px;font-weight:800;color:var(--navy);letter-spacing:-.4px;white-space:nowrap}
 .ks-it.hi{background:rgba(61,107,255,.07)}
 .ks-it.hi span{color:var(--navy)}
-.ks-it.hi b{font-size:19px;color:var(--accent)}
+.ks-it.hi b{font-size:19px;color:var(--accent-txt)}
 @media(max-width:420px){.ks-it{padding:11px 13px}.ks-it span{font-size:11.5px}.ks-it b{font-size:15px}.ks-it.hi b{font-size:17px}}
-.gauge-cap{font-size:11.5px;color:var(--accent);font-weight:700;line-height:1.5;max-width:300px;margin:6px auto 0}
+.gauge-cap{font-size:11.5px;color:var(--accent-txt);font-weight:700;line-height:1.5;max-width:300px;margin:6px auto 0}
 .gauge-zero{color:#c0392b}
 /* obezbjeđenje + reprezentativni primjer na kartici proizvoda */
 .psec{font-size:11.5px!important;color:var(--muted);line-height:1.55;margin:14px 0 0!important;padding-top:12px;border-top:1px dashed var(--line);min-height:0!important;transition:var(--t)}
@@ -480,12 +484,21 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .is-ul{margin:0;padding-left:15px;list-style:disc}
 .is-ul li{margin-bottom:3px}
 .lm-sec-n{font-size:11.5px!important;color:var(--muted);line-height:1.65;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);opacity:.9}
+/* naknada za prijevremenu otplatu — istaknuto, iznad obezbjeđenja i polise */
+.lm-po{background:rgba(61,107,255,.06);border:1px solid rgba(61,107,255,.22);border-left:3px solid var(--accent);border-radius:14px;padding:16px 18px;margin:18px 0}
+.lm-po-t{font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent-txt);margin-bottom:8px}
+.lm-po p{font-size:13.5px!important;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.lm-po ul{margin:0;padding-left:17px;list-style:disc}
+.lm-po li{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:4px}
+.lm-po li::marker{color:var(--accent)}
+.lm-po li b{color:var(--navy);font-weight:800;margin-right:2px}
+@media(max-width:600px){.lm-po{padding:14px 15px;margin:14px 0}.lm-po p,.lm-po li{font-size:13px!important}}
 .prep{font-size:11.5px!important;color:var(--muted);line-height:1.55;margin:10px 0 0!important;min-height:0!important;transition:var(--t)}
 .pcard:hover .prep{color:rgba(255,255,255,.62)}
 /* lanac NKS → naknada → EKS u kalkulatoru */
 .cline.chain{border-bottom:1px solid rgba(255,255,255,.07)}
 .cline.chain:first-of-type{margin-top:6px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px}
-.cline.eks span:first-child{color:rgba(255,255,255,.85);font-weight:700}
+.cline.eks span:first-child{color:rgba(255,255,255,.92);font-weight:700}
 .cline.eks span:last-child{color:var(--accent-2);font-size:18px}
 .camt{display:inline-flex;align-items:center;gap:6px;background:var(--ice);border:1.5px solid var(--line);border-radius:10px;padding:3px 10px;transition:var(--t);vertical-align:middle}
 .camt:focus-within{border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px rgba(61,107,255,.12)}
@@ -495,7 +508,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .camt input[type=number]::-webkit-outer-spin-button,.camt input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .camt b{font-family:'Sora';font-size:12px;font-weight:700;color:var(--muted)}
 .camt-hint{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.5}
-.calc-eksnote{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.55;margin:12px 0 4px;position:relative}
+.calc-eksnote{font-size:11.5px;color:rgba(255,255,255,.62);line-height:1.55;margin:12px 0 4px;position:relative}
 /* === FAQ === */
 .faq-sec{background:var(--ice)}
 .faq-wrap{max-width:820px;margin:0 auto}
@@ -507,11 +520,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
 .faq-a p{padding:0 26px 22px;font-size:14px;color:var(--muted);line-height:1.7}
 /* === CTA === */
-.cta-sec{background:linear-gradient(135deg,var(--accent) 0%,var(--navy-2) 60%,var(--navy) 100%);position:relative;overflow:hidden;padding:88px 0}
+.cta-sec{background:linear-gradient(135deg,#2F58D6 0%,var(--navy-2) 60%,var(--navy) 100%);position:relative;overflow:hidden;padding:88px 0}
 .cta-sec::after{content:'';position:absolute;top:-60px;left:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07)}
 .cta-in{position:relative;z-index:1;text-align:center}
 .cta-in h2{font-family:'Sora';font-size:clamp(30px,4.4vw,52px);font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:16px}
-.cta-in p{font-size:17px;color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 36px}
+.cta-in p{font-size:17px;color:rgba(255,255,255,.92);max-width:520px;margin:0 auto 36px}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn-white{font-family:'Sora';font-size:15px;font-weight:800;color:var(--navy);background:#fff;border:none;border-radius:13px;padding:16px 32px;cursor:pointer;transition:var(--t);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .btn-white:hover{transform:translateY(-3px)}
@@ -523,7 +536,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .phero .orb{opacity:.6}
 .phero h1{font-family:'Sora';font-size:clamp(34px,5vw,58px);font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:12px;position:relative;z-index:1}
 .phero h1 .hl{color:var(--accent-2)}
-.phero p{font-size:16px;color:rgba(255,255,255,.55);max-width:520px;position:relative;z-index:1}
+.phero p{font-size:16px;color:rgba(255,255,255,.66);max-width:520px;position:relative;z-index:1}
 /* === FORMS === */
 .form-sec{background:var(--ice)}
 .form-card{max-width:820px;margin:0 auto;background:#fff;border-radius:26px;padding:48px;border:1px solid var(--line);box-shadow:var(--sh)}
@@ -548,7 +561,7 @@ textarea{resize:vertical;min-height:110px}
 .form-ok{display:none;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:30px}
 .form-ok.on{display:flex;animation:pgIn .5s ease both}
 .form-ok .okic{width:84px;height:84px;border-radius:50%;background:rgba(34,180,120,.14);display:flex;align-items:center;justify-content:center;animation:pop .6s cubic-bezier(.16,1,.3,1) both}
-.form-ok h3{font-family:'Sora';font-size:26px;font-weight:800;color:var(--navy);letter-spacing:-1px}
+.form-ok h2{font-family:'Sora';font-size:26px;font-weight:800;color:var(--navy);letter-spacing:-1px}
 .form-ok p{font-size:15px;color:var(--muted);max-width:400px}
 input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba(224,72,63,.04)}
 /* contact */
@@ -557,7 +570,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .kit{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
 .kit:first-child{padding-top:0}
 .kic{width:48px;height:48px;border-radius:13px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
-.kit strong{font-family:'Sora';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.kit strong{font-family:'Sora';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-txt);display:block;margin-bottom:6px}
 .kit p,.kit a{font-size:14px;color:var(--muted);line-height:1.7}
 .ksoc{display:flex;gap:10px;margin-top:18px}
 .ksoc a{width:42px;height:42px;border-radius:11px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:var(--t)}
@@ -567,7 +580,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .kmap iframe{display:block;width:100%;height:230px;border:0;filter:saturate(.9)}
 .kmap-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#fff;border-top:1px solid var(--line)}
 .kmap-bar span{font-size:12.5px;color:var(--muted);font-weight:600}
-.kmap-bar a{display:inline-flex;align-items:center;gap:6px;font-family:'Sora';font-size:12px;font-weight:800;color:var(--accent);white-space:nowrap;transition:var(--t)}
+.kmap-bar a{display:inline-flex;align-items:center;gap:6px;font-family:'Sora';font-size:12px;font-weight:800;color:var(--accent-txt);white-space:nowrap;transition:var(--t)}
 .kmap-bar a:hover{color:var(--navy)}
 /* legal */
 .legal-sec{background:var(--ice)}
@@ -576,8 +589,8 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .legal-wrap h3{font-family:'Sora';font-size:16px;font-weight:700;color:var(--navy);margin:26px 0 10px}
 .legal-wrap p,.legal-wrap li{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:10px}
 .legal-wrap ul{padding-left:20px;list-style:disc}
-.legal-back{display:inline-flex;align-items:center;gap:8px;font-family:'Sora';font-size:13px;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer;margin-bottom:24px}
-.inline-link{background:none;border:none;padding:0;font:inherit;color:var(--accent);font-weight:700;cursor:pointer;text-decoration:underline}
+.legal-back{display:inline-flex;align-items:center;gap:8px;font-family:'Sora';font-size:13px;font-weight:700;color:var(--accent-txt);background:none;border:none;cursor:pointer;margin-bottom:24px}
+.inline-link{background:none;border:none;padding:0;font:inherit;color:var(--accent-txt);font-weight:700;cursor:pointer;text-decoration:underline}
 /* === DOKUMENTI === */
 .doc-sec{background:var(--ice)}
 .doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin:0 auto}
@@ -585,9 +598,9 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .doc:hover{box-shadow:var(--sh-sm);border-color:rgba(61,107,255,.3);transform:translateY(-3px)}
 .doc-ic{width:46px;height:46px;border-radius:13px;background:rgba(61,107,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
 .doc-bd{flex:1;min-width:0}
-.doc-bd h4{font-family:'Sora';font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:5px}
+.doc-bd h3{font-family:'Sora';font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:5px}
 .doc-bd p{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:12px}
-.doc-a{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;transition:var(--t)}
+.doc-a{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent-txt);background:none;border:none;padding:0;cursor:pointer;transition:var(--t)}
 .doc-a:hover{gap:11px}
 .doc-a[disabled]{color:var(--muted);cursor:default;opacity:.75}
 .doc-full{grid-column:1/-1}
@@ -599,20 +612,20 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding-top:74px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:46px;padding-bottom:54px;border-bottom:1px solid rgba(255,255,255,.06)}
 .foot-brand img{height:96px;max-width:264px;width:auto;object-fit:contain;margin-bottom:16px}
-.foot-desc{font-size:13.5px;color:rgba(255,255,255,.42);line-height:1.75;max-width:280px}
+.foot-desc{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:280px}
 .foot-soc{display:flex;gap:10px;margin-top:20px}
-.foot-soc a{width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:var(--t)}
+.foot-soc a{width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.62);transition:var(--t)}
 .foot-soc a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 .fcol h5{font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:18px}
-.fcol button,.fcol p{font-size:13.5px;color:rgba(255,255,255,.45);padding:6px 0;background:none;border:none;cursor:pointer;display:block;text-align:left;transition:var(--t);width:100%}
+.fcol button,.fcol p{font-size:13.5px;color:rgba(255,255,255,.62);padding:6px 0;background:none;border:none;cursor:pointer;display:block;text-align:left;transition:var(--t);width:100%}
 .fcol button:hover{color:#fff;padding-left:4px}
 .fcol p a{color:inherit;text-decoration:none;transition:var(--t)}
 .fcol p a:hover{color:#fff}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding:22px 0}
-.foot-lic{display:flex;align-items:center;gap:8px;font-family:'Sora';font-size:10px;font-weight:700;letter-spacing:.5px;color:rgba(255,255,255,.32)}
-.foot-copy{font-size:12px;color:rgba(255,255,255,.28)}
-.foot-powered{border-top:1px solid rgba(255,255,255,.06);padding:15px 0 22px;text-align:center;font-size:11.5px;color:rgba(255,255,255,.26);letter-spacing:.2px}
-.foot-powered a{color:rgba(255,255,255,.45);font-weight:700;transition:var(--t)}
+.foot-lic{display:flex;align-items:center;gap:8px;font-family:'Sora';font-size:10px;font-weight:700;letter-spacing:.5px;color:rgba(255,255,255,.62)}
+.foot-copy{font-size:12px;color:rgba(255,255,255,.62)}
+.foot-powered{border-top:1px solid rgba(255,255,255,.06);padding:15px 0 22px;text-align:center;font-size:11.5px;color:rgba(255,255,255,.62);letter-spacing:.2px}
+.foot-powered a{color:rgba(255,255,255,.62);font-weight:700;transition:var(--t)}
 .foot-powered a:hover{color:var(--accent-2)}
 /* back to top */
 #totop{position:fixed;bottom:26px;right:26px;width:50px;height:50px;border-radius:50%;background:var(--accent);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:900;opacity:0;pointer-events:none;transform:translateY(20px);transition:var(--t);box-shadow:0 10px 30px var(--glow)}
@@ -625,7 +638,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .cookie-btns{display:flex;gap:8px;flex-shrink:0}
 .cookie-ok{font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:11px 18px;cursor:pointer;white-space:nowrap;transition:var(--t)}
 .cookie-ok:hover{background:#2c57e8}
-.cookie-no{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:1px solid var(--line-d);border-radius:10px;padding:11px 16px;cursor:pointer;white-space:nowrap}
+.cookie-no{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:1px solid var(--line-d);border-radius:10px;padding:11px 16px;cursor:pointer;white-space:nowrap}
 @media(max-width:600px){#totop{right:16px;bottom:16px}
   .cookie{flex-direction:column;align-items:stretch;text-align:center;left:12px;right:12px;bottom:12px;padding:15px 16px;gap:12px}
   .cookie p{font-size:12px;line-height:1.5}
@@ -717,7 +730,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .hero-h1{margin-bottom:14px}
   .hero-sub{font-size:15.5px;margin-bottom:24px;line-height:1.6}
   .hero-ctas{width:100%}
-  .cta-row .btn-pri,.cta-row .btn-ghost{flex:1;justify-content:center;padding:15px 18px}
+  .cta-row .btn-pri,.cta-row .btn-ghost{flex:1;justify-content:center;font-size:15.5px;padding:17px 20px}
   .btn-adv{font-size:15px;padding:14px 18px;gap:12px}
   .btn-adv .bax small{font-size:11px}
   .av-stack i{width:32px;height:32px;border-width:2.5px;margin-left:-11px}
@@ -749,7 +762,7 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .modal-x{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);z-index:3}
 .modal-x:hover{background:var(--navy);border-color:var(--navy);transform:rotate(90deg)}
 .modal-x:hover svg{stroke:#fff}
-.modal-k{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+.modal-k{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent-txt);text-transform:uppercase;margin-bottom:12px}
 .modal-t{font-family:'Sora';font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);letter-spacing:-1.2px;line-height:1.1;margin-bottom:12px}
 .modal-lead{font-size:14.5px;color:var(--muted);line-height:1.7;max-width:560px}
 /* savjetnici */
@@ -760,9 +773,9 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .adv-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .adv-bd{flex:1;min-width:0}
 .adv-bd h4{font-family:'Sora';font-size:15.5px;font-weight:800;color:var(--navy);line-height:1.2}
-.adv-bd .role{font-size:11.5px;color:var(--accent);font-weight:700;margin:3px 0 6px;font-family:'Sora'}
+.adv-bd .role{font-size:11.5px;color:var(--accent-txt);font-weight:700;margin:3px 0 6px;font-family:'Sora'}
 .adv-bd p{font-size:12px;color:var(--muted);line-height:1.55}
-.adv-go{font-size:11px;font-weight:700;color:var(--accent);font-family:'Sora';margin-top:7px;display:inline-flex;align-items:center;gap:5px}
+.adv-go{font-size:11px;font-weight:700;color:var(--accent-txt);font-family:'Sora';margin-top:7px;display:inline-flex;align-items:center;gap:5px}
 .modal-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 .modal-note p{font-size:12.5px;color:var(--muted)}
 /* dugme „lični savjetnik" u herou */
@@ -787,7 +800,7 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .lm-specs span{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
 .lm-specs b{font-family:'Sora';font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-.4px}
 .lm-specs>div.hi{background:linear-gradient(150deg,var(--navy),var(--navy-2));border-color:var(--navy)}
-.lm-specs>div.hi span{color:rgba(255,255,255,.6)}
+.lm-specs>div.hi span{color:rgba(255,255,255,.7)}
 .lm-specs>div.hi b{color:#fff}
 .lm-btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
 /* lanac NKS → naknada → EKS u modalu proizvoda */
@@ -802,13 +815,13 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .lm-chain-n{padding:13px 18px;font-size:12px;color:var(--muted);line-height:1.6;margin:0}
 .lm-sec,.lm-rep{margin-top:20px;padding:18px 20px;border-radius:16px;background:var(--ice);border:1px solid var(--line)}
 .lm-rep{background:rgba(61,107,255,.07);border-color:rgba(61,107,255,.28)}
-.lm-sec-t{font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.lm-sec-t{font-family:'Sora';font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent-txt);margin-bottom:8px}
 .lm-sec p,.lm-rep p{font-size:13.5px;color:var(--muted);line-height:1.7}
 .lm-rep p b{color:var(--navy)}
 .btn-doc{display:inline-flex;align-items:center;gap:9px;font-family:'Sora';font-size:14px;font-weight:700;color:var(--navy);background:var(--ice);border:1.5px solid var(--line);border-radius:13px;padding:15px 22px;cursor:pointer;transition:var(--t)}
 .btn-doc:hover{border-color:var(--accent);color:var(--accent);background:#fff;transform:translateY(-2px)}
 /* === INFORMACIONI LIST U STRANICI === */
-.is-k{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.is-k{font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-txt);margin-bottom:10px}
 .is-h{font-family:'Sora';font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
 .is-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:600px}
 .is-tbl{width:100%;border-collapse:collapse}
@@ -828,7 +841,7 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
   body.print-sheet .is-noprint{display:none!important}
   .is-tbl tr,.is-rep{page-break-inside:avoid}
 }
-.pcard-more{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent);margin-top:16px;transition:var(--t)}
+.pcard-more{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent-txt);margin-top:16px;transition:var(--t)}
 .pcard:hover .pcard-more{color:#fff}
 /* Boris — stranica arhitekte finansija */
 .boris-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
@@ -838,7 +851,7 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .boris-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
 .boris-stats>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 16px}
 .boris-stats b{display:block;font-family:'Sora';font-size:27px;font-weight:800;color:var(--accent-2);letter-spacing:-1px;line-height:1}
-.boris-stats span{display:block;font-size:11.5px;color:rgba(255,255,255,.6);margin-top:6px}
+.boris-stats span{display:block;font-size:11.5px;color:rgba(255,255,255,.7);margin-top:6px}
 @media(max-width:980px){.adv-grid{grid-template-columns:1fr}.boris-grid{grid-template-columns:1fr;gap:34px}.lm-specs{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.modal{padding:14px}.modal-box{padding:30px 22px;border-radius:22px}.lm-specs{grid-template-columns:1fr}.lm-img{width:100%;height:170px}.btn-adv{width:100%;justify-content:center}.boris-stats{grid-template-columns:1fr}}
 </style>
@@ -857,7 +870,8 @@ function tryImg(el){
 <div id="ariaLive" class="sr-only" role="status" aria-live="polite"></div>
 <div id="scrollbar" aria-hidden="true"></div>
 <!-- ============ NAV ============ -->
-<nav class="nav" id="nav" aria-label="Glavna navigacija">
+<header class="nav" id="nav">
+<nav aria-label="Glavna navigacija">
   <div class="container nav-in">
     <div class="brand" onclick="go('pocetna')">
       <img src="BP.png" data-alts="BP.PNG|BilansPlusLogo.png|Blogo.png|BilansLogo.svg" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
@@ -879,6 +893,8 @@ function tryImg(el){
     <button class="burger" id="burger" aria-label="Meni" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
+</header>
+<main id="glavni" tabindex="-1">
 <!-- ============ PAGE: POČETNA ============ -->
 <section class="page active" id="pg-pocetna">
 <div class="hero">
@@ -906,17 +922,6 @@ function tryImg(el){
               Kreditni kalkulator
             </button>
           </div>
-          <button class="btn-adv" onclick="openAdvisors()">
-            <span class="av-stack" aria-hidden="true">
-              <i style="background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80')"></i>
-              <i style="background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80')"></i>
-              <i style="background-image:url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80')"></i>
-            </span>
-            <span class="bax">Rezerviši ličnog savjetnika<small>Besplatan razgovor, bez obaveze</small></span>
-            <span class="bar" aria-hidden="true">
-              <svg width="17" height="17" fill="none" stroke="#fff" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-          </button>
         </div>
       </div>
       <div class="hero-visual">
@@ -1048,8 +1053,8 @@ function tryImg(el){
       <p class="lead">Bez redova i nepotrebne papirologije — od prijave do novca na računu u dva jednostavna koraka.</p>
     </div>
     <div class="proc-grid proc-2">
-      <div class="pstep reveal"><div class="pnum">1</div><h4>Online zahtjev i analiza</h4><p>Popunite kratki obrazac ili nas pozovite — naš savjetnik odmah analizira vašu situaciju i predlaže najpovoljnije uslove.</p></div>
-      <div class="pstep reveal rd1"><div class="pnum">2</div><h4>Odobrenje i isplata</h4><p>Odobrenje gotovinskih kredita za 24h, a sredstva su na vašem računu odmah po potpisu ugovora.</p></div>
+      <div class="pstep reveal"><div class="pnum">1</div><h3>Online zahtjev i analiza</h3><p>Popunite kratki obrazac ili nas pozovite — naš savjetnik odmah analizira vašu situaciju i predlaže najpovoljnije uslove.</p></div>
+      <div class="pstep reveal rd1"><div class="pnum">2</div><h3>Odobrenje i isplata</h3><p>Odobrenje gotovinskih kredita za 24h, a sredstva su na vašem računu odmah po potpisu ugovora.</p></div>
     </div>
   </div>
 </section>
@@ -1165,9 +1170,9 @@ function tryImg(el){
         <h2 class="title title-light">Principi koji nas <span style="color:var(--accent-2)">definišu</span></h2>
       </div>
       <div class="values">
-        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div><h4>Transparentnost</h4><p>Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.</p></div>
-        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>Lični pristup</h4><p>Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.</p></div>
-        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h4>Brzina i efikasnost</h4><p>Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.</p></div>
+        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div><h3>Transparentnost</h3><p>Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.</p></div>
+        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Lični pristup</h3><p>Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.</p></div>
+        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Brzina i efikasnost</h3><p>Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.</p></div>
       </div>
     </div>
   </section>
@@ -1206,9 +1211,9 @@ function tryImg(el){
         <h2 class="title title-light">Tri koraka do <span style="color:var(--accent-2)">finansijskog plana</span></h2>
       </div>
       <div class="values">
-        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h4>1 · Slušanje</h4><p>Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.</p></div>
-        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg></div><h4>2 · Analiza</h4><p>Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.</p></div>
-        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h4>3 · Plan</h4><p>Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.</p></div>
+        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3>1 · Slušanje</h3><p>Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.</p></div>
+        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg></div><h3>2 · Analiza</h3><p>Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.</p></div>
+        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h3>3 · Plan</h3><p>Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.</p></div>
       </div>
     </div>
   </section>
@@ -1231,6 +1236,7 @@ function tryImg(el){
           Pravna lica<small>2 kreditna proizvoda</small>
         </button>
       </div>
+      <h2 class="sr-only">Pregled kreditnih proizvoda</h2>
       <div class="prods" id="prodsAll"></div>
     </div>
   </section>
@@ -1345,11 +1351,11 @@ function tryImg(el){
           </div>
           <button type="submit" class="btn-pri" style="width:100%;justify-content:center;margin-top:8px">Pošalji zahtjev
             <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          <p class="gauge-note" style="text-align:center;margin-top:14px">Potvrdu o primanjima možete poslati i direktno na <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info@bilanspluskredit.com" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">info@bilanspluskredit.com</a></p>
+          <p class="gauge-note" style="text-align:center;margin-top:14px">Potvrdu o primanjima možete poslati i direktno na <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info@bilanspluskredit.com" target="_blank" rel="noopener" style="color:var(--accent-txt);font-weight:700">info@bilanspluskredit.com</a></p>
         </form>
         <div class="form-ok" id="zOk">
           <div class="okic"><svg width="40" height="40" fill="none" stroke="#1a9e63" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <h3>Zahtjev uspješno poslan!</h3>
+          <h2>Zahtjev uspješno poslan!</h2>
           <p>Naš tim će vas kontaktirati u roku od 24 sata na navedeni broj telefona ili e-mail adresu.</p>
           <button class="btn-ghost" style="color:var(--navy);border-color:var(--line)" onclick="go('pocetna')">Nazad na početnu</button>
         </div>
@@ -1369,10 +1375,10 @@ function tryImg(el){
           <!-- ADRESA I JIB: potvrđeno iz sudskog/poslovnog registra (CompanyWall, 18.08.2026.)
                ⚠ TELEFON I E-MAIL SU I DALJE PLACEHOLDER — registar ih ne sadrži.
                Kad dobijete prave brojeve, zamijenite ih i u footeru i u nizu `branches` u JS-u. -->
-          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><strong>Telefon</strong><p><a href="tel:+38751492100">+387 51 492 100</a></p></div></div>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><strong>Telefon</strong><p><a href="tel:+38751492100">+387 51 492 100</a><br/><a href="tel:+38751492101">+387 51 492 101</a><br/><a href="tel:+38751492102">+387 51 492 102</a><br/><a href="tel:+38751492103">+387 51 492 103</a><br/><a href="tel:+38751492104">+387 51 492 104</a></p></div></div>
           <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div><div><strong>E-mail</strong><p><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info@bilanspluskredit.com" target="_blank" rel="noopener">info@bilanspluskredit.com</a></p></div></div>
           <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Sjedište</strong><p>Pave Radana 33<br/>78000 Banja Luka, Republika Srpska</p></div></div>
-          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div><strong>Radno vrijeme</strong><p>Pon – Pet: 08:00 – 16:00<br/>Subota: 09:00 – 13:00</p>
+          <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div><strong>Radno vrijeme</strong><p>Pon – Pet: 08:00 – 16:00</p>
             <div class="ksoc">
               <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
               <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -1407,7 +1413,7 @@ function tryImg(el){
           </form>
           <div class="form-ok" id="kOk">
             <div class="okic"><svg width="40" height="40" fill="none" stroke="#1a9e63" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <h3>Poruka poslana!</h3>
+            <h2>Poruka poslana!</h2>
             <p>Hvala na poruci — odgovorićemo vam u najkraćem mogućem roku.</p>
           </div>
         </div>
@@ -1443,7 +1449,7 @@ function tryImg(el){
     <h3>3. Kamatne stope i naknade</h3><p>Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u sjedištu MKD i na web stranici. Nominalna kamatna stopa (NKS), naknada (provizija) za obradu kredita i efektivna kamatna stopa (EKS) iskazuju se odvojeno uz svaki kreditni proizvod, u kalkulatoru i u informacionom listu, a EKS se navodi i u ugovoru o kreditu.</p>
     <h3>4. Prava korisnika</h3><p>Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora, uključujući informacioni list sa reprezentativnim primjerom, iznosom naknada, obezbjeđenjem kredita i visinom EKS.</p>
     <h3>5. Pravo na odustanak (14 dana)</h3><p>Korisnik ima pravo da odustane od zaključenog ugovora o kreditu u roku od <strong>14 dana od dana zaključenja ugovora</strong>, bez navođenja razloga i bez plaćanja naknade za odustanak. Odustanak se dostavlja u pisanoj formi, u sjedištu MKD Bilans Plus Kredit ili na adresu sjedišta, odnosno na e-mail info@bilanspluskredit.com, u navedenom roku. Korisnik je dužan da bez odlaganja, a najkasnije u roku od 30 dana od slanja obavještenja o odustanku, vrati glavnicu i kamatu obračunatu za period u kojem je koristio sredstva.</p>
-    <h3>6. Prijevremena otplata</h3><p>Korisnik u svakom trenutku može djelimično ili u cijelosti prijevremeno otplatiti kredit. Naknada za prijevremenu otplatu iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.</p>
+    <h3>6. Prijevremena otplata</h3><p>Korisnik u svakom trenutku može djelimično ili u cijelosti prijevremeno otplatiti kredit. Naknada za prijevremenu otplatu obračunava se i naplaćuje za mikrokredite sa ugovorenom fiksnom kamatnom stopom, ako je iznos prijevremene otplate u periodu od godinu dana veći od 5.000,00 KM, i to: 1,00% ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu ≥ 1 godine, odnosno 0,50% ako je taj period kraći od 1 godine.</p>
     <h3>7. Valuta i valutna klauzula</h3><p>Krediti se odobravaju i otplaćuju u konvertibilnim markama (KM/BAM), uz valutnu klauzulu vezanu za euro (EUR). Kurs konvertibilne marke je zakonski fiksiran prema euru (1 EUR = 1,95583 KM), pa dok taj fiksni kurs važi valutna klauzula nema uticaja na visinu anuiteta.</p>
     <h3>8. Opšti uslovi poslovanja</h3><p>Opšti uslovi poslovanja MKD Bilans Plus Kredit, Cjenovnik usluga i informacioni listovi po kreditnim proizvodima javno su dostupni na stranici <button class="inline-link" onclick="go('dokumenti')">Dokumenti</button> i u sjedištu MKD.</p>
     <h3>9. Prigovori korisnika</h3><p>Korisnik ima pravo da podnese prigovor na rad MKD Bilans Plus Kredit usmeno u sjedištu, pisanim putem na adresu sjedišta ili na e-mail info@bilanspluskredit.com. Odgovor na prigovor dostavlja se u roku propisanom važećim propisima Republike Srpske. Ako nije zadovoljan odgovorom, korisnik se može obratiti Ombudsmanu za bankarski sistem Republike Srpske.</p>
@@ -1457,6 +1463,7 @@ function tryImg(el){
   <section class="section glos-sec">
     <div class="container">
       <div class="glos-search"><input type="text" id="glosSearch" placeholder="Pretraži pojmove (npr. EKS, anuitet, mjenica)..."/></div>
+      <h2 class="sr-only">Pojmovi i objašnjenja</h2>
       <div class="glos" id="glosWrap"></div>
     </div>
   </section>
@@ -1468,12 +1475,13 @@ function tryImg(el){
   </div>
   <section class="section doc-sec">
     <div class="container">
+      <h2 class="sr-only">Opšti dokumenti</h2>
       <div class="doc-grid" id="docGrid"></div>
       <div class="doc-grid" style="margin-top:16px">
         <div class="doc doc-full">
           <div class="doc-ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>
           <div class="doc-bd">
-            <h4>Informacioni listovi po kreditnim proizvodima</h4>
+            <h3>Informacioni listovi po kreditnim proizvodima</h3>
             <p>Za svaki proizvod: iznos, rok, NKS, naknada za obradu, EKS, obezbjeđenje, grace period i reprezentativni primjer. Otvara se kao dokument spreman za štampu ili čuvanje u PDF.</p>
             <div class="doc-list" id="docProds"></div>
           </div>
@@ -1483,6 +1491,7 @@ function tryImg(el){
     </div>
   </section>
 </section>
+</main>
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
@@ -1621,6 +1630,36 @@ const VALUTA_KRATKO = 'KM, val. klauzula EUR';           /* kratak oblik za usku
      polisa   — red „Polise osiguranja" iz kataloga, doslovno po proizvodu
    ================================================================================ */
 const MJENICA = 5;                       /* trošak mjenice — isti na svim proizvodima */
+/* ================================================================================
+   NAKNADA ZA PRIJEVREMENU OTPLATU — zajednička odredba, ista za sve proizvode.
+   Naplaćuje se samo kod fiksne kamatne stope i samo ako prijevremena otplata u
+   periodu od godinu dana pređe prag; stopa zavisi od toga koliko je ostalo do
+   dospijeća. Tekst se ubacuje i u modal proizvoda i u informacioni list, pa stoji
+   na jednom mjestu.
+   ================================================================================ */
+const PO_PRAG = 5000;                    /* prag u KM, u periodu od godinu dana */
+const PO_DUZI = 1.0;                     /* % ako je do dospijeća ≥ 1 godina */
+const PO_KRACI = 0.5;                    /* % ako je do dospijeća < 1 godina */
+/* funkcije, ne konstante — fmt2 i pct su deklarisani niže u fajlu */
+function prijevremenaText(){
+  return 'Naknada se obračunava i naplaćuje za mikrokredite sa ugovorenom fiksnom kamatnom stopom, '
+    +'ako je iznos prijevremene otplate u periodu od godinu dana veći od '+fmt2(PO_PRAG)+' KM.';
+}
+/* Naglasak je na procentu, a ostatak rečenice je JEDAN tekstualni čvor — inače bi
+   <b> usred rečenice presjekao čvor i rječnik ne bi imao šta da poklopi. */
+function prijevremenaStavke(){
+  return [
+    '<b>'+pct(PO_DUZI)+'</b> <span>ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu ≥ 1 godine</span>',
+    '<b>'+pct(PO_KRACI)+'</b> <span>ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu &lt; 1 godine</span>'
+  ];
+}
+function prijevremenaHTML(){
+  return '<div class="lm-po">'
+    +'<div class="lm-po-t">Naknada za prijevremenu otplatu</div>'
+    +'<p>'+prijevremenaText()+'</p>'
+    +'<ul>'+prijevremenaStavke().map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'
+    +'</div>';
+}
 const products = [
   // ——— FIZIČKA LICA ———
   {tip:'fizicka',ic:ic.cash,img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',name:'Keš PLUS',desc:'Nenamjenski gotovinski kredit za lične potrebe, bez navođenja namjene.',amount:'do 7.000 KM',term:'do 18 mjeseci',nks:'25,99%',eksKat:'34,02%',amin:500,amax:7000,tmax:18,rate:25.99,fee:1.50,feeMin:50,repA:3000,repN:12,gmax:0,grace:'bez grace perioda',ucesce:'nije obavezno',secOb:'Mjenica (obavezno)',secOp:['Sadužnik – u skladu sa procjenom kreditne sposobnosti i rizika korisnika','Administrativna zabrana – opciono, u skladu sa procjenom kreditne sposobnosti i rizika korisnika'],secK:'mjenica obavezno; opciono sadužnik i administrativna zabrana',polisa:'MKD zadržava pravo zahtijevanja polise osiguranja i/ili dodatnih instrumenata obezbjeđenja u skladu sa procjenom kreditne sposobnosti, iznosa plasmana, rizika korisnika i internim procedurama.',polisaK:'može se zahtijevati, prema procjeni rizika',repKat:{proc:50,fee:55,rata:286.58,gracePay:0,nAnn:12,interest:438.91,total:3493.91,eks:34.02}},
@@ -1815,20 +1854,61 @@ function selKtab(tip){
 if(prodsAll) selKtab('fizicka');
 /* ========= MODALI: detalji kredita + lični savjetnici ========= */
 let lastFocus=null;
+/* pozadina se isključuje dok je modal otvoren — bez ovoga čitač ekrana i Tab
+   i dalje lutaju kroz sadržaj koji je vizuelno prekriven */
+function pozadinaInertna(uklj){
+  ['nav','glavni'].forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    if(uklj){ el.setAttribute('inert',''); el.setAttribute('aria-hidden','true'); }
+    else { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); }
+  });
+  /* plutajuća dugmad stoje van nav/main/footer, pa ih isključujemo posebno */
+  ['footer.footer','.skip-link','#totop','.cookie'].forEach(function(sel){
+    var el=document.querySelector(sel); if(!el) return;
+    if(uklj){ el.setAttribute('inert',''); el.setAttribute('aria-hidden','true'); }
+    else { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); }
+  });
+}
 function openModal(id){
-  lastFocus=document.activeElement;
+  /* pamtimo samo element koji je zaista u dokumentu i može primiti fokus */
+  var a=document.activeElement;
+  /* ulančani modali (proizvod → informacioni list): čuvamo PRVI okidač,
+     da se fokus na kraju vrati na karticu s koje je sve počelo */
+  if(a && a!==document.body && a.isConnected && !a.closest(".modal")) lastFocus=a;
   const m=document.getElementById(id);
   m.classList.add('open');
   document.body.style.overflow='hidden';
+  pozadinaInertna(true);
   const f=m.querySelector('.modal-x, button');
   if(f)setTimeout(()=>f.focus(),40);
 }
 function closeModals(){
+  const bilo=document.querySelectorAll('.modal.open').length;
   document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
   document.body.classList.remove('print-sheet');
   document.body.style.overflow='';
-  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  pozadinaInertna(false);
+  if(!bilo) return;
+  /* ako je element u međuvremenu uklonjen iz DOM-a, fokus ne smije tiho propasti */
+  var ok = lastFocus && lastFocus.isConnected && lastFocus.focus && lastFocus.getClientRects().length;
+  if(ok){ lastFocus.focus(); }
+  else { const g=document.querySelector('.page.active h1,.page.active h2');
+         if(g){ g.setAttribute('tabindex','-1'); g.focus({preventScroll:true}); } }
+  lastFocus=null;
 }
+/* Zamka fokusa: Tab kruži unutar otvorenog modala. `inert` ovo već rješava u
+   novijim pregledačima, ali ostaje kao rezerva za starije. */
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Tab') return;
+  const m=document.querySelector('.modal.open'); if(!m) return;
+  const f=[...m.querySelectorAll('a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])')]
+    .filter(el=>!el.disabled && el.getClientRects().length);
+  if(!f.length) return;
+  const prvi=f[0], zadnji=f[f.length-1];
+  if(e.shiftKey && document.activeElement===prvi){ e.preventDefault(); zadnji.focus(); }
+  else if(!e.shiftKey && document.activeElement===zadnji){ e.preventDefault(); prvi.focus(); }
+  else if(!m.contains(document.activeElement)){ e.preventDefault(); prvi.focus(); }
+});
 function openLoan(i){
   const p=products[i];if(!p)return;
   const r=repExample(p);
@@ -1850,8 +1930,8 @@ function openLoan(i){
       <div><span>Valuta</span><b>${VALUTA}</b></div>
       <div><span>Kamatna stopa</span><b>fiksna, dekurzivna</b></div>
       <div><span>Obračun kamate</span><b>proporcionalni, 360 dana</b></div>
-      <div><span>Prijevremena otplata</span><b>0,5% preostale glavnice</b></div>
     </div>
+    ${prijevremenaHTML()}
     <div class="lm-chain">
       <div class="lm-chain-h">Kako se dolazi do EKS</div>
       <div class="lm-ci"><span>1 · Nominalna kamatna stopa (NKS)</span><b>${p.nks}</b></div>
@@ -1897,14 +1977,14 @@ function openLoan(i){
    ================================================================================ */
 function infoSheetHTML(p){
   const r=repExample(p);
-  const row=(k,v)=>`<tr><th>${k}</th><td>${v}</td></tr>`;
+  const row=(k,v)=>`<tr><th scope="row">${k}</th><td>${v}</td></tr>`;
   return `
     <button class="modal-x is-noprint" data-close aria-label="Zatvori"><svg width="18" height="18" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     <div class="isheet">
       <div class="is-k">MKD Bilans Plus Kredit · Informacioni list</div>
       <h3 class="is-h" id="infoTitle">${p.name}</h3>
       <p class="is-sub">${p.desc}</p>
-      <table class="is-tbl">
+      <table class="is-tbl"><caption class="sr-only">Uslovi kreditnog proizvoda ${p.name}</caption>
         ${row('Korisnik kredita',p.tip==='pravna'?'Pravna lica i preduzetnici':'Fizička lica')}
         ${row('Iznos kredita',p.amount)}
         ${row('Rok otplate',p.term)}
@@ -1914,7 +1994,7 @@ function infoSheetHTML(p){
         ${row('Naknada za obradu',p.feeFlat>0?fmt2(p.feeFlat)+' KM (fiksno)':pct(p.fee)+' od iznosa kredita'+(feeLimits(p)?' ('+feeLimits(p)+')':''))}
         ${row('Trošak mjenice',fmt2(MJENICA)+' KM')}
         ${row('Ostale naknade','prema važećem Cjenovniku usluga MKD')}
-        <tr class="hi"><th>Efektivna kamatna stopa (EKS)</th><td>${pct(r.eks)} — za reprezentativni primjer ispod</td></tr>
+        <tr class="hi"><th scope="row">Efektivna kamatna stopa (EKS)</th><td>${pct(r.eks)} — za reprezentativni primjer ispod</td></tr>
         ${row('Grace period',p.grace)}
         ${row('Učešće',p.ucesce)}
         ${row('Obavezni instrumenti',p.secOb)}
@@ -1922,7 +2002,7 @@ function infoSheetHTML(p){
         ${row('Polisa osiguranja',p.polisa)}
         ${row('Trošak premije osiguranja','snosi korisnik prema važećoj tarifi izabrane osiguravajuće kuće, ako je polisa obavezan instrument obezbjeđenja; nije uključen u prikazanu EKS')}
         ${row('Otplata','jednaki mjesečni anuiteti')}
-        ${row('Prijevremena otplata','naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit')}
+        ${row('Naknada za prijevremenu otplatu',prijevremenaText()+'<ul class="is-ul">'+prijevremenaStavke().map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>')}
         ${row('Pravo na odustanak','14 dana od dana zaključenja ugovora, bez navođenja razloga')}
       </table>
       <div class="is-rep">${repSentence(p)}</div>
@@ -1955,7 +2035,7 @@ function openAdvisors(){
     <button class="adv" data-adv="${i}">
       <span class="adv-ph">${a.init}<img src="${a.img}" alt="" onerror="this.style.display='none'"/></span>
       <span class="adv-bd">
-        <h4>${a.n}</h4>
+        <h3>${a.n}</h3>
         <span class="role">${a.r}</span>
         <p>${a.d}</p>
         <span class="adv-go">${a.page?'Pogledaj profil':'Rezerviši razgovor'}
@@ -2097,7 +2177,7 @@ const faqs=[
   {q:'Kakvo obezbjeđenje kredita se traži?',a:'Mjenica je obavezna kod svih naših kredita. Zavisno od proizvoda i iznosa, može se tražiti i sudužnik ili žirant, administrativna zabrana na platu ili penziju, zalog na predmetu finansiranja ili hipoteka. Tačno obezbjeđenje za svaki proizvod navedeno je u detaljima proizvoda i u informacionom listu.'},
   {q:'Da li su krediti u KM ili sa valutnom klauzulom?',a:'Krediti se odobravaju i otplaćuju u konvertibilnim markama (KM/BAM), uz valutnu klauzulu vezanu za euro (EUR). Kurs KM je zakonski fiksiran prema euru (1 EUR = 1,95583 KM), pa dok taj fiksni kurs važi vaša rata ostaje ista.'},
   {q:'Da li postoji grace period?',a:'Grace period (odgoda otplate glavnice) dostupan je kod kredita za pravna lica — do 3 mjeseca kod Biznis Keš PLUS i do 9 mjeseci kod Invest PLUS. Krediti za fizička lica nemaju grace period. Podatak je naveden uz svaki proizvod.'},
-  {q:'Šta ako želim ranije otplatiti kredit?',a:'Prijevremena otplata je moguća u svakom trenutku. Naknada iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.'},
+  {q:'Šta ako želim ranije otplatiti kredit?',a:'Prijevremena otplata je moguća u svakom trenutku. Naknada se naplaćuje samo kod fiksne kamatne stope i samo ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM — tada iznosi 1,00% ako je do dospijeća ostalo godinu dana ili više, odnosno 0,50% ako je ostalo manje od godinu dana.'},
   {q:'Koju dokumentaciju trebam?',a:'Za većinu kredita dovoljna je lična karta i potvrda o primanjima. Tačan spisak zavisi od vrste kredita i dostavlja ga vaš savjetnik.'},
   {q:'Mogu li refinansirati postojeći kredit?',a:'Da, kroz nenamjenski kredit moguće je refinansiranje postojećih obaveza uz povoljnije uslove i jednu ratu.'},
   {q:'Gdje mogu naći informacioni list i opšte uslove?',a:'Informacioni list za svaki kreditni proizvod možete preuzeti u detaljima tog proizvoda ili na stranici Dokumenti, gdje se nalaze i Opšti uslovi poslovanja, Cjenovnik usluga, Uslovi korišćenja i Politika privatnosti.'}
@@ -2129,7 +2209,7 @@ const glossary=[
   {t:'Hipoteka (I reda)',d:'Založno pravo na nekretnini. „I reda" znači da MKD ima prvenstvo u naplati iz te nekretnine.'},
   {t:'Zatezna kamata',d:'Kamata koja se obračunava na iznos koji nije plaćen u roku, prema zakonu RS.'},
   {t:'Refinansiranje',d:'Zatvaranje postojećeg kredita novim, najčešće radi povoljnijih uslova ili objedinjavanja u jednu ratu.'},
-  {t:'Izlazna klauzula',d:'Naknada za prijevremenu otplatu (0,5% na preostalu glavnicu). Ne naplaćuje se ako se refinansira sredstvima MKD Bilans Plus Kredit.'},
+  {t:'Izlazna klauzula',d:'Naknada za prijevremenu otplatu. Naplaćuje se kod fiksne kamatne stope ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM: 1,00% ako je do dospijeća ostalo ≥ 1 godine, 0,50% ako je ostalo manje.'},
   {t:'Polisa osiguranja',d:'Osiguranje koje pokriva otplatu kredita ili predmet obezbjeđenja (npr. rizik smrti ili invaliditeta).'},
   {t:'Vinkulacija',d:'Prenos prava iz polise osiguranja u korist MKD — MKD postaje korisnik naknade iz osiguranja.'},
   {t:'Plasman',d:'Odobreni i isplaćeni kredit.'},
@@ -2157,7 +2237,7 @@ function renderGlos(q){
   q=(q||'').toLowerCase().trim();
   const list=glossary.filter(g=>!q||g.t.toLowerCase().includes(q)||(g.a&&g.a.toLowerCase().includes(q))||g.d.toLowerCase().includes(q));
   glosWrap.innerHTML=list.length
-    ? list.map(g=>`<div class="gitem"><h4>${g.t}${g.a?`<span class="abbr">${g.a}</span>`:''}</h4><p>${g.d}</p></div>`).join('')
+    ? list.map(g=>`<div class="gitem"><h3>${g.t}${g.a?`<span class="abbr">${g.a}</span>`:''}</h3><p>${g.d}</p></div>`).join('')
     : `<div class="glos-empty">Nema rezultata za „${q}".</div>`;
 }
 renderGlos('');
@@ -2183,7 +2263,7 @@ if(docGrid){
     if(d.page) act=`<button class="doc-a" onclick="go('${d.page}')">Otvori<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`;
     else if(d.file) act=`<a class="doc-a" href="${d.file}" target="_blank" rel="noopener">Preuzmi PDF<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg></a>`;
     else act=`<button class="doc-a" disabled>Uskoro dostupno</button>`;
-    return `<div class="doc reveal"><div class="doc-ic">${docIcon}</div><div class="doc-bd"><h4>${d.t}</h4><p>${d.d}</p>${act}</div></div>`;
+    return `<div class="doc reveal"><div class="doc-ic">${docIcon}</div><div class="doc-bd"><h3>${d.t}</h3><p>${d.d}</p>${act}</div></div>`;
   }).join('');
   document.getElementById('docProds').innerHTML=products.map((p,i)=>
     `<button onclick="openInfoSheet(${i})">${docIcon}${p.name}</button>`).join('');
@@ -2688,9 +2768,14 @@ function focusPageHeading(){
 window.a11ySkip=function(){focusPageHeading();};
 /* ---------- SPA router: najava promjene stranice + fokus + aria-current ---------- */
 var _go=window.go;
+var OSNOVNI_NASLOV=document.title;
 window.go=function(id){
   _go(id);
-  announce('Otvorena stranica: '+(PAGE_NAMES[id]||id)+'.');
+  /* naslov dokumenta mora pratiti stranicu — čitač ekrana ga izgovara pri
+     povratku u karticu, a korisnik ga vidi i u istoriji pregledača */
+  var ime=PAGE_NAMES[id]||id;
+  document.title=(id==='pocetna') ? OSNOVNI_NASLOV : ime+' — Bilans Plus Kredit';
+  announce('Otvorena stranica: '+ime+'.');
   document.querySelectorAll('.nlink').forEach(function(n){
     if(n.dataset.nl===id)n.setAttribute('aria-current','page');
     else n.removeAttribute('aria-current');
@@ -2718,8 +2803,13 @@ if(brand){
   brand.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.go('pocetna');}});
 }
 /* ---------- FAQ: tastatura + aria-expanded ---------- */
-document.querySelectorAll('.faq-q').forEach(function(q){
+document.querySelectorAll('.faq-q').forEach(function(q,i){
   q.setAttribute('role','button');q.setAttribute('tabindex','0');q.setAttribute('aria-expanded','false');
+  /* aria-controls: čitač tada zna KOJI panel se otvara, i može skočiti na njega */
+  var odg=q.parentElement.querySelector('.faq-a');
+  if(odg){ if(!odg.id) odg.id='faqOdg'+i; q.setAttribute('aria-controls',odg.id);
+           odg.setAttribute('role','region'); if(!q.id) q.id='faqPit'+i;
+           odg.setAttribute('aria-labelledby',q.id); }
   q.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
   q.addEventListener('click',function(){
     setTimeout(function(){
@@ -2744,6 +2834,22 @@ document.querySelectorAll('.fg,.cgroup').forEach(function(wrap){
   var lab=wrap.querySelector('label'),inp=wrap.querySelector('input,select,textarea');
   if(lab&&inp&&inp.id&&!lab.getAttribute('for')&&!lab.contains(inp))lab.setAttribute('for',inp.id);
 });
+/* Sigurnosna mreža: polje bez ijednog pristupačnog imena dobija aria-label iz
+   teksta najbliže labele. Trebalo je npr. klizaču za iznos u kalkulatoru, čija
+   labela već obavija brojčano polje pa je gornje pravilo moralo da je preskoči. */
+document.querySelectorAll('input,select,textarea').forEach(function(inp){
+  if(inp.type==='hidden') return;
+  var imeIz = (inp.id && document.querySelector('label[for="'+CSS.escape(inp.id)+'"]'))
+           || inp.closest('label') || inp.getAttribute('aria-label') || inp.getAttribute('aria-labelledby');
+  if(imeIz) return;
+  var wrap=inp.closest('.fg,.cgroup'); if(!wrap) return;
+  var lab=wrap.querySelector('label'); if(!lab) return;
+  /* uzimamo samo tekst labele, bez vrijednosti iz ugniježđenih polja */
+  var kl=lab.cloneNode(true);
+  kl.querySelectorAll('input,select,textarea').forEach(function(x){x.remove();});
+  var txt=kl.textContent.replace(/\s+/g,' ').trim();
+  if(txt) inp.setAttribute('aria-label',txt);
+});
 /* obavezna polja */
 ['z-ime','z-tel','z-email','z-grad','z-tip','z-gdpr','k-ime','k-tel','k-email','k-poruka'].forEach(function(id){
   var el=document.getElementById(id);if(el)el.setAttribute('aria-required','true');
@@ -2755,7 +2861,7 @@ function sliderA11y(id,labelId){
   el.addEventListener('input',set);set();
 }
 sliderA11y('calcAmt','calcAmtL');sliderA11y('calcTerm','calcTermL');
-sliderA11y('gInc','gIncL');sliderA11y('gObl','gOblL');sliderA11y('gTrm','gTrmL');
+sliderA11y('calcGrace','calcGraceL');sliderA11y('gInc','gIncL');sliderA11y('gObl','gOblL');sliderA11y('gTrm','gTrmL');
 /* rezultat kalkulatora i mjerača — najava za čitače ekrana */
 function onRelease(id,fn){
   var el=document.getElementById(id);
@@ -2885,7 +2991,7 @@ var DICT={
 /* ---------- Krediti stranica ---------- */
 "Kreditne":"Loan","ponude":"offers","Devet vrsta kredita za fizička i pravna lica — pronađite onaj koji odgovara vašim potrebama.":"Nine types of loans for individuals and businesses — find the one that suits your needs.","7 kreditnih proizvoda":"7 loan products","2 kreditna proizvoda":"2 loan products",
 /* ---------- Naknade, EKS, obezbjeđenje, dokumenti (novo) ---------- */
-"Dokumenti":"Documents","Naknada za obradu":"Processing fee","Efektivna kamatna stopa (EKS)":"Effective interest rate (APR)","Ukupno za otplatu":"Total repayable","Naknada (provizija) za obradu":"Processing fee (commission)","Nominalna kamatna stopa (NKS)":"Nominal interest rate (NIR)","1 · Nominalna kamatna stopa (NKS)":"1 · Nominal interest rate (NIR)","2 · Naknada (provizija) za obradu":"2 · Processing fee (commission)","3 · Efektivna kamatna stopa (EKS)":"3 · Effective interest rate (APR)","Kako se dolazi do EKS":"How the APR is arrived at","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknade, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fee, so it differs for other combinations — check it in the calculator.","Obezbjeđenje kredita":"Loan security","Obezbjeđenje:":"Security:","KM, val. klauzula EUR":"KM, EUR currency clause","Reprezentativni primjer":"Representative example","bez naknade":"no fee","bez grace perioda":"no grace period","Valuta":"Currency","KM (BAM) — uz valutnu klauzulu u EUR":"KM (BAM) — with a EUR currency clause","fiksna, dekurzivna":"fixed, in arrears","Prijevremena otplata":"Early repayment","0,5% preostale glavnice":"0.5% of the remaining principal","Informacioni list (PDF)":"Information sheet (PDF)","NKS (fiksna)":"Nominal rate (fixed)","Detalji, obezbjeđenje i EKS":"Details, security and APR","Prikazani podaci su informativnog karaktera. Konačni uslovi i EKS utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu.":"The information shown is indicative. Final terms and the APR are determined through individual assessment of your application and are stated in the loan contract.",
+"Dokumenti":"Documents","Naknada za obradu":"Processing fee","Efektivna kamatna stopa (EKS)":"Effective interest rate (APR)","Ukupno za otplatu":"Total repayable","Naknada (provizija) za obradu":"Processing fee (commission)","Nominalna kamatna stopa (NKS)":"Nominal interest rate (NIR)","1 · Nominalna kamatna stopa (NKS)":"1 · Nominal interest rate (NIR)","2 · Naknada (provizija) za obradu":"2 · Processing fee (commission)","3 · Efektivna kamatna stopa (EKS)":"3 · Effective interest rate (APR)","Kako se dolazi do EKS":"How the APR is arrived at","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknade, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fee, so it differs for other combinations — check it in the calculator.","Obezbjeđenje kredita":"Loan security","Obezbjeđenje:":"Security:","KM, val. klauzula EUR":"KM, EUR currency clause","Reprezentativni primjer":"Representative example","bez naknade":"no fee","bez grace perioda":"no grace period","Valuta":"Currency","KM (BAM) — uz valutnu klauzulu u EUR":"KM (BAM) — with a EUR currency clause","fiksna, dekurzivna":"fixed, in arrears","Prijevremena otplata":"Early repayment","Informacioni list (PDF)":"Information sheet (PDF)","NKS (fiksna)":"Nominal rate (fixed)","Detalji, obezbjeđenje i EKS":"Details, security and APR","Prikazani podaci su informativnog karaktera. Konačni uslovi i EKS utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu.":"The information shown is indicative. Final terms and the APR are determined through individual assessment of your application and are stated in the loan contract.",
 "Mjenica":"A promissory note","Mjenica; za iznose preko 3.000 KM sudužnik ili žirant":"A promissory note; for amounts over 3,000 KM a co-borrower or guarantor","Mjenica i administrativna zabrana; za iznose preko 10.000 KM jedan ili više žiranata, po potrebi zalog":"A promissory note and an administrative garnishment; for amounts over 10,000 KM one or more guarantors and, if required, a pledge","Mjenica; za iznose preko 5.000 KM sudužnik":"A promissory note; for amounts over 5,000 KM a co-borrower","Mjenica i administrativna zabrana na penziju":"A promissory note and an administrative garnishment on the pension","Mjenica pravnog lica i vlasnika, sudužnik; za veće iznose zalog ili hipoteka":"A promissory note from the company and the owner, a co-borrower; for larger amounts a pledge or a mortgage","Mjenica, sudužnik i zalog na predmetu finansiranja; po potrebi hipoteka I reda":"A promissory note, a co-borrower and a pledge on the financed item; if required, a first-rank mortgage",
 /* ---------- FAQ: nova i izmijenjena pitanja ---------- */
 "Efektivna kamatna stopa (EKS) prikazuje ukupan trošak kredita. Navodi se u ugovoru o kreditu za svaki proizvod, a možete je izračunati i u našem kalkulatoru — tamo se EKS preračunava za tačan iznos i rok koji izaberete.":"The effective interest rate (APR) shows the total cost of the loan. It is stated in the loan contract for every product, and you can also work it out in our calculator — there the APR is recalculated for the exact amount and term you choose.",
@@ -2895,14 +3001,14 @@ var DICT={
 "Kakvo obezbjeđenje kredita se traži?":"What loan security is required?","Mjenica je obavezna kod svih naših kredita. Zavisno od proizvoda i iznosa, može se tražiti i sudužnik ili žirant, administrativna zabrana na platu ili penziju, zalog na predmetu finansiranja ili hipoteka. Tačno obezbjeđenje za svaki proizvod navedeno je u detaljima proizvoda i u informacionom listu.":"A promissory note is mandatory on all our loans. Depending on the product and the amount, a co-borrower or guarantor, an administrative garnishment on a salary or pension, a pledge on the financed item or a mortgage may also be required. The exact security for each product is stated in the product details and in the information sheet.",
 "Da li su krediti u KM ili sa valutnom klauzulom?":"Are the loans in KM or linked to a foreign currency?","Krediti se odobravaju i otplaćuju u konvertibilnim markama (KM/BAM), uz valutnu klauzulu vezanu za euro (EUR). Kurs KM je zakonski fiksiran prema euru (1 EUR = 1,95583 KM), pa dok taj fiksni kurs važi vaša rata ostaje ista.":"Loans are granted and repaid in convertible marks (KM/BAM), with a currency clause linked to the euro (EUR). The exchange rate of the convertible mark is fixed by law against the euro (1 EUR = 1.95583 KM), so for as long as that fixed rate applies your instalment stays the same.",
 "Da li postoji grace period?":"Is there a grace period?","Grace period (odgoda otplate glavnice) dostupan je kod kredita za pravna lica — do 3 mjeseca kod Biznis Keš PLUS i do 9 mjeseci kod Invest PLUS. Krediti za fizička lica nemaju grace period. Podatak je naveden uz svaki proizvod.":"A grace period (deferral of principal repayment) is available on loans for businesses — up to 3 months on Biznis Keš PLUS and up to 9 months on Invest PLUS. Loans for individuals have no grace period. This is stated next to every product.",
-"Šta ako želim ranije otplatiti kredit?":"What if I want to repay the loan early?","Prijevremena otplata je moguća u svakom trenutku. Naknada iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.":"Early repayment is possible at any time. The fee is 0.5% of the remaining principal and is not charged if the loan is refinanced with funds from MKD Bilans Plus Kredit.",
+"Šta ako želim ranije otplatiti kredit?":"What if I want to repay the loan early?","Prijevremena otplata je moguća u svakom trenutku. Naknada se naplaćuje samo kod fiksne kamatne stope i samo ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM — tada iznosi 1,00% ako je do dospijeća ostalo godinu dana ili više, odnosno 0,50% ako je ostalo manje od godinu dana.":"Early repayment is possible at any time. The fee is 0.5% of the remaining principal and is not charged if the loan is refinanced with funds from MKD Bilans Plus Kredit.",
 "Gdje mogu naći informacioni list i opšte uslove?":"Where can I find the information sheet and the general terms?","Informacioni list za svaki kreditni proizvod možete preuzeti u detaljima tog proizvoda ili na stranici Dokumenti, gdje se nalaze i Opšti uslovi poslovanja, Cjenovnik usluga, Uslovi korišćenja i Politika privatnosti.":"You can download the information sheet for every loan product from that product's details or from the Documents page, which also holds the General terms of business, the Price list of services, the Terms of use and the Privacy policy.",
 /* ---------- Uslovi korišćenja: izmijenjene i nove tačke ---------- */
 "Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u sjedištu MKD i na web stranici. Nominalna kamatna stopa (NKS), naknada (provizija) za obradu kredita i efektivna kamatna stopa (EKS) iskazuju se odvojeno uz svaki kreditni proizvod, u kalkulatoru i u informacionom listu, a EKS se navodi i u ugovoru o kreditu.":"Interest rates and other fees are defined in a separate Price list of services, available at the head office and on the website. The nominal interest rate, the processing fee (commission) and the effective interest rate (APR) are shown separately next to every loan product, in the calculator and in the information sheet, and the APR is also stated in the loan contract.",
 "Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora, uključujući informacioni list sa reprezentativnim primjerom, iznosom naknada, obezbjeđenjem kredita i visinom EKS.":"The user has the right to clear and comprehensible information about the loan terms before signing the contract, including an information sheet with a representative example, the amount of any fees, the loan security and the level of the APR.",
 "5. Pravo na odustanak (14 dana)":"5. Right of withdrawal (14 days)","Korisnik ima pravo da odustane od zaključenog ugovora o kreditu u roku od":"The user has the right to withdraw from a concluded loan contract within","14 dana od dana zaključenja ugovora":"14 days of the day the contract was concluded",
 ", bez navođenja razloga i bez plaćanja naknade za odustanak. Odustanak se dostavlja u pisanoj formi, u sjedištu MKD Bilans Plus Kredit ili na adresu sjedišta, odnosno na e-mail info@bilanspluskredit.com, u navedenom roku. Korisnik je dužan da bez odlaganja, a najkasnije u roku od 30 dana od slanja obavještenja o odustanku, vrati glavnicu i kamatu obračunatu za period u kojem je koristio sredstva.":", without giving a reason and without paying a withdrawal fee. The withdrawal must be submitted in writing, at the head office of MKD Bilans Plus Kredit or to the head office address, or by e-mail to info@bilanspluskredit.com, within that period. The user must, without delay and no later than 30 days from sending the notice of withdrawal, repay the principal and the interest calculated for the period in which the funds were used.",
-"6. Prijevremena otplata":"6. Early repayment","Korisnik u svakom trenutku može djelimično ili u cijelosti prijevremeno otplatiti kredit. Naknada za prijevremenu otplatu iznosi 0,5% na preostalu glavnicu i ne naplaćuje se ako se kredit refinansira sredstvima MKD Bilans Plus Kredit.":"The user may repay the loan early, in part or in full, at any time. The early repayment fee is 0.5% of the remaining principal and is not charged if the loan is refinanced with funds from MKD Bilans Plus Kredit.",
+"6. Prijevremena otplata":"6. Early repayment","Korisnik u svakom trenutku može djelimično ili u cijelosti prijevremeno otplatiti kredit. Naknada za prijevremenu otplatu obračunava se i naplaćuje za mikrokredite sa ugovorenom fiksnom kamatnom stopom, ako je iznos prijevremene otplate u periodu od godinu dana veći od 5.000,00 KM, i to: 1,00% ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu ≥ 1 godine, odnosno 0,50% ako je taj period kraći od 1 godine.":"The user may repay the loan early, in part or in full, at any time. An early repayment fee is calculated and charged on microloans with an agreed fixed interest rate, if the amount repaid early within a period of one year exceeds 5,000.00 KM, as follows: 1.00% where the period between the early repayment and the maturity date of the microloan contract is ≥ 1 year, and 0.50% where that period is shorter than 1 year.",
 "7. Valuta i valutna klauzula":"7. Currency and currency clause","Krediti se odobravaju i otplaćuju u konvertibilnim markama (KM/BAM), uz valutnu klauzulu vezanu za euro (EUR). Kurs konvertibilne marke je zakonski fiksiran prema euru (1 EUR = 1,95583 KM), pa dok taj fiksni kurs važi valutna klauzula nema uticaja na visinu anuiteta.":"Loans are granted and repaid in convertible marks (KM/BAM), with a currency clause linked to the euro (EUR). The exchange rate of the convertible mark is fixed by law against the euro (1 EUR = 1.95583 KM), so for as long as that fixed rate applies the currency clause has no effect on the size of the instalment.",
 "8. Opšti uslovi poslovanja":"8. General terms of business","Opšti uslovi poslovanja MKD Bilans Plus Kredit, Cjenovnik usluga i informacioni listovi po kreditnim proizvodima javno su dostupni na stranici":"The General terms of business of MKD Bilans Plus Kredit, the Price list of services and the information sheets for each loan product are publicly available on the page","i u sjedištu MKD.":"and at the head office.",
 "9. Prigovori korisnika":"9. User complaints","Korisnik ima pravo da podnese prigovor na rad MKD Bilans Plus Kredit usmeno u sjedištu, pisanim putem na adresu sjedišta ili na e-mail info@bilanspluskredit.com. Odgovor na prigovor dostavlja se u roku propisanom važećim propisima Republike Srpske. Ako nije zadovoljan odgovorom, korisnik se može obratiti Ombudsmanu za bankarski sistem Republike Srpske.":"The user has the right to complain about the work of MKD Bilans Plus Kredit orally at the head office, in writing to the head office address or by e-mail to info@bilanspluskredit.com. A reply is provided within the period prescribed by the applicable regulations of Republika Srpska. If the user is not satisfied with the reply, they may contact the Ombudsman for the Banking System of Republika Srpska.",
@@ -2917,6 +3023,8 @@ var DICT={
 "opterećenost primanja ratama":"share of income taken by instalments","Najveći dio primanja koji smije otići na otplatu svih kredita zajedno. Zavisi od visine primanja i od toga koliko novca korisniku mora ostati za život.":"The largest share of income that may go towards repaying all loans together. It depends on the level of income and on how much money must be left for the borrower to live on.",
 /* ---------- Stranica Dokumenti ---------- */
 "Dokumenti i":"Documents and","informacioni listovi":"information sheets","Opšti uslovi poslovanja, cjenovnik i informacioni list za svaki kreditni proizvod — javno dostupni, prije nego išta potpišete.":"General terms of business, the price list and an information sheet for every loan product — publicly available before you sign anything.","Opšti uslovi poslovanja":"General terms of business","Opšti uslovi pod kojima MKD Bilans Plus Kredit odobrava i prati kredite — prava i obaveze korisnika, obračun kamate, naplata i prigovori.":"The general terms under which MKD Bilans Plus Kredit grants and administers loans — the rights and obligations of the borrower, interest calculation, collection and complaints.","Cjenovnik usluga":"Price list of services","Pregled svih naknada: obrada kreditnog zahtjeva, mjenica, prijevremena otplata, opomene i ostale usluge.":"An overview of all fees: processing of the loan application, promissory note, early repayment, reminders and other services.","Uslovi korišćenja web stranice, pravo na odustanak u roku od 14 dana, prijevremena otplata i postupak po prigovoru.":"The terms of use of the website, the 14-day right of withdrawal, early repayment and the complaints procedure.","Kako prikupljamo, koristimo i čuvamo vaše lične podatke i koja prava imate u vezi sa njima.":"How we collect, use and store your personal data and what rights you have in relation to it.","Informacioni listovi po kreditnim proizvodima":"Information sheets by loan product","Za svaki proizvod: iznos, rok, NKS, naknada za obradu, EKS, obezbjeđenje, grace period i reprezentativni primjer. Otvara se kao dokument spreman za štampu ili čuvanje u PDF.":"For every product: amount, term, nominal rate, processing fee, APR, security, grace period and a representative example. It opens as a document ready to print or save as PDF.","Otvori":"Open","Preuzmi PDF":"Download PDF","Uskoro dostupno":"Available soon","Dokumenti su dostupni i u štampanom obliku u sjedištu MKD u Banjoj Luci.":"The documents are also available in printed form at all our branches.",
+/* ---------- Naknada za prijevremenu otplatu (nova odredba) ---------- */
+"Naknada za prijevremenu otplatu":"Early repayment fee","Naknada se obračunava i naplaćuje za mikrokredite sa ugovorenom fiksnom kamatnom stopom, ako je iznos prijevremene otplate u periodu od godinu dana veći od 5.000,00 KM.":"The fee is calculated and charged on microloans with an agreed fixed interest rate, if the amount repaid early within a period of one year exceeds 5,000.00 KM.","ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu ≥ 1 godine":"where the period between the early repayment and the maturity date of the microloan contract is ≥ 1 year","ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu < 1 godine":"where the period between the early repayment and the maturity date of the microloan contract is < 1 year","Prijevremena otplata je moguća u svakom trenutku. Naknada se naplaćuje samo kod fiksne kamatne stope i samo ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM — tada iznosi 1,00% ako je do dospijeća ostalo godinu dana ili više, odnosno 0,50% ako je ostalo manje od godinu dana.":"Early repayment is possible at any time. The fee applies only to loans with a fixed interest rate and only if you repay more than 5,000.00 KM early within a period of one year — it is then 1.00% if a year or more remains until maturity, or 0.50% if less than a year remains.","Naknada za prijevremenu otplatu. Naplaćuje se kod fiksne kamatne stope ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM: 1,00% ako je do dospijeća ostalo ≥ 1 godine, 0,50% ako je ostalo manje.":"An early repayment fee. It is charged on fixed-rate loans if you repay more than 5,000.00 KM early within a period of one year: 1.00% if ≥ 1 year remains until maturity, 0.50% if less remains.",
 /* ---------- Mjerač kreditne sposobnosti (specifikacija 19.08.2026.) ---------- */
 "Raspoloživi prihod":"Available income","Postojeći DTI":"Current DTI","Maksimalno dozvoljeno opterećenje":"Maximum permitted burden","Maksimalna nova rata":"Maximum new instalment","Ukupno opterećenje nakon novog kredita":"Total burden after the new loan","maksimalni iznos kredita":"maximum loan amount","ocjena kreditne sposobnosti":"borrowing capacity rating","Odlična":"Excellent","Dobra":"Good","Ograničena":"Limited","Potrebna procjena":"Assessment required","* Dozvoljeno mjesečno opterećenje računa se po tranšama primanja: prvih 1.000 KM po 50%, a sve preko 1.000 KM po 60%. Od tog iznosa se oduzmu postojeće mjesečne obaveze i dobija se maksimalna nova rata. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* The permitted monthly burden is calculated in income tranches: the first 1,000 KM at 50%, and everything above 1,000 KM at 60%. Existing monthly obligations are then deducted from that amount to give the maximum new instalment. The estimate is indicative; final capacity is determined by an advisor through individual analysis.","Uz ovakav odnos primanja i obaveza ne ostaje prostora za novu ratu. Javite se savjetniku — refinansiranje postojećih obaveza često oslobodi mjesečni budžet.":"With this ratio of income to obligations there is no room for a new instalment. Talk to an advisor — refinancing existing obligations often frees up the monthly budget.",
 "EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fees, so it differs for other combinations — check it in the calculator.","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka, grace perioda i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term, the grace period and the fees, so it differs for other combinations — check it in the calculator.",
@@ -2925,7 +3033,7 @@ var DICT={
 "Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci. Grace period do 9 mjeseci daje vremena da investicija počne vraćati uloženo.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months. A grace period of up to 9 months gives the investment time to start paying for itself.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci. Ovo je naš proizvod sa najvećim iznosom i najdužim rokom za pravna lica.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months. This is our product with the largest amount and the longest term for businesses.","Investicioni kredit za poslovne subjekte — mašine, oprema, vozila, IT i opremanje poslovnog prostora. Iznos 10.000–50.000 KM, rok do 84 mjeseca, grace do 9 mjeseci. Za bržu obradu pripremite predračun ili ponudu za predmet finansiranja.":"An investment loan for businesses — machinery, equipment, vehicles, IT and fitting out business premises. Amount 10,000–50,000 KM, term up to 84 months, grace period up to 9 months. For faster processing, prepare a proforma invoice or a quotation for the item being financed.",
 "Nenamjenski gotovinski kredit za lične potrebe, bez obaveze navođenja namjene. Iznos do 7.000 KM, rok do 18 mjeseci.":"A non-purpose cash loan for personal needs, with no obligation to state the purpose. Amount up to 7,000 KM, term up to 18 months.","Nenamjenski gotovinski kredit za veće iznose — do 30.000 KM, rok do 84 mjeseca.":"A non-purpose cash loan for larger amounts — up to 30,000 KM, term up to 84 months.","Nenamjenski gotovinski kredit uz administrativnu zabranu na platu kao instrument obezbjeđenja. Iznos do 30.000 KM, rok do 84 mjeseca.":"A non-purpose cash loan secured by an administrative garnishment on your salary. Amount up to 30,000 KM, term up to 84 months.","Penzionerski nenamjenski kredit uz mogućnost administrativne zabrane na penziju. Iznos do 30.000 KM, rok do 84 mjeseca.":"A non-purpose loan for pensioners, with the option of an administrative garnishment on the pension. Amount up to 30,000 KM, term up to 84 months.","Finansiranje registracije vozila, osiguranja, tehničkog pregleda, guma i malog servisa. Iznos 300–3.000 KM.":"Financing for vehicle registration, insurance, the technical inspection, tyres and a minor service. Amount 300–3,000 KM.","Kupuj odmah — finansiranje dobara i usluga kod ugovornih partnera MKD. Iznos 300–10.000 KM.":"Buy now — financing for goods and services at the lender's contracted partners. Amount 300–10,000 KM.","Finansiranje medicinskih i estetskih usluga kod ugovornih partnera MKD. Iznos do 30.000 KM.":"Financing for medical and cosmetic services at the lender's contracted partners. Amount up to 30,000 KM.","Za školski pribor, udžbenike, odjeću i obuću za polazak u školu. Iznos 500–2.000 KM, najniža kamata 19,99%.":"For school supplies, textbooks, clothing and footwear for starting school. Amount 500–2,000 KM, our lowest interest rate at 19.99%.",
 /* ---------- Informacioni list: redovi koji ranije nisu bili prevedeni ---------- */
-"Korisnik kredita":"Borrower","Fizička lica":"Individuals","Pravna lica i preduzetnici":"Businesses and entrepreneurs","Način obračuna kamate":"Interest calculation method","proporcionalni metod, dekurzivno, mjesečno, 360 dana":"proportional method, in arrears, monthly, 360 days","Ostale naknade":"Other fees","prema važećem Cjenovniku usluga MKD":"in accordance with the lender's applicable price list of services","Otplata":"Repayment","jednaki mjesečni anuiteti":"equal monthly instalments","Prijevremena otplata":"Early repayment","naknada 0,5% na preostalu glavnicu; bez naknade kod refinansiranja sredstvima MKD Bilans Plus Kredit":"a fee of 0.5% on the remaining principal; no fee when refinancing with funds from MKD Bilans Plus Kredit","Pravo na odustanak":"Right of withdrawal","14 dana od dana zaključenja ugovora, bez navođenja razloga":"14 days from the date the contract is concluded, with no reason required","Ovaj informacioni list je informativnog karaktera i ne predstavlja obavezujuću kreditnu ponudu. Konačni uslovi utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu. MKD Bilans Plus Kredit, Banja Luka — licencirano od Agencije za bankarstvo Republike Srpske.":"This information sheet is for information purposes only and does not constitute a binding loan offer. Final terms are determined through individual assessment of the application and are stated in the loan contract. MKD Bilans Plus Kredit, Banja Luka — licensed by the Banking Agency of Republika Srpska.","bez grace perioda":"no grace period","MKD Bilans Plus Kredit · Informacioni list":"MKD Bilans Plus Kredit · Information sheet",
+"Korisnik kredita":"Borrower","Fizička lica":"Individuals","Pravna lica i preduzetnici":"Businesses and entrepreneurs","Način obračuna kamate":"Interest calculation method","proporcionalni metod, dekurzivno, mjesečno, 360 dana":"proportional method, in arrears, monthly, 360 days","Ostale naknade":"Other fees","prema važećem Cjenovniku usluga MKD":"in accordance with the lender's applicable price list of services","Otplata":"Repayment","jednaki mjesečni anuiteti":"equal monthly instalments","Prijevremena otplata":"Early repayment","Pravo na odustanak":"Right of withdrawal","14 dana od dana zaključenja ugovora, bez navođenja razloga":"14 days from the date the contract is concluded, with no reason required","Ovaj informacioni list je informativnog karaktera i ne predstavlja obavezujuću kreditnu ponudu. Konačni uslovi utvrđuju se individualnom obradom zahtjeva i navode se u ugovoru o kreditu. MKD Bilans Plus Kredit, Banja Luka — licencirano od Agencije za bankarstvo Republike Srpske.":"This information sheet is for information purposes only and does not constitute a binding loan offer. Final terms are determined through individual assessment of the application and are stated in the loan contract. MKD Bilans Plus Kredit, Banja Luka — licensed by the Banking Agency of Republika Srpska.","bez grace perioda":"no grace period","MKD Bilans Plus Kredit · Informacioni list":"MKD Bilans Plus Kredit · Information sheet",
 /* ---------- Nedostajali u rječniku (nadjeno reviziojm 25.08.2026.) ---------- */
 "Klizač ili upišite iznos:":"Use the slider or type an amount:","Ovo je reprezentativni primjer iz zvaničnog kataloga MKD Bilans Plus Kredit — prikazan je tačno onako kako stoji u katalogu.":"This is the representative example from the official catalogue of MKD Bilans Plus Kredit — it is shown exactly as it appears there.",
 "MKD Bilans plus kredit":"MKD Bilans plus kredit",
@@ -2959,7 +3067,7 @@ var DICT={
 /* ---------- Savjetnici ---------- */
 "Vaš lični savjetnik":"Your personal advisor","Izaberite osobu koja vas vodi kroz proces":"Choose the person who will guide you through the process","Svaki klijent kod nas dobija jednog savjetnika — istu osobu od prvog razgovora do isplate. Odaberite koga želite i javljamo se u roku od 24 sata.":"Every client gets a single advisor — the same person from the first conversation to disbursement. Choose who you want and we will get in touch within 24 hours.","Nije vam svejedno ko? Odaberite „bilo koji savjetnik” u obrascu — rasporedićemo najbržeg slobodnog.":"Don't mind who it is? Select “any advisor” in the form — we will assign the first one available.","Pogledaj profil":"View profile","Rezerviši razgovor":"Book a conversation","Vodi tim savjetnika. Specijalnost: restrukturiranje obaveza i investicioni planovi.":"Leads the team of advisors. Specialty: restructuring of obligations and investment plans.","Gotovinski krediti":"Cash loans","Vodi vas kroz Keš PLUS i Keš PLUS MAX — od papirologije do isplate na račun.":"Guides you through Keš PLUS and Keš PLUS MAX — from paperwork to disbursement into your account.","Poslovni krediti":"Business loans","Radi sa preduzetnicima i firmama — obrtna sredstva, likvidnost i nabavka opreme.":"Works with entrepreneurs and companies — working capital, liquidity and equipment purchases.","Penzioneri i porodica":"Pensioners and family","Treća mladost i porodični krediti. Strpljivo objašnjava svaku stavku ugovora.":"Treća mladost and family loans. Patiently explains every item of the contract.",
 /* ---------- Rječnik ---------- */
-"Rječnik":"Glossary","pojmova":"of terms","Objašnjenje skraćenica i stručnih izraza korištenih na ovoj stranici i u kreditnim ugovorima.":"An explanation of the abbreviations and technical terms used on this website and in loan contracts.","Pretraži pojmove (npr. EKS, anuitet, mjenica)...":"Search terms (e.g. APR, annuity, promissory note)...","Pretraži pojmove rječnika":"Search glossary terms","MKD":"MCO","Mikrokreditno društvo":"Microcredit company","Finansijska institucija licencirana za odobravanje mikrokredita. Na ovom sajtu: MKD Bilans Plus Kredit.":"A financial institution licensed to grant microloans. On this website: MKD Bilans Plus Kredit.","Nominalna kamatna stopa":"Nominal interest rate","Osnovna godišnja kamatna stopa na kredit, bez dodatnih troškova. Kod nas je fiksna za cijeli period otplate.":"The basic annual interest rate on the loan, excluding additional costs. With us it is fixed for the entire repayment period.","Efektivna kamatna stopa":"Effective interest rate (APR)","Ukupna cijena kredita izražena na godišnjem nivou — uključuje kamatu i sve troškove (obrada, mjenica). Najvažniji pokazatelj za poređenje kredita.":"The total cost of the loan expressed on an annual basis — it includes interest and all costs (processing, promissory note). The most important indicator for comparing loans.","p.a.":"p.a.","per annum":"per annum","Latinski izraz za „godišnje\". Kamatna stopa se uvijek izražava na godišnjem nivou.":"Latin for “per year”. An interest rate is always expressed on an annual basis.","Anuitet":"Annuity","Mjesečna rata kredita koja sadrži dio glavnice i dio kamate. Kod nas su anuiteti jednaki tokom cijele otplate.":"The monthly loan instalment containing part of the principal and part of the interest. With us the instalments are equal throughout the repayment period.","Iznos novca koji se posuđuje, bez kamate i troškova.":"The amount of money borrowed, excluding interest and costs.","Period odgode otplate glavnice na početku kredita. Tokom njega se obično plaća samo kamata. Dostupan kod kredita za pravna lica.":"A period at the start of the loan during which repayment of the principal is deferred. Usually only interest is paid during this time. Available on loans for businesses.","Mjenica":"Promissory note","Pisani instrument obezbjeđenja kojim korisnik garantuje vraćanje duga. Obavezna je kod svih naših kredita.":"A written security instrument by which the borrower guarantees repayment of the debt. It is mandatory for all our loans.","Administrativna zabrana":"Administrative garnishment","Obustava dijela plate ili penzije koja se direktno usmjerava na otplatu rate kredita.":"A deduction from part of a salary or pension that is directed straight to the repayment of the loan instalment.","Sadužnik / sudužnik":"Co-borrower","Osoba koja zajedno s korisnikom kredita odgovara za njegovu otplatu.":"A person who is liable for the repayment of the loan together with the borrower.","Jemac / jemstvo":"Guarantor / guarantee","Garant koji preuzima obavezu otplate kredita ako to korisnik ne učini.":"A guarantor who assumes the obligation to repay the loan if the borrower does not.","Kolateral":"Collateral","Imovina koja služi kao obezbjeđenje kredita (npr. zalog ili hipoteka).":"Property that serves as security for the loan (e.g. a pledge or a mortgage).","Zalog":"Pledge","Pokretna imovina (vozilo, oprema i sl.) data kao obezbjeđenje kredita.":"Movable property (a vehicle, equipment and similar) given as security for the loan.","Hipoteka (I reda)":"Mortgage (first rank)","Založno pravo na nekretnini. „I reda\" znači da MKD ima prvenstvo u naplati iz te nekretnine.":"A lien on real estate. “First rank” means the lender has priority in collecting from that property.","Zatezna kamata":"Default interest","Kamata koja se obračunava na iznos koji nije plaćen u roku, prema zakonu RS.":"Interest charged on an amount not paid on time, in accordance with the law of Republika Srpska.","Refinansiranje":"Refinancing","Zatvaranje postojećeg kredita novim, najčešće radi povoljnijih uslova ili objedinjavanja u jednu ratu.":"Closing an existing loan with a new one, usually to obtain more favourable terms or to consolidate into a single instalment.","Izlazna klauzula":"Early repayment fee","Naknada za prijevremenu otplatu (0,5% na preostalu glavnicu). Ne naplaćuje se ako se refinansira sredstvima MKD Bilans Plus Kredit.":"A fee for early repayment (0.5% of the remaining principal). It is not charged if refinancing is done with funds from MKD Bilans Plus Kredit.","Polisa osiguranja":"Insurance policy","Osiguranje koje pokriva otplatu kredita ili predmet obezbjeđenja (npr. rizik smrti ili invaliditeta).":"Insurance covering the repayment of the loan or the item of security (e.g. the risk of death or disability).","Vinkulacija":"Assignment of policy","Prenos prava iz polise osiguranja u korist MKD — MKD postaje korisnik naknade iz osiguranja.":"Transfer of the rights under an insurance policy in favour of the lender — the lender becomes the beneficiary of the insurance payout.","Plasman":"Placement","Odobreni i isplaćeni kredit.":"An approved and disbursed loan.","Nenamjenski kredit":"Non-purpose loan","Kredit koji se može trošiti slobodno, bez obaveze dokazivanja namjene.":"A loan that can be spent freely, with no obligation to prove its purpose.","Namjenski kredit":"Purpose-specific loan","Kredit koji se koristi isključivo za tačno određenu svrhu (npr. vozilo, škola, zdravlje).":"A loan used exclusively for one specific purpose (e.g. a vehicle, school, health).","Učešće":"Down payment","Vlastiti novčani udio korisnika u finansiranju, pored sredstava kredita.":"The borrower's own monetary contribution to the financing, in addition to the loan funds.","Trošak obrade":"Processing fee","Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva.":"A one-off fee charged by the lender for processing the loan application.","Reprezentativni primjer":"Representative example","Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti.":"An example calculation of the total cost of a loan on a typical amount and term, for the sake of clarity.","Kreditna sposobnost":"Borrowing capacity","Procjena mogućnosti korisnika da uredno otplaćuje kredit, na osnovu primanja i obaveza.":"An assessment of the borrower's ability to repay the loan properly, based on income and obligations.","Ugovorni partner":"Contracted partner","Prodavac robe ili pružalac usluge s kojim MKD ima zaključen ugovor o saradnji.":"A seller of goods or a service provider with whom the lender has a cooperation agreement.","Dekurzivni obračun":"Interest in arrears","Način obračuna gdje se kamata obračunava i plaća na kraju obračunskog perioda (mjesečno).":"A calculation method where interest is calculated and paid at the end of the accounting period (monthly).","Proporcionalni metod":"Proportional method","Metod obračuna kamate u kojem se godišnja stopa ravnomjerno raspoređuje na obračunske periode.":"A method of calculating interest in which the annual rate is spread evenly across the accounting periods.","PIO / MIO":"PIO / MIO","Penzijsko i invalidsko osiguranje":"Pension and disability insurance","Sistem isplate penzija — PIO u Republici Srpskoj, MIO u Federaciji BiH.":"The pension payment system — PIO in Republika Srpska, MIO in the Federation of BiH.","RS":"RS","Republika Srpska":"Republika Srpska","Entitet Bosne i Hercegovine u kojem MKD Bilans Plus Kredit posluje.":"The entity of Bosnia and Herzegovina in which MKD Bilans Plus Kredit operates.","FBiH":"FBiH","Federacija BiH":"Federation of BiH","Federacija Bosne i Hercegovine — drugi entitet BiH.":"The Federation of Bosnia and Herzegovina — the other entity of BiH.",
+"Rječnik":"Glossary","pojmova":"of terms","Objašnjenje skraćenica i stručnih izraza korištenih na ovoj stranici i u kreditnim ugovorima.":"An explanation of the abbreviations and technical terms used on this website and in loan contracts.","Pretraži pojmove (npr. EKS, anuitet, mjenica)...":"Search terms (e.g. APR, annuity, promissory note)...","Pretraži pojmove rječnika":"Search glossary terms","MKD":"MCO","Mikrokreditno društvo":"Microcredit company","Finansijska institucija licencirana za odobravanje mikrokredita. Na ovom sajtu: MKD Bilans Plus Kredit.":"A financial institution licensed to grant microloans. On this website: MKD Bilans Plus Kredit.","Nominalna kamatna stopa":"Nominal interest rate","Osnovna godišnja kamatna stopa na kredit, bez dodatnih troškova. Kod nas je fiksna za cijeli period otplate.":"The basic annual interest rate on the loan, excluding additional costs. With us it is fixed for the entire repayment period.","Efektivna kamatna stopa":"Effective interest rate (APR)","Ukupna cijena kredita izražena na godišnjem nivou — uključuje kamatu i sve troškove (obrada, mjenica). Najvažniji pokazatelj za poređenje kredita.":"The total cost of the loan expressed on an annual basis — it includes interest and all costs (processing, promissory note). The most important indicator for comparing loans.","p.a.":"p.a.","per annum":"per annum","Latinski izraz za „godišnje\". Kamatna stopa se uvijek izražava na godišnjem nivou.":"Latin for “per year”. An interest rate is always expressed on an annual basis.","Anuitet":"Annuity","Mjesečna rata kredita koja sadrži dio glavnice i dio kamate. Kod nas su anuiteti jednaki tokom cijele otplate.":"The monthly loan instalment containing part of the principal and part of the interest. With us the instalments are equal throughout the repayment period.","Iznos novca koji se posuđuje, bez kamate i troškova.":"The amount of money borrowed, excluding interest and costs.","Period odgode otplate glavnice na početku kredita. Tokom njega se obično plaća samo kamata. Dostupan kod kredita za pravna lica.":"A period at the start of the loan during which repayment of the principal is deferred. Usually only interest is paid during this time. Available on loans for businesses.","Mjenica":"Promissory note","Pisani instrument obezbjeđenja kojim korisnik garantuje vraćanje duga. Obavezna je kod svih naših kredita.":"A written security instrument by which the borrower guarantees repayment of the debt. It is mandatory for all our loans.","Administrativna zabrana":"Administrative garnishment","Obustava dijela plate ili penzije koja se direktno usmjerava na otplatu rate kredita.":"A deduction from part of a salary or pension that is directed straight to the repayment of the loan instalment.","Sadužnik / sudužnik":"Co-borrower","Osoba koja zajedno s korisnikom kredita odgovara za njegovu otplatu.":"A person who is liable for the repayment of the loan together with the borrower.","Jemac / jemstvo":"Guarantor / guarantee","Garant koji preuzima obavezu otplate kredita ako to korisnik ne učini.":"A guarantor who assumes the obligation to repay the loan if the borrower does not.","Kolateral":"Collateral","Imovina koja služi kao obezbjeđenje kredita (npr. zalog ili hipoteka).":"Property that serves as security for the loan (e.g. a pledge or a mortgage).","Zalog":"Pledge","Pokretna imovina (vozilo, oprema i sl.) data kao obezbjeđenje kredita.":"Movable property (a vehicle, equipment and similar) given as security for the loan.","Hipoteka (I reda)":"Mortgage (first rank)","Založno pravo na nekretnini. „I reda\" znači da MKD ima prvenstvo u naplati iz te nekretnine.":"A lien on real estate. “First rank” means the lender has priority in collecting from that property.","Zatezna kamata":"Default interest","Kamata koja se obračunava na iznos koji nije plaćen u roku, prema zakonu RS.":"Interest charged on an amount not paid on time, in accordance with the law of Republika Srpska.","Refinansiranje":"Refinancing","Zatvaranje postojećeg kredita novim, najčešće radi povoljnijih uslova ili objedinjavanja u jednu ratu.":"Closing an existing loan with a new one, usually to obtain more favourable terms or to consolidate into a single instalment.","Izlazna klauzula":"Early repayment fee","Naknada za prijevremenu otplatu. Naplaćuje se kod fiksne kamatne stope ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM: 1,00% ako je do dospijeća ostalo ≥ 1 godine, 0,50% ako je ostalo manje.":"A fee for early repayment (0.5% of the remaining principal). It is not charged if refinancing is done with funds from MKD Bilans Plus Kredit.","Polisa osiguranja":"Insurance policy","Osiguranje koje pokriva otplatu kredita ili predmet obezbjeđenja (npr. rizik smrti ili invaliditeta).":"Insurance covering the repayment of the loan or the item of security (e.g. the risk of death or disability).","Vinkulacija":"Assignment of policy","Prenos prava iz polise osiguranja u korist MKD — MKD postaje korisnik naknade iz osiguranja.":"Transfer of the rights under an insurance policy in favour of the lender — the lender becomes the beneficiary of the insurance payout.","Plasman":"Placement","Odobreni i isplaćeni kredit.":"An approved and disbursed loan.","Nenamjenski kredit":"Non-purpose loan","Kredit koji se može trošiti slobodno, bez obaveze dokazivanja namjene.":"A loan that can be spent freely, with no obligation to prove its purpose.","Namjenski kredit":"Purpose-specific loan","Kredit koji se koristi isključivo za tačno određenu svrhu (npr. vozilo, škola, zdravlje).":"A loan used exclusively for one specific purpose (e.g. a vehicle, school, health).","Učešće":"Down payment","Vlastiti novčani udio korisnika u finansiranju, pored sredstava kredita.":"The borrower's own monetary contribution to the financing, in addition to the loan funds.","Trošak obrade":"Processing fee","Jednokratna naknada koju MKD naplaćuje za obradu kreditnog zahtjeva.":"A one-off fee charged by the lender for processing the loan application.","Reprezentativni primjer":"Representative example","Primjer izračuna ukupnih troškova kredita na tipičnom iznosu i roku, radi preglednosti.":"An example calculation of the total cost of a loan on a typical amount and term, for the sake of clarity.","Kreditna sposobnost":"Borrowing capacity","Procjena mogućnosti korisnika da uredno otplaćuje kredit, na osnovu primanja i obaveza.":"An assessment of the borrower's ability to repay the loan properly, based on income and obligations.","Ugovorni partner":"Contracted partner","Prodavac robe ili pružalac usluge s kojim MKD ima zaključen ugovor o saradnji.":"A seller of goods or a service provider with whom the lender has a cooperation agreement.","Dekurzivni obračun":"Interest in arrears","Način obračuna gdje se kamata obračunava i plaća na kraju obračunskog perioda (mjesečno).":"A calculation method where interest is calculated and paid at the end of the accounting period (monthly).","Proporcionalni metod":"Proportional method","Metod obračuna kamate u kojem se godišnja stopa ravnomjerno raspoređuje na obračunske periode.":"A method of calculating interest in which the annual rate is spread evenly across the accounting periods.","PIO / MIO":"PIO / MIO","Penzijsko i invalidsko osiguranje":"Pension and disability insurance","Sistem isplate penzija — PIO u Republici Srpskoj, MIO u Federaciji BiH.":"The pension payment system — PIO in Republika Srpska, MIO in the Federation of BiH.","RS":"RS","Republika Srpska":"Republika Srpska","Entitet Bosne i Hercegovine u kojem MKD Bilans Plus Kredit posluje.":"The entity of Bosnia and Herzegovina in which MKD Bilans Plus Kredit operates.","FBiH":"FBiH","Federacija BiH":"Federation of BiH","Federacija Bosne i Hercegovine — drugi entitet BiH.":"The Federation of Bosnia and Herzegovina — the other entity of BiH.",
 /* ---------- Pravne stranice ---------- */
 "Politika":"Privacy","privatnosti":"policy","Politika privatnosti":"Privacy policy","Politici privatnosti":"Privacy policy","MKD Bilans Plus Kredit poštuje vašu privatnost i posvećen je zaštiti vaših ličnih podataka u skladu sa važećim propisima Republike Srpske.":"MKD Bilans Plus Kredit respects your privacy and is committed to protecting your personal data in accordance with the applicable regulations of Republika Srpska.","1. Prikupljanje podataka":"1. Data collection","Prikupljamo podatke koje nam dobrovoljno dostavite prilikom podnošenja zahtjeva ili kontakta:":"We collect the data you voluntarily provide when submitting an application or contacting us:","Kontakt podatke (adresa, telefon, e-mail)":"Contact details (address, phone, email)","Podatke relevantne za kreditnu analizu":"Data relevant to credit analysis","2. Svrha obrade":"2. Purpose of processing","Vaše podatke koristimo isključivo za obradu kreditnih zahtjeva, komunikaciju i ispunjavanje zakonskih obaveza.":"We use your data exclusively to process loan applications, to communicate and to fulfil legal obligations.","3. Dijeljenje podataka":"3. Data sharing","Vaše podatke ne dijelimo sa trećim licima osim kada to nalaže zakon ili je neophodno za realizaciju usluge.":"We do not share your data with third parties except where required by law or necessary to deliver the service.","4. Čuvanje podataka":"4. Data retention","Podatke čuvamo onoliko koliko je potrebno za ostvarivanje svrhe obrade i u skladu sa zakonskim rokovima.":"We keep data for as long as is necessary to achieve the purpose of processing and in accordance with statutory time limits.","5. Vaša prava":"5. Your rights","Imate pravo na pristup, ispravku, brisanje i prenosivost vaših ličnih podataka, kao i pravo na prigovor. Za ostvarivanje prava obratite nam se na: info@bilanspluskredit.com.":"You have the right to access, rectify, erase and port your personal data, as well as the right to object. To exercise these rights, contact us at: info@bilanspluskredit.com.","6. Kolačići":"6. Cookies","Web stranica može koristiti kolačiće radi poboljšanja korisničkog iskustva. Možete ih onemogućiti u postavkama pretraživača.":"This website may use cookies to improve the user experience. You can disable them in your browser settings.","7. Kontakt":"7. Contact","Za sva pitanja vezana za privatnost kontaktirajte nas na: info@bilanspluskredit.com ili na adresu sjedišta MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.":"For all privacy-related questions, contact us at: info@bilanspluskredit.com or at the head office address of MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.",
 "Uslovi":"Terms","korišćenja":"of use","Uslovi korišćenja":"Terms of use","1. Prihvatanje uslova":"1. Acceptance of terms","Pristupanjem i korišćenjem web stranice [www.bilanspluskredit.ba](https://www.bilanspluskredit.ba) potvrđujete da prihvatate ove Uslove korišćenja. Ukoliko se ne slažete s njima, molimo vas da prestanete s korišćenjem stranice.":"By accessing and using the website www.bilanspluskredit.ba you confirm that you accept these Terms of use. If you do not agree with them, please stop using the website.","2. Informativni karakter":"2. Informative nature","Informacije na ovoj stranici su informativnog karaktera i ne predstavljaju konačnu kreditnu ponudu. MKD Bilans Plus Kredit ne preuzima odgovornost za eventualne greške u podacima. Sve kreditne odluke donose se po individualnoj obradi svakog zahtjeva.":"The information on this website is informative in nature and does not constitute a final loan offer. MKD Bilans Plus Kredit accepts no liability for any errors in the data. All lending decisions are made following individual assessment of each application.","3. Kamatne stope i naknade":"3. Interest rates and fees","Kamatne stope i ostale naknade definisane su posebnim Cjenovnikom usluga koji je dostupan u sjedištu MKD i na web stranici. Efektivna kamatna stopa (EKS) navodi se u ugovoru o kreditu za svaki kreditni proizvod.":"Interest rates and other fees are defined in a separate Price list of services, available at all branches and on the website. The effective interest rate (APR) is stated in the loan contract for each loan product.","4. Prava korisnika":"4. User rights","Korisnik ima pravo na jasne i razumljive informacije o kreditnim uslovima prije potpisivanja ugovora.":"The user has the right to clear and comprehensible information about the loan terms before signing the contract.",
