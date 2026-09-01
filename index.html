@@ -831,13 +831,29 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 /* poruka vidljiva i kad je panel zatvoren — inače korisnik misli da dugme ne radi */
 .a11y-poruka{display:none;max-width:290px;background:var(--navy-deep);border:1px solid var(--accent);
   border-radius:13px;padding:11px 14px;font-size:12.5px;line-height:1.5;color:#fff;box-shadow:var(--sh-lg)}
-.a11y-poruka.on{display:block}
+.a11y-poruka.on{display:flex;align-items:flex-start;gap:9px}
 .a11y-poruka b{color:var(--accent-2)}
+#a11yPorukaTekst{flex:1;min-width:0}
+/* X u napomeni — napomena o glasu ostaje na ekranu dok traje čitanje, pa
+   korisnik mora imati čime da je skloni kad je pročita. */
+.a11y-x{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;padding:0;margin:-2px -4px 0 0;color:#fff;background:rgba(255,255,255,.12);
+  border:1px solid var(--line-d);border-radius:50%;cursor:pointer;transition:var(--t)}
+.a11y-x:hover{background:var(--accent);border-color:var(--accent)}
+/* red: „Prilagodi prikaz“ + X koji sklanja cijelu alatku */
+.a11y-red{display:flex;align-items:stretch;gap:8px}
+.a11y-dug.a11y-sakrij{padding:11px 12px}
+/* Kad je alatka sklonjena, u istom uglu ostaje malo okruglo dugme — bez njega
+   onaj ko je skloni slučajno ne bi imao čime da je vrati. */
+#a11yVrati{display:none;position:fixed;left:20px;bottom:20px;z-index:1450;padding:11px;border-radius:50%}
+html[data-a11y-skriveno="1"] #a11yAlat{display:none!important}
+html[data-a11y-skriveno="1"] #a11yVrati{display:inline-flex}
 @media(max-width:600px){.a11y-poruka{max-width:calc(calc(100 * var(--vw)) - 40px);font-size:12px}}
 @media(max-width:600px){#a11yAlat{left:12px;bottom:12px;gap:8px;max-height:calc(calc(100 * var(--vh)) - 24px)}
   .a11y-panel{width:min(258px,calc(calc(100 * var(--vw)) - 40px));max-height:calc(calc(100 * var(--vh)) - 170px)}
-  .a11y-dug{font-size:12.5px;padding:10px 13px}}
-@media print{#a11yAlat{display:none!important}}
+  .a11y-dug{font-size:12.5px;padding:10px 13px}
+  #a11yVrati{left:12px;bottom:12px}}
+@media print{#a11yAlat,#a11yVrati{display:none!important}}
 
 /* ---------- podešavanja koja korisnik uključuje ---------- */
 /* Viewport mjere moraju znati za zoom: zoom skuplja prostor za raspored na
@@ -860,11 +876,13 @@ html[data-a11y-uvecanje] #totop{right:auto;left:calc(100 * var(--vw) - 66px)}
    pristupacnosti zavrsi ispod ekrana i dugmad se ne mogu dohvatiti. #totop ima
    stalnu visinu pa mu racunamo top; alatka je promjenljive visine pa joj donju
    ivicu vezujemo preko translateY(-100%) — radi bez obzira koliko naraste. */
-html[data-a11y-uvecanje] #a11yAlat{bottom:auto;top:calc(100 * var(--vh) - 20px);transform:translateY(-100%)}
+html[data-a11y-uvecanje] #a11yAlat,
+html[data-a11y-uvecanje] #a11yVrati{bottom:auto;top:calc(100 * var(--vh) - 20px);transform:translateY(-100%)}
 html[data-a11y-uvecanje] #totop{bottom:auto;top:calc(100 * var(--vh) - 76px)}
 html[data-a11y-uvecanje] #confetti{height:calc(100 * var(--vh))}
 @media(max-width:600px){
-  html[data-a11y-uvecanje] #a11yAlat{top:calc(100 * var(--vh) - 12px)}
+  html[data-a11y-uvecanje] #a11yAlat,
+  html[data-a11y-uvecanje] #a11yVrati{top:calc(100 * var(--vh) - 12px)}
   html[data-a11y-uvecanje] #totop{top:calc(100 * var(--vh) - 66px)}
 }
 /* uvećanje: zoom skalira i tekst i raspored, jer je sajt građen u px jedinicama */
@@ -899,7 +917,8 @@ html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"]::-webkit-scrollbar-track{ba
    uvijek 0 jer se tamo pomjera stranica, a ne okvir. */
 html[data-a11y-uvecanje="3"] #scrollbar,
 html[data-a11y-uvecanje="3"] #totop{transform:translateX(var(--vvx,0px))}
-html[data-a11y-uvecanje="3"] #a11yAlat{transform:translate(var(--vvx,0px),-100%)}
+html[data-a11y-uvecanje="3"] #a11yAlat,
+html[data-a11y-uvecanje="3"] #a11yVrati{transform:translate(var(--vvx,0px),-100%)}
 /* NAVIGACIJA NA NAJVEĆEM UVEĆANJU
    Linkovi više ne stanu u širinu ekrana. Prvo rješenje ih je vezalo za vodoravno
    pomjeranje cijele stranice — ali običan miš nema točkić za lijevo-desno, pa se
@@ -968,7 +987,7 @@ html[data-a11y-kontrast="1"] body{background:#000}
    sadržaj ispod. Isto vrijedi za #confetti, modale i ukrasne slojeve. Slike ne
    dobijaju podlogu jer je i ne treba — same prekriju svoj prostor. */
 html[data-a11y-kontrast="1"] :where(body *:not(svg, svg *, img, .logo-hc, .sr-only,
-   #confetti, #a11yAlat, .modal, .particles, .orb, .hero-bg, .hero-channels,
+   #confetti, #a11yAlat, .a11y-red, .modal, .particles, .orb, .hero-bg, .hero-channels,
    .hero-text-scrim, .woman-ring)){
   background-color:#000!important;
   background-image:none!important;
@@ -1284,7 +1303,15 @@ function tryImg(el){
     <div class="a11y-stanje" id="a11yStanje" role="status" aria-live="polite"></div>
   </div>
 
-  <div class="a11y-poruka" id="a11yPoruka" role="status" aria-live="polite"></div>
+  <div class="a11y-poruka" id="a11yPoruka">
+    <span id="a11yPorukaTekst" role="status" aria-live="polite"></span>
+    <button type="button" class="a11y-x" id="a11yPorukaX" onclick="a11yZatvoriPoruku()"
+            aria-label="Zatvori napomenu" title="Zatvori napomenu">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.8" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
 
   <button type="button" class="a11y-dug" id="a11ySlusaj" onclick="govorToggle()"
           aria-describedby="a11ySlusajOpis">
@@ -1295,6 +1322,7 @@ function tryImg(el){
   </button>
   <span id="a11ySlusajOpis" class="sr-only">Naglas čita sadržaj stranice na kojoj se nalazite. Pritisnite Enter za početak, ponovo za pauzu.</span>
 
+  <div class="a11y-red">
   <button type="button" class="a11y-dug" id="a11yPrikazDug" onclick="a11yPanel()"
           aria-expanded="false" aria-controls="a11yPanel">
     <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
@@ -1302,7 +1330,22 @@ function tryImg(el){
     </svg>
     <span>Prilagodi prikaz</span>
   </button>
+  <button type="button" class="a11y-dug a11y-sakrij" id="a11ySakrijDug" onclick="a11ySakrijAlat()"
+          aria-label="Sakrij alatku za pristupačnost" title="Sakrij alatku za pristupačnost">
+    <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+  </div>
 </div>
+<!-- Alatku je moguće skloniti, ali nikad bez povratka: ovo dugme ostaje u istom
+     uglu i vraća je. Stoji van #a11yAlat jer se cijela alatka skriva. -->
+<button type="button" class="a11y-dug" id="a11yVrati" onclick="a11yVratiAlat()"
+        aria-label="Prikaži alatku za pristupačnost" title="Prikaži alatku za pristupačnost">
+  <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/>
+  </svg>
+</button>
 <div id="scrollbar" aria-hidden="true"></div>
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
@@ -3205,20 +3248,51 @@ var _porukaTajmer=null, _napomenaAktivna=false;
 /* Napredak čitanja ide u panel. U okvir pored dugmeta upisujemo samo kad panel
    nije otvoren — inače korisnik ne bi vidio ništa i mislio bi da dugme ne radi.
    Trajna napomena (npr. da nema srpskog glasa) ima prednost i ne prepisuje se. */
+/* Tekst se upisuje u unutrašnji span, ne u cijeli okvir — u okviru sada stoji i
+   dugme X, pa bi ga upisivanje u okvir obrisalo. */
+function govorPorukaEl(){ return document.getElementById('a11yPorukaTekst'); }
 function govorStanje(t){
   var el=document.getElementById('a11yStanje'); if(el) el.textContent=t||'';
   if(_napomenaAktivna) return;
-  var p=document.getElementById('a11yPoruka'); if(!p) return;
+  var p=document.getElementById('a11yPoruka'), s=govorPorukaEl(); if(!p||!s) return;
   clearTimeout(_porukaTajmer);
-  if(!t){ p.classList.remove('on'); p.innerHTML=''; return; }
-  p.innerHTML=t; p.classList.add('on');
+  if(!t){ p.classList.remove('on'); s.innerHTML=''; return; }
+  s.innerHTML=t; p.classList.add('on');
   _porukaTajmer=setTimeout(function(){ p.classList.remove('on'); },5000);
 }
 function govorNapomena(html){
-  var p=document.getElementById('a11yPoruka'); if(!p) return;
+  var p=document.getElementById('a11yPoruka'), s=govorPorukaEl(); if(!p||!s) return;
   clearTimeout(_porukaTajmer);
-  if(!html){ _napomenaAktivna=false; p.classList.remove('on'); p.innerHTML=''; return; }
-  _napomenaAktivna=true; p.innerHTML=html; p.classList.add('on');
+  if(!html){ _napomenaAktivna=false; p.classList.remove('on'); s.innerHTML=''; return; }
+  if(napomenaOdbijena(html)) return;          /* korisnik ju je već sklonio X-om */
+  _napomenaAktivna=true; s.innerHTML=html; p.classList.add('on');
+}
+/* ---- X na napomeni ----
+   Napomena (npr. da na uređaju nema srpskog glasa) stoji dok traje čitanje. Ko je
+   pročita, skloni je X-om — i pamtimo koju je sklonio, da mu ista ne iskače pri
+   svakom sljedećem pokretanju. „Vrati na početno“ u panelu briše to pamćenje. */
+var NAPOMENE_KLJUC='bpk-napomene-sklonjene';
+function napomenaId(html){ return String(html||'').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim().slice(0,80); }
+function napomeneLista(){ try{ return JSON.parse(localStorage.getItem(NAPOMENE_KLJUC))||[]; }catch(e){ return []; } }
+function napomenaOdbijena(html){ var id=napomenaId(html); return !!id && napomeneLista().indexOf(id)>-1; }
+function napomenaZapamti(html){
+  var id=napomenaId(html); if(!id) return;
+  var l=napomeneLista(); if(l.indexOf(id)>-1) return;
+  l.push(id); if(l.length>12) l.shift();
+  try{ localStorage.setItem(NAPOMENE_KLJUC, JSON.stringify(l)); }catch(e){}
+}
+function napomeneOcisti(){ try{ localStorage.removeItem(NAPOMENE_KLJUC); }catch(e){} }
+function a11yZatvoriPoruku(){
+  var p=document.getElementById('a11yPoruka'), s=govorPorukaEl();
+  clearTimeout(_porukaTajmer);
+  if(_napomenaAktivna && s) napomenaZapamti(s.innerHTML);
+  _napomenaAktivna=false;
+  if(p) p.classList.remove('on');
+  if(s) s.innerHTML='';
+  /* fokus nazad na dugme, da tastatura ne ostane na nestalom elementu */
+  var d=document.getElementById('a11ySlusaj');
+  if(!d || !d.offsetParent) d=document.getElementById('a11yPrikazDug');
+  if(d && d.offsetParent) d.focus();
 }
 
 /* skuplja vidljiv tekst aktivne stranice, redom kako se prikazuje */
@@ -3612,7 +3686,7 @@ function a11ySnimi(s){ try{ localStorage.setItem(A11Y_KLJUC, JSON.stringify(s));
 function a11yPrimijeni(s){
   var d=document.documentElement;
   if(s.uvecanje) d.setAttribute('data-a11y-uvecanje',s.uvecanje); else d.removeAttribute('data-a11y-uvecanje');
-  ['kontrast','podvuci','kursor','mirno'].forEach(function(k){
+  ['kontrast','podvuci','kursor','mirno','skriveno'].forEach(function(k){
     if(s[k]) d.setAttribute('data-a11y-'+k,'1'); else d.removeAttribute('data-a11y-'+k);
   });
 }
@@ -3713,7 +3787,7 @@ function a11yPrekidac(k){
   govorStanje(imena[k]+': '+(s[k]?(en?'on':'uključeno'):(en?'off':'isključeno'))+'.');
 }
 function a11yReset(){
-  a11ySnimi({}); a11yPrimijeni({}); a11ySinhronizuj({});
+  a11ySnimi({}); a11yPrimijeni({}); a11ySinhronizuj({}); napomeneOcisti();
   govorStanje(govorJezik()==='en' ? 'Settings reset.' : 'Podešavanja vraćena na početno.');
 }
 function a11yPanel(){
@@ -3721,6 +3795,31 @@ function a11yPanel(){
   var otv=p.classList.toggle('on');
   b.setAttribute('aria-expanded', otv?'true':'false');
   if(otv) p.querySelector('button').focus();
+}
+/* ---- sklanjanje cijele alatke ----
+   Alatka stoji fiksno preko sadržaja i nekome smeta. X je sklanja i to se pamti
+   za sljedeću posjetu, ali nikad bez povratka — u uglu ostaje malo okruglo dugme.
+   „Vrati na početno“ u panelu takođe vraća alatku. */
+function a11yNajava(t){
+  var l=document.getElementById('ariaLive'); if(!l||!t) return;
+  l.textContent=''; setTimeout(function(){ l.textContent=t; },30);
+}
+function a11ySakrijAlat(){
+  var s=a11yUcitaj(); s.skriveno=1; a11ySnimi(s); a11yPrimijeni(s);
+  var p=document.getElementById('a11yPanel'), b=document.getElementById('a11yPrikazDug');
+  if(p) p.classList.remove('on');
+  if(b) b.setAttribute('aria-expanded','false');
+  /* čitanje se prekida — dugme za pauzu odlazi zajedno sa alatkom */
+  if(typeof CITAC!=='undefined' && CITAC.radi) govorStop();
+  var v=document.getElementById('a11yVrati'); if(v) v.focus();
+  a11yNajava(govorJezik()==='en'
+    ? 'Accessibility tools hidden. The round button in the bottom left corner brings them back.'
+    : 'Alatka za pristupačnost je sklonjena. Vraća je okruglo dugme u donjem lijevom uglu.');
+}
+function a11yVratiAlat(){
+  var s=a11yUcitaj(); delete s.skriveno; a11ySnimi(s); a11yPrimijeni(s);
+  var d=document.getElementById('a11yPrikazDug'); if(d) d.focus();
+  a11yNajava(govorJezik()==='en' ? 'Accessibility tools shown.' : 'Alatka za pristupačnost je vraćena.');
 }
 
 (function(){
@@ -4120,7 +4219,7 @@ var DICT={
 /* ---------- Prilog uz kontakt obrazac ---------- */
 "Dodatni dokument (opcionalno)":"Additional document (optional)","PDF, JPG ili PNG do 5 MB":"PDF, JPG or PNG up to 5 MB","Ukloni priloženi dokument":"Remove attached document","Prilog uklonjen.":"Attachment removed.",
 /* ---------- Alatke pristupačnosti ---------- */
-"Slušaj stranicu":"Listen to page","Prilagodi prikaz":"Display settings","Veličina teksta":"Text size","Normalno":"Normal","Pojačan kontrast":"High contrast","Podvučeni linkovi":"Underlined links","Krupniji pokazivač":"Larger cursor","Bez animacija":"Animations off","Uključeno":"On","Isključeno":"Off","Vrati na početno":"Reset","Naglas čita sadržaj stranice na kojoj se nalazite. Pritisnite Enter za početak, ponovo za pauzu.":"Reads the content of the page you are on out loud. Press Enter to start, press again to pause.",
+"Slušaj stranicu":"Listen to page","Prilagodi prikaz":"Display settings","Zatvori napomenu":"Close note","Sakrij alatku za pristupačnost":"Hide accessibility tools","Prikaži alatku za pristupačnost":"Show accessibility tools","Veličina teksta":"Text size","Normalno":"Normal","Pojačan kontrast":"High contrast","Podvučeni linkovi":"Underlined links","Krupniji pokazivač":"Larger cursor","Bez animacija":"Animations off","Uključeno":"On","Isključeno":"Off","Vrati na početno":"Reset","Naglas čita sadržaj stranice na kojoj se nalazite. Pritisnite Enter za početak, ponovo za pauzu.":"Reads the content of the page you are on out loud. Press Enter to start, press again to pause.",
 /* ---------- Mjerač kreditne sposobnosti (specifikacija 19.08.2026.) ---------- */
 "Raspoloživi prihod":"Available income","Postojeći DTI":"Current DTI","Maksimalno dozvoljeno opterećenje":"Maximum permitted burden","Maksimalna nova rata":"Maximum new instalment","Ukupno opterećenje nakon novog kredita":"Total burden after the new loan","maksimalni iznos kredita":"maximum loan amount","ocjena kreditne sposobnosti":"borrowing capacity rating","Odlična":"Excellent","Dobra":"Good","Ograničena":"Limited","Potrebna procjena":"Assessment required","* Dozvoljeno mjesečno opterećenje računa se po tranšama primanja: prvih 1.000 KM po 50%, a sve preko 1.000 KM po 60%. Od tog iznosa se oduzmu postojeće mjesečne obaveze i dobija se maksimalna nova rata. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* The permitted monthly burden is calculated in income tranches: the first 1,000 KM at 50%, and everything above 1,000 KM at 60%. Existing monthly obligations are then deducted from that amount to give the maximum new instalment. The estimate is indicative; final capacity is determined by an advisor through individual analysis.","Uz ovakav odnos primanja i obaveza ne ostaje prostora za novu ratu. Javite se savjetniku — refinansiranje postojećih obaveza često oslobodi mjesečni budžet.":"With this ratio of income to obligations there is no room for a new instalment. Talk to an advisor — refinancing existing obligations often frees up the monthly budget.",
 "EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fees, so it differs for other combinations — check it in the calculator.","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka, grace perioda i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term, the grace period and the fees, so it differs for other combinations — check it in the calculator.",
