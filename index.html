@@ -16,15 +16,51 @@
 <meta property="og:title" content="Bilans Plus Kredit – Brzi i transparentni krediti | Banja Luka"/>
 <meta property="og:description" content="Licencirana mikrokreditna organizacija. Gotovinski, stambeni, poslovni i krediti za penzionere uz odobrenje za 24 sata."/>
 <meta property="og:url" content="https://bilanspluskredit.ba"/>
-<meta property="og:image" content="BP.png"/>
-<meta property="og:image:width" content="2501"/>
-<meta property="og:image:height" content="924"/>
+<meta property="og:image" content="https://bilanspluskredit.ba/og-image.png"/>
+<meta property="og:image:alt" content="Bilans Plus Kredit — licencirana mikrokreditna organizacija"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta property="og:locale" content="bs_BA"/>
 <!-- ====== TWITTER / X CARD (PLACEHOLDER) ====== -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Bilans Plus Kredit – Brzi i transparentni krediti"/>
 <meta name="twitter:description" content="Licencirana mikrokreditna organizacija. Odobrenje kredita za 24 sata."/>
-<meta name="twitter:image" content="BP.png"/>
+<meta name="twitter:image" content="https://bilanspluskredit.ba/og-image.png"/>
+<link rel="canonical" href="https://bilanspluskredit.ba/"/>
+<!-- Strukturirani podaci: Google ih koristi za prikaz firme u pretrazi i na
+     mapama (adresa, telefon, radno vrijeme). Bez ovoga firma se u rezultatima
+     prikazuje kao obična stranica, bez kartice sa podacima. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "MKD Bilans Plus Kredit",
+  "alternateName": "Bilans Plus Kredit",
+  "url": "https://bilanspluskredit.ba/",
+  "logo": "https://bilanspluskredit.ba/BP.png",
+  "image": "https://bilanspluskredit.ba/og-image.png",
+  "description": "Licencirana mikrokreditna organizacija sa sjedištem u Banjoj Luci. Gotovinski, stambeni, poslovni i krediti za penzionere.",
+  "telephone": "+38751492100",
+  "email": "info@bilanspluskredit.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pave Radana 33",
+    "postalCode": "78000",
+    "addressLocality": "Banja Luka",
+    "addressRegion": "Republika Srpska",
+    "addressCountry": "BA"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "16:00"
+  }],
+  "areaServed": { "@type": "Country", "name": "Bosna i Hercegovina" },
+  "currenciesAccepted": "BAM",
+  "priceRange": "$$"
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet"/>
@@ -96,7 +132,7 @@ button{font-family:inherit}
 .page.active{display:block;animation:pgIn .45s ease both}
 @keyframes pgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 /* ============ HERO ============ */
-.hero{position:relative;min-height:100vh;background:var(--navy-deep);padding-top:124px;overflow:hidden;display:flex;flex-direction:column}
+.hero{position:relative;min-height:calc(100 * var(--vh));background:var(--navy-deep);padding-top:124px;overflow:hidden;display:flex;flex-direction:column}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg::before{content:'';position:absolute;inset:0;background:
   radial-gradient(ellipse 70% 60% at 72% 38%, rgba(61,107,255,.30) 0%, transparent 60%),
@@ -110,10 +146,10 @@ button{font-family:inherit}
 /* floating particles */
 .particles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
 .particles i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.5;animation:rise linear infinite}
-@keyframes rise{from{transform:translateY(0);opacity:0}10%{opacity:.6}to{transform:translateY(-110vh);opacity:0}}
+@keyframes rise{from{transform:translateY(0);opacity:0}10%{opacity:.6}to{transform:translateY(-calc(110 * var(--vh)));opacity:0}}
 /* hero pozadinski „kanali" — krediti koji se polako kreću (Wii-stil), duboko iza */
 /* lokalno zatamnjenje samo iza teksta — slike ostaju pune vidljivosti svuda drugo */
-.hero-text-scrim{position:absolute;left:0;top:124px;bottom:0;width:min(62vw,800px);z-index:3;pointer-events:none;
+.hero-text-scrim{position:absolute;left:0;top:124px;bottom:0;width:min(calc(62 * var(--vw)),800px);z-index:3;pointer-events:none;
   background:linear-gradient(90deg,rgba(6,20,61,.66) 0%,rgba(6,20,61,.42) 55%,rgba(6,20,61,0) 100%)}
 @media(max-width:980px){.hero-text-scrim{left:0;right:0;top:auto;bottom:0;width:auto;height:64%;
   background:linear-gradient(180deg,rgba(6,20,61,0) 0%,rgba(6,20,61,.4) 40%,rgba(6,20,61,.68) 100%)}}
@@ -159,7 +195,7 @@ button{font-family:inherit}
 /* confetti */
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:3000}
 #confetti i{position:absolute;width:9px;height:14px;top:-20px;opacity:0;animation:conf 2.4s cubic-bezier(.3,.7,.4,1) forwards}
-@keyframes conf{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:.9;transform:translateY(110vh) rotate(720deg)}}
+@keyframes conf{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:.9;transform:translateY(calc(110 * var(--vh))) rotate(720deg)}}
 .hero-sub{font-size:17px;color:rgba(255,255,255,.66);max-width:480px;line-height:1.7;margin-bottom:34px;animation:fadeUp .9s .45s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero-ctas{display:flex;flex-direction:column;gap:14px;align-items:stretch;width:max-content;max-width:100%;animation:fadeUp .9s .6s both}
@@ -237,12 +273,12 @@ button{font-family:inherit}
 /* responsive signature - bottom-right on mobile */
 @media(max-width:980px){
   .sig-desktop{display:none}
-  .sig-mobile{display:block;position:absolute;right:calc((100% - 100vw)/2 + 12px);bottom:10px;left:auto;top:auto;text-align:right;max-width:116px;z-index:6;pointer-events:none;animation:fadeUp .8s .8s both}
+  .sig-mobile{display:block;position:absolute;right:calc((100% - calc(100 * var(--vw)))/2 + 12px);bottom:10px;left:auto;top:auto;text-align:right;max-width:116px;z-index:6;pointer-events:none;animation:fadeUp .8s .8s both}
   .sig-mobile .sig-name{font-size:13px;margin-bottom:2px}
   .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:6.5px}
 }
 @media(max-width:600px){
-  .sig-mobile{right:calc((100% - 100vw)/2 + 10px);bottom:8px;max-width:96px}
+  .sig-mobile{right:calc((100% - calc(100 * var(--vw)))/2 + 10px);bottom:8px;max-width:96px}
   .sig-mobile .sig-name{font-size:11px}
   .sig-mobile .sig-label,.sig-mobile .sig-role{font-size:6px}
 }
@@ -551,6 +587,11 @@ textarea{resize:vertical;min-height:110px}
 .fcheck{display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--muted)}
 .fcheck input{width:18px;height:18px;flex-shrink:0;margin-top:1px;accent-color:var(--accent);cursor:pointer}
 /* prilog — potvrda o primanjima / izjava o prihodu */
+/* X za uklanjanje priloga — pojavljuje se tek kad fajl postoji */
+.fdrop-x{margin-left:auto;flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--t)}
+.fdrop-x:hover{background:#e0483f;border-color:#e0483f;color:#fff}
+.fdrop-x[hidden]{display:none}
 .fg label.fdrop{display:flex;align-items:center;gap:14px;background:var(--ice);border:1.5px dashed var(--line);border-radius:13px;padding:15px 16px;cursor:pointer;transition:var(--t);text-transform:none;letter-spacing:normal;font-size:13px;font-weight:400;color:var(--muted)}
 .fdrop:hover,.fdrop.has{border-color:var(--accent);background:#fff}
 .fdrop input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
@@ -578,6 +619,12 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 /* mala Google mapa u kontakt info koloni */
 .kmap{margin-top:26px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ice);box-shadow:var(--sh-sm)}
 .kmap iframe{display:block;width:100%;height:230px;border:0;filter:saturate(.9)}
+.kmap-ph{height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;
+  padding:20px;text-align:center;background:var(--ice-2);color:var(--muted)}
+.kmap-ph p{font-size:12.5px;line-height:1.5;max-width:300px;margin:0}
+.kmap-btn{font-family:'Sora';font-size:13px;font-weight:800;color:#fff;background:var(--accent);
+  border:none;border-radius:10px;padding:10px 20px;cursor:pointer;transition:var(--t)}
+.kmap-btn:hover{background:var(--navy)}
 .kmap-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#fff;border-top:1px solid var(--line)}
 .kmap-bar span{font-size:12.5px;color:var(--muted);font-weight:600}
 .kmap-bar a{display:inline-flex;align-items:center;gap:6px;font-family:'Sora';font-size:12px;font-weight:800;color:var(--accent-txt);white-space:nowrap;transition:var(--t)}
@@ -671,7 +718,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
   .hch-row{height:27%}
   .hero-channels{top:124px;justify-content:space-evenly}
   .hero-sub{margin-left:auto;margin-right:auto}
-  .hero-visual{height:auto;min-height:0;order:-1;max-width:min(430px,calc(100vw - 36px));margin:0 auto;padding-top:6px}
+  .hero-visual{height:auto;min-height:0;order:-1;max-width:min(430px,calc(calc(100 * var(--vw)) - 36px));margin:0 auto;padding-top:6px}
   .woman{height:380px}
   .chip{display:flex;padding:7px 10px;gap:8px;backdrop-filter:blur(10px)}
   .chip .ci{width:27px;height:27px;border-radius:8px}
@@ -741,6 +788,349 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 }
 /* ============ PRISTUPAČNOST (A11Y) — dodatak, ne mijenja postojeći izgled ============ */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* ============ ALATKE PRISTUPAČNOSTI ============
+   Dva odvojena dugmeta dolje lijevo: „Slušaj stranicu" (za slijepe) i
+   „Prilagodi prikaz" (za slabovide). Oba su rano u tab redoslijedu — odmah
+   nakon linka za preskakanje — pa se do njih dolazi prvim pritiscima Taba. */
+#a11yAlat{position:fixed;left:20px;bottom:20px;z-index:1450;display:flex;flex-direction:column;align-items:flex-start;gap:10px;max-height:calc(calc(100 * var(--vh)) - 40px)}
+.a11y-dug{display:inline-flex;align-items:center;gap:9px;font-family:'Sora';font-size:13.5px;font-weight:800;
+  color:#fff;background:var(--navy);border:2px solid var(--accent);border-radius:14px;padding:11px 15px;
+  cursor:pointer;box-shadow:0 10px 30px rgba(6,20,61,.4);transition:var(--t)}
+.a11y-dug:hover{background:var(--accent);transform:translateY(-2px)}
+.a11y-dug svg{flex-shrink:0}
+.a11y-dug.svira{background:var(--accent);animation:a11yPuls 1.7s ease-in-out infinite}
+@keyframes a11yPuls{0%,100%{box-shadow:0 10px 30px rgba(6,20,61,.4),0 0 0 0 rgba(59,104,247,.55)}
+  50%{box-shadow:0 10px 30px rgba(6,20,61,.4),0 0 0 12px rgba(59,104,247,0)}}
+/* panel sa podešavanjima prikaza */
+.a11y-panel{display:none;background:var(--navy-deep);border:1px solid var(--line-d);border-radius:18px;
+  padding:16px 17px;width:270px;box-shadow:var(--sh-lg);
+  max-height:calc(calc(100 * var(--vh)) - 190px);overflow-y:auto;overscroll-behavior:contain}
+.a11y-panel::-webkit-scrollbar{width:9px}
+.a11y-panel::-webkit-scrollbar-track{background:rgba(255,255,255,.07);border-radius:6px}
+.a11y-panel::-webkit-scrollbar-thumb{background:var(--accent);border-radius:6px}
+.a11y-panel.on{display:block}
+.a11y-panel h2{font-family:'Sora';font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--accent-2);margin-bottom:12px}
+.a11y-grupa{margin-bottom:13px}
+.a11y-grupa>span{display:block;font-size:11.5px;color:rgba(255,255,255,.72);font-weight:700;margin-bottom:6px}
+.a11y-niz{display:flex;gap:6px}
+.a11y-niz button{flex:1;font-family:'Sora';font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.09);
+  border:1px solid var(--line-d);border-radius:9px;padding:8px 4px;cursor:pointer;transition:var(--t)}
+.a11y-niz button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent)}
+.a11y-niz button:hover{background:rgba(255,255,255,.18)}
+.a11y-prekidac{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;
+  border-top:1px solid var(--line-d)}
+.a11y-prekidac span{font-size:12.5px;color:rgba(255,255,255,.9);font-weight:600}
+.a11y-prekidac button{font-family:'Sora';font-size:11.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.09);
+  border:1px solid var(--line-d);border-radius:20px;padding:6px 13px;cursor:pointer;white-space:nowrap;transition:var(--t)}
+.a11y-prekidac button[aria-pressed="true"]{background:#168654;border-color:#168654}
+.a11y-reset{width:100%;margin-top:6px;font-family:'Sora';font-size:12px;font-weight:700;color:rgba(255,255,255,.8);
+  background:none;border:1px solid var(--line-d);border-radius:10px;padding:9px;cursor:pointer}
+.a11y-reset:hover{color:#fff;border-color:#fff}
+.a11y-stanje{font-size:11.5px;color:var(--accent-2);font-weight:700;margin-top:8px;min-height:15px}
+/* poruka vidljiva i kad je panel zatvoren — inače korisnik misli da dugme ne radi */
+.a11y-poruka{display:none;max-width:290px;background:var(--navy-deep);border:1px solid var(--accent);
+  border-radius:13px;padding:11px 14px;font-size:12.5px;line-height:1.5;color:#fff;box-shadow:var(--sh-lg)}
+.a11y-poruka.on{display:block}
+.a11y-poruka b{color:var(--accent-2)}
+@media(max-width:600px){.a11y-poruka{max-width:calc(calc(100 * var(--vw)) - 40px);font-size:12px}}
+@media(max-width:600px){#a11yAlat{left:12px;bottom:12px;gap:8px;max-height:calc(calc(100 * var(--vh)) - 24px)}
+  .a11y-panel{width:min(258px,calc(calc(100 * var(--vw)) - 40px));max-height:calc(calc(100 * var(--vh)) - 170px)}
+  .a11y-dug{font-size:12.5px;padding:10px 13px}}
+@media print{#a11yAlat{display:none!important}}
+
+/* ---------- podešavanja koja korisnik uključuje ---------- */
+/* Viewport mjere moraju znati za zoom: zoom skuplja prostor za raspored na
+   ekran/faktor, ali 1vh i 1vw ostaju vezani za pravi ekran. Bez ovoga hero sa
+   min-height:100vh postane 2x visi od ekrana, a sirine racunaju sa prostorom
+   koji ne postoji. Velicine teksta (clamp sa vw) se NE dijele — one treba da rastu. */
+:root{--ekran-w:100vw;--ekran-h:100vh;--vh:1vh;--vw:1vw}
+html[data-a11y-uvecanje="1"]{--vh:calc(var(--ekran-h) / 100 / 1.15);--vw:calc(var(--ekran-w) / 100 / 1.15)}
+html[data-a11y-uvecanje="2"]{--vh:calc(var(--ekran-h) / 100 / 1.3);--vw:calc(var(--ekran-w) / 100 / 1.3)}
+html[data-a11y-uvecanje="3"]{--vh:calc(var(--ekran-h) / 100 / 1.5);--vw:calc(var(--ekran-w) / 100 / 1.5)}
+/* position:fixed ne postuje zoom: sirina se racuna prema pravom ekranu pa se
+   onda jos jednom skalira — navigacija na 375px ekranu postane 491px i hamburger
+   meni ode van ekrana, bez ikakvog nacina da se dohvati. Pod uvecanjem im zato
+   zadajemo sirinu i polozaj u mjerama koje znaju za zoom. */
+html[data-a11y-uvecanje] #nav,
+html[data-a11y-uvecanje] #confetti,
+html[data-a11y-uvecanje] #scrollbar{left:0;right:auto;width:calc(100 * var(--vw))}
+html[data-a11y-uvecanje] #totop{right:auto;left:calc(100 * var(--vw) - 66px)}
+/* isti problem i po visini: bottom se racuna prema pogresnoj visini pa alatka
+   pristupacnosti zavrsi ispod ekrana i dugmad se ne mogu dohvatiti. #totop ima
+   stalnu visinu pa mu racunamo top; alatka je promjenljive visine pa joj donju
+   ivicu vezujemo preko translateY(-100%) — radi bez obzira koliko naraste. */
+html[data-a11y-uvecanje] #a11yAlat{bottom:auto;top:calc(100 * var(--vh) - 20px);transform:translateY(-100%)}
+html[data-a11y-uvecanje] #totop{bottom:auto;top:calc(100 * var(--vh) - 76px)}
+html[data-a11y-uvecanje] #confetti{height:calc(100 * var(--vh))}
+@media(max-width:600px){
+  html[data-a11y-uvecanje] #a11yAlat{top:calc(100 * var(--vh) - 12px)}
+  html[data-a11y-uvecanje] #totop{top:calc(100 * var(--vh) - 66px)}
+}
+/* uvećanje: zoom skalira i tekst i raspored, jer je sajt građen u px jedinicama */
+html[data-a11y-uvecanje="1"] body{zoom:1.15}
+html[data-a11y-uvecanje="2"] body{zoom:1.3}
+html[data-a11y-uvecanje="3"] body{zoom:1.5}
+/* Na najvećem uvećanju stranica se više ne prelama u uži (mobilni) raspored,
+   nego se cijela uveća — pa se kroz nju krećete u oba smjera: gore-dolje i
+   lijevo-desno. Bez min-width raspored se sabija na širinu ekrana podijeljenu
+   sa 1.5, što je i bio razlog da sadržaj postane uzak i nečitak.
+   --ekran-w je stvarna vidljiva širina u pikselima (postavlja je a11yMjeriEkran),
+   pa je platno tačno onoliko široko koliko i nezumirana stranica.
+   body ima overflow-x:hidden, zato se skrolanje mora vratiti i na html i na body. */
+html[data-a11y-uvecanje="3"]{overflow-x:auto!important}
+html[data-a11y-uvecanje="3"] body{overflow-x:visible!important;min-width:var(--ekran-w,100vw)}
+/* traka za horizontalno kretanje mora biti krupna i vidljiva — korisnik kojem
+   treba najveće uvećanje ne smije tražiti tanku sivu liniju */
+html[data-a11y-uvecanje="3"]::-webkit-scrollbar{width:18px;height:18px}
+html[data-a11y-uvecanje="3"]::-webkit-scrollbar-track{background:rgba(10,35,99,.12)}
+html[data-a11y-uvecanje="3"]::-webkit-scrollbar-thumb{background:var(--accent);border-radius:9px;
+  border:3px solid transparent;background-clip:content-box}
+html[data-a11y-uvecanje="3"]{scrollbar-width:auto;scrollbar-color:var(--accent) rgba(10,35,99,.12)}
+html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"]{scrollbar-color:#FFE24A #000}
+html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"]::-webkit-scrollbar-thumb{background:#FFE24A}
+html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"]::-webkit-scrollbar-track{background:#000}
+/* Na telefonu se pri pomjeranju ulijevo-udesno pomjera vidljivi okvir (visual
+   viewport), a fiksirani elementi ostaju vezani za raspored — pa navigacija i
+   alatka za pristupačnost otplove van ekrana čim se pomjerite udesno, a alatka
+   je upravo ono čime se uvećanje vraća nazad. Zato ih pomjeramo zajedno sa
+   okvirom. --vvx postavlja JS, već podijeljen faktorom uvećanja (elementi su
+   unutar zumiranog body-ja pa računaju u njegovim mjerama). Na laptopu je vvx
+   uvijek 0 jer se tamo pomjera stranica, a ne okvir. */
+html[data-a11y-uvecanje="3"] #scrollbar,
+html[data-a11y-uvecanje="3"] #totop{transform:translateX(var(--vvx,0px))}
+html[data-a11y-uvecanje="3"] #a11yAlat{transform:translate(var(--vvx,0px),-100%)}
+/* NAVIGACIJA NA NAJVEĆEM UVEĆANJU
+   Linkovi više ne stanu u širinu ekrana. Prvo rješenje ih je vezalo za vodoravno
+   pomjeranje cijele stranice — ali običan miš nema točkić za lijevo-desno, pa se
+   navigacija u praksi nikad nije ni pomjerila. Zato se sada pomjera sama za sebe:
+   traka ima vlastito vodoravno klizanje, nezavisno od stranice.
+   Radi prstom, trackpadom, klizačem ispod trake, tasterom Tab, i običnim
+   točkićem miša (okretanje iznad trake je pomjera lijevo-desno — vidi JS). */
+@media(min-width:981px){
+  html[data-a11y-uvecanje="3"] #nav{width:calc(100 * var(--vw));transform:none}
+  /* scrollbar-color je standardno svojstvo (Chrome, Firefox, Safari) i daje
+     klizač pune širine u bojama sajta. Namjerno NE koristimo ::-webkit-scrollbar
+     ni scrollbar-width:thin — Chrome zanemaruje jedno kad je drugo zadato, a
+     tanak klizač je premali za nekoga kome treba najveće uvećanje. */
+  html[data-a11y-uvecanje="3"] .nav-in{overflow-x:auto;overflow-y:hidden;
+    justify-content:flex-start;overscroll-behavior-x:contain;
+    scrollbar-width:auto;scrollbar-color:var(--accent) rgba(255,255,255,.2)}
+  html[data-a11y-uvecanje="3"] .nav-in>*{flex-shrink:0}
+  html[data-a11y-uvecanje="3"] .nav-in .lang-btn{margin-left:auto}
+  html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"] .nav-in{scrollbar-color:#FFE24A #000}
+  /* strelica koja kaže da traka ima još sadržaja udesno; nestaje na kraju */
+  html[data-a11y-uvecanje="3"] #nav.ima-viska nav::after{content:'';position:absolute;
+    right:0;top:0;bottom:14px;width:56px;pointer-events:none;z-index:2;
+    background:linear-gradient(90deg,transparent,var(--navy) 78%)}
+  html[data-a11y-uvecanje="3"] #nav.ima-viska::after{content:'\203A';position:absolute;
+    right:10px;top:calc(50% - 7px);transform:translateY(-50%);z-index:3;pointer-events:none;
+    font-family:'Sora';font-size:26px;font-weight:800;line-height:1;color:#fff;
+    background:var(--accent);border-radius:11px;padding:3px 13px 8px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+  html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"] #nav.ima-viska::after{
+    background:#FFE24A;color:#000}
+  html[data-a11y-kontrast="1"][data-a11y-uvecanje="3"] #nav.ima-viska nav::after{
+    background:linear-gradient(90deg,transparent,#000 78%)}
+}
+/* Na telefonu je meni skupljen u dugme, pa u traci stoje samo logo, EN i dugme
+   menija. Tu traku pružamo preko cijele širine stranice — otkriva se samim
+   pomjeranjem stranice udesno. Vlastito klizanje ovdje ne koristimo jer je
+   padajući meni position:fixed, pa bi ga okvir sa overflow-om odsjekao. */
+@media(max-width:980px){
+  html[data-a11y-uvecanje="3"] #nav{width:var(--ekran-w);right:auto;transform:none}
+}
+/* Panel se skalira zajedno sa ostatkom sajta, pa mu i najveća visina mora biti
+   podijeljena istim faktorom — inače naraste preko ekrana i korisnik ne može
+   doći do dugmeta kojim bi uvećanje vratio nazad.
+   152px je visina dva dugmeta sa razmacima, mjerena u istom (uvećanom) prostoru. */
+
+/* pojačan kontrast — mijenjamo SAME TOKENE dizajna, pa se cijeli sajt slaže
+   dosljedno, umjesto da nadjačavamo komponentu po komponentu */
+html[data-a11y-kontrast="1"]{
+  --navy:#000; --navy-deep:#000; --navy-2:#000; --navy-3:#000;
+  --ice:#000; --ice-2:#000; --white:#000;
+  --ink:#fff; --muted:#fff;
+  --accent:#FFE24A; --accent-2:#FFE24A; --accent-txt:#FFE24A;
+  --line:#fff; --line-d:#fff; --glow:transparent;
+  --sh-sm:none; --sh:none; --sh-lg:none;
+}
+html[data-a11y-kontrast="1"] body{background:#000}
+/* Sve unutar stranice ide na crno sa bijelim tekstom. Ranije je postojala samo
+   ručno pisana lista klasa, pa je svaki element sa tvrdo upisanom bijelom
+   podlogom koji nije bio na listi (.ctype, .gauge-row>div, .legal-wrap,
+   .lm-chain, .trust, .pnum, .modal-x...) ostajao bijel — a tekst u njemu je
+   pravilo ispod bojilo u bijelo. Rezultat: bijelo na bijelom, ništa se ne vidi.
+   Pravila koja slijede (linkovi, akcije, mjerač, logo) dolaze kasnije u fajlu
+   i namjerno nadjačavaju ovo.
+   Izuzeti su slojevi koji moraju ostati prozirni: #a11yAlat je samo okvir koji
+   drži dva dugmeta (svako ima svoju podlogu) i stoji fiksno preko stranice —
+   crna podloga na njemu izgleda kao crna ploča koja viri oko dugmadi i prekriva
+   sadržaj ispod. Isto vrijedi za #confetti, modale i ukrasne slojeve. Slike ne
+   dobijaju podlogu jer je i ne treba — same prekriju svoj prostor. */
+html[data-a11y-kontrast="1"] :where(body *:not(svg, svg *, img, .logo-hc, .sr-only,
+   #confetti, #a11yAlat, .modal, .particles, .orb, .hero-bg, .hero-channels,
+   .hero-text-scrim, .woman-ring)){
+  background-color:#000!important;
+  background-image:none!important;
+  color:#fff!important;
+  border-color:#fff!important;
+  box-shadow:none!important}
+/* gradijenti i tvrdo upisane bijele podloge */
+html[data-a11y-kontrast="1"] [class]{background-image:none!important}
+html[data-a11y-kontrast="1"] :where(.pcard,.doc,.gitem,.kit,.form-card,.calc-left,.calc-right,
+  .quiz-box,.ks-list,.ks-it,.modal-box,.a11y-panel,.faq,.pstep,.vcard,.trust-it,.ktab,.ptab,
+  .adv,.cookie,.lm-po,.lm-sec,.is-tbl,.about-card,.hero-in,.nav,.footer,.section,.page,
+  .fdrop,.camt,.doc-list button,.q-opt,.tab,.cline,.lm-specs>div,.lm-ci,.kmap,.kmap-bar){
+  background-color:#000!important;color:#fff!important}
+html[data-a11y-kontrast="1"] :where(p,span,li,td,label,small,b,strong,em,h1,h2,h3,h4,h5,h6,div,input,select,textarea){
+  color:#fff!important}
+html[data-a11y-kontrast="1"] :where(th){color:#FFE24A!important}
+html[data-a11y-kontrast="1"] :where(a,.nlink,.inline-link,.doc-a,.pcard-more,.kmap-bar a,.foot-copy,.q-restart){
+  color:#FFE24A!important}
+/* elementi koji NOSE radnju ostaju žuti sa crnim tekstom — najjači mogući kontrast */
+html[data-a11y-kontrast="1"] :where(.btn-pri,.cookie-ok,.calc-apply,.a11y-dug,.ktab.on,.ptab.on,
+  .ctype.on,.gauge-badge,.pbadge,.lang-btn){
+  background-color:#FFE24A!important;color:#000!important;border-color:#FFE24A!important}
+/* sve unutar žutih (akcionih) elemenata mora biti crno — inače bijeli tekst na žutom */
+html[data-a11y-kontrast="1"] :where(.btn-pri,.cookie-ok,.calc-apply,.a11y-dug,.ktab.on,.ptab.on,.ctype.on,.gauge-badge,.pbadge,.lang-btn) *{color:#000!important;stroke:#000!important;fill:#000!important}
+/* sve dobija vidljivu ivicu da se granice elemenata raspoznaju */
+html[data-a11y-kontrast="1"] :where(.pcard,.doc,.gitem,.kit,.form-card,.calc-left,.calc-right,
+  .quiz-box,.ks-list,.modal-box,.a11y-panel,.faq,.vcard,.trust-it,.ktab,.ptab,.q-opt,.adv,
+  .fdrop,.lm-po,.kmap,input,select,textarea,button){border:2px solid #fff!important}
+html[data-a11y-kontrast="1"] :where(svg){stroke:#FFE24A}
+/* ukrasna pozadina samo smeta kad je kontrast pojačan */
+html[data-a11y-kontrast="1"] :where(.hero-channels,.orb,.particles,.hero-bg,.hero-text-scrim,
+  .woman-ring,.quiz-sec::before,#confetti){display:none!important}
+html[data-a11y-kontrast="1"] :where(img){opacity:.55}
+/* Drugi red naslova je bio ispisan gradijentom kroz text-fill-color:transparent.
+   Kad se gradijent ukloni, ostane proziran tekst — naslov jednostavno nestane. */
+html[data-a11y-kontrast="1"] .grad-txt{-webkit-text-fill-color:#FFE24A!important;
+  color:#FFE24A!important;filter:none!important}
+/* Sadržaj unutar žutih dugmadi je od univerzalnog pravila dobijao crnu podlogu,
+   pa je preko žutog dugmeta stajao crni pravougaonik sa crnim tekstom. */
+html[data-a11y-kontrast="1"] :where(.btn-pri,.cookie-ok,.calc-apply,.a11y-dug,.ktab.on,.ptab.on,
+  .ctype.on,.gauge-badge,.pbadge,.lang-btn,.nlink.active) *{background-color:transparent!important}
+/* Ukrasni ::before/::after slojevi ne prolaze kroz pravilo iznad (pseudo-elementi
+   se ne biraju sa "body *"), pa su ostajali u plavim gradijentima. */
+html[data-a11y-kontrast="1"] .pcard::before,
+html[data-a11y-kontrast="1"] .cta-sec::after,
+html[data-a11y-kontrast="1"] .calc-right::before{display:none!important}
+html[data-a11y-kontrast="1"] .proc-grid::after{background:#fff!important}
+/* „O nama": preko fotografije stoji sloj za zatamnjenje (gradijent od prozirnog
+   ka tamnoplavom) da bi natpis bio čitak. U kontrastu je taj sloj postao pun crn
+   pravougaonik i prekrio cijelu sliku. Sloj vraćamo na proziran, a natpisu dajemo
+   vlastitu crnu podlogu — tako je i slika vidljiva i tekst čitak. */
+html[data-a11y-kontrast="1"] .about-main>div{background-color:transparent!important}
+html[data-a11y-kontrast="1"] .about-main>img{opacity:1!important}
+html[data-a11y-kontrast="1"] .about-main>p{background-color:#000!important;color:#FFE24A!important;
+  border:2px solid #FFE24A;border-radius:12px;padding:12px 16px}
+html[data-a11y-kontrast="1"] .modal{background:rgba(0,0,0,.94)!important}
+html[data-a11y-kontrast="1"] :focus-visible{outline:4px solid #FFE24A!important;outline-offset:3px!important}
+/* naslov koji dobije fokus pri promjeni stranice ne treba okvir — okvir je za
+   ono što se bira tastaturom, a ovdje bi samo uokvirio pola ekrana */
+html[data-a11y-kontrast="1"] :where(h1,h2)[tabindex="-1"]:focus,
+html[data-a11y-kontrast="1"] :where(h1,h2)[tabindex="-1"]:focus-visible{outline:none!important}
+
+/* ================= KONTRAST — KALKULATOR KREDITA ================= */
+/* vrste kredita: podloga je bila tvrdo bijela (#fff), tekst bijel — nevidljivo */
+html[data-a11y-kontrast="1"] .ctype{background-color:#000!important;color:#fff!important;
+  border:2px solid #fff!important}
+html[data-a11y-kontrast="1"] .ctype:hover{border-color:#FFE24A!important;color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .ctype.on{background-color:#FFE24A!important;color:#000!important;
+  border-color:#FFE24A!important}
+/* klizači — deblji, sa jasno odvojenim dugmetom (žuto u bijelom prstenu) */
+html[data-a11y-kontrast="1"] input[type=range]{background-color:#000!important;
+  border:2px solid #fff!important;height:16px;border-radius:9px}
+html[data-a11y-kontrast="1"] input[type=range]::-webkit-slider-thumb{width:28px;height:28px;
+  background:#FFE24A;border:3px solid #000;box-shadow:0 0 0 3px #fff}
+html[data-a11y-kontrast="1"] input[type=range]::-moz-range-thumb{width:26px;height:26px;
+  background:#FFE24A;border:3px solid #000;box-shadow:0 0 0 3px #fff}
+html[data-a11y-kontrast="1"] input[type=range]::-moz-range-track{background:#000;border:2px solid #fff}
+/* polje za unos iznosa: u fokusu je podloga postajala bijela ispod bijelog teksta */
+html[data-a11y-kontrast="1"] .camt,
+html[data-a11y-kontrast="1"] .camt:focus-within{background-color:#000!important;border:2px solid #fff!important}
+html[data-a11y-kontrast="1"] .camt:focus-within{border-color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .camt.err{border-color:#FF8A80!important}
+html[data-a11y-kontrast="1"] .camt input[type=number]{color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .camt b{color:#fff!important}
+/* stubići rate su ranije bili potpuno sklonjeni pa je desna strana bila prazna */
+html[data-a11y-kontrast="1"] .calc-chart{display:flex!important}
+html[data-a11y-kontrast="1"] .calc-chart .bar{background-color:#FFE24A!important;opacity:1!important;
+  border:1px solid #000!important}
+html[data-a11y-kontrast="1"] .calc-big small{color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .calc-wrap{border:2px solid #fff!important}
+html[data-a11y-kontrast="1"] .calc-lines{border-top:2px solid #fff!important}
+html[data-a11y-kontrast="1"] .cline{border-bottom:1px solid #fff!important}
+html[data-a11y-kontrast="1"] .cline:last-child{border-bottom:0!important}
+html[data-a11y-kontrast="1"] .cline span:last-child{color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .cgroup label span{color:#FFE24A!important}
+
+/* ============ KONTRAST — PROCJENA KREDITNE SPOSOBNOSTI ============ */
+/* kartice rezultata: i one su imale tvrdo bijelu podlogu pod bijelim tekstom */
+html[data-a11y-kontrast="1"] .gauge-row>div{background-color:#000!important;border:2px solid #fff!important}
+html[data-a11y-kontrast="1"] .gauge-wrap{border:2px solid #fff!important}
+html[data-a11y-kontrast="1"] .ks-it{border-bottom:1px solid #fff!important}
+html[data-a11y-kontrast="1"] .ks-it:last-child{border-bottom:0!important}
+html[data-a11y-kontrast="1"] .ks-it b,
+html[data-a11y-kontrast="1"] .gauge-amt,
+html[data-a11y-kontrast="1"] .gauge-cap{color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .gauge-zero{color:#FF8A80!important}
+/* Mjerač: svaki SVG je dobijao jednu te istu žutu boju, pa su se prazna traka,
+   popunjeni luk i kazaljka stapali u jednu mrlju. Razdvajamo ih po ulozi. */
+html[data-a11y-kontrast="1"] .gauge-svg path{stroke:#767676!important}
+html[data-a11y-kontrast="1"] .gauge-svg #gArc{stroke:#FFE24A!important}
+html[data-a11y-kontrast="1"] .gauge-svg #gNeedle line{stroke:#fff!important;stroke-width:5}
+html[data-a11y-kontrast="1"] .gauge-svg #gNeedle circle{fill:#fff!important;stroke:#000!important;stroke-width:2}
+
+/* ============ KONTRAST — OZNAKE STANJA ============ */
+/* Bez ovoga se u panelu ne vidi šta je uključeno, ni koji je tab aktivan. */
+html[data-a11y-kontrast="1"] .a11y-niz button[aria-pressed="true"],
+html[data-a11y-kontrast="1"] .a11y-prekidac button[aria-pressed="true"],
+html[data-a11y-kontrast="1"] .nlink.active,
+html[data-a11y-kontrast="1"] .tab.on{background-color:#FFE24A!important;color:#000!important;
+  border-color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .a11y-niz button[aria-pressed="true"] *,
+html[data-a11y-kontrast="1"] .a11y-prekidac button[aria-pressed="true"] *,
+html[data-a11y-kontrast="1"] .nlink.active *{color:#000!important}
+html[data-a11y-kontrast="1"] .quiz-prog i{border:1px solid #fff!important}
+html[data-a11y-kontrast="1"] #scrollbar{background-color:#FFE24A!important}
+html[data-a11y-kontrast="1"] .a11y-stanje{color:#FFE24A!important}
+/* ivice za kartice koje ranije nisu bile na listi */
+html[data-a11y-kontrast="1"] :where(.legal-wrap,.lm-chain,.trust-it,.pnum,.modal-x,.gitem,
+  .doc-list button,.foot-soc a,.ks-list,.tcard,.stat){border:2px solid #fff!important}
+
+/* ============ KONTRAST — LOGO ============ */
+/* Logo je slika: plava ploča sa bijelim slovima. U kontrastu je ostajao plav
+   (i još prigušen na 55% prozirnosti), pa je na crnoj podlozi bio tamna mrlja.
+   Zato u kontrastu prikazujemo žutu verziju istog logotipa, ugrađenu u CSS —
+   bez dodatnog fajla i bez još jednog zahtjeva prema serveru. */
+.logo-hc{display:none}
+html[data-a11y-kontrast="1"] .brand .logo-nrm,
+html[data-a11y-kontrast="1"] .brand .fallback,
+html[data-a11y-kontrast="1"] .foot-brand .logo-nrm,
+html[data-a11y-kontrast="1"] .foot-brand>b{display:none!important}
+html[data-a11y-kontrast="1"] .brand .logo-hc,
+html[data-a11y-kontrast="1"] .foot-brand .logo-hc{display:block!important;
+  background-color:transparent!important;
+  background-image:url("data:image/png;base64,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")!important;
+  background-repeat:no-repeat!important;background-position:left center!important;
+  background-size:contain!important}
+html[data-a11y-kontrast="1"] .brand .logo-hc{height:104px;width:282px;max-width:292px}
+html[data-a11y-kontrast="1"] .foot-brand .logo-hc{height:96px;width:260px;max-width:264px;margin-bottom:16px}
+@media(max-width:760px){html[data-a11y-kontrast="1"] .brand .logo-hc{height:72px;width:195px}}
+
+/* podvučeni linkovi — bez oslanjanja samo na boju */
+html[data-a11y-podvuci="1"] :where(a,.inline-link,.nlink,.foot-copy,.doc-a,.kmap-bar a){text-decoration:underline!important;text-underline-offset:3px}
+
+/* krupniji pokazivač miša */
+html[data-a11y-kursor="1"],html[data-a11y-kursor="1"] *{
+  cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 32 32'%3E%3Cpath d='M6 2l0 22 5.5-5.5 3.5 8 4-1.8-3.4-7.7 7.4 0z' fill='%23fff' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") 4 2,auto!important}
+html[data-a11y-kursor="1"] :where(a,button,[role=button],input,select,textarea,label){
+  cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 32 32'%3E%3Cpath d='M12 2c-1.1 0-2 .9-2 2v11l-2.5-2.5c-.8-.8-2-.8-2.8 0s-.8 2 0 2.8l6 7.7c.6.8 1.5 1.2 2.5 1.2h7c1.7 0 3-1.3 3-3v-7c0-1.1-.9-2-2-2s-2 .9-2 2c0-1.1-.9-2-2-2s-2 .9-2 2c0-1.1-.9-2-2-2V4c0-1.1-.9-2-2-2z' fill='%23fff' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E") 10 2,pointer!important}
+
+/* zaustavljanje animacija */
+html[data-a11y-mirno="1"] *,html[data-a11y-mirno="1"] *::before,html[data-a11y-mirno="1"] *::after{
+  animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 .skip-link{position:fixed;top:-70px;left:16px;z-index:3000;background:var(--navy);color:#fff;font-family:'Sora';font-weight:700;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;border:2px solid var(--accent);cursor:pointer;transition:top .2s ease}
 .skip-link:focus{top:0}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -757,7 +1147,7 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .modal.open{display:flex}
 .modal-bd{position:absolute;inset:0;background:rgba(6,20,61,.74);backdrop-filter:blur(7px);animation:mFade .3s ease both}
 @keyframes mFade{from{opacity:0}to{opacity:1}}
-.modal-box{position:relative;z-index:1;background:#fff;border-radius:28px;width:100%;max-width:880px;max-height:88vh;overflow-y:auto;box-shadow:var(--sh-lg);padding:44px;animation:mIn .4s cubic-bezier(.16,1,.3,1) both}
+.modal-box{position:relative;z-index:1;background:#fff;border-radius:28px;width:100%;max-width:880px;max-height:calc(88 * var(--vh));overflow-y:auto;box-shadow:var(--sh-lg);padding:44px;animation:mIn .4s cubic-bezier(.16,1,.3,1) both}
 @keyframes mIn{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
 .modal-x{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);z-index:3}
 .modal-x:hover{background:var(--navy);border-color:var(--navy);transform:rotate(90deg)}
@@ -843,17 +1233,8 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 }
 .pcard-more{display:inline-flex;align-items:center;gap:7px;font-family:'Sora';font-size:12.5px;font-weight:800;color:var(--accent-txt);margin-top:16px;transition:var(--t)}
 .pcard:hover .pcard-more{color:#fff}
-/* Boris — stranica arhitekte finansija */
-.boris-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
-.boris-ph{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(150deg,var(--navy-2),var(--navy-3));box-shadow:var(--sh-lg)}
-.boris-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.boris-ph .bq{position:absolute;left:0;right:0;bottom:0;padding:26px 24px 22px;background:linear-gradient(transparent,rgba(6,20,61,.92));color:#fff;font-family:'Sora';font-size:15px;font-weight:700;line-height:1.35}
-.boris-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
-.boris-stats>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 16px}
-.boris-stats b{display:block;font-family:'Sora';font-size:27px;font-weight:800;color:var(--accent-2);letter-spacing:-1px;line-height:1}
-.boris-stats span{display:block;font-size:11.5px;color:rgba(255,255,255,.7);margin-top:6px}
-@media(max-width:980px){.adv-grid{grid-template-columns:1fr}.boris-grid{grid-template-columns:1fr;gap:34px}.lm-specs{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.modal{padding:14px}.modal-box{padding:30px 22px;border-radius:22px}.lm-specs{grid-template-columns:1fr}.lm-img{width:100%;height:170px}.btn-adv{width:100%;justify-content:center}.boris-stats{grid-template-columns:1fr}}
+@media(max-width:980px){.adv-grid{grid-template-columns:1fr}.lm-specs{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.modal{padding:14px}.modal-box{padding:30px 22px;border-radius:22px}.lm-specs{grid-template-columns:1fr}.lm-img{width:100%;height:170px}.btn-adv{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -868,13 +1249,68 @@ function tryImg(el){
 </script>
 <button class="skip-link" onclick="a11ySkip()">Preskoči na glavni sadržaj</button>
 <div id="ariaLive" class="sr-only" role="status" aria-live="polite"></div>
+<!-- ============ ALATKE PRISTUPAČNOSTI ============
+     Stoje odmah nakon linka za preskakanje, pa ih korisnik tastature dohvati
+     prvim pritiscima Taba. Vizuelno su fiksirane dolje lijevo. -->
+<div id="a11yAlat">
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yNaslov">
+    <h2 id="a11yNaslov">Prilagodi prikaz</h2>
+    <div class="a11y-grupa">
+      <span id="a11yLblUvec">Veličina teksta</span>
+      <div class="a11y-niz" role="group" aria-labelledby="a11yLblUvec">
+        <button type="button" onclick="a11yUvecanje(0)" aria-pressed="true">Normalno</button>
+        <button type="button" onclick="a11yUvecanje(1)" aria-pressed="false">A+</button>
+        <button type="button" onclick="a11yUvecanje(2)" aria-pressed="false">A++</button>
+        <button type="button" onclick="a11yUvecanje(3)" aria-pressed="false">A+++</button>
+      </div>
+    </div>
+    <div class="a11y-prekidac">
+      <span>Pojačan kontrast</span>
+      <button type="button" onclick="a11yPrekidac('kontrast',this)" aria-pressed="false">Isključeno</button>
+    </div>
+    <div class="a11y-prekidac">
+      <span>Podvučeni linkovi</span>
+      <button type="button" onclick="a11yPrekidac('podvuci',this)" aria-pressed="false">Isključeno</button>
+    </div>
+    <div class="a11y-prekidac">
+      <span>Krupniji pokazivač</span>
+      <button type="button" onclick="a11yPrekidac('kursor',this)" aria-pressed="false">Isključeno</button>
+    </div>
+    <div class="a11y-prekidac">
+      <span>Bez animacija</span>
+      <button type="button" onclick="a11yPrekidac('mirno',this)" aria-pressed="false">Isključeno</button>
+    </div>
+    <button type="button" class="a11y-reset" onclick="a11yReset()">Vrati na početno</button>
+    <div class="a11y-stanje" id="a11yStanje" role="status" aria-live="polite"></div>
+  </div>
+
+  <div class="a11y-poruka" id="a11yPoruka" role="status" aria-live="polite"></div>
+
+  <button type="button" class="a11y-dug" id="a11ySlusaj" onclick="govorToggle()"
+          aria-describedby="a11ySlusajOpis">
+    <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/>
+    </svg>
+    <span id="a11ySlusajTekst">Slušaj stranicu</span>
+  </button>
+  <span id="a11ySlusajOpis" class="sr-only">Naglas čita sadržaj stranice na kojoj se nalazite. Pritisnite Enter za početak, ponovo za pauzu.</span>
+
+  <button type="button" class="a11y-dug" id="a11yPrikazDug" onclick="a11yPanel()"
+          aria-expanded="false" aria-controls="a11yPanel">
+    <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1A1.7 1.7 0 007.9 19a1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H1a2 2 0 110-4h.1A1.7 1.7 0 003 7.9a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V1a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H23a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/>
+    </svg>
+    <span>Prilagodi prikaz</span>
+  </button>
+</div>
 <div id="scrollbar" aria-hidden="true"></div>
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
 <nav aria-label="Glavna navigacija">
   <div class="container nav-in">
     <div class="brand" onclick="go('pocetna')">
-      <img src="BP.png" data-alts="BP.PNG|BilansPlusLogo.png|Blogo.png|BilansLogo.svg" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <img class="logo-nrm" src="BP.png" data-alts="BP.PNG|BilansPlusLogo.png|Blogo.png|BilansLogo.svg" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+      <span class="logo-hc" role="img" aria-label="Bilans Plus Kredit"></span>
       <div class="fallback" style="display:none">
         <div class="mono">B<span style="color:var(--accent-2)">P</span></div>
         <div class="bt"><b>BILANS PLUS</b><small>KREDIT</small></div>
@@ -1155,13 +1591,6 @@ function tryImg(el){
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Personalizovana</strong> kreditna analiza za svakog klijenta.</p></div>
           <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Jasni uslovi</strong> — NKS, naknada i EKS iskazani odvojeno uz svaki kredit.</p></div>
         </div>
-        <button class="btn-adv" style="margin-top:30px" onclick="go('boris')">
-          <span class="av-stack" aria-hidden="true">
-            <i style="background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80')"></i>
-          </span>
-          <span class="bax">Upoznajte našeg arhitektu finansija<small>Boris Knežević · vodi tim savjetnika</small></span>
-          <svg width="17" height="17" fill="none" stroke="#0A2363" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
       </div>
     </div>
     <div class="container">
@@ -1179,46 +1608,6 @@ function tryImg(el){
   <section class="cta-sec"><div class="container cta-in reveal"><h2>Spremni da krenemo zajedno?</h2><p>Javite nam se — odgovorićemo na svako pitanje prije nego donesete odluku.</p><div class="cta-btns"><button class="btn-white" onclick="go('zahtjev')">Podnesi zahtjev</button><button class="btn-out-w" onclick="go('kontakt')">Kontaktiraj nas</button></div></div></section>
 </section><!-- /onama -->
 <!-- ============ PAGE: BORIS KNEŽEVIĆ (nije u navigaciji) ============ -->
-<section class="page" id="pg-boris">
-  <div class="phero"><div class="orb a"></div>
-    <div class="container">
-      <button class="legal-back" style="color:var(--accent-2);position:relative;z-index:2" onclick="go('onama')">
-        <svg width="16" height="16" fill="none" stroke="#6E94FF" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Nazad na O nama
-      </button>
-      <h1>Boris <span class="hl">Knežević</span></h1>
-      <p>Arhitekta finansija — čovjek koji vaš bilans posmatra kao cjelinu, a ne kao jedan kredit.</p>
-    </div>
-  </div>
-  <section class="section dark-sec">
-    <div class="container boris-grid">
-      <div class="boris-ph reveal">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Boris Knežević, arhitekta finansija" onerror="this.style.display='none'"/>
-        <div class="bq">„Kredit nije proizvod koji se prodaje. To je plan koji se pravi.”</div>
-      </div>
-      <div class="reveal rd1">
-        <div class="eyebrow" style="color:var(--accent-2)">Arhitekta finansija</div>
-        <h2 class="title title-light">Vaš bilans zaslužuje<br/>plan, ne improvizaciju</h2>
-        <p class="lead lead-light">Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Njegov pristup je jednostavan: prvo se razumije situacija klijenta, pa tek onda bira proizvod — uključujući i scenarij u kojem kredit nije najbolje rješenje.</p>
-        <div class="about-list">
-          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Specijalnost:</strong> restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.</p></div>
-          <div class="about-it"><div class="about-ck"><svg width="13" height="13" fill="none" stroke="#6E94FF" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Princip rada:</strong> nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.</p></div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="sec-head center reveal" style="margin-top:88px;margin-bottom:48px">
-        <div class="eyebrow" style="color:var(--accent-2)">Kako izgleda razgovor</div>
-        <h2 class="title title-light">Tri koraka do <span style="color:var(--accent-2)">finansijskog plana</span></h2>
-      </div>
-      <div class="values">
-        <div class="vcard reveal"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3>1 · Slušanje</h3><p>Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.</p></div>
-        <div class="vcard reveal rd1"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg></div><h3>2 · Analiza</h3><p>Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.</p></div>
-        <div class="vcard reveal rd2"><div class="vic"><svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h3>3 · Plan</h3><p>Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.</p></div>
-      </div>
-    </div>
-  </section>
-  <section class="cta-sec"><div class="container cta-in reveal"><h2>Zakažite razgovor sa Borisom</h2><p>Prvi razgovor je besplatan i ne obavezuje vas ni na šta.</p><div class="cta-btns"><button class="btn-white" onclick="go('zahtjev')">Podnesi zahtjev</button><button class="btn-out-w" onclick="go('kontakt')">Kontaktiraj nas</button></div></div></section>
-</section><!-- /boris -->
 <!-- ============ PAGE: KREDITI ============ -->
 <section class="page" id="pg-krediti">
   <div class="phero"><div class="orb a"></div>
@@ -1345,6 +1734,9 @@ function tryImg(el){
                 <span class="fdi"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg></span>
                 <span><b id="zFileName">Priložite dokument</b><small id="zFileHint">Platna lista, izjava poslodavca ili čekovi od penzije · PDF, JPG ili PNG do 5 MB</small></span>
                 <input type="file" id="z-prihod" accept=".pdf,.jpg,.jpeg,.png" aria-describedby="zFileHint"/>
+                <button type="button" class="fdrop-x" id="zX" onclick="ukloniPrilog(event,'z')" aria-label="Ukloni priloženi dokument" hidden>
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
               </label>
             </div>
             <div class="fg full"><label class="fcheck"><input type="checkbox" id="z-gdpr"/><span>Saglasan/na sam sa obradom ličnih podataka u skladu sa Politikom privatnosti MKD Bilans Plus Kredit.</span></label></div>
@@ -1380,18 +1772,22 @@ function tryImg(el){
           <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Sjedište</strong><p>Pave Radana 33<br/>78000 Banja Luka, Republika Srpska</p></div></div>
           <div class="kit"><div class="kic"><svg width="20" height="20" fill="none" stroke="#3D6BFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div><strong>Radno vrijeme</strong><p>Pon – Pet: 08:00 – 16:00</p>
             <div class="ksoc">
-              <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-              <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-              <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4c.5 2 2 3.5 4 4"/></svg></a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+              <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4c.5 2 2 3.5 4 4"/></svg></a>
             </div>
           </div></div>
           <!-- Google mapa — embed bez API ključa. Ako kasnije dobijete tačan pin
                (Google Business profil), zamijenite `q=` parametar sa place_id. -->
           <div class="kmap">
-            <iframe
-              src="https://www.google.com/maps?q=Pave%20Radana%2033%2C%2078000%20Banja%20Luka%2C%20Bosna%20i%20Hercegovina&amp;hl=sr&amp;z=16&amp;output=embed"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa — Pave Radana 33, Banja Luka"></iframe>
+            <!-- Mapa se NE učitava sama. Dok je ne zatražite, Google ne sazna
+                 da ste posjetili ovu stranicu ni vašu IP adresu. Zato dugme
+                 „Odbij" u baneru stvarno nešto znači. -->
+            <div class="kmap-ph" id="kmapPh">
+              <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>Mapu prikazuje Google. Kad je otvorite, vaša IP adresa odlazi Googleu.</p>
+              <button type="button" class="kmap-btn" onclick="kmapPrikazi()">Prikaži mapu</button>
+            </div>
             <div class="kmap-bar">
               <span>Pave Radana 33, Banja Luka</span>
               <a href="https://www.google.com/maps/search/?api=1&amp;query=Pave%20Radana%2033%2C%2078000%20Banja%20Luka" target="_blank" rel="noopener">Otvori u Google mapama
@@ -1407,6 +1803,18 @@ function tryImg(el){
               <div class="fg full"><label>E-mail *</label><input type="email" id="k-email" placeholder="vas@email.com"/></div>
               <div class="fg full"><label>Tema</label><select id="k-tema"><option>Opšte informacije</option><option>Zahtjev za kredit</option><option>Postojeći kredit</option><option>Ostalo</option></select></div>
               <div class="fg full"><label>Poruka *</label><textarea id="k-poruka" placeholder="Vaša poruka..."></textarea></div>
+              <!-- ⚠ PRILOG: polje bira fajl, ali ga bez backenda ništa ne šalje.
+                   Kad se forma poveže, dodati enctype="multipart/form-data" na <form>. -->
+              <div class="fg full"><label>Dodatni dokument (opcionalno)</label>
+                <label class="fdrop" id="kDrop">
+                  <span class="fdi"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg></span>
+                  <span><b id="kFileName">Priložite dokument</b><small id="kFileHint">PDF, JPG ili PNG do 5 MB</small></span>
+                  <input type="file" id="k-prilog" accept=".pdf,.jpg,.jpeg,.png" aria-describedby="kFileHint"/>
+                  <button type="button" class="fdrop-x" id="kX" onclick="ukloniPrilog(event,'k')" aria-label="Ukloni priloženi dokument" hidden>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                  </button>
+                </label>
+              </div>
             </div>
             <button type="submit" class="btn-pri" style="width:100%;justify-content:center;margin-top:8px">Pošalji poruku
               <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -1434,8 +1842,19 @@ function tryImg(el){
     <h3>3. Dijeljenje podataka</h3><p>Vaše podatke ne dijelimo sa trećim licima osim kada to nalaže zakon ili je neophodno za realizaciju usluge.</p>
     <h3>4. Čuvanje podataka</h3><p>Podatke čuvamo onoliko koliko je potrebno za ostvarivanje svrhe obrade i u skladu sa zakonskim rokovima.</p>
     <h3>5. Vaša prava</h3><p>Imate pravo na pristup, ispravku, brisanje i prenosivost vaših ličnih podataka, kao i pravo na prigovor. Za ostvarivanje prava obratite nam se na: info@bilanspluskredit.com.</p>
-    <h3>6. Kolačići</h3><p>Web stranica može koristiti kolačiće radi poboljšanja korisničkog iskustva. Možete ih onemogućiti u postavkama pretraživača.</p>
-    <h3>7. Kontakt</h3><p>Za sva pitanja vezana za privatnost kontaktirajte nas na: info@bilanspluskredit.com ili na adresu sjedišta MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.</p>
+    <h3>6. Kolačići i lokalno pohranjeni podaci</h3>
+    <p>Ova web stranica <strong>ne koristi kolačiće za praćenje, analitiku ni oglašavanje</strong> i ne postavlja kolačiće trećih strana. U memoriji vašeg pregledača (<em>local storage</em>) čuvamo isključivo vaša podešavanja prikaza — veličinu teksta, pojačan kontrast, podvučene linkove — te podatak da ste vidjeli obavještenje o privatnosti. Ti podaci ostaju samo na vašem uređaju, ne šalju se nama niti bilo kome drugom, i brišu se čišćenjem podataka pregledača.</p>
+    <h3>7. Usluge trećih strana</h3>
+    <p>Radi izgleda i sadržaja stranice koristimo sljedeće vanjske usluge. Kada se njihov sadržaj učitava, tim kompanijama postaje vidljiva vaša IP adresa, vrsta pregledača i vrijeme pristupa. Nemamo uticaj na njihovu dalju obradu tih podataka.</p>
+    <ul>
+      <li><strong>Google Fonts</strong> (Google Ireland Limited) — tipografija stranice. Učitava se pri svakom otvaranju stranice.</li>
+      <li><strong>Unsplash</strong> (Unsplash Inc., Kanada) — fotografije u pojedinim sekcijama. Učitavaju se pri svakom otvaranju stranice.</li>
+      <li><strong>Google Maps</strong> (Google Ireland Limited) — mapa na stranici Kontakt. <strong>Ne učitava se sama</strong> — prikazuje se tek kada je izričito zatražite klikom na dugme „Prikaži mapu". Ako ne kliknete, Google ne prima nikakve podatke o vašoj posjeti.</li>
+    </ul>
+    <p>Kod ovih usluga podaci mogu biti prenijeti izvan Bosne i Hercegovine, uključujući Sjedinjene Američke Države. Njihove politike privatnosti dostupne su na stranicama <em>policies.google.com/privacy</em> i <em>unsplash.com/privacy</em>.</p>
+    <h3>8. Podaci iz obrasca za zahtjev</h3>
+    <p>Podaci koje unesete u obrazac za kreditni zahtjev ili kontakt šalju se direktno nama i koriste isključivo za obradu vašeg zahtjeva. Ne prosljeđujemo ih marketinškim ni oglašivačkim platformama.</p>
+    <h3>9. Kontakt</h3><p>Za sva pitanja vezana za privatnost kontaktirajte nas na: info@bilanspluskredit.com ili na adresu sjedišta MKD Bilans Plus Kredit, Banja Luka, Republika Srpska.</p>
   </div></div></section>
 </section>
 <!-- ============ PAGE: USLOVI ============ -->
@@ -1497,13 +1916,14 @@ function tryImg(el){
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="BP.png" data-alts="BP.PNG|BilansPlusLogo.png|Blogo.png|BilansLogo.svg" data-fb="block" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+        <img class="logo-nrm" src="BP.png" data-alts="BP.PNG|BilansPlusLogo.png|Blogo.png|BilansLogo.svg" data-fb="block" alt="Bilans Plus Kredit" onerror="tryImg(this)"/>
+        <span class="logo-hc" role="img" aria-label="Bilans Plus Kredit"></span>
         <b style="display:none;font-family:'Sora';color:#fff;font-size:18px">BILANS PLUS KREDIT</b>
         <p class="foot-desc">Licencirana mikrokreditna organizacija sa sjedištem u Banjoj Luci. Brza, transparentna i personalizovana finansijska podrška.</p>
         <div class="foot-soc">
-          <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-          <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4c.5 2 2 3.5 4 4"/></svg></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4c.5 2 2 3.5 4 4"/></svg></a>
         </div>
       </div>
       <div class="fcol"><h5>Stranice</h5>
@@ -1534,10 +1954,9 @@ function tryImg(el){
 <button id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Vrh"><svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <!-- COOKIE BANNER -->
 <div class="cookie" id="cookie">
-  <p>Koristimo kolačiće radi boljeg korisničkog iskustva. Više u <button onclick="go('privatnost')">Politici privatnosti</button>.</p>
+  <p>Ne koristimo kolačiće za praćenje. Fontove i slike učitavamo sa vanjskih servisa — više u <button onclick="go('privatnost')">Politici privatnosti</button>.</p>
   <div class="cookie-btns">
-    <button class="cookie-no" onclick="cookieClose()">Odbij</button>
-    <button class="cookie-ok" onclick="cookieClose()">Prihvati</button>
+    <button class="cookie-ok" onclick="cookieClose()">U redu</button>
   </div>
 </div>
 <!-- ============ MODAL: LIČNI SAVJETNICI ============ -->
@@ -2025,7 +2444,7 @@ function openInfoSheet(i){
   openModal('infoModal');
 }
 const advisors=[
-  {n:'Boris Knežević',r:'Arhitekta finansija',d:'Vodi tim savjetnika. Specijalnost: restrukturiranje obaveza i investicioni planovi.',img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80',init:'BK',page:'boris'},
+  {n:'Boris Knežević',r:'Arhitekta finansija',d:'Vodi tim savjetnika. Specijalnost: restrukturiranje obaveza i investicioni planovi.',img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80',init:'BK'},
   {n:'Milena Todorović',r:'Gotovinski krediti',d:'Vodi vas kroz Keš PLUS i Keš PLUS MAX — od papirologije do isplate na račun.',img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',init:'MT'},
   {n:'Aleksandar Vuković',r:'Poslovni krediti',d:'Radi sa preduzetnicima i firmama — obrtna sredstva, likvidnost i nabavka opreme.',img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',init:'AV'},
   {n:'Tanja Simić',r:'Penzioneri i porodica',d:'Treća mladost i porodični krediti. Strpljivo objašnjava svaku stavku ugovora.',img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80',init:'TS'}
@@ -2612,6 +3031,9 @@ function go(id){
   document.getElementById('navlinks').classList.remove('open');
   document.getElementById('burger').classList.remove('open');
   window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+  /* Čitanje se odnosi na stranicu koja je otvorena. Kad korisnik ode na drugu,
+     stari snimak/izgovor mora stati — inače sluša jedno, a gleda drugo. */
+  if(typeof govorStop==='function' && typeof CITAC!=='undefined' && CITAC.radi) govorStop();
   setTimeout(revealScan,60);
 }
 /* ========= NAV / BURGER / SCROLL ========= */
@@ -2650,30 +3072,686 @@ kf.addEventListener('submit',e=>{e.preventDefault();
   if(validate(kf,['k-ime','k-tel','k-email','k-poruka'])){kf.style.display='none';document.getElementById('kOk').classList.add('on');confetti();}
 });
 /* prilog uz zahtjev — prikaz izabranog fajla i provjera veličine (5 MB) */
+/* ================================================================================
+   PRILOZI UZ OBRASCE — isti kod za Zahtjev i za Kontakt
+   Polje pokazuje ime i veličinu izabranog fajla, odbija prevelike, a X dugme
+   uklanja prilog. Bez backenda fajl se nigdje ne šalje — vidi napomenu u markupu.
+   ================================================================================ */
 const MAX_UPLOAD=5*1024*1024;
-const zPrihod=document.getElementById('z-prihod');
-if(zPrihod) zPrihod.addEventListener('change',()=>{
-  const drop=document.getElementById('zDrop');
-  const nm=document.getElementById('zFileName');
-  const ht=document.getElementById('zFileHint');
-  const f=zPrihod.files&&zPrihod.files[0];
-  if(!f){
-    drop.classList.remove('has');nm.textContent='Priložite dokument';
-    ht.textContent='Platna lista, izjava poslodavca ili čekovi od penzije · PDF, JPG ili PNG do 5 MB';
-    ht.style.color='';return;
-  }
+const PRILOZI={
+  z:{ polje:'z-prihod', okvir:'zDrop', ime:'zFileName', opis:'zFileHint', x:'zX',
+      poc:'Priložite dokument',
+      pocOpis:'Platna lista, izjava poslodavca ili čekovi od penzije · PDF, JPG ili PNG do 5 MB' },
+  k:{ polje:'k-prilog', okvir:'kDrop', ime:'kFileName', opis:'kFileHint', x:'kX',
+      poc:'Priložite dokument', pocOpis:'PDF, JPG ili PNG do 5 MB' }
+};
+function prilogReset(k){
+  const p=PRILOZI[k]; const el=document.getElementById(p.polje); if(!el) return;
+  el.value='';
+  document.getElementById(p.okvir).classList.remove('has');
+  document.getElementById(p.ime).textContent=p.poc;
+  const ht=document.getElementById(p.opis); ht.textContent=p.pocOpis; ht.style.color='';
+  const x=document.getElementById(p.x); if(x) x.hidden=true;
+}
+/* X je unutar <label>, pa klik na njega inače otvara birač fajlova — zato zaustavljamo događaj */
+function ukloniPrilog(e,k){
+  e.preventDefault(); e.stopPropagation();
+  prilogReset(k);
+  if(typeof announce==='function') announce('Prilog uklonjen.');
+  const el=document.getElementById(PRILOZI[k].polje); if(el) el.focus();
+}
+function prilogPromjena(k){
+  const p=PRILOZI[k];
+  const el=document.getElementById(p.polje); if(!el) return;
+  const okvir=document.getElementById(p.okvir), nm=document.getElementById(p.ime),
+        ht=document.getElementById(p.opis), x=document.getElementById(p.x);
+  const f=el.files&&el.files[0];
+  if(!f){ prilogReset(k); return; }
   if(f.size>MAX_UPLOAD){
-    zPrihod.value='';drop.classList.remove('has');nm.textContent='Dokument je prevelik';
+    el.value=''; okvir.classList.remove('has'); if(x) x.hidden=true;
+    nm.textContent='Dokument je prevelik';
     ht.textContent='Najveća dozvoljena veličina je 5 MB. Izaberite manji fajl ili ga pošaljite e-mailom.';
     ht.style.color='#e0483f';
     if(typeof announce==='function') announce('Dokument je prevelik. Najveća dozvoljena veličina je 5 MB.');
     return;
   }
-  drop.classList.add('has');nm.textContent=f.name;
+  okvir.classList.add('has'); nm.textContent=f.name;
   ht.textContent=(f.size/1024/1024).toFixed(2).replace('.',',')+' MB · kliknite da promijenite dokument';
   ht.style.color='';
+  if(x) x.hidden=false;
   if(typeof announce==='function') announce('Priložen dokument: '+f.name+'.');
+}
+Object.keys(PRILOZI).forEach(function(k){
+  const el=document.getElementById(PRILOZI[k].polje);
+  if(el) el.addEventListener('change',function(){ prilogPromjena(k); });
 });
+/* ================================================================================
+   ALATKE PRISTUPAČNOSTI — čitanje naglas + vizuelna podešavanja
+
+   ČITANJE NAGLAS radi preko dva provajdera, bira se u objektu GOVOR:
+
+     'pregledac' (podrazumijevano)
+        Ugrađeni glas pregledača (Web Speech API). Radi odmah, bez ključa,
+        bez servera i bez ograničenja broja karaktera. Kvalitet glasa zavisi
+        od uređaja; na Androidu i Windowsu srpski glas obično postoji.
+
+     'azure'
+        Azure Text-to-Speech. Kvalitetniji glas, ali ZAHTIJEVA POSREDNIKA na
+        serveru — Azure ključ se NE SMIJE staviti u ovu stranicu, jer je vidljiv
+        svakome ko otvori izvorni kod i bilo ko bi mogao potrošiti kvotu.
+
+        Posrednik treba da:
+          • primi POST { text, voice, lang }
+          • pozove Azure sa ključem koji stoji SAMO na serveru
+          • vrati audio (audio/mpeg)
+        Kada posrednik postoji, dovoljno je upisati njegov URL u GOVOR.azure.url
+        i promijeniti GOVOR.provajder na 'azure'. Ako poziv ne uspije, čitač se
+        sam vraća na glas pregledača, pa stranica nikad ne ostaje bez zvuka.
+   ================================================================================ */
+var GOVOR = {
+  /* ── OVDJE SE UKLJUČUJE AZURE ──────────────────────────────────────────────
+     1. postavite posrednika prema uputstvu u azure-govor-posrednik.js
+     2. ovdje upišite njegovu adresu i promijenite provajder na 'azure'
+     Naziv glasa se NE upisuje ovdje — bira ga posrednik (GLAS_SR / GLAS_EN),
+     pa se glas mijenja bez ijedne izmjene u ovom fajlu.
+     AZURE KLJUČ NIKADA NE IDE U OVU STRANICU. */
+  /* 'snimak'    — pušta gotov MP3 uz sajt (audio/pocetna.mp3, audio/krediti.mp3 ...).
+                    Ako snimka za tu stranicu nema, sam se vraća na glas pregledača,
+                    pa sajt radi i prije nego što se snimci naprave.
+     'pregledac' — samo ugrađeni glas pregledača
+     'azure'     — Azure preko posrednika (traži server) */
+  provajder: 'snimak',                 /* 'snimak' | 'pregledac' | 'azure' */
+  snimak: {
+    putanja: 'audio/',                 /* folder sa MP3 fajlovima, uz index.html */
+    /* engleski snimci se traže kao npr. audio/pocetna-en.mp3; ako ih nema,
+       engleska verzija pada na glas pregledača */
+    sufiksEn: '-en'
+  },
+  azure: {
+    url: ''                            /* npr. 'https://bpk-govor.ime.workers.dev' */
+  },
+  maxKomad: 220                        /* Chrome prekida predugačke izgovore */
+};
+var CITAC = { komadi:[], i:0, radi:false, pauza:false, audio:null };
+
+function govorPodrzan(){
+  if(GOVOR.provajder==='snimak') return true;      /* MP3 zna svaki pregledač */
+  return ('speechSynthesis' in window) || (GOVOR.provajder==='azure' && GOVOR.azure.url);
+}
+function govorJezik(){ return (document.documentElement.lang||'bs').slice(0,2)==='en' ? 'en' : 'bs'; }
+function govorTekst(k){
+  var en = govorJezik()==='en';
+  return ({ slusaj:en?'Listen to page':'Slušaj stranicu', pauziraj:en?'Pause':'Pauziraj',
+    nastavi:en?'Resume':'Nastavi', cita:en?'Reading':'Čitam', gotovo:en?'Finished.':'Završeno.',
+    pauzirano:en?'Paused.':'Pauzirano.', nema:en?'No text to read.':'Nema teksta za čitanje.',
+    nemaGlas: en
+      ? '<b>Note:</b> no English voice is installed on this device, so the text is read with another available voice and the pronunciation will not be accurate.'
+      : '<b>Napomena:</b> na ovom uređaju nije instaliran srpski glas, pa se tekst čita drugim dostupnim glasom i izgovor neće biti tačan. Srpski glas se dodaje u postavkama sistema (Jezik i govor).',
+    nemaGlasKratko: en ? 'No English voice installed; pronunciation will be inaccurate.'
+      : 'Srpski glas nije instaliran; izgovor neće biti tačan.',
+    azureNeradi: en
+      ? '<b>Azure voice unavailable</b> ({0}). Reading continues with the browser voice.'
+      : '<b>Azure glas nije dostupan</b> ({0}). Čitanje se nastavlja glasom pregledača.',
+    neradi: en
+      ? '<b>Reading is not working in this browser.</b> Speech synthesis did not start. Try Chrome or Edge.'
+      : '<b>Čitanje ne radi u ovom pregledaču.</b> Sinteza govora se nije pokrenula. Probajte Chrome ili Edge.',
+    snimakNema: en
+      ? '<b>No recording for this page yet.</b> Reading continues with the browser voice.'
+      : '<b>Za ovu stranicu još nema snimka.</b> Čitanje se nastavlja glasom pregledača.',
+    ucitavam: en?'Loading recording…':'Učitavam snimak…',
+    greska:en?'Audio is not available in this browser.':'Zvuk nije dostupan u ovom pregledaču.' })[k]||'';
+}
+var _porukaTajmer=null, _napomenaAktivna=false;
+/* Napredak čitanja ide u panel. U okvir pored dugmeta upisujemo samo kad panel
+   nije otvoren — inače korisnik ne bi vidio ništa i mislio bi da dugme ne radi.
+   Trajna napomena (npr. da nema srpskog glasa) ima prednost i ne prepisuje se. */
+function govorStanje(t){
+  var el=document.getElementById('a11yStanje'); if(el) el.textContent=t||'';
+  if(_napomenaAktivna) return;
+  var p=document.getElementById('a11yPoruka'); if(!p) return;
+  clearTimeout(_porukaTajmer);
+  if(!t){ p.classList.remove('on'); p.innerHTML=''; return; }
+  p.innerHTML=t; p.classList.add('on');
+  _porukaTajmer=setTimeout(function(){ p.classList.remove('on'); },5000);
+}
+function govorNapomena(html){
+  var p=document.getElementById('a11yPoruka'); if(!p) return;
+  clearTimeout(_porukaTajmer);
+  if(!html){ _napomenaAktivna=false; p.classList.remove('on'); p.innerHTML=''; return; }
+  _napomenaAktivna=true; p.innerHTML=html; p.classList.add('on');
+}
+
+/* skuplja vidljiv tekst aktivne stranice, redom kako se prikazuje */
+/* ================================================================================
+   BROJEVI U RIJEČI (srpski) — da ih čitač izgovori kao čovjek, a ne kao mašina
+     „286,58 KM"  → „dvjesta osamdeset šest maraka i pedeset osam feninga"
+     „25,99%"     → „dvadeset pet zarez devedeset devet posto"
+     „1,95583 KM" → „jedan zarez devet pet pet osam tri marke"  (kurs, ne novac)
+   Mijenja TEKST prije izgovora, pa radi na svakom motoru — i na glasu pregledača.
+   Telefoni i godine se namjerno NE diraju.
+   ================================================================================ */
+var BR_JED_M = ['nula','jedan','dva','tri','četiri','pet','šest','sedam','osam','devet'];
+var BR_JED_Z = ['nula','jedna','dvije','tri','četiri','pet','šest','sedam','osam','devet'];
+var BR_TEEN  = ['deset','jedanaest','dvanaest','trinaest','četrnaest','petnaest',
+                'šesnaest','sedamnaest','osamnaest','devetnaest'];
+var BR_DES   = ['','deset','dvadeset','trideset','četrdeset','pedeset',
+                'šezdeset','sedamdeset','osamdeset','devedeset'];
+var BR_STO   = ['','sto','dvjesta','trista','četiristo','petsto',
+                'šeststo','sedamsto','osamsto','devetsto'];
+
+/* rod: 'm' (jedan dan) ili 'z' (jedna marka) — srpski mijenja broj po rodu imenice */
+function brojDo999(n, rod){
+  if(n === 0) return '';
+  var jed = (rod === 'z') ? BR_JED_Z : BR_JED_M;
+  var d = [], s = Math.floor(n/100), o = n%100;
+  if(s) d.push(BR_STO[s]);
+  if(o >= 10 && o < 20) d.push(BR_TEEN[o-10]);
+  else {
+    var de = Math.floor(o/10), je = o%10;
+    if(de) d.push(BR_DES[de]);
+    if(je) d.push(jed[je]);
+  }
+  return d.join(' ');
+}
+/* padež imenice uz broj: 1 marka, 2-4 marke, 5+ maraka (11-14 su izuzetak) */
+function oblik(n, jd, dv, mn){
+  var z = n % 100, j = n % 10;
+  if(z >= 11 && z <= 14) return mn;
+  if(j === 1) return jd;
+  if(j >= 2 && j <= 4) return dv;
+  return mn;
+}
+function brojURijeci(n, rod){
+  n = Math.round(n);
+  if(n === 0) return 'nula';
+  if(n < 0) return 'minus ' + brojURijeci(-n, rod);
+  var d = [], mil = Math.floor(n/1000000);
+  n %= 1000000;
+  var hilj = Math.floor(n/1000);
+  n %= 1000;
+  if(mil){ d.push(brojDo999(mil,'m'), oblik(mil,'milion','miliona','miliona')); }
+  if(hilj){
+    if(hilj === 1) d.push('hiljadu');            /* „hiljadu", ne „jedna hiljada" */
+    else d.push(brojDo999(hilj,'z'), oblik(hilj,'hiljada','hiljade','hiljada'));
+  }
+  if(n) d.push(brojDo999(n, rod));
+  return d.join(' ').replace(/\s+/g,' ').trim();
+}
+/* dvije cifre bez vodeće nule idu kao broj (99 → devedeset devet);
+   sve ostalo cifru po cifru (02 → nula dva, 95583 → devet pet pet osam tri) */
+function decimaleURijeci(s){
+  if(s.length === 2 && s[0] !== '0') return brojDo999(+s, 'm');
+  return s.split('').map(function(c){ return BR_JED_M[+c]; }).join(' ');
+}
+function novacURijeci(cijeli, para){
+  var d = [brojURijeci(cijeli,'z'), oblik(cijeli,'marka','marke','maraka')];
+  if(para > 0) d.push('i', brojURijeci(para,'m'), oblik(para,'fening','feninga','feninga'));
+  return d.join(' ');
+}
+function procenatURijeci(cio, dec){
+  return brojURijeci(cio,'m') + (dec ? ' zarez ' + decimaleURijeci(dec) : '') + ' posto';
+}
+function _br(s){ return parseInt(String(s).replace(/\./g,''), 10); }
+
+function govorBrojevi(t){
+  if(!t) return t;
+  /* redoslijed je bitan: prvo najduži obrasci (novac, procenti), pa goli brojevi */
+  return t
+    /* telefon se izgovara cifru po cifru: +387 51 492 100 */
+    .replace(/[+]?[0-9][0-9 ]{6,}[0-9]/g, function(m){
+      return m.split('').map(function(c){
+        if(c === '+') return 'plus';
+        if(c === ' ') return ',';
+        return BR_JED_M[+c];
+      }).join(' ').replace(/ ,/g, ',');
+    })
+    /* 1.234,56 KM | 1.234 KM | 1,95583 KM (kurs) */
+    .replace(/(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d+))?\s*(?:KM|BAM)\b/g, function(_, c, p){
+      var n = _br(c);
+      if(p && p.length > 2)   /* više od dvije decimale nije novac nego kurs */
+        return brojURijeci(n,'z') + ' zarez ' + decimaleURijeci(p) + ' marke';   /* uz decimalu uvijek „marke": 1,5 marke */
+      return novacURijeci(n, p ? +(p.length === 1 ? p + '0' : p) : 0);
+    })
+    /* 1.234,56 EUR */
+    .replace(/(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d+))?\s*(?:EUR|€)\b/g, function(_, c, p){
+      var n = _br(c), t = brojURijeci(n,'m') + (p ? ' zarez ' + decimaleURijeci(p) : '');
+      return t + ' ' + oblik(n,'evro','evra','evra');
+    })
+    /* 34,02% | 1,5 % */
+    .replace(/(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d+))?\s*%/g, function(_, c, d){
+      return procenatURijeci(_br(c), d);
+    })
+    /* preostali decimalni broj bez jedinice */
+    .replace(/(\d{1,3}(?:\.\d{3})*|\d+),(\d+)/g, function(_, c, d){
+      return brojURijeci(_br(c),'m') + ' zarez ' + decimaleURijeci(d);
+    })
+    /* 24h -> dvadeset cetiri sata */
+    .replace(/([0-9]{1,3}) ?h(?![a-zA-Zščćžđ])/g, function(_, c){
+      var n = +c; return brojURijeci(n,'m') + ' ' + oblik(n,'sat','sata','sati');
+    })
+    /* postanski broj i slicni kodovi: 78000 -> sedam osam nula nula nula */
+    .replace(/[0-9]{5,}/g, function(m, i, cio){
+      var okolo = cio.slice(Math.max(0, i-14), i + m.length + 14);
+      if(okolo.indexOf('387') >= 0) return m;          /* telefon ostaje kako jeste */
+      return m.split('').map(function(c){ return BR_JED_M[+c]; }).join(' ');
+    })
+    /* cijeli broj sa tačkama: 50.000 */
+    .replace(/\b\d{1,3}(?:\.\d{3})+\b/g, function(m){ return brojURijeci(_br(m),'m'); })
+    /* goli cijeli broj — osim godina i brojeva telefona */
+    .replace(/\b\d{1,4}\b/g, function(m, i, cio){
+      var n = +m;
+      if(m.length === 4 && n >= 1900 && n <= 2100) return m;
+      var okolo = cio.slice(Math.max(0, i-14), i + m.length + 14);
+      if(/\+?387|\d{3}\s?\d{3}\s?\d{3}|@|\bbr\.|\/\d/.test(okolo)) return m;
+      return brojURijeci(n,'m');
+    });
+}
+
+function govorSkupi(){
+  var pg = document.querySelector('.page.active') || document.body;
+  var out = [];
+  pg.querySelectorAll('h1,h2,h3,h4,p,li,td,th,figcaption,blockquote,.q-q').forEach(function(el){
+    if(el.closest('.sr-only,#a11yAlat,.modal,script,style')) return;
+    var cs = getComputedStyle(el);
+    if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity<0.1) return;
+    if(!el.getClientRects().length) return;
+    var t = (el.innerText||'').replace(/\s+/g,' ').trim();
+    if(t.length < 2) return;
+    if(out.length && out[out.length-1]===t) return;
+    out.push(t);
+  });
+  var komadi = [];
+  out.join('. ').split(/(?<=[.!?])\s+/).forEach(function(r){
+    r = r.trim(); if(!r) return;
+    while(r.length > GOVOR.maxKomad){
+      var rez = r.lastIndexOf(' ', GOVOR.maxKomad); if(rez < 60) rez = GOVOR.maxKomad;
+      komadi.push(r.slice(0,rez)); r = r.slice(rez).trim();
+    }
+    if(r) komadi.push(r);
+  });
+  return komadi;
+}
+
+/* ---------- provajder: ugrađeni glas pregledača ---------- */
+/* Traži glas koji zaista može izgovoriti naš jezik. Za srpski su prihvatljivi
+   i hrvatski/bosanski (ista fonetika) te slovenački/makedonski (bliska).
+   ENGLESKI GLAS NAMJERNO NE KORISTIMO ZA SRPSKI — čitao bi engleskom fonetikom,
+   što je nerazumljivo. U tom slučaju vraćamo null i javljamo korisniku. */
+function govorPregledacGlas(){
+  var svi = window.speechSynthesis.getVoices()||[];
+  var pref = govorJezik()==='en' ? ['en-gb','en-us','en'] : ['sr','hr','bs','sh','sl','mk'];
+  var nadjeni=[];
+  for(var p=0;p<pref.length;p++)
+    for(var i=0;i<svi.length;i++)
+      if(svi[i].lang && svi[i].lang.toLowerCase().replace('_','-').indexOf(pref[p])===0) nadjeni.push(svi[i]);
+  if(!nadjeni.length) return null;
+  /* mrežni glasovi (Google) zvuče znatno prirodnije od lokalnih SAPI glasova */
+  var mrezni = nadjeni.filter(function(v){ return !v.localService; });
+  return mrezni.length ? mrezni[0] : nadjeni[0];
+}
+/* Da li uopšte postoji upotrebljiv glas za trenutni jezik stranice */
+function govorImaGlas(){
+  if(GOVOR.provajder==='snimak') return true;                     /* snimak je uvijek "pravi" glas */
+  if(GOVOR.provajder==='azure' && GOVOR.azure.url) return true;   /* Azure uvijek ima */
+  return !!govorPregledacGlas();
+}
+var _zivot=null;
+function govorZivotStart(){
+  clearInterval(_zivot);
+  /* Chrome prekine sintezu nakon ~15 s; kratki pause+resume je drži budnom */
+  _zivot=setInterval(function(){
+    if(!CITAC.radi||CITAC.pauza){ clearInterval(_zivot); return; }
+    if(window.speechSynthesis.speaking){ window.speechSynthesis.pause(); window.speechSynthesis.resume(); }
+  },9000);
+}
+function govorZivotStop(){ clearInterval(_zivot); _zivot=null; }
+function govorPregledacPusti(tekst, gotovo, greska){
+  var u = new SpeechSynthesisUtterance(tekst);
+  var g = govorPregledacGlas();
+  if(g){ u.voice = g; u.lang = g.lang; }
+  else { u.lang = govorJezik()==='en' ? 'en-GB' : 'sr-RS'; }
+  u.onend = gotovo; u.onerror = greska;
+  window.speechSynthesis.speak(u);
+  govorZivotStart();
+  /* ako za 3 s ništa nije krenulo, glas ne radi — bolje jasna poruka nego tišina */
+  setTimeout(function(){
+    if(CITAC.radi && !CITAC.pauza && !window.speechSynthesis.speaking && !window.speechSynthesis.pending){
+      govorStop(); govorNapomena(govorTekst("neradi"));
+    }
+  },3000);
+}
+
+/* ---------- provajder: Azure preko posrednika ---------- */
+/* Zove posrednik koji čuva Azure ključ. Šaljemo samo tekst i jezik — koji se
+   glas koristi odlučuje posrednik, pa se glas mijenja bez diranja ove stranice.
+   Prvi neuspjeh se PRIKAŽE (da se greška u podešavanju ne previdi), a čitanje
+   se nastavlja glasom pregledača da korisnik ne ostane bez zvuka. */
+var _azurePrijavljeno = false;
+function govorAzurePusti(tekst, gotovo, greska){
+  var nazad = function(poruka){
+    if(poruka && !_azurePrijavljeno){
+      _azurePrijavljeno = true;
+      govorNapomena(govorTekst('azureNeradi').replace('{0}', poruka));
+    }
+    if('speechSynthesis' in window) govorPregledacPusti(tekst, gotovo, greska);
+    else greska();
+  };
+  var vrijeme = setTimeout(function(){ nazad('isteklo vrijeme čekanja'); }, 8000);
+  fetch(GOVOR.azure.url, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ text: tekst, lang: govorJezik()==='en' ? 'en-GB' : 'sr-RS' })
+  })
+  .then(function(r){
+    if(!r.ok) return r.text().then(function(t){ throw new Error(r.status+' '+t.slice(0,120)); });
+    return r.blob();
+  })
+  .then(function(b){
+    clearTimeout(vrijeme);
+    if(!CITAC.radi || CITAC.pauza) return;
+    var url = URL.createObjectURL(b);
+    CITAC.audio = new Audio(url);
+    CITAC.audio.onended = function(){ URL.revokeObjectURL(url); gotovo(); };
+    CITAC.audio.onerror = function(){ URL.revokeObjectURL(url); nazad(null); };
+    CITAC.audio.play().catch(function(){ URL.revokeObjectURL(url); nazad(null); });
+  })
+  .catch(function(e){ clearTimeout(vrijeme); nazad(String(e.message||e)); });
+}
+
+function govorSljedeci(){
+  if(!CITAC.radi || CITAC.pauza) return;
+  if(CITAC.i >= CITAC.komadi.length){ govorStop(); govorStanje(govorTekst('gotovo')); return; }
+  var mojI = CITAC.i;
+  var dalje = function(){
+    /* ignoriši zvanje koje stigne nakon pauze ili zaustavljanja */
+    if(!CITAC.radi || CITAC.pauza || CITAC.i !== mojI) return;
+    CITAC.i++; govorSljedeci();
+  };
+  var pao = function(){
+    if(!CITAC.radi || CITAC.pauza) return;    /* cancel() pri pauzi/stopu nije kvar */
+    govorStop(); govorStanje(govorTekst('greska'));
+  };
+  govorStanje(govorTekst('cita')+' '+(CITAC.i+1)+'/'+CITAC.komadi.length);
+  /* brojevi se izgovaraju riječima da zvuče prirodno; engleski motor to radi sam */
+  var zaIzgovor = (govorJezik() === 'en') ? CITAC.komadi[CITAC.i] : govorBrojevi(CITAC.komadi[CITAC.i]);
+  if(GOVOR.provajder==='azure' && GOVOR.azure.url) govorAzurePusti(zaIzgovor, dalje, pao);
+  else if('speechSynthesis' in window)             govorPregledacPusti(zaIzgovor, dalje, pao);
+  else pao();
+}
+
+/* ================================================================================
+   PROVAJDER „SNIMAK" — gotov MP3 uz sajt
+
+   Zašto ovako: ugrađeni glas pregledača ne postoji na velikom dijelu uređaja
+   (Windows bez srpskog jezičkog paketa, iPhone, Mac), pa dobar dio posjetilaca
+   ne bi čuo ništa ili bi čuo engleski izgovor našeg teksta. Gotov snimak zvuči
+   isto na svakom uređaju, ne traži server, ključ ni nalog — to su obični fajlovi
+   koji putuju zajedno sa sajtom.
+
+   Snimci idu u folder `audio/` pored index.html, po jedan za svaku stranicu:
+     audio/pocetna.mp3, audio/onama.mp3, audio/krediti.mp3, audio/kalkulator.mp3,
+     audio/zahtjev.mp3, audio/kontakt.mp3, audio/dokumenti.mp3, audio/rjecnik.mp3,
+     audio/privatnost.mp3, audio/uslovi.mp3
+   Engleski (opciono): isti nazivi sa `-en`, npr. audio/pocetna-en.mp3
+
+   Ako snimka nema, čitanje se bez prekida nastavlja glasom pregledača — sajt
+   zato radi i danas, prije nego što ijedan snimak bude napravljen.
+   ================================================================================ */
+function govorTrenutnaStranica(){
+  var a = document.querySelector('.page.active');
+  return a && a.id ? a.id.replace(/^pg-/,'') : 'pocetna';
+}
+function govorSnimakURL(){
+  return GOVOR.snimak.putanja + govorTrenutnaStranica() +
+         (govorJezik()==='en' ? GOVOR.snimak.sufiksEn : '') + '.mp3';
+}
+function govorVrijeme(s){
+  if(!isFinite(s) || s<0) s=0;
+  s = Math.round(s);
+  return Math.floor(s/60) + ':' + (s%60<10?'0':'') + (s%60);
+}
+/* snimka nema (ili se ne može pustiti) — tiho pređi na glas pregledača */
+function govorSnimakPao(){
+  if(CITAC.audio){ CITAC.audio.onerror=null; CITAC.audio.onended=null; CITAC.audio=null; }
+  if(!CITAC.radi) return;
+  if(!('speechSynthesis' in window)){ govorStop(); govorNapomena(govorTekst('neradi')); return; }
+  govorNapomena(govorTekst('snimakNema'));
+  if(!govorImaGlas()) govorNapomena(govorTekst('nemaGlas'));
+  CITAC.komadi = govorSkupi();
+  if(!CITAC.komadi.length){ govorStop(); govorStanje(govorTekst('nema')); return; }
+  CITAC.i = 0;
+  govorSljedeci();
+}
+function govorSnimakPusti(){
+  var a = new Audio(govorSnimakURL());
+  a.preload = 'auto';
+  CITAC.audio = a;
+  govorStanje(govorTekst('ucitavam'));
+  a.ontimeupdate = function(){
+    if(!CITAC.radi || CITAC.pauza) return;
+    govorStanje(govorTekst('cita') + ' ' + govorVrijeme(a.currentTime) +
+                (isFinite(a.duration) ? ' / ' + govorVrijeme(a.duration) : ''));
+  };
+  a.onended  = function(){ govorStop(); govorStanje(govorTekst('gotovo')); };
+  a.onerror  = govorSnimakPao;
+  a.play().catch(govorSnimakPao);
+}
+
+/* ================================================================================
+   PAUZA
+   speechSynthesis.pause() u Chromeu postavi zastavicu ali zvuk često nastavi do
+   kraja tekuće rečenice — zato se NE oslanjamo na njega. Pauza prekida izgovor
+   i pamti redni broj rečenice; nastavak kreće od te iste rečenice. Radi isto u
+   svim pregledačima i kod Azure zvuka.
+   ================================================================================ */
+function govorToggle(){
+  if(!govorPodrzan()){ govorStanje(govorTekst('greska')); return; }
+  var natpis = document.getElementById('a11ySlusajTekst');
+  var dug = document.getElementById('a11ySlusaj');
+
+  if(CITAC.radi){
+    if(CITAC.pauza){                                    /* NASTAVI */
+      CITAC.pauza = false;
+      natpis.textContent = govorTekst('pauziraj');
+      dug.classList.add('svira');
+      /* Snimak se nastavlja tačno odakle je stao — kod teksta se vraćamo na
+         početak rečenice jer sinteza ne zna za sredinu izgovora. */
+      if(CITAC.audio && GOVOR.provajder==='snimak') CITAC.audio.play().catch(govorSnimakPao);
+      else govorSljedeci();
+    } else {                                            /* PAUZIRAJ */
+      CITAC.pauza = true;
+      if('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if(CITAC.audio){ CITAC.audio.pause(); }
+      natpis.textContent = govorTekst('nastavi');
+      dug.classList.remove('svira');
+      govorStanje(govorTekst('pauzirano'));
+    }
+    return;
+  }
+
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+
+  /* gotov snimak: ne skupljamo tekst, samo pustimo MP3 za tekuću stranicu */
+  if(GOVOR.provajder === 'snimak'){
+    CITAC.radi=true; CITAC.pauza=false; CITAC.i=0; CITAC.komadi=[];
+    dug.classList.add('svira');
+    natpis.textContent = govorTekst('pauziraj');
+    govorSnimakPusti();
+    return;
+  }
+
+  CITAC.komadi = govorSkupi();
+  if(!CITAC.komadi.length){ govorStanje(govorTekst('nema')); return; }
+  /* Ako nema glasa za naš jezik, i dalje čitamo — dugme koje ne radi ništa je gore
+     od nesavršenog izgovora. Korisnika samo jasno upozorimo šta se dešava. */
+  if(!govorImaGlas()) govorNapomena(govorTekst('nemaGlas'));
+  CITAC.i=0; CITAC.radi=true; CITAC.pauza=false;
+  dug.classList.add('svira');
+  natpis.textContent = govorTekst('pauziraj');
+  govorSljedeci();
+}
+
+function govorStop(){
+  CITAC.radi=false; CITAC.pauza=false; CITAC.i=0;
+  if(typeof govorZivotStop==="function") govorZivotStop();
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if(CITAC.audio){ CITAC.audio.pause(); CITAC.audio=null; }
+  var d=document.getElementById('a11ySlusaj'); if(d) d.classList.remove('svira');
+  var n=document.getElementById('a11ySlusajTekst'); if(n) n.textContent=govorTekst('slusaj');
+  govorNapomena(''); govorStanje('');
+}
+
+/* ================================================================================
+   VIZUELNA PODEŠAVANJA — uvećanje, kontrast, podvučeni linkovi, krupniji
+   pokazivač, bez animacija. Sve se pamti u localStorage i vraća pri sljedećoj
+   posjeti. Ne koristimo vanjski widget: nema tuđe skripte na finansijskom sajtu,
+   nema dodatnih kolačića i ništa ne odlazi van uređaja korisnika.
+   ================================================================================ */
+var A11Y_KLJUC='bpk-pristupacnost';
+function a11yUcitaj(){ try{ return JSON.parse(localStorage.getItem(A11Y_KLJUC))||{}; }catch(e){ return {}; } }
+function a11ySnimi(s){ try{ localStorage.setItem(A11Y_KLJUC, JSON.stringify(s)); }catch(e){} }
+function a11yPrimijeni(s){
+  var d=document.documentElement;
+  if(s.uvecanje) d.setAttribute('data-a11y-uvecanje',s.uvecanje); else d.removeAttribute('data-a11y-uvecanje');
+  ['kontrast','podvuci','kursor','mirno'].forEach(function(k){
+    if(s[k]) d.setAttribute('data-a11y-'+k,'1'); else d.removeAttribute('data-a11y-'+k);
+  });
+}
+function a11ySinhronizuj(s){
+  var niz=document.querySelectorAll('#a11yPanel .a11y-niz button');
+  niz.forEach(function(b,i){ b.setAttribute('aria-pressed', (s.uvecanje||0)===i ? 'true':'false'); });
+  var en=govorJezik()==='en';
+  document.querySelectorAll('#a11yPanel .a11y-prekidac button').forEach(function(b){
+    var k=(b.getAttribute('onclick')||'').match(/'([a-z]+)'/);
+    if(!k) return;
+    var uklj=!!s[k[1]];
+    b.setAttribute('aria-pressed', uklj?'true':'false');
+    b.textContent = uklj ? (en?'On':'Uključeno') : (en?'Off':'Isključeno');
+  });
+}
+/* 100vw uracuna i traku za skrolanje, pa bi fiksirana navigacija virila za njenu
+   sirinu. clientWidth/clientHeight daju stvarno vidljiv prostor. */
+function a11yMjeriEkran(){
+  var k = document.documentElement;
+  k.style.setProperty("--ekran-w", k.clientWidth + "px");
+  k.style.setProperty("--ekran-h", k.clientHeight + "px");
+}
+a11yMjeriEkran();
+window.addEventListener("resize", a11yMjeriEkran);
+window.addEventListener("orientationchange", a11yMjeriEkran);
+/* Prati vidljivi okvir na dodirnim uređajima. Na najvećem uvećanju stranica je
+   šira od ekrana, pa se telefonom kreće lijevo-desno pomjeranjem okvira —
+   fiksirana navigacija i alatka za pristupačnost moraju ići sa njim, inače
+   korisnik pomjeri stranicu udesno i ostane bez dugmeta kojim vraća uvećanje. */
+(function(){
+  var vv = window.visualViewport;
+  if(!vv) return;
+  var cek = false;
+  function pomjeri(){
+    cek = false;
+    var d = document.documentElement;
+    var x = d.getAttribute('data-a11y-uvecanje') === '3' ? vv.offsetLeft / 1.5 : 0;
+    d.style.setProperty('--vvx', x.toFixed(1) + 'px');
+  }
+  function trazi(){ if(!cek){ cek = true; requestAnimationFrame(pomjeri); } }
+  vv.addEventListener('scroll', trazi);
+  vv.addEventListener('resize', trazi);
+  window.addEventListener('scroll', trazi, {passive:true});
+  window.a11yPomjeriOkvir = pomjeri;
+  pomjeri();
+})();
+/* Običan miš nema točkić za lijevo-desno. Kad je uvećanje na najvećem stepenu i
+   traka sa linkovima je šira od ekrana, okretanje točkića iznad nje pomjera nju
+   umjesto stranice — tako se do svih linkova dolazi i bez trackpada. Kad traka
+   dođe do kraja, točkić se vraća stranici, pa se skrolanje ne zaglavljuje. */
+document.addEventListener('wheel', function(e){
+  if(document.documentElement.getAttribute('data-a11y-uvecanje') !== '3') return;
+  var traka = e.target && e.target.closest && e.target.closest('.nav-in');
+  if(!traka) return;
+  var visak = traka.scrollWidth - traka.clientWidth;
+  if(visak < 2) return;
+  var d = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+  var prije = traka.scrollLeft;
+  traka.scrollLeft = Math.max(0, Math.min(visak, prije + d));
+  if(traka.scrollLeft !== prije) e.preventDefault();
+}, {passive:false});
+/* Strelica na desnom kraju trake se pokazuje samo dok stvarno ima još linkova
+   udesno — da korisnik zna da traka ide dalje, i da mu ne stoji na putu kad
+   dođe do kraja. */
+(function(){
+  function osvjezi(){
+    var nav = document.getElementById('nav'), traka = document.querySelector('.nav-in');
+    if(!nav || !traka) return;
+    var jos = document.documentElement.getAttribute('data-a11y-uvecanje') === '3' &&
+              traka.scrollWidth - traka.clientWidth - traka.scrollLeft > 4;
+    nav.classList.toggle('ima-viska', jos);
+  }
+  window.a11yOsvjeziTraku = osvjezi;
+  var t = document.querySelector('.nav-in');
+  if(t) t.addEventListener('scroll', osvjezi, {passive:true});
+  window.addEventListener('resize', osvjezi);
+  window.addEventListener('load', osvjezi);
+  setTimeout(osvjezi, 400); osvjezi();
+})();
+function a11yUvecanje(n){
+  var s=a11yUcitaj(); s.uvecanje=n; a11ySnimi(s); a11yPrimijeni(s); a11ySinhronizuj(s);
+  if(window.a11yPomjeriOkvir) window.a11yPomjeriOkvir();
+  if(window.a11yOsvjeziTraku) setTimeout(window.a11yOsvjeziTraku, 60);
+  var en=govorJezik()==='en';
+  /* Na najvećem stepenu se raspored više ne prelama nego se cijela stranica
+     uveća, pa korisniku moramo reći da se sada kreće i lijevo-desno — inače
+     misli da je dio sadržaja nestao. */
+  govorStanje(n===0 ? (en?'Normal text size.':'Normalna veličina teksta.')
+            : n===3 ? (en?'Largest text. The whole page is enlarged — you can now move across it left and right as well as up and down.'
+                         :'Najveće uvećanje. Cijela stranica je uvećana — sada se kroz nju krećete i lijevo-desno, ne samo gore-dolje.')
+                    : (en?'Text enlarged.':'Tekst uvećan.'));
+}
+function a11yPrekidac(k){
+  var s=a11yUcitaj(); s[k]=!s[k]; a11ySnimi(s); a11yPrimijeni(s); a11ySinhronizuj(s);
+  var en=govorJezik()==='en';
+  var imena={kontrast:en?'High contrast':'Pojačan kontrast', podvuci:en?'Underlined links':'Podvučeni linkovi',
+    kursor:en?'Larger cursor':'Krupniji pokazivač', mirno:en?'Animations off':'Bez animacija'};
+  govorStanje(imena[k]+': '+(s[k]?(en?'on':'uključeno'):(en?'off':'isključeno'))+'.');
+}
+function a11yReset(){
+  a11ySnimi({}); a11yPrimijeni({}); a11ySinhronizuj({});
+  govorStanje(govorJezik()==='en' ? 'Settings reset.' : 'Podešavanja vraćena na početno.');
+}
+function a11yPanel(){
+  var p=document.getElementById('a11yPanel'), b=document.getElementById('a11yPrikazDug');
+  var otv=p.classList.toggle('on');
+  b.setAttribute('aria-expanded', otv?'true':'false');
+  if(otv) p.querySelector('button').focus();
+}
+
+(function(){
+  /* ako pregledač uopšte ne zna da govori, dugme za slušanje se sklanja */
+  if(!govorPodrzan()){ var d=document.getElementById('a11ySlusaj'); if(d) d.style.display='none'; }
+  /* glasovi u Chromeu stižu asinhrono — kad stignu, osvježi natpis i stanje dugmeta */
+  function osvjeziGlas(){
+    var d=document.getElementById('a11ySlusaj'); if(!d) return;
+    d.removeAttribute('aria-disabled'); d.style.opacity='';
+  }
+  window.osvjeziGlas=osvjeziGlas;
+  if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged=osvjeziGlas; osvjeziGlas(); setTimeout(osvjeziGlas,1200); }
+  var s=a11yUcitaj(); a11yPrimijeni(s); a11ySinhronizuj(s);
+  var n=document.getElementById('a11ySlusajTekst'); if(n) n.textContent=govorTekst('slusaj');
+  /* Esc zatvara panel i vraća fokus na dugme */
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape') return;
+    var p=document.getElementById('a11yPanel');
+    if(p && p.classList.contains('on')){ a11yPanel(); document.getElementById('a11yPrikazDug').focus(); }
+  });
+  /* promjena stranice ili jezika prekida čitanje — inače bi čitao staru stranicu */
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('.nlink,.lang-btn,[onclick*="go("]');
+    if(!t) return;
+    if(CITAC.radi) govorStop();
+    /* jezik se mijenja — provjeri ima li glasa za NOVI jezik i osvježi natpis */
+    setTimeout(function(){ osvjeziGlas();
+      var n=document.getElementById('a11ySlusajTekst'); if(n) n.textContent=govorTekst('slusaj'); }, 500);
+  },true);
+  window.addEventListener('beforeunload',govorStop);
+})();
 /* ========= COOKIE BANNER =========
    Traka je fiksirana na dnu ekrana i na manjim ekranima je znala prekriti
    naslov i dugmad u herou. Zato mjerimo njenu stvarnu visinu i za toliko
@@ -2684,6 +3762,22 @@ function cookieReserve(){
   document.body.classList.toggle('cookie-on',on);
   document.documentElement.style.setProperty('--cookie-h',on?(ck.offsetHeight+24)+'px':'0px');
 }
+/* Mapa se učitava tek kad je posjetilac izričito zatraži. Pamtimo izbor da je
+   ne mora tražiti pri svakom dolasku na Kontakt. */
+function kmapPrikazi(){
+  var ph = document.getElementById('kmapPh');
+  if(!ph || ph.dataset.ucitana) return;
+  ph.dataset.ucitana = '1';
+  var f = document.createElement('iframe');
+  f.src = 'https://www.google.com/maps?q=Pave%20Radana%2033%2C%2078000%20Banja%20Luka%2C%20Bosna%20i%20Hercegovina&hl=sr&z=16&output=embed';
+  f.loading = 'lazy';
+  f.referrerPolicy = 'no-referrer-when-downgrade';
+  f.title = 'Mapa — Pave Radana 33, Banja Luka';
+  ph.replaceWith(f);
+  try{ localStorage.setItem('bpk_mapa','1'); }catch(e){}
+}
+(function(){ try{ if(localStorage.getItem('bpk_mapa')==='1')
+  document.addEventListener('DOMContentLoaded', kmapPrikazi); }catch(e){} })();
 function cookieClose(){document.getElementById('cookie').classList.remove('show');cookieReserve();try{localStorage.setItem('bpk_cookie','1');}catch(e){}}
 (function(){let seen=false;try{seen=localStorage.getItem('bpk_cookie')==='1';}catch(e){}
   if(!seen)setTimeout(()=>{document.getElementById('cookie').classList.add('show');cookieReserve();},1400);})();
@@ -2752,7 +3846,7 @@ document.querySelector('.hero').addEventListener('mousemove',e=>{
 (function(){
 'use strict';
 var live=document.getElementById('ariaLive');
-var PAGE_NAMES={pocetna:'Početna',onama:'O nama',boris:'Boris Knežević — arhitekta finansija',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova',dokumenti:'Dokumenti i informacioni listovi'};
+var PAGE_NAMES={pocetna:'Početna',onama:'O nama',krediti:'Kreditne ponude',kalkulator:'Kreditni kalkulator',zahtjev:'Online zahtjev za kredit',kontakt:'Kontakt',privatnost:'Politika privatnosti',uslovi:'Uslovi korišćenja',rjecnik:'Rječnik pojmova',dokumenti:'Dokumenti i informacioni listovi'};
 /* najava za čitače ekrana */
 function announce(txt){
   if(!txt||!live)return;
@@ -2977,7 +4071,7 @@ var DICT={
 /* ---------- proces ---------- */
 "Jednostavno do kredita":"A simple path to your loan","Kredit u":"A loan in","2 koraka":"2 steps","Bez redova i nepotrebne papirologije — od prijave do novca na računu u dva jednostavna koraka.":"No queues and no unnecessary paperwork — from application to money in your account in two simple steps.","Online zahtjev i analiza":"Online application and analysis","Popunite kratki obrazac ili nas pozovite — naš savjetnik odmah analizira vašu situaciju i predlaže najpovoljnije uslove.":"Fill in the short form or call us — our advisor immediately analyses your situation and proposes the most favourable terms.","Odobrenje i isplata":"Approval and disbursement","Odobrenje gotovinskih kredita za 24h, a sredstva su na vašem računu odmah po potpisu ugovora.":"Cash loans are approved within 24h, and the funds are in your account as soon as the contract is signed.",
 /* ---------- recenzije ---------- */
-"Iskustva klijenata":"Client experiences","Šta kažu naši":"What our","klijenti":"clients say","Gotovinski kredit odobren za jedan dan. Sve jasno objašnjeno, bez sitnih slova. Najljepše iskustvo s nekom finansijskom kućom do sada.":"Cash loan approved in a single day. Everything clearly explained, no fine print. The best experience I have had with a financial institution so far.","Profesionalan tim koji vas sluša. Stambeni kredit smo sredili bez stresa, uslovi tačno onakvi kakvi su nam objašnjeni.":"A professional team that listens to you. We arranged our housing loan without stress, on exactly the terms that were explained to us.","Kao penzioner mislio sam da je teško doći do kredita. Ovdje su mi sve sredili za par sati, automatska naplata iz penzije.":"As a pensioner I thought it would be hard to get a loan. Here they sorted everything out in a couple of hours, with automatic collection from my pension.","Brza pozajmica bez žiranata mi je spasila situaciju. Novac isti dan na računu. Preporučujem svima.":"A quick loan without guarantors saved the day for me. Money in my account the same day. I recommend it to everyone.","Poslovni kredit za proširenje radnje. Savjetnik je razumio moju situaciju i ponudio realnu ratu. Korektno od početka do kraja.":"A business loan to expand my shop. The advisor understood my situation and offered a realistic instalment. Fair from start to finish.","Transparentno, brzo i ljudski. Tačno znaš šta plaćaš. Vraćam se i za sljedeći kredit.":"Transparent, fast and human. You know exactly what you are paying. I will be back for my next loan.",
+"Pregled kreditnih proizvoda":"Overview of loan products","Opšti dokumenti":"General documents","Pojmovi i objašnjenja":"Terms and explanations","Iskustva klijenata":"Client experiences","Šta kažu naši":"What our","klijenti":"clients say","Gotovinski kredit odobren za jedan dan. Sve jasno objašnjeno, bez sitnih slova. Najljepše iskustvo s nekom finansijskom kućom do sada.":"Cash loan approved in a single day. Everything clearly explained, no fine print. The best experience I have had with a financial institution so far.","Profesionalan tim koji vas sluša. Stambeni kredit smo sredili bez stresa, uslovi tačno onakvi kakvi su nam objašnjeni.":"A professional team that listens to you. We arranged our housing loan without stress, on exactly the terms that were explained to us.","Kao penzioner mislio sam da je teško doći do kredita. Ovdje su mi sve sredili za par sati, automatska naplata iz penzije.":"As a pensioner I thought it would be hard to get a loan. Here they sorted everything out in a couple of hours, with automatic collection from my pension.","Brza pozajmica bez žiranata mi je spasila situaciju. Novac isti dan na računu. Preporučujem svima.":"A quick loan without guarantors saved the day for me. Money in my account the same day. I recommend it to everyone.","Poslovni kredit za proširenje radnje. Savjetnik je razumio moju situaciju i ponudio realnu ratu. Korektno od početka do kraja.":"A business loan to expand my shop. The advisor understood my situation and offered a realistic instalment. Fair from start to finish.","Transparentno, brzo i ljudski. Tačno znaš šta plaćaš. Vraćam se i za sljedeći kredit.":"Transparent, fast and human. You know exactly what you are paying. I will be back for my next loan.",
 /* ---------- mjerač sposobnosti ---------- */
 "Provjeri za 10 sekundi":"Check in 10 seconds","Kolika je vaša":"What is your","kreditna sposobnost?":"borrowing capacity?","Pomjerite klizače i naš pametni mjerač odmah procjenjuje koliki kredit biste okvirno mogli dobiti. Bez prijave i bez obaveza.":"Move the sliders and our smart gauge instantly estimates roughly how much you could borrow. No sign-up and no obligation.","Mjesečna primanja":"Monthly income","Postojeće mjesečne obaveze":"Existing monthly obligations","* Procjena je informativna. Konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* This estimate is informative only. Final capacity is determined by an advisor through individual analysis.","procijenjeni maksimalni iznos":"estimated maximum amount","moguća rata / mj":"possible instalment / month","kreditna sposobnost":"borrowing capacity","Odlična":"Excellent","Dobra":"Good","Slabija":"Limited",
 /* ---------- FAQ ---------- */
@@ -2986,8 +4080,6 @@ var DICT={
 "Pripremite se za snažan bilans.":"Get ready for a strong balance sheet.","Podnesite zahtjev danas — naš tim će vas kontaktirati u roku od 24 sata.":"Apply today — our team will contact you within 24 hours.","Spremni da krenemo zajedno?":"Ready to start together?","Javite nam se — odgovorićemo na svako pitanje prije nego donesete odluku.":"Get in touch — we will answer every question before you make a decision.","Kontaktiraj nas":"Contact us",
 /* ---------- O nama ---------- */
 "Pouzdanost i":"Reliability and","profesionalnost":"professionalism","Novoosnovana licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj.":"A newly founded licensed microcredit organisation headquartered in Republika Srpska.","Finansijska podrška":"Financial support","koja mijenja živote":"that changes lives","Finansijska podrška koja mijenja živote.":"Financial support that changes lives.","MKD Bilans Plus Kredit je licencirana mikrokreditna organizacija sa sjedištem u Republici Srpskoj. Naša misija je pružiti brzu, transparentnu i personalizovanu finansijsku podršku fizičkim i pravnim licima — uz minimalnu papirologiju.":"MKD Bilans Plus Kredit is a licensed microcredit organisation headquartered in Republika Srpska. Our mission is to provide fast, transparent and personalised financial support to individuals and businesses — with minimal paperwork.","Licencirani":"Licensed","od strane Agencije za bankarstvo Republike Srpske.":"by the Banking Agency of Republika Srpska.","Personalizovana":"Personalised","kreditna analiza za svakog klijenta.":"credit analysis for every client.","Jasni uslovi":"Clear terms","— NKS, naknada i EKS iskazani odvojeno uz svaki kredit.":"— nominal rate, fee and APR stated separately for every loan.","transparentnih uslova":"transparent terms","Naše vrijednosti":"Our values","Principi koji nas":"The principles that","definišu":"define us","Transparentnost":"Transparency","Svi uslovi, kamate i naknade jasno su definisani prije potpisivanja ugovora. Bez sitnih slova i skrivenih troškova.":"All terms, interest rates and fees are clearly defined before the contract is signed. No fine print and no hidden costs.","Lični pristup":"A personal approach","Svaki klijent dobija savjetnika koji razumije njegovu situaciju i pronalazi rješenje skrojeno po mjeri.":"Every client gets an advisor who understands their situation and finds a tailor-made solution.","Brzina i efikasnost":"Speed and efficiency","Odobrenje gotovinskog kredita za samo 24 sata. Cijenimo vaše vrijeme jednako koliko i vaše povjerenje.":"A cash loan approved in just 24 hours. We value your time as much as your trust.","Upoznajte našeg arhitektu finansija":"Meet our financial architect","Boris Knežević · vodi tim savjetnika":"Boris Knežević · leads the advisory team",
-/* ---------- Boris ---------- */
-"Nazad na O nama":"Back to About us","Arhitekta finansija":"Financial architect","Arhitekta finansija — čovjek koji vaš bilans posmatra kao cjelinu, a ne kao jedan kredit.":"Financial architect — someone who sees your balance sheet as a whole, not as a single loan.","Boris Knežević, arhitekta finansija":"Boris Knežević, financial architect","„Kredit nije proizvod koji se prodaje. To je plan koji se pravi.”":"“A loan is not a product to be sold. It is a plan to be made.”","Vaš bilans zaslužuje":"Your balance sheet deserves","plan, ne improvizaciju":"a plan, not improvisation","Boris Knežević vodi tim savjetnika MKD Bilans Plus Kredit. Njegov pristup je jednostavan: prvo se razumije situacija klijenta, pa tek onda bira proizvod — uključujući i scenarij u kojem kredit nije najbolje rješenje.":"Boris Knežević leads the team of advisors at MKD Bilans Plus Kredit. His approach is simple: first understand the client's situation, only then choose the product — including the scenario in which a loan is not the best solution.","Specijalnost:":"Specialty:","restrukturiranje obaveza, refinansiranje i investicioni planovi za mala i srednja preduzeća.":"restructuring of obligations, refinancing and investment plans for small and medium-sized enterprises.","Princip rada:":"Working principle:","nijedan zahtjev ne ide dalje dok klijent ne razumije svaku stavku ugovora.":"no application moves forward until the client understands every item of the contract.","Kako izgleda razgovor":"What the conversation looks like","Tri koraka do":"Three steps to a","finansijskog plana":"financial plan","1 · Slušanje":"1 · Listening","Prvih pola sata nema brojki. Razgovaramo o tome šta želite postići, koliko realno možete izdvajati i šta vas brine.":"For the first half hour there are no numbers. We talk about what you want to achieve, how much you can realistically set aside and what worries you.","2 · Analiza":"2 · Analysis","Boris pravi presjek vaših primanja i obaveza, pa računa nekoliko scenarija — uključujući i onaj u kojem kredit nije najbolje rješenje.":"Boris reviews your income and obligations, then calculates several scenarios — including the one in which a loan is not the best solution.","3 · Plan":"3 · Plan","Dobijate pisani prijedlog sa tačnom ratom, rokom i ukupnim troškom. Odluku donosite bez pritiska i bez roka trajanja ponude.":"You receive a written proposal with the exact instalment, term and total cost. You decide without pressure and without an expiry date on the offer.","Zakažite razgovor sa Borisom":"Book a conversation with Boris","Prvi razgovor je besplatan i ne obavezuje vas ni na šta.":"The first conversation is free and commits you to nothing.",
 /* ---------- Krediti stranica ---------- */
 "Kreditne":"Loan","ponude":"offers","Devet vrsta kredita za fizička i pravna lica — pronađite onaj koji odgovara vašim potrebama.":"Nine types of loans for individuals and businesses — find the one that suits your needs.","7 kreditnih proizvoda":"7 loan products","2 kreditna proizvoda":"2 loan products",
 /* ---------- Naknade, EKS, obezbjeđenje, dokumenti (novo) ---------- */
@@ -3025,6 +4117,10 @@ var DICT={
 "Dokumenti i":"Documents and","informacioni listovi":"information sheets","Opšti uslovi poslovanja, cjenovnik i informacioni list za svaki kreditni proizvod — javno dostupni, prije nego išta potpišete.":"General terms of business, the price list and an information sheet for every loan product — publicly available before you sign anything.","Opšti uslovi poslovanja":"General terms of business","Opšti uslovi pod kojima MKD Bilans Plus Kredit odobrava i prati kredite — prava i obaveze korisnika, obračun kamate, naplata i prigovori.":"The general terms under which MKD Bilans Plus Kredit grants and administers loans — the rights and obligations of the borrower, interest calculation, collection and complaints.","Cjenovnik usluga":"Price list of services","Pregled svih naknada: obrada kreditnog zahtjeva, mjenica, prijevremena otplata, opomene i ostale usluge.":"An overview of all fees: processing of the loan application, promissory note, early repayment, reminders and other services.","Uslovi korišćenja web stranice, pravo na odustanak u roku od 14 dana, prijevremena otplata i postupak po prigovoru.":"The terms of use of the website, the 14-day right of withdrawal, early repayment and the complaints procedure.","Kako prikupljamo, koristimo i čuvamo vaše lične podatke i koja prava imate u vezi sa njima.":"How we collect, use and store your personal data and what rights you have in relation to it.","Informacioni listovi po kreditnim proizvodima":"Information sheets by loan product","Za svaki proizvod: iznos, rok, NKS, naknada za obradu, EKS, obezbjeđenje, grace period i reprezentativni primjer. Otvara se kao dokument spreman za štampu ili čuvanje u PDF.":"For every product: amount, term, nominal rate, processing fee, APR, security, grace period and a representative example. It opens as a document ready to print or save as PDF.","Otvori":"Open","Preuzmi PDF":"Download PDF","Uskoro dostupno":"Available soon","Dokumenti su dostupni i u štampanom obliku u sjedištu MKD u Banjoj Luci.":"The documents are also available in printed form at all our branches.",
 /* ---------- Naknada za prijevremenu otplatu (nova odredba) ---------- */
 "Naknada za prijevremenu otplatu":"Early repayment fee","Naknada se obračunava i naplaćuje za mikrokredite sa ugovorenom fiksnom kamatnom stopom, ako je iznos prijevremene otplate u periodu od godinu dana veći od 5.000,00 KM.":"The fee is calculated and charged on microloans with an agreed fixed interest rate, if the amount repaid early within a period of one year exceeds 5,000.00 KM.","ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu ≥ 1 godine":"where the period between the early repayment and the maturity date of the microloan contract is ≥ 1 year","ako je period između prijevremene otplate i roka dospijeća ugovora o mikrokreditu < 1 godine":"where the period between the early repayment and the maturity date of the microloan contract is < 1 year","Prijevremena otplata je moguća u svakom trenutku. Naknada se naplaćuje samo kod fiksne kamatne stope i samo ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM — tada iznosi 1,00% ako je do dospijeća ostalo godinu dana ili više, odnosno 0,50% ako je ostalo manje od godinu dana.":"Early repayment is possible at any time. The fee applies only to loans with a fixed interest rate and only if you repay more than 5,000.00 KM early within a period of one year — it is then 1.00% if a year or more remains until maturity, or 0.50% if less than a year remains.","Naknada za prijevremenu otplatu. Naplaćuje se kod fiksne kamatne stope ako u periodu od godinu dana prijevremeno otplatite više od 5.000,00 KM: 1,00% ako je do dospijeća ostalo ≥ 1 godine, 0,50% ako je ostalo manje.":"An early repayment fee. It is charged on fixed-rate loans if you repay more than 5,000.00 KM early within a period of one year: 1.00% if ≥ 1 year remains until maturity, 0.50% if less remains.",
+/* ---------- Prilog uz kontakt obrazac ---------- */
+"Dodatni dokument (opcionalno)":"Additional document (optional)","PDF, JPG ili PNG do 5 MB":"PDF, JPG or PNG up to 5 MB","Ukloni priloženi dokument":"Remove attached document","Prilog uklonjen.":"Attachment removed.",
+/* ---------- Alatke pristupačnosti ---------- */
+"Slušaj stranicu":"Listen to page","Prilagodi prikaz":"Display settings","Veličina teksta":"Text size","Normalno":"Normal","Pojačan kontrast":"High contrast","Podvučeni linkovi":"Underlined links","Krupniji pokazivač":"Larger cursor","Bez animacija":"Animations off","Uključeno":"On","Isključeno":"Off","Vrati na početno":"Reset","Naglas čita sadržaj stranice na kojoj se nalazite. Pritisnite Enter za početak, ponovo za pauzu.":"Reads the content of the page you are on out loud. Press Enter to start, press again to pause.",
 /* ---------- Mjerač kreditne sposobnosti (specifikacija 19.08.2026.) ---------- */
 "Raspoloživi prihod":"Available income","Postojeći DTI":"Current DTI","Maksimalno dozvoljeno opterećenje":"Maximum permitted burden","Maksimalna nova rata":"Maximum new instalment","Ukupno opterećenje nakon novog kredita":"Total burden after the new loan","maksimalni iznos kredita":"maximum loan amount","ocjena kreditne sposobnosti":"borrowing capacity rating","Odlična":"Excellent","Dobra":"Good","Ograničena":"Limited","Potrebna procjena":"Assessment required","* Dozvoljeno mjesečno opterećenje računa se po tranšama primanja: prvih 1.000 KM po 50%, a sve preko 1.000 KM po 60%. Od tog iznosa se oduzmu postojeće mjesečne obaveze i dobija se maksimalna nova rata. Procjena je informativna; konačnu sposobnost utvrđuje savjetnik individualnom analizom.":"* The permitted monthly burden is calculated in income tranches: the first 1,000 KM at 50%, and everything above 1,000 KM at 60%. Existing monthly obligations are then deducted from that amount to give the maximum new instalment. The estimate is indicative; final capacity is determined by an advisor through individual analysis.","Uz ovakav odnos primanja i obaveza ne ostaje prostora za novu ratu. Javite se savjetniku — refinansiranje postojećih obaveza često oslobodi mjesečni budžet.":"With this ratio of income to obligations there is no room for a new instalment. Talk to an advisor — refinancing existing obligations often frees up the monthly budget.",
 "EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term and the fees, so it differs for other combinations — check it in the calculator.","EKS je izračunata za reprezentativni primjer ispod. Zavisi od iznosa, roka, grace perioda i naknada, pa se za druge kombinacije razlikuje — provjerite je u kalkulatoru.":"The APR is calculated for the representative example below. It depends on the amount, the term, the grace period and the fees, so it differs for other combinations — check it in the calculator.",
