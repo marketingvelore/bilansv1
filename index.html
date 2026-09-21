@@ -1270,13 +1270,17 @@ html.js .pcard.reveal.in{transition:transform .38s cubic-bezier(.2,.8,.2,1),box-
 html.js .pcard.reveal.in:hover,html.js .pcard.reveal.in:focus-visible,.pcard:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 26px 60px rgba(10,35,99,.22)}
 html.js .pcard.reveal:not(.in){transform:translateY(30px)}
 @media (prefers-reduced-motion:reduce){html.js .pcard.reveal.in,.pcard,html.js .pcard.reveal.in:hover,.pcard:hover{transform:none}}
-/* — tačka 10: kartice u hero slideshowu — efekat savijenog papira (luk + sjenčenje).
-     Ugao valjka i dalje računa hchKrivina(); ovo samo dodaje oblik i svjetlo. — */
-.hch-tile{border-radius:50% / 7%}
-.hch-tile::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
-  background:linear-gradient(90deg,rgba(6,20,61,.42) 0%,rgba(6,20,61,.10) 16%,rgba(255,255,255,.16) 40%,rgba(255,255,255,0) 56%,rgba(6,20,61,.10) 84%,rgba(6,20,61,.44) 100%)}
-.hch-tile span{z-index:2;text-align:center;padding:10px 14px 16px}
-@media(max-width:600px){.hch-tile{border-radius:50% / 6%}.hch-tile span{padding:8px 10px 13px}}
+/* — tačka 10: kartice u hero slideshowu — efekat savijenog papira (prema fotografiji
+     koju je poslao klijent): list je savijen u luk, sredina je dalje od posmatrača.
+     Zato gornja ivica blago propada ka sredini, donja se izdiže u luk, a sredina je
+     tamnija od ivica koje hvataju svjetlo. Ugao cijelog reda i dalje računa hchKrivina(). — */
+.hch-tile{border-radius:0;border:none;clip-path:polygon(0.00% 0.00%,6.25% 0.33%,12.50% 0.61%,18.75% 0.85%,25.00% 1.05%,31.25% 1.20%,37.50% 1.31%,43.75% 1.38%,50.00% 1.40%,56.25% 1.38%,62.50% 1.31%,68.75% 1.20%,75.00% 1.05%,81.25% 0.85%,87.50% 0.61%,93.75% 0.33%,100.00% 0.00%,100.00% 100.00%,93.75% 98.59%,87.50% 97.38%,81.25% 96.34%,75.00% 95.50%,68.75% 94.84%,62.50% 94.38%,56.25% 94.09%,50.00% 94.00%,43.75% 94.09%,37.50% 94.38%,31.25% 94.84%,25.00% 95.50%,18.75% 96.34%,12.50% 97.38%,6.25% 98.59%,0.00% 100.00%);-webkit-clip-path:polygon(0.00% 0.00%,6.25% 0.33%,12.50% 0.61%,18.75% 0.85%,25.00% 1.05%,31.25% 1.20%,37.50% 1.31%,43.75% 1.38%,50.00% 1.40%,56.25% 1.38%,62.50% 1.31%,68.75% 1.20%,75.00% 1.05%,81.25% 0.85%,87.50% 0.61%,93.75% 0.33%,100.00% 0.00%,100.00% 100.00%,93.75% 98.59%,87.50% 97.38%,81.25% 96.34%,75.00% 95.50%,68.75% 94.84%,62.50% 94.38%,56.25% 94.09%,50.00% 94.00%,43.75% 94.09%,37.50% 94.38%,31.25% 94.84%,25.00% 95.50%,18.75% 96.34%,12.50% 97.38%,6.25% 98.59%,0.00% 100.00%)}
+.hch-tile::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 14%,rgba(6,20,61,.07) 32%,rgba(6,20,61,.17) 50%,rgba(6,20,61,.07) 68%,rgba(255,255,255,.07) 86%,rgba(255,255,255,.20) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 12%)}
+.hch-tile span{z-index:2;text-align:center;padding:10px 14px 26px}
+@media(max-width:600px){.hch-tile{clip-path:polygon(0.00% 0.00%,6.25% 0.28%,12.50% 0.53%,18.75% 0.73%,25.00% 0.90%,31.25% 1.03%,37.50% 1.12%,43.75% 1.18%,50.00% 1.20%,56.25% 1.18%,62.50% 1.12%,68.75% 1.03%,75.00% 0.90%,81.25% 0.73%,87.50% 0.53%,93.75% 0.28%,100.00% 0.00%,100.00% 100.00%,93.75% 98.83%,87.50% 97.81%,81.25% 96.95%,75.00% 96.25%,68.75% 95.70%,62.50% 95.31%,56.25% 95.08%,50.00% 95.00%,43.75% 95.08%,37.50% 95.31%,31.25% 95.70%,25.00% 96.25%,18.75% 96.95%,12.50% 97.81%,6.25% 98.83%,0.00% 100.00%);-webkit-clip-path:polygon(0.00% 0.00%,6.25% 0.28%,12.50% 0.53%,18.75% 0.73%,25.00% 0.90%,31.25% 1.03%,37.50% 1.12%,43.75% 1.18%,50.00% 1.20%,56.25% 1.18%,62.50% 1.12%,68.75% 1.03%,75.00% 0.90%,81.25% 0.73%,87.50% 0.53%,93.75% 0.28%,100.00% 0.00%,100.00% 100.00%,93.75% 98.83%,87.50% 97.81%,81.25% 96.95%,75.00% 96.25%,68.75% 95.70%,62.50% 95.31%,56.25% 95.08%,50.00% 95.00%,43.75% 95.08%,37.50% 95.31%,31.25% 95.70%,25.00% 96.25%,18.75% 96.95%,12.50% 97.81%,6.25% 98.83%,0.00% 100.00%)}.hch-tile span{padding:8px 10px 19px}}
 /* — tačka 10: potpis zaštitnog lica — na sredini figure, tamnoplavo, sa blagim sjajem — */
 .sig-desktop,.sig-mobile{text-align:center!important;max-width:320px}
 .woman-signature .sig-name{color:var(--navy);text-shadow:0 0 8px rgba(255,255,255,.85),0 0 2px rgba(255,255,255,.95)}
