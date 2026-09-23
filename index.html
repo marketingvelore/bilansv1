@@ -7,8 +7,9 @@
 <meta name="description" content="MKD „Bilans plus kredit“ doo Banja Luka – licencirana mikrokreditna organizacija. Gotovinski, stambeni, poslovni i krediti za penzionere uz odobrenje za 24 sata."/>
 <!-- ====== FAVICON (PLACEHOLDER) — zamijeni "favicon.ico" svojom ikonicom ====== -->
 <link rel="icon" href="BP2.ico" sizes="any"/>
-<link rel="icon" type="image/png" href="favicon.png"/>
-<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<!-- favicon.png i apple-touch-icon.png nisu postojali na serveru (404) — koristi se BP2.png koji jeste -->
+<link rel="icon" type="image/png" href="BP2.png"/>
+<link rel="apple-touch-icon" href="BP2.png"/>
 <!-- ====== OPEN GRAPH (PLACEHOLDER) — slika koja se prikaže kad podijeliš link ====== -->
 <!-- zamijeni "og-image.png" (preporuka 1200×630 px) svojom slikom; domena je https://www.bilanspluskredit.com -->
 <meta property="og:type" content="website"/>
@@ -3273,15 +3274,17 @@ const DOCS={
 /* Informacioni listovi — ISKLJUČIVO zvanični PDF dokumenti Društva (čl. 138 Zakona o bankama).
    Ranije automatski generisani listovi su uklonjeni. Upisati putanju kad PDF stigne. */
 const INFO_LIST_PDF={
-  'Keš PLUS':'Informacioni_list_-_kes_plus.pdf',
-  'Keš PLUS MAX':'Informacioni_list_-_kes_plus_max.pdf',
-  'Siguran put PLUS':'Informacioni_list_-_siguran_put.pdf',
-  'DOM PLUS':'Informacioni_list_-_dom_plus.pdf',
-  'Ljepota i zdravlje':'Informacioni_list_-_ljepota_zdravlje.pdf',
-  'Treća mladost':'Informacioni_list_-_treca_mladost.pdf',
-  'Đak Prvak PLUS':'Informacioni_list_-_djak_prvak.pdf',
-  'Biznis Keš PLUS':'Informacioni_list_-_biznis_kes_plus_.pdf',
-  'Invest PLUS':'Informacioni_list_-_invest_plus.pdf'
+  /* imena fajlova na GitHubu imaju razmake, pa su ovdje pisana sa %20.
+     Fajl za Biznis Keš PLUS ima razmak i prije .pdf — zato „plus%20.pdf“. */
+  'Keš PLUS':'Informacioni%20list%20-%20kes%20plus.pdf',
+  'Keš PLUS MAX':'Informacioni%20list%20-%20kes%20plus%20max.pdf',
+  'Siguran put PLUS':'Informacioni%20list%20-%20siguran%20put.pdf',
+  'DOM PLUS':'Informacioni%20list%20-%20dom%20plus.pdf',
+  'Ljepota i zdravlje':'Informacioni%20list%20-%20ljepota%20zdravlje.pdf',
+  'Treća mladost':'Informacioni%20list%20-%20treca%20mladost.pdf',
+  'Đak Prvak PLUS':'Informacioni%20list%20-%20djak%20prvak.pdf',
+  'Biznis Keš PLUS':'Informacioni%20list%20-%20biznis%20kes%20plus%20.pdf',
+  'Invest PLUS':'Informacioni%20list%20-%20invest%20plus.pdf'
 };
 products.forEach(function(p){ p.pdf=INFO_LIST_PDF[p.name]||''; });
 const IC_OPEN='<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
