@@ -680,7 +680,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .foot-powered a{color:rgba(255,255,255,.62);font-weight:700;transition:var(--t)}
 .foot-powered a:hover{color:var(--accent-2)}
 /* back to top */
-#totop{position:fixed;bottom:160px;right:26px;   /* iznad alatke pristupačnosti */width:50px;height:50px;border-radius:50%;background:var(--accent);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:900;opacity:0;pointer-events:none;transform:translateY(20px);transition:var(--t);box-shadow:0 10px 30px var(--glow)}
+#totop{position:fixed;bottom:160px;right:20px;   /* iznad alatke pristupačnosti */width:50px;height:50px;border-radius:50%;background:var(--accent);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:900;opacity:0;pointer-events:none;transform:translateY(20px);transition:var(--t);box-shadow:0 10px 30px var(--glow)}
 #totop.show{opacity:1;pointer-events:auto;transform:none}
 /* cookie banner */
 .cookie{position:fixed;left:26px;right:26px;bottom:26px;max-width:560px;margin:0 auto;z-index:1500;background:rgba(6,20,61,.97);backdrop-filter:blur(16px);border:1px solid var(--line-d);border-radius:18px;padding:20px 22px;display:flex;align-items:center;gap:18px;box-shadow:var(--sh-lg);transform:translateY(140%);transition:transform .5s cubic-bezier(.16,1,.3,1)}
@@ -691,7 +691,7 @@ input.err,select.err,textarea.err{border-color:#e0483f!important;background:rgba
 .cookie-ok{font-family:'Sora';font-size:13px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:10px;padding:11px 18px;cursor:pointer;white-space:nowrap;transition:var(--t)}
 .cookie-ok:hover{background:#2c57e8}
 .cookie-no{font-family:'Sora';font-size:13px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:1px solid var(--line-d);border-radius:10px;padding:11px 16px;cursor:pointer;white-space:nowrap}
-@media(max-width:600px){#totop{right:16px;bottom:150px}
+@media(max-width:600px){#totop{right:12px;bottom:150px}
   .cookie{flex-direction:column;align-items:stretch;text-align:center;left:12px;right:12px;bottom:12px;padding:15px 16px;gap:12px}
   .cookie p{font-size:12px;line-height:1.5}
   .cookie p button{font-size:12px}
@@ -1269,6 +1269,11 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
    samo okruglo dugme sa zvučnikom. Pritisak vraća cijeli raspored u desnom ćošku
    („Slušaj stranicu“ + „Prilagodi prikaz“ + X). Stanje se pamti u pregledaču. */
 .a11y-ikona{padding:13px;border-radius:50%;align-self:flex-end}
+/* 09.2026: strelica „na vrh“ poravnata je sa dugmadima u ćošku (ista desna ivica),
+   a kad je alatka sažeta spušta se bliže njoj — ranije je visila u praznom. */
+html[data-a11y-sazeto="1"] #totop{bottom:86px}
+@media(max-width:600px){html[data-a11y-sazeto="1"] #totop{bottom:76px}}
+html[data-a11y-skriveno="1"] #totop{bottom:86px}
 html[data-a11y-sazeto="1"] #a11ySlusaj,
 html[data-a11y-sazeto="1"] .a11y-red,
 html[data-a11y-sazeto="1"] .a11y-panel,
